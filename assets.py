@@ -34,9 +34,9 @@ h1{{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:74px;line-h
 def pdf_html(slug):
     t = DATA["templates"][slug]; a = DATA["apps"][t["app"]]
     n = len(t["columns"])
-    widths = {6: [11, 30, 17, 10, 14, 18], 5: [11, 15, 15, 37, 22]}.get(n, [round(100 / n)] * n)
-    heads = "".join(f'<th style="width:{w}%">{esc(c)}</th>' for c, w in zip(t["columns"], widths))
-    rows = "".join("<tr>" + "<td></td>" * n + "</tr>" for _ in range(19 if n == 6 else 21))
+    heads = "".join(f'<th style="width:{w}%">{esc(c)}</th>'
+                    for c, w in zip(t["columns"], t["col_widths"]))
+    rows = "".join("<tr>" + "<td></td>" * n + "</tr>" for _ in range(19))
     title = t["h1"].replace("Free Printable ", "").replace(" (PDF)", "")
     return f"""<!doctype html><html><head><meta charset="utf-8">{FONT}<style>
 @page{{size:letter;margin:0}}
@@ -55,11 +55,21 @@ td+td,th+th{{border-left:1px solid #EAE5DB}}
 .foot{{margin-top:14px;display:flex;justify-content:space-between;font-size:9px;color:#6E6870}}
 </style></head><body>
 <div class="head"><h1>{esc(title)}</h1><span class="wm">softgrove.github.io</span></div>
-<div class="meta"><span>Name <span class="line"></span></span><span>Week of <span class="line"></span></span></div>
+<div class="meta"><span>{esc(t["pdf_fields"][0])} <span class="line"></span></span><span>{esc(t["pdf_fields"][1])} <span class="line"></span></span></div>
 <table><thead><tr>{heads}</tr></thead><tbody>{rows}</tbody></table>
 <div class="foot"><span>Free template — print as many as you need.</span>
 <span>App version with automatic analysis: {esc(a["name"])} on the App Store · softgrove.github.io/apps/{t["app"]}/</span></div>
 </body></html>"""
+
+LOGO_HTML = """<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;width:512px;height:512px;background:#FBFAF7;display:flex;align-items:center;justify-content:center}
+.row{display:flex;gap:22px;align-items:flex-end}
+.s{border-radius:8px 14px 14px 8px;box-shadow:inset -5px 0 9px rgba(0,0,0,.18)}
+</style></head><body><div class="row">
+<div class="s" style="width:88px;height:300px;background:#3E8E8C"></div>
+<div class="s" style="width:88px;height:266px;background:#7A2E33"></div>
+<div class="s" style="width:88px;height:320px;background:#21242A"></div>
+</div></body></html>"""
 
 def chrome(args):
     subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-first-run",
@@ -84,6 +94,9 @@ def main():
         src = tmp / f"{name}.html"; src.write_text(og_html(title, sub, chips))
         chrome([f"--screenshot={og_dir / (name + '.png')}", "--window-size=1200,630", f"file://{src}"])
         print("og:", name)
+    logo_src = tmp / "logo.html"; logo_src.write_text(LOGO_HTML)
+    chrome([f"--screenshot={OUT / 'logo.png'}", "--window-size=512,512", f"file://{logo_src}"])
+    print("logo: 512x512")
     for slug in DATA["templates"]:
         src = tmp / f"{slug}-pdf.html"; src.write_text(pdf_html(slug))
         dest = OUT / "templates" / slug / f"{slug}.pdf"

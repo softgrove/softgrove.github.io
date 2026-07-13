@@ -50,7 +50,7 @@ def parse_desc(raw):
         feats = feats[:5]
     m = re.search(r"PREMIUM\s*—\s*7-DAY FREE TRIAL, THEN \$([\d.]+)/MONTH OR \$([\d.]+)/YEAR", raw, re.I)
     monthly, yearly = (m.group(1), m.group(2)) if m else (None, None)
-    free_m = re.search(r"^FREE[^\n]*\n(.+?)(?:\n\s*\n|\Z)", raw, re.M | re.S)
+    free_m = re.search(r"^FREE[^\n]*\n(.+?)(?:\n\s*\n|\Z)", raw, re.M | re.S | re.I)
     free = free_m.group(1).replace("\n", " ").strip() if free_m else ""
     disc = ""
     for p in reversed(paras):
@@ -97,16 +97,14 @@ summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:
 summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
 details[open] summary::after{content:"–"}
 details p{margin-top:10px;color:#4d4850;max-width:62ch}
-@media(prefers-reduced-motion:no-preference){
- .spine{transition:transform .22s cubic-bezier(.2,.7,.3,1.2)}
- .spine:hover{transform:translateY(-7px)}
-}
 @media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
 """ % SITE
 
+FONT_URL = "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap"
 FONT = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-        '<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet">')
+        f'<link href="{FONT_URL}" rel="stylesheet" media="print" onload="this.media=\'all\'">'
+        f'<noscript><link href="{FONT_URL}" rel="stylesheet"></noscript>')
 
 APPLE_SVG = '<svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg>'
 
@@ -117,7 +115,9 @@ def store_badge(app_id, name):
 
 def page(title, desc, path, body, jsonld=None, extra_head=""):
     canon = ORIGIN + path
-    og_slug = path.strip("/").replace("/", "-") or "home"
+    is404 = path == "/404.html"
+    og_slug = ("home" if is404 else path.strip("/").replace("/", "-")) or "home"
+    robots_meta = '<meta name="robots" content="noindex">' if is404 else f'<link rel="canonical" href="{canon}">'
     ld = ""
     if jsonld:
         ld = '<script type="application/ld+json">%s</script>' % json.dumps(jsonld, ensure_ascii=False)
@@ -128,7 +128,7 @@ def page(title, desc, path, body, jsonld=None, extra_head=""):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
-<link rel="canonical" href="{canon}">
+{robots_meta}
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canon}">
@@ -148,7 +148,7 @@ def page(title, desc, path, body, jsonld=None, extra_head=""):
 {body}
 <footer><div class="wrap">
 <span>© 2026 Softgrove — an independent app studio.</span>
-<a href="https://apps.apple.com/developer/id1815551713">App Store developer page</a>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
 <a href="/llms.txt">llms.txt</a>
 </div></footer>
 </body></html>"""
@@ -185,6 +185,8 @@ def house():
 .hero h1{{font-size:clamp(40px,6.4vw,68px);max-width:15ch}}
 .hero h1 em{{font-style:italic;color:var(--teal)}}
 .hero p.sub{{margin-top:22px;font-size:19px;color:#54505a;max-width:52ch}}
+.hero p.answer{{margin-top:26px;border:1px solid var(--line);border-left:3px solid var(--teal);background:#fff;
+ border-radius:0 10px 10px 0;padding:16px 20px;font-size:15px;color:#4d4850;max-width:66ch}}
 .shelf-row{{margin-top:64px}}
 .shelf-note{{margin:6px 0 20px;color:var(--muted);font-size:15px;max-width:60ch}}
 .shelf{{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}}
@@ -195,6 +197,10 @@ def house():
 .s-name{{font-size:20px;font-weight:600;letter-spacing:.01em}}
 .s-cat{{font-size:10px;font-family:ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;opacity:.95}}
 .board{{height:10px;margin-top:14px;border-radius:2px;background:linear-gradient(#E4DED2,#D6CFBF);box-shadow:0 2px 3px rgba(0,0,0,.14)}}
+@media(prefers-reduced-motion:no-preference){{
+ .spine{{transition:transform .22s cubic-bezier(.2,.7,.3,1.2)}}
+ .spine:hover{{transform:translateY(-7px)}}
+}}
 .tenets{{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px;margin-top:34px}}
 .tenets div{{border-top:2px solid var(--ink);padding-top:14px}}
 .tenets strong{{font-family:"Newsreader",Georgia,serif;font-size:20px;font-weight:500;display:block;margin-bottom:6px}}
@@ -214,7 +220,8 @@ h2.sec{{font-size:32px;margin-top:8px}}
 <section class="hero">
 <p class="eyebrow">An independent App Studio</p>
 <h1>Quiet, private <em>logbooks</em> for the things you live with.</h1>
-<p class="sub">{esc(SITE["sub"])} Every app does one job well — track the thing, show you the pattern, and hand you a record worth bringing to whoever needs it.</p>
+<p class="sub">{esc(SITE["sub"])} Each app does one job well: track it, show the pattern, and hand you a record worth bringing to whoever needs it.</p>
+<p class="answer">Softgrove makes {len(DATA["apps"])} single-purpose tracker apps for iPhone — health journals (eczema, IBS, reflux, gout, neuropathy), life logs (pets, plants, cars, books, reef tanks), and workshop tools. Every app has a free core, needs no account, and keeps all data on the device.</p>
 </section>
 <section id="apps">{shelves}</section>
 <section class="about">
@@ -234,9 +241,9 @@ h2.sec{{font-size:32px;margin-top:8px}}
 </main>"""
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "Organization", "@id": ORIGIN + "/#org", "name": "Softgrove",
-         "url": ORIGIN + "/", "logo": ORIGIN + "/og/home.png",
+         "url": ORIGIN + "/", "logo": ORIGIN + "/logo.png",
          "description": "Independent app studio making private, single-purpose tracking apps for iPhone. All data stays on-device.",
-         "sameAs": ["https://apps.apple.com/developer/id1815551713"]},
+         "sameAs": ["https://apps.apple.com/developer/id6781130241"]},
         {"@type": "WebSite", "name": "Softgrove", "url": ORIGIN + "/",
          "publisher": {"@id": ORIGIN + "/#org"}}]}
     return page("Softgrove — private, single-purpose tracker apps for iPhone",
@@ -248,9 +255,11 @@ def app_page(key):
     name, sub = a["name"], d["subtitle"]
     feats = "".join(f'<li><span class="fm" style="background:{a["accent"]}"></span>{esc(f)}</li>' for f in p["feats"])
     if a.get("onetime"):
-        price_html = ('<div class="price"><div><strong>One-time purchase</strong>'
-                      '<p>No subscription. Buy once, use forever, works fully offline.</p></div></div>')
-        price_note = "One-time purchase"
+        price_html = ('<div class="price"><div><strong>Free — up to 10 pieces</strong>'
+                      '<p>Plan a whole small project free: the optimizer, the cut diagram, the ordered cut steps, and sheet-image sharing. No account, no trial clock.</p></div>'
+                      '<div><strong>Full version — $12.99, once</strong>'
+                      '<p>One-time purchase for unlimited pieces. No subscription, works fully offline, all future updates included.</p></div></div>')
+        price_note = "Free up to 10 pieces; full version $12.99 one-time purchase"
     elif p["monthly"]:
         price_html = (f'<div class="price"><div><strong>Free</strong><p>{esc(p["free"])}</p></div>'
                       f'<div><strong>Premium — ${p["monthly"]}/mo or ${p["yearly"]}/yr</strong>'
@@ -260,8 +269,8 @@ def app_page(key):
         price_html = f'<div class="price"><div><strong>Free</strong><p>{esc(p["free"])}</p></div></div>'
         price_note = "Free"
     faqs = [(f"Is {name} free?",
-             (f"The core app is free with no account needed — {p['free'].rstrip('.')}. Premium (${p['monthly']}/month or ${p['yearly']}/year after a 7-day trial) adds the analysis features." if p["monthly"] else
-              "Boardcut is a one-time purchase — no subscription, works fully offline." if a.get("onetime") else "Yes.")),
+             (f"The core app is free, with no account needed. {p['free'].rstrip('.')}. Premium (${p['monthly']}/month or ${p['yearly']}/year after a 7-day trial) adds the analysis features." if p["monthly"] else
+              "Free up to 10 pieces per project — the full tool, no account, no trial clock. Unlimited pieces are a one-time $12.99 purchase; no subscription." if a.get("onetime") else "Yes.")),
             ("Where is my data stored?",
              f"On your iPhone, and nowhere else. {name} never uploads, syncs, shares, or sells your data — there is no account and no cloud backend."),
             (f"Does {name} require an account?",
@@ -284,13 +293,19 @@ def app_page(key):
     body = f"""
 <style>
 .band{{background:{a["bg"]};border-bottom:1px solid var(--line)}}
-.band .wrap{{padding:72px 24px 60px}}
+.band .wrap{{padding:72px 24px 150px}}
+.shots{{max-width:820px;margin:-110px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}}
+.shots img{{width:100%;height:auto;border-radius:18px;border:1px solid rgba(0,0,0,.10);
+ box-shadow:0 14px 34px rgba(0,0,0,.13);display:block;background:#fff}}
+@media(max-width:640px){{.shots{{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;
+ overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}}
+.shots img{{scroll-snap-align:center}}.band .wrap{{padding-bottom:120px}}}}
 .band h1{{font-size:clamp(44px,7vw,76px);color:{a["deep"]}}}
 .band .sub{{font-size:21px;color:{a["deep"]};opacity:.82;margin-top:8px}}
 .band .hook{{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:clamp(19px,2.6vw,24px);
  color:{a["deep"]};max-width:34ch;margin-top:26px;line-height:1.45}}
 .band .cta{{margin-top:30px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}}
-.band .eyebrow{{color:{a["deep"]};opacity:.65}}
+.band .eyebrow{{color:{a["deep"]};opacity:.85}}
 main.wrap{{max-width:820px}}
 h2.sec{{font-size:30px;margin:64px 0 20px}}
 ul.feats{{list-style:none;display:grid;gap:14px}}
@@ -316,6 +331,11 @@ ul.feats li{{display:flex;gap:13px;align-items:baseline;font-size:16.5px;max-wid
 <p class="hook">{esc(p["hook"])}</p>
 <div class="cta">{store_badge(a["id"], name)}</div>
 </div></div>
+<div class="shots">
+<img src="/img/{key}/01.jpg" width="520" height="1130" alt="{esc(name)} for iPhone — home screen" fetchpriority="high">
+<img src="/img/{key}/02.jpg" width="520" height="1130" alt="{esc(name)} for iPhone — logging" loading="lazy">
+<img src="/img/{key}/03.jpg" width="520" height="1130" alt="{esc(name)} for iPhone — insights and reports" loading="lazy">
+</div>
 <main class="wrap">
 <h2 class="sec serif">What you can track</h2>
 <ul class="feats">{feats}</ul>
@@ -333,7 +353,8 @@ ul.feats li{{display:flex;gap:13px;align-items:baseline;font-size:16.5px;max-wid
         {"@type": "SoftwareApplication", "name": name,
          "operatingSystem": "iOS", "applicationCategory": a["category"],
          "description": p["hook"],
-         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": price_note},
+         "offers": {"@type": "Offer", "price": "12.99" if a.get("onetime") else "0",
+                    "priceCurrency": "USD", "description": price_note},
          "url": f"{ORIGIN}/apps/{key}/",
          "installUrl": f"https://apps.apple.com/app/id{a['id']}",
          "author": {"@type": "Organization", "name": "Softgrove", "url": ORIGIN + "/"}},
@@ -344,13 +365,12 @@ ul.feats li{{display:flex;gap:13px;align-items:baseline;font-size:16.5px;max-wid
             {"@type": "ListItem", "position": 1, "name": "Softgrove", "item": ORIGIN + "/"},
             {"@type": "ListItem", "position": 2, "name": name}]}]}
     head = f'<meta name="apple-itunes-app" content="app-id={a["id"]}">'
-    title = f"{name} — {sub} | iPhone app by Softgrove"
-    meta = f"{name} for iPhone: {sub.lower()}. {p['hook'][:110].rstrip('.')}. Free core, no account, all data stays on your device."
-    return page(title, meta, f"/apps/{key}/", body, ld, head)
+    return page(a["seoTitle"], a["seoDesc"], f"/apps/{key}/", body, ld, head)
 
 # -------------------------------------------------------------- template pages
 def tpl_preview_table(t, accent):
-    heads = "".join(f"<th>{esc(c)}</th>" for c in t["columns"])
+    heads = "".join(f'<th style="width:{w}%">{esc(c)}</th>'
+                    for c, w in zip(t["columns"], t["col_widths"]))
     rows = "".join("<tr>" + "<td></td>" * len(t["columns"]) + "</tr>" for _ in range(4))
     return (f'<div class="prev" role="img" aria-label="Preview of the printable sheet">'
             f'<div class="prev-head" style="border-color:{accent}"><span class="serif">{esc(t["h1"].replace("Free Printable ", "").replace(" (PDF)", ""))}</span>'
@@ -407,7 +427,8 @@ ol.howto{{padding-left:22px;display:grid;gap:12px;font-size:16.5px;max-width:62c
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "HowTo", "name": t["h1"],
          "description": t["desc"],
-         "step": [{"@type": "HowToStep", "text": s} for s in t["howto"]]},
+         "step": [{"@type": "HowToStep", "name": n, "text": s}
+                  for n, s in zip(t["howto_names"], t["howto"])]},
         {"@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ans}}
             for q, ans in t["faq"]]},
@@ -483,7 +504,7 @@ def llms_txt(paths):
     for sh in DATA["shelves"]:
         for k in sh["apps"]:
             a = DATA["apps"][k]; p = PARSED[a["asc"]]; d = DESCS[a["asc"]]
-            price = "one-time purchase" if a.get("onetime") else (
+            price = "free up to 10 pieces; full version $12.99 one-time" if a.get("onetime") else (
                 f"free core; Premium ${p['monthly']}/mo or ${p['yearly']}/yr" if p["monthly"] else "free")
             lines.append(f"- [{a['name']}]({ORIGIN}/apps/{k}/): {d['subtitle']} — {a['catLabel']}; {price}. App Store id{a['id']}.")
     lines += ["", "## Free printable templates (PDF, no sign-up)"]
@@ -492,7 +513,7 @@ def llms_txt(paths):
     lines += ["", "## Facts",
               "- All apps are iPhone (iOS). Data is stored on-device only; no account exists.",
               "- Health apps are journaling tools, not medical devices; they do not give medical advice.",
-              f"- Developer page: https://apps.apple.com/developer/id1815551713"]
+              f"- Developer page: https://apps.apple.com/developer/id6781130241"]
     return "\n".join(lines) + "\n"
 
 def sitemap(paths):
