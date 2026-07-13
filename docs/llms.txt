@@ -1,0 +1,28 @@
+# Softgrove
+
+> Independent app studio making private, single-purpose tracking apps for iPhone.
+> Every app: free core, no account, no ads; all data stays on the user's device
+> (no cloud backend). Premium tiers add analysis and PDF reports.
+
+## Apps
+- [Skinote](https://softgrove.github.io/apps/skinote/): Track flares, find triggers — Eczema tracking; free core; Premium $6.99/mo or $39.99/yr. App Store id6782466803.
+- [Settura](https://softgrove.github.io/apps/settura/): Find your trigger foods — IBS & gut tracking; free core; Premium $6.99/mo or $39.99/yr. App Store id6781145402.
+- [RefluxLog](https://softgrove.github.io/apps/refluxlog/): Acid Reflux & Heartburn Diary — Acid reflux diary; free core; Premium $6.99/mo or $39.99/yr. App Store id6781159330.
+- [GoutLog](https://softgrove.github.io/apps/goutlog/): Find your gout triggers — Gout & uric acid; free core; Premium $6.99/mo or $39.99/yr. App Store id6783216815.
+- [NerveLog](https://softgrove.github.io/apps/nervelog/): Tingling, burning & numbness — Neuropathy tracking; free core; Premium $6.99/mo or $39.99/yr. App Store id6785813444.
+- [PawLog](https://softgrove.github.io/apps/pawlog/): Never miss a vet or dose — Pet health records; free core; Premium $6.99/mo or $39.99/yr. App Store id6782466968.
+- [PlantLog](https://softgrove.github.io/apps/plantlog/): Never forget to water — Plant care journal; free core; Premium $6.99/mo or $39.99/yr. App Store id6783232188.
+- [MotorLog](https://softgrove.github.io/apps/motorlog/): Mileage, service & gas log — Car & fuel log; free core; Premium $6.99/mo or $39.99/yr. App Store id6781159313.
+- [ReadLog](https://softgrove.github.io/apps/readlog/): Track every book you read — Reading journal; free core; Premium $6.99/mo or $39.99/yr. App Store id6781130239.
+- [Coralog](https://softgrove.github.io/apps/coralog/): Reef tank & dosing tracker — Reef tank tracker; free core; Premium $6.99/mo or $39.99/yr. App Store id6786378477.
+- [Boardcut](https://softgrove.github.io/apps/boardcut/): Plywood & sheet cut calculator — Cut list optimizer; one-time purchase. App Store id6787905177.
+
+## Free printable templates (PDF, no sign-up)
+- [Free Printable Eczema Tracker (PDF)](https://softgrove.github.io/templates/eczema-tracker-printable/): A free one-page printable eczema tracker. Log daily flares, itch severity, affected areas, and possible triggers — then bring a concrete record to your dermatologist.
+- [Free Printable Car Maintenance Log (PDF)](https://softgrove.github.io/templates/car-maintenance-log-template/): A free one-page printable car maintenance log. Record every oil change, tire rotation, repair, and service with date, mileage, and cost — a clean history for taxes or resale.
+- [Free Printable Gout Food Diary & Uric Acid Log (PDF)](https://softgrove.github.io/templates/gout-food-diary-printable/): A free one-page printable gout diary. Track meals and purine levels, uric acid readings, hydration, and flares — see your own pattern and bring a real record to your doctor.
+
+## Facts
+- All apps are iPhone (iOS). Data is stored on-device only; no account exists.
+- Health apps are journaling tools, not medical devices; they do not give medical advice.
+- Developer page: https://apps.apple.com/developer/id1815551713

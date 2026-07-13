@@ -1,0 +1,297 @@
+{
+  "site": {
+    "origin": "https://softgrove.github.io",
+    "name": "Softgrove",
+    "thesis": "Quiet, private logbooks for the things you live with.",
+    "sub": "Single-purpose trackers for iPhone. No accounts, no cloud, no ads — your data stays on your device.",
+    "house_accent": "#3E8E8C",
+    "paper": "#FBFAF7",
+    "ink": "#2C282C",
+    "muted": "#6E6870",
+    "hairline": "#E7E2D9"
+  },
+  "shelves": [
+    {
+      "label": "Health journals",
+      "note": "Symptom and trigger logs for chronic conditions — built to make doctor visits concrete.",
+      "apps": [
+        "skinote",
+        "settura",
+        "refluxlog",
+        "goutlog",
+        "nervelog"
+      ]
+    },
+    {
+      "label": "Home & life logs",
+      "note": "Care and record keeping for the rest of your world — pets, plants, cars, books, reef tanks.",
+      "apps": [
+        "pawlog",
+        "plantlog",
+        "motorlog",
+        "readlog",
+        "coralog"
+      ]
+    },
+    {
+      "label": "Workshop tools",
+      "note": "Calculators that earn their place at the bench.",
+      "apps": [
+        "boardcut"
+      ]
+    }
+  ],
+  "apps": {
+    "skinote": {
+      "name": "Skinote",
+      "asc": "Skinote",
+      "id": "6782466803",
+      "bg": "#F2ECEA",
+      "accent": "#3E8E8C",
+      "deep": "#3A2E3A",
+      "category": "HealthApplication",
+      "catLabel": "Eczema tracking",
+      "template": "eczema-tracker-printable",
+      "spineLabel": "Eczema"
+    },
+    "settura": {
+      "name": "Settura",
+      "asc": "Settura",
+      "id": "6781145402",
+      "bg": "#EEF0EA",
+      "accent": "#2E5E54",
+      "deep": "#233029",
+      "category": "HealthApplication",
+      "catLabel": "IBS & gut tracking",
+      "spineLabel": "IBS & gut"
+    },
+    "refluxlog": {
+      "name": "RefluxLog",
+      "asc": "RefluxLog",
+      "id": "6781159330",
+      "bg": "#EEF0F4",
+      "accent": "#2A3354",
+      "deep": "#222838",
+      "category": "HealthApplication",
+      "catLabel": "Acid reflux diary",
+      "spineLabel": "Acid reflux"
+    },
+    "goutlog": {
+      "name": "GoutLog",
+      "asc": "GoutLog",
+      "id": "6783216815",
+      "bg": "#EEF1F0",
+      "accent": "#2F5566",
+      "deep": "#1F2D33",
+      "category": "HealthApplication",
+      "catLabel": "Gout & uric acid",
+      "template": "gout-food-diary-printable",
+      "spineLabel": "Gout"
+    },
+    "nervelog": {
+      "name": "NerveLog",
+      "asc": "NerveLog",
+      "id": "6785813444",
+      "bg": "#EEF2EF",
+      "accent": "#3E7D6B",
+      "deep": "#28322E",
+      "category": "HealthApplication",
+      "catLabel": "Neuropathy tracking",
+      "spineLabel": "Neuropathy"
+    },
+    "pawlog": {
+      "name": "PawLog",
+      "asc": "PawLog",
+      "id": "6782466968",
+      "bg": "#F4EFE6",
+      "accent": "#E07A5F",
+      "deep": "#2E2A24",
+      "category": "LifestyleApplication",
+      "catLabel": "Pet health records",
+      "spineLabel": "Pet health"
+    },
+    "plantlog": {
+      "name": "PlantLog",
+      "asc": "PlantLog",
+      "id": "6783232188",
+      "bg": "#EFF1E8",
+      "accent": "#1E4A3F",
+      "deep": "#233029",
+      "category": "LifestyleApplication",
+      "catLabel": "Plant care journal",
+      "spineLabel": "Plant care"
+    },
+    "motorlog": {
+      "name": "MotorLog",
+      "asc": "MotorLog",
+      "id": "6781159313",
+      "bg": "#F5F5F4",
+      "accent": "#E87722",
+      "deep": "#21242A",
+      "spine_bg": "#21242A",
+      "spine_text": "#E87722",
+      "category": "UtilitiesApplication",
+      "catLabel": "Car & fuel log",
+      "template": "car-maintenance-log-template",
+      "spineLabel": "Car & fuel"
+    },
+    "readlog": {
+      "name": "ReadLog",
+      "asc": "ReadLog",
+      "id": "6781130239",
+      "bg": "#F2EBDD",
+      "accent": "#7A2E33",
+      "deep": "#2E2A24",
+      "category": "Books & Reference",
+      "catLabel": "Reading journal",
+      "spineLabel": "Reading"
+    },
+    "coralog": {
+      "name": "Coralog",
+      "asc": "Coralog",
+      "id": "6786378477",
+      "bg": "#EAF1F4",
+      "accent": "#B3573F",
+      "deep": "#10233B",
+      "spine_bg": "#10233B",
+      "spine_text": "#FF7E6B",
+      "category": "LifestyleApplication",
+      "catLabel": "Reef tank tracker",
+      "spineLabel": "Reef tank"
+    },
+    "boardcut": {
+      "name": "Boardcut",
+      "asc": "Boardcut",
+      "id": "6787905177",
+      "bg": "#F0EADC",
+      "accent": "#C4572A",
+      "deep": "#3F3B35",
+      "category": "UtilitiesApplication",
+      "catLabel": "Cut list optimizer",
+      "onetime": true,
+      "spineLabel": "Cut lists"
+    }
+  },
+  "templates": {
+    "eczema-tracker-printable": {
+      "app": "skinote",
+      "h1": "Free Printable Eczema Tracker (PDF)",
+      "title": "Free Printable Eczema Tracker PDF — Daily Flare & Trigger Log | Softgrove",
+      "desc": "A free one-page printable eczema tracker. Log daily flares, itch severity, affected areas, and possible triggers — then bring a concrete record to your dermatologist.",
+      "answer": "This is a free, one-page printable eczema tracker in PDF format. Each row covers one day: flare severity, itch level, affected areas, suspected triggers (foods, products, weather), and notes. Print a page per week and bring the filled sheets to your dermatologist appointment.",
+      "columns": [
+        "Date",
+        "Flare severity (0–10)",
+        "Itch (0–10)",
+        "Areas affected",
+        "Possible triggers — food · product · weather · stress",
+        "Notes / photos taken"
+      ],
+      "howto": [
+        "Print the PDF — one page covers seven days.",
+        "Each evening, rate your flare severity and itch from 0–10.",
+        "Note the areas affected and anything unusual: new foods, products, weather, stress.",
+        "After two or three weeks, look for repeats — the same trigger appearing before your worse days.",
+        "Bring the filled sheets to your dermatologist; a dated record beats memory."
+      ],
+      "faq": [
+        [
+          "Is this eczema tracker really free?",
+          "Yes. The PDF is free to download and print, with no sign-up and no email required."
+        ],
+        [
+          "What should I track for eczema?",
+          "The basics that dermatologists ask about: when flares happen, how severe the itch is, which areas are affected, and what you ate, used, or were exposed to around that time. This sheet covers all of them in one row per day."
+        ],
+        [
+          "Can this tell me what triggers my eczema?",
+          "A paper log can't compute correlations for you — but a few consistent weeks of records often make repeats visible. If you want the analysis done automatically, the Skinote app spots which logged triggers line up with your flares."
+        ],
+        [
+          "Is there an app version of this tracker?",
+          "Yes — Skinote for iPhone logs the same things in seconds, adds photo tracking, and computes trigger correlations. The core app is free, no account needed, and your data stays on your device."
+        ]
+      ]
+    },
+    "car-maintenance-log-template": {
+      "app": "motorlog",
+      "h1": "Free Printable Car Maintenance Log (PDF)",
+      "title": "Free Printable Car Maintenance Log PDF — Service & Repair Record | Softgrove",
+      "desc": "A free one-page printable car maintenance log. Record every oil change, tire rotation, repair, and service with date, mileage, and cost — a clean history for taxes or resale.",
+      "answer": "This is a free, one-page printable car maintenance log in PDF format. Each row records one service event: date, odometer reading, work performed, shop, and cost. A complete, dated maintenance record raises buyer confidence at resale and backs up tax deductions for work vehicles.",
+      "columns": [
+        "Date",
+        "Odometer",
+        "Service / repair performed",
+        "Shop / DIY",
+        "Parts",
+        "Cost"
+      ],
+      "howto": [
+        "Print the PDF and keep it in the glove box or with your vehicle records.",
+        "After every service — oil change, rotation, brakes, anything — fill one row: date, mileage, what was done, who did it, cost.",
+        "Keep receipts stapled behind the sheet for warranty and tax evidence.",
+        "At resale, hand the buyer the full log — a documented history is worth real money.",
+        "Start a new page per year or per 10,000 miles, whichever comes first."
+      ],
+      "faq": [
+        [
+          "Is this car maintenance log free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email."
+        ],
+        [
+          "What maintenance should I record?",
+          "Everything with a date, mileage, and cost: oil changes, tire rotations and replacements, brake work, fluids, filters, battery, and any repair. The pattern matters more than the category — a complete log is what buyers and warranty claims care about."
+        ],
+        [
+          "Does a maintenance log help resale value?",
+          "A documented service history is one of the few things a private seller can show that a dealer often can't. Buyers pay more when they can verify the care — Kelley Blue Book and most valuation guides note documented maintenance as a value factor."
+        ],
+        [
+          "Is there an app version of this log?",
+          "Yes — MotorLog for iPhone tracks fill-ups with automatic MPG, service records, repairs, and mileage, and exports a clean PDF history. The core app is free, no account needed, and your data stays on your device."
+        ]
+      ]
+    },
+    "gout-food-diary-printable": {
+      "app": "goutlog",
+      "h1": "Free Printable Gout Food Diary & Uric Acid Log (PDF)",
+      "title": "Free Printable Gout Food Diary PDF — Uric Acid & Flare Log | Softgrove",
+      "desc": "A free one-page printable gout diary. Track meals and purine levels, uric acid readings, hydration, and flares — see your own pattern and bring a real record to your doctor.",
+      "answer": "This is a free, one-page printable gout diary in PDF format. Each row covers one day: what you ate (with a purine-level checkbox), alcohol, water intake, any uric acid reading, and whether a flare occurred. Gout flares rarely come from nowhere — a dated food-and-flare record is how you find your pattern.",
+      "columns": [
+        "Date",
+        "Meals — note high-purine foods",
+        "Alcohol (none / beer / wine / spirits)",
+        "Water (glasses)",
+        "Uric acid (mg/dL)",
+        "Flare? joint & severity"
+      ],
+      "howto": [
+        "Print the PDF — one page covers seven days.",
+        "Log each day's meals, marking foods you know are higher-purine (organ meats, some seafood, beer).",
+        "Record water intake and any uric acid reading from lab work or a home meter.",
+        "If a flare hits, note the joint and severity — then look back at the previous 24–48 hours.",
+        "Bring filled sheets to your appointment; treatment decisions are easier with dated data."
+      ],
+      "faq": [
+        [
+          "Is this gout diary free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email."
+        ],
+        [
+          "What foods should I watch with gout?",
+          "This sheet doesn't prescribe a diet — it helps you find your triggers. Commonly discussed higher-purine items include organ meats, certain seafood, and beer, but individual responses vary widely; that's exactly why a personal log matters. Always follow your doctor's guidance."
+        ],
+        [
+          "Should I track uric acid at home?",
+          "If you have a home meter or regular lab work, recording values over time gives your doctor trend data instead of single points. The sheet has a column for readings in mg/dL with space to note the source."
+        ],
+        [
+          "Is there an app version of this diary?",
+          "Yes — GoutLog for iPhone logs meals with purine levels, uric acid readings, flares, and hydration, then shows which foods appear most often before your worse flares. The core app is free, no account needed, and your data stays on your device."
+        ]
+      ]
+    }
+  }
+}

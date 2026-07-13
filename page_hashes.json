@@ -1,0 +1,66 @@
+{
+ "/": {
+  "hash": "10c674c149453754",
+  "lastmod": "2026-07-13"
+ },
+ "/templates/": {
+  "hash": "f20b46b8b04c0fe0",
+  "lastmod": "2026-07-13"
+ },
+ "/apps/skinote/": {
+  "hash": "342fbb83e4b6197a",
+  "lastmod": "2026-07-13"
+ },
+ "/apps/settura/": {
+  "hash": "008d8a0186cf0996",
+  "lastmod": "2026-07-13"
+ },
+ "/apps/refluxlog/": {
+  "hash": "0f4e64a5a0e9f6b8",
+  "lastmod": "2026-07-13"
+ },
+ "/apps/goutlog/": {
+  "hash": "8f3cbcdfc1057bb7",
+  "lastmod": "2026-07-13"
+ },
+ "/apps/nervelog/": {
+  "hash": "b5932fbafbf57d9d",
+  "lastmod": "2026-07-13"
+ },
+ "/apps/pawlog/": {
+  "hash": "d259a36c826f4486",
+  "lastmod": "2026-07-13"
+ },
+ "/apps/plantlog/": {
+  "hash": "362e339143a755a0",
+  "lastmod": "2026-07-13"
+ },
+ "/apps/motorlog/": {
+  "hash": "8f3a68d60b725128",
+  "lastmod": "2026-07-13"
+ },
+ "/apps/readlog/": {
+  "hash": "135abd200f14ae76",
+  "lastmod": "2026-07-13"
+ },
+ "/apps/coralog/": {
+  "hash": "6ac702969f6de761",
+  "lastmod": "2026-07-13"
+ },
+ "/apps/boardcut/": {
+  "hash": "7f1fb1ae2d21a64a",
+  "lastmod": "2026-07-13"
+ },
+ "/templates/eczema-tracker-printable/": {
+  "hash": "bb3b0292878c0f87",
+  "lastmod": "2026-07-13"
+ },
+ "/templates/car-maintenance-log-template/": {
+  "hash": "457ad5674866323d",
+  "lastmod": "2026-07-13"
+ },
+ "/templates/gout-food-diary-printable/": {
+  "hash": "7db387fe9c3f146d",
+  "lastmod": "2026-07-13"
+ }
+}
