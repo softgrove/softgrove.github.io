@@ -375,6 +375,417 @@
         "Name",
         "Started"
       ]
+    },
+    "eczema-food-trigger-diary": {
+      "app": "skinote",
+      "h1": "Free Printable Eczema Food & Trigger Diary (PDF)",
+      "title": "Free Printable Eczema Food Trigger Diary PDF",
+      "desc": "A free one-page eczema food and trigger diary. Log meals, personal care products, weather, and stress alongside daily itch and flare severity — then look for what shows up before your worse days.",
+      "answer": "This is a free, one-page printable eczema food and trigger diary in PDF format. Each row is one day: meals, new products used, weather, stress rating, itch (0–10), and any flare. It doesn't diagnose triggers — it makes them visible, so you can bring a dated pattern to your dermatologist. Not medical advice.",
+      "columns": [
+        "Date",
+        "Meals — note new/unusual foods",
+        "Products (soap · lotion · detergent)",
+        "Weather · humidity",
+        "Stress (0–10)",
+        "Itch (0–10)",
+        "Flare? area"
+      ],
+      "howto": [
+        "Print the PDF — one page covers about three weeks.",
+        "Each evening, jot meals, any new personal-care product, weather, and stress.",
+        "Rate itch and note any flare with the area affected.",
+        "After two or three weeks, look for repeats — the same food or product appearing in the 24–48 hours before flares.",
+        "Bring the filled sheets to your dermatologist. A dated log beats memory."
+      ],
+      "faq": [
+        [
+          "Is this diary really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email."
+        ],
+        [
+          "Can this identify what I'm allergic to?",
+          "No. This sheet doesn't diagnose allergies or intolerances — those need proper medical testing. What a diary does well is surface repeat patterns worth discussing with your dermatologist."
+        ],
+        [
+          "What counts as a 'trigger'?",
+          "In an eczema log, a trigger is anything that shows up frequently in the day or two before flares — a specific food, a new lotion, high stress, sudden humidity change, a fabric. The sheet has columns for the categories dermatologists most often ask about."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — Skinote for iPhone logs meals, products, and flares in seconds and highlights which entries appear most often before your worse days. Core is free, no account needed, and everything stays on your device."
+        ]
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Log meals and products",
+        "Rate itch and note flares",
+        "Look for repeats",
+        "Bring it to your dermatologist"
+      ],
+      "col_widths": [
+        10,
+        24,
+        18,
+        12,
+        8,
+        8,
+        20
+      ],
+      "pdf_fields": [
+        "Name",
+        "Started"
+      ]
+    },
+    "dermatologist-visit-summary-sheet": {
+      "app": "skinote",
+      "h1": "Free Printable Dermatologist Visit Summary Sheet",
+      "title": "Free Printable Dermatologist Visit Summary Sheet (PDF)",
+      "desc": "A free one-page dermatologist visit prep sheet. Summarize recent flares, current treatments, questions, and photos — walk into your appointment with a concrete record instead of a blank memory.",
+      "answer": "This is a free, one-page printable summary sheet to bring to a dermatology appointment. Fill in the last 4–8 weeks: flare frequency and severity, current treatments and how they're working, new triggers you've noticed, and the top three questions you want to ask. Not medical advice — a communication aid for your visit.",
+      "columns": [
+        "Section",
+        "What to fill in",
+        "Space"
+      ],
+      "howto": [
+        "Print the PDF a day or two before your appointment.",
+        "Fill in the recent-flares summary: how often, how severe (0–10), where on the body.",
+        "List current treatments (topicals, orals, phototherapy) and whether they've helped, done nothing, or made things worse.",
+        "Note any new triggers you've observed and any photos or videos you'd like the doctor to see on your phone.",
+        "Write your top three questions at the bottom — you're much more likely to actually ask them if they're on paper."
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email."
+        ],
+        [
+          "Why bring a summary sheet at all?",
+          "Appointments are short. A one-page summary lets your dermatologist see the last few weeks at a glance instead of relying on your recall in the exam room."
+        ],
+        [
+          "What if I don't have a treatment list yet?",
+          "Fill in what you're currently using — over-the-counter creams count. The point is a shared starting point, not a complete medical record."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — Skinote for iPhone keeps a running eczema log with photos and can export a dated PDF summary for your appointment. Core is free, no account needed, data stays on your device."
+        ]
+      ],
+      "howto_names": [
+        "Print before your visit",
+        "Summarize recent flares",
+        "List current treatments",
+        "Note new triggers and photos",
+        "Write your top three questions"
+      ],
+      "col_widths": [
+        18,
+        55,
+        27
+      ],
+      "pdf_fields": [
+        "Name",
+        "Appointment date"
+      ]
+    },
+    "uric-acid-tracking-log": {
+      "app": "goutlog",
+      "h1": "Free Printable Uric Acid Tracking Log (PDF)",
+      "title": "Free Printable Uric Acid Log PDF — Track Levels Over Time",
+      "desc": "A free one-page printable uric acid log. Record every uric acid reading with date, source, medication, and any recent flare — turn scattered numbers into a trend your doctor can act on.",
+      "answer": "This is a free, one-page printable uric acid tracking log in PDF format. Each row is one reading: date, value (mg/dL or µmol/L), whether the source was a home meter or lab, current medications, and any flare in the previous week. A single number tells you little; a trend tells you where you're heading. Not medical advice.",
+      "columns": [
+        "Date",
+        "Uric acid",
+        "Unit",
+        "Source (lab · home)",
+        "Current medications",
+        "Flare in prior 7d?"
+      ],
+      "howto": [
+        "Print the PDF and file it with your other test results, or keep it in your GoutLog folder.",
+        "Every time you get a uric acid reading — lab draw or home meter — record it on the next row.",
+        "Note the unit (mg/dL is common in the US; µmol/L elsewhere), and whether it was a lab or home reading.",
+        "Write the medications you were on at the time (allopurinol, febuxostat, colchicine, etc.) — trends only make sense against treatment.",
+        "Bring the log to your doctor. Trend data guides target adjustments; single numbers rarely do."
+      ],
+      "faq": [
+        [
+          "Is this log really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email."
+        ],
+        [
+          "What target uric acid level should I aim for?",
+          "Targets are set by your doctor and depend on your specific situation. This sheet doesn't set a target — it just gives you a clean record so your doctor can see where the number is going."
+        ],
+        [
+          "Are home uric acid meters accurate enough?",
+          "Home meters vary in accuracy and are generally used for trend-watching between lab tests, not for replacing them. Noting the source (home vs lab) in the log helps your doctor weigh the readings appropriately."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — GoutLog for iPhone records uric acid readings alongside meals, medications, and flares, and shows the trend on a chart. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Record each reading",
+        "Note the unit and source",
+        "Log your medications",
+        "Bring the log to your doctor"
+      ],
+      "col_widths": [
+        11,
+        11,
+        8,
+        15,
+        30,
+        25
+      ],
+      "pdf_fields": [
+        "Name",
+        "Target set by doctor"
+      ]
+    },
+    "gout-attack-diary": {
+      "app": "goutlog",
+      "h1": "Free Printable Gout Attack Diary (PDF)",
+      "title": "Free Printable Gout Attack Diary PDF — Flare & Trigger Log",
+      "desc": "A free one-page printable gout attack diary. Record each flare — joint, severity, duration, what preceded it — and start seeing the pattern of what sets yours off.",
+      "answer": "This is a free, one-page printable gout attack diary in PDF format. Each row is one flare: date it started, joint involved, peak severity (0–10), how many days it lasted, and what happened in the previous 24–48 hours (meals, alcohol, dehydration, missed medication). Not medical advice — a record for you and your doctor.",
+      "columns": [
+        "Start date",
+        "Joint",
+        "Peak severity (0–10)",
+        "Days until resolved",
+        "Preceding 24–48h — meals · alcohol · fluids · missed doses",
+        "Treatment used"
+      ],
+      "howto": [
+        "Print the PDF and keep it near where you'd reach for gout medication.",
+        "When a flare starts, log the date and joint — write while it's fresh, not later.",
+        "Rate peak severity (0–10) and count how many days it took to resolve.",
+        "In the 'preceding' column, note the last 24–48 hours honestly: meals, alcohol, water, whether you missed any daily medication.",
+        "After several flares, patterns often become obvious. Bring the diary to your doctor along with any uric acid readings."
+      ],
+      "faq": [
+        [
+          "Is this diary really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email."
+        ],
+        [
+          "What if I only get flares once or twice a year?",
+          "That's exactly when a paper diary helps. Memory of what preceded a flare a year ago is unreliable; a written note at the time is honest data your future self can use."
+        ],
+        [
+          "Should I record every twinge or only real flares?",
+          "Judgment call — but many people find that recording anything that felt like the start of a flare (even ones that fizzled) is useful, because near-misses can reveal the same triggers."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — GoutLog for iPhone logs flares, meals, uric acid, and hydration together, then highlights which foods or gaps in medication appear most often before your worse flares. Core is free, no account needed, data stays on your device."
+        ]
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Log flares as they start",
+        "Rate severity and duration",
+        "Note the preceding 24–48h",
+        "Bring the diary to your doctor"
+      ],
+      "col_widths": [
+        11,
+        12,
+        10,
+        12,
+        35,
+        20
+      ],
+      "pdf_fields": [
+        "Name",
+        "Diagnosed since"
+      ]
+    },
+    "fuel-economy-tracking-sheet": {
+      "app": "motorlog",
+      "h1": "Free Printable Fuel Economy Tracking Sheet (PDF)",
+      "title": "Free Printable Gas Mileage Log PDF — MPG Tracking Sheet",
+      "desc": "A free one-page printable gas mileage log. Record every fill-up — date, odometer, gallons, cost — and compute MPG yourself with the built-in space. See when your fuel economy drifts.",
+      "answer": "This is a free, one-page printable fuel log in PDF format. Each row is one fill-up: date, odometer reading, gallons (or liters), price per unit, total cost, and MPG for the tank. When MPG starts drifting down for no obvious reason — tire pressure, air filter, dragging brake — a written log catches it before your dashboard would.",
+      "columns": [
+        "Date",
+        "Odometer",
+        "Gallons",
+        "$/gal",
+        "Total",
+        "Miles this tank",
+        "MPG"
+      ],
+      "howto": [
+        "Print the PDF and keep it in the glove box with a pen.",
+        "At every fill-up, log date, odometer, gallons, and price — takes ten seconds at the pump.",
+        "Subtract the previous odometer to get miles this tank; divide by gallons for MPG.",
+        "After a few tanks, you'll have a baseline. Watch for drift downward — that's usually the earliest sign something needs attention.",
+        "Keep the sheet for tax records if the vehicle is used for business or self-employed work."
+      ],
+      "faq": [
+        [
+          "Is this log really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email."
+        ],
+        [
+          "Do I need to fill up to full every time?",
+          "For MPG accuracy, yes — 'full-to-full' fill-ups give the cleanest numbers. Partial fills muddy the miles-per-gallon math, though total cost tracking still works."
+        ],
+        [
+          "Why track MPG when the car shows it on the dash?",
+          "Dashboard MPG readouts are computed and can drift or reset. A written log is your own baseline — if the car says 30 MPG but your log says 26, the log is usually right."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — MotorLog for iPhone logs fill-ups with automatic MPG, service records, and repairs, and exports a clean history PDF. Core is free, no account needed, data stays on your device."
+        ]
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Log each fill-up",
+        "Compute MPG per tank",
+        "Watch for downward drift",
+        "Keep it for tax records"
+      ],
+      "col_widths": [
+        11,
+        12,
+        10,
+        10,
+        11,
+        13,
+        33
+      ],
+      "pdf_fields": [
+        "Vehicle",
+        "Baseline MPG"
+      ]
+    },
+    "vehicle-service-checklist": {
+      "app": "motorlog",
+      "h1": "Free Printable Vehicle Service Checklist (PDF)",
+      "title": "Free Printable Car Service Checklist PDF — Maintenance Reminders",
+      "desc": "A free one-page printable vehicle service checklist. Common maintenance items with typical intervals — check off what's done, note when, and never wonder if the coolant is overdue again.",
+      "answer": "This is a free, one-page printable vehicle service checklist in PDF format. Common maintenance items — oil, tire rotation, brake inspection, coolant, transmission fluid, air filter, cabin filter, battery, wipers — with typical mileage intervals and a space to note the last date and mileage. Not a substitute for your owner's manual, which always wins if the intervals differ.",
+      "columns": [
+        "Item",
+        "Typical interval",
+        "Last done (date)",
+        "Last done (miles)",
+        "Notes"
+      ],
+      "howto": [
+        "Print the PDF and check it against your owner's manual — if intervals differ, your manual wins.",
+        "For each item, write the last date and mileage you actually had it done (best guess is fine to start).",
+        "Update the row every time you complete an item — takes ten seconds after a service visit.",
+        "At the start of each season or every few thousand miles, scan the sheet — anything overdue jumps out.",
+        "Bring the sheet when you buy a used car; a filled-in prior owner's checklist is a rare and valuable thing."
+      ],
+      "faq": [
+        [
+          "Is this checklist really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email."
+        ],
+        [
+          "Are the intervals accurate for my car?",
+          "They're commonly used ranges, not manufacturer-specific. Your owner's manual has the actual intervals for your make, model, and year — always defer to it when they conflict."
+        ],
+        [
+          "What about the newer 'change when needed' oils and services?",
+          "Some vehicles use oil-life monitors and other sensor-driven schedules. If yours does, follow that indicator; use the sheet to record when you actually change, not to override the sensor."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — MotorLog for iPhone tracks every service and repair by date and odometer, and shows what's due next. Core is free, no account needed, data stays on your device."
+        ]
+      ],
+      "howto_names": [
+        "Print and cross-check the manual",
+        "Fill in the last-done dates",
+        "Update after each service",
+        "Scan seasonally for overdue items",
+        "Bring when buying used"
+      ],
+      "col_widths": [
+        24,
+        18,
+        15,
+        15,
+        28
+      ],
+      "pdf_fields": [
+        "Vehicle",
+        "Model year"
+      ]
+    },
+    "symptom-tracker-template": {
+      "app": "skinote",
+      "h1": "Free Printable Symptom Tracker Template (PDF)",
+      "title": "Free Printable Symptom Tracker Template PDF",
+      "desc": "A free general-purpose printable symptom tracker. Log daily symptom severity, timing, and possible triggers for any condition — bring a dated record to your next doctor's visit instead of relying on memory.",
+      "answer": "This is a free, one-page general symptom tracker in PDF format. Each row is one day: symptom, severity (0–10), timing, and anything unusual that day. Useful for any condition that comes and goes — chronic pain, skin, gut, headaches, joints. Not medical advice; a communication aid for your appointments.",
+      "columns": [
+        "Date",
+        "Symptom",
+        "Severity (0–10)",
+        "Timing (AM · midday · PM · night)",
+        "Duration",
+        "Possible factors — food · stress · sleep · weather · activity",
+        "Notes"
+      ],
+      "howto": [
+        "Print the PDF — one page covers about three weeks.",
+        "Each day, log the symptom you're tracking with its severity and roughly when it happened.",
+        "Note anything that stood out that day — poor sleep, a new food, high stress, a weather change, an intense workout.",
+        "After two or three weeks, look for patterns — the same factor appearing before your worse days.",
+        "Bring the filled sheets to your appointment. Even a rough dated log is better than trying to remember weeks later."
+      ],
+      "faq": [
+        [
+          "Is this tracker really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email."
+        ],
+        [
+          "What conditions is this useful for?",
+          "Anything that varies day-to-day — chronic pain, skin flares, gut symptoms, headaches, joint stiffness, neuropathy, fatigue. It's deliberately generic so you can use it for the specific thing you're tracking."
+        ],
+        [
+          "Should I show this to my doctor?",
+          "That's the intended use. Doctors often have to work from patient recall, which is unreliable for anything episodic. A dated log — even a rough one — gives them something concrete to work with."
+        ],
+        [
+          "Is there an app for my specific condition?",
+          "Softgrove makes single-purpose iPhone trackers for eczema (Skinote), gout (GoutLog), IBS (Settura), acid reflux (RefluxLog), neuropathy (NerveLog), and more. All are free at the core and keep data on your device — see the Apps page."
+        ]
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Log symptoms daily",
+        "Note anything unusual",
+        "Look for patterns",
+        "Bring it to your appointment"
+      ],
+      "col_widths": [
+        10,
+        15,
+        10,
+        14,
+        10,
+        27,
+        14
+      ],
+      "pdf_fields": [
+        "Name",
+        "Condition being tracked"
+      ]
     }
   }
 }

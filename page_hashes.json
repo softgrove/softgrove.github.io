@@ -1,10 +1,10 @@
 {
  "/": {
-  "hash": "e73c1a1785ecf24d",
+  "hash": "bb3822e79928018c",
   "lastmod": "2026-07-13"
  },
  "/templates/": {
-  "hash": "cbf11b8f79480f16",
+  "hash": "6fec22f809a96746",
   "lastmod": "2026-07-13"
  },
  "/apps/skinote/": {
@@ -61,6 +61,34 @@
  },
  "/templates/gout-food-diary-printable/": {
   "hash": "348ad703da2bfa70",
+  "lastmod": "2026-07-13"
+ },
+ "/templates/eczema-food-trigger-diary/": {
+  "hash": "da657cacab8d2211",
+  "lastmod": "2026-07-13"
+ },
+ "/templates/dermatologist-visit-summary-sheet/": {
+  "hash": "f8b56435b08648c8",
+  "lastmod": "2026-07-13"
+ },
+ "/templates/uric-acid-tracking-log/": {
+  "hash": "923088b581ef33bb",
+  "lastmod": "2026-07-13"
+ },
+ "/templates/gout-attack-diary/": {
+  "hash": "bd37b6099d05e7f9",
+  "lastmod": "2026-07-13"
+ },
+ "/templates/fuel-economy-tracking-sheet/": {
+  "hash": "6ad101f40197641d",
+  "lastmod": "2026-07-13"
+ },
+ "/templates/vehicle-service-checklist/": {
+  "hash": "d642074c98075484",
+  "lastmod": "2026-07-13"
+ },
+ "/templates/symptom-tracker-template/": {
+  "hash": "07aa97fb13981016",
   "lastmod": "2026-07-13"
  }
 }
