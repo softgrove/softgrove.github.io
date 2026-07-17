@@ -21,7 +21,7 @@ DATA = json.loads((ROOT / "apps.json").read_text())
 DESCS = json.loads((ROOT / "_asc_descs.json").read_text())
 SITE = DATA["site"]
 ORIGIN = SITE["origin"]
-TODAY = "2026-07-13"  # set per release; hash-gate keeps unchanged pages stable
+TODAY = "2026-07-17"  # set per release; hash-gate keeps unchanged pages stable
 
 # ---------------------------------------------------------------- desc parsing
 def parse_desc(raw):
@@ -557,6 +557,8 @@ def main():
     (OUT / "sitemap.xml").write_text(sitemap({p: c for p, c in pages.items() if p != "/404.html"}))
     (OUT / "favicon.svg").write_text(FAVICON)
     (OUT / ".nojekyll").write_text("")
+    # IndexNow key file (L4) — must be live at https://softgrove.github.io/<key>.txt
+    (OUT / "8a4b2c6d9e1f3a5b7c8d2e4f6a0b1c3d.txt").write_text("8a4b2c6d9e1f3a5b7c8d2e4f6a0b1c3d")
     print(f"built {len(pages)} pages -> {OUT}")
 
 if __name__ == "__main__":
