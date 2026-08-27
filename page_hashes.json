@@ -1,10 +1,10 @@
 {
  "/": {
-  "hash": "2add175a9c2b9a97",
+  "hash": "46443512f0ae7360",
   "lastmod": "2026-07-17"
  },
  "/templates/": {
-  "hash": "1c9c3ce8f3b672fb",
+  "hash": "9e94f6651322385e",
   "lastmod": "2026-07-17"
  },
  "/apps/skinote/": {
@@ -161,6 +161,10 @@
  },
  "/templates/woodworking-cut-list/": {
   "hash": "5664a235615d67fd",
+  "lastmod": "2026-07-17"
+ },
+ "/templates/plywood-cutting-diagram/": {
+  "hash": "3fdaff71b883768f",
   "lastmod": "2026-07-17"
  },
  "/templates/mileage-log-printable/": {

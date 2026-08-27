@@ -1897,6 +1897,69 @@
         "Sheet material & size"
       ]
     },
+    "plywood-cutting-diagram": {
+      "app": "boardcut",
+      "h1": "Free Printable Plywood Cutting Diagram Template (PDF)",
+      "title": "Free Plywood Cutting Diagram Template PDF — Plan Your Sheet Layout",
+      "desc": "A free one-page printable plywood cutting diagram template. Plan each sheet, allow for saw kerf, and note reusable offcuts before you make the first cut.",
+      "answer": "This is a free, one-page printable plywood cutting diagram template in PDF format for planning a sheet layout by hand. Write the sheet size and kerf allowance at the top, then use each row to assign a part to a sheet, record its finished dimensions, and reserve useful offcuts. It gives you a quick, practical way to turn a parts list into a cutting plan before you buy plywood or commit to a cut.",
+      "columns": [
+        "Sheet #",
+        "Part / area",
+        "W (in)",
+        "L (in)",
+        "Qty",
+        "Kerf allowed",
+        "Offcut to save",
+        "Layout notes"
+      ],
+      "col_widths": [
+        9,
+        19,
+        8,
+        8,
+        7,
+        13,
+        18,
+        18
+      ],
+      "howto": [
+        "Print one template for the project, then write the plywood type, thickness, and sheet dimensions in the heading.",
+        "Group your parts by material and thickness so every row refers to a piece that can come from the same kind of sheet.",
+        "Assign each part to a sheet number and record its finished width, length, and quantity.",
+        "Allow for the saw kerf between neighboring parts, then sketch or describe the order of cuts in the layout notes column.",
+        "Circle offcuts worth keeping and check that every part has a home before buying or cutting another sheet."
+      ],
+      "howto_names": [
+        "Record the sheet details",
+        "Group matching materials",
+        "Assign parts to sheets",
+        "Allow for kerf and plan cuts",
+        "Save useful offcuts"
+      ],
+      "faq": [
+        [
+          "Is this template really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email."
+        ],
+        [
+          "What is a plywood cutting diagram?",
+          "It is a plan for fitting the parts of a project onto full sheets before cutting. The diagram helps you see whether a part fits, where to leave room for the blade kerf, and which offcuts may be useful later."
+        ],
+        [
+          "How much space should I allow for the saw kerf?",
+          "Use the width of your actual saw blade; for many table-saw blades that is about 1/8 inch. Include that space between adjacent parts, and leave extra trimming allowance when an edge needs to be squared after breaking down a sheet."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — Boardcut for iPhone optimizes your cut list into a cutting diagram that minimizes waste. Free up to 10 pieces; the full version is $12.99 once, with no subscription."
+        ]
+      ],
+      "pdf_fields": [
+        "Project name",
+        "Plywood type, thickness & sheet size"
+      ]
+    },
     "mileage-log-printable": {
       "app": "motorlog",
       "h1": "Free Printable Mileage Log (PDF)",
