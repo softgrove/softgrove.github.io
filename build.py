@@ -254,12 +254,12 @@ def app_page(key):
     a = DATA["apps"][key]; d = DESCS[a["asc"]]; p = PARSED[a["asc"]]
     name, sub = a["name"], d["subtitle"]
     feats = "".join(f'<li><span class="fm" style="background:{a["accent"]}"></span>{esc(f)}</li>' for f in p["feats"])
-    if a.get("onetime"):
+    if pricing := a.get("pricing"):
         price_html = ('<div class="price"><div><strong>Free — no piece limit</strong>'
                       '<p>Plan any size project free: the optimizer, the cut diagram, the ordered cut steps, and sheet-image sharing. No account, no trial clock.</p></div>'
-                      '<div><strong>Full version — $12.99, once</strong>'
-                      '<p>One-time purchase to export vector PDF plans and CSV parts lists, and save offcuts as stock. Works fully offline, all future updates included.</p></div></div>')
-        price_note = "Free with no piece limit; PDF/CSV export $12.99 one-time purchase"
+                      f'<div><strong>Pro — {esc(pricing["weekly"])} or {esc(pricing["lifetime"])} lifetime</strong>'
+                      f'<p>{esc(pricing["trial"]).capitalize()} for eligible customers. Pro adds vector PDF and CSV export plus offcut stock. The weekly subscription renews automatically unless canceled.</p></div></div>')
+        price_note = f'Free with no piece limit; Pro {pricing["weekly"]} or {pricing["lifetime"]} lifetime, with a {pricing["trial"]} for eligible customers'
     elif p["monthly"]:
         price_html = (f'<div class="price"><div><strong>Free</strong><p>{esc(p["free"])}</p></div>'
                       f'<div><strong>Premium — ${p["monthly"]}/mo or ${p["yearly"]}/yr</strong>'
@@ -270,7 +270,7 @@ def app_page(key):
         price_note = "Free"
     faqs = [(f"Is {name} free?",
              (f"The core app is free, with no account needed. {p['free'].rstrip('.')}. Premium (${p['monthly']}/month or ${p['yearly']}/year after a 7-day trial) adds the analysis features." if p["monthly"] else
-              "Every project is free to plan, with no piece limit, no account, and no trial clock. Exporting a PDF or CSV plan is a one-time $12.99 purchase." if a.get("onetime") else "Yes.")),
+              f'Every project is free to plan, with no piece limit, no account, and no trial clock. Pro adds PDF and CSV export plus offcut stock. Choose {pricing["weekly"]} or a {pricing["lifetime"]} lifetime unlock; eligible customers receive a {pricing["trial"]}.' if pricing else "Yes.")),
             ("Where is my data stored?",
              f"On your iPhone, and nowhere else. {name} never uploads, syncs, shares, or sells your data — there is no account and no cloud backend."),
             (f"Does {name} require an account?",
@@ -504,7 +504,8 @@ def llms_txt(paths):
     for sh in DATA["shelves"]:
         for k in sh["apps"]:
             a = DATA["apps"][k]; p = PARSED[a["asc"]]; d = DESCS[a["asc"]]
-            price = "free with no piece limit; PDF/CSV export $12.99 one-time" if a.get("onetime") else (
+            pricing = a.get("pricing")
+            price = f'free with no piece limit; Pro {pricing["weekly"]} or {pricing["lifetime"]} lifetime, with a {pricing["trial"]} for eligible customers' if pricing else (
                 f"free core; Premium ${p['monthly']}/mo or ${p['yearly']}/yr" if p["monthly"] else "free")
             lines.append(f"- [{a['name']}]({ORIGIN}/apps/{k}/): {d['subtitle']} — {a['catLabel']}; {price}. App Store id{a['id']}.")
     lines += ["", "## Free printable templates (PDF, no sign-up)"]

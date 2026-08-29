@@ -199,10 +199,14 @@
       "deep": "#3F3B35",
       "category": "UtilitiesApplication",
       "catLabel": "Cut list optimizer",
-      "onetime": true,
+      "pricing": {
+        "lifetime": "$12.99",
+        "weekly": "$1.99/week",
+        "trial": "3-day free trial"
+      },
       "spineLabel": "Cut lists",
       "seoTitle": "Boardcut — Cut List Optimizer for Plywood & Boards",
-      "seoDesc": "Turn a parts list into an optimized cutting diagram on iPhone. Fraction keypad, grain-aware layouts, offline. Plan free with no piece limit; PDF/CSV export $12.99 once.",
+      "seoDesc": "Turn a parts list into an optimized cutting diagram on iPhone. Fraction keypad, grain-aware layouts, offline. Plan free with no piece limit; choose weekly Pro or a $12.99 lifetime unlock for exports and offcut stock.",
       "template": "cut-list-template"
     }
   },
@@ -1826,7 +1830,7 @@
         ],
         [
           "Is there an app version?",
-          "Yes — Boardcut for iPhone optimizes your cut list into a cutting diagram that minimizes waste. Planning is free with no piece limit; exporting a PDF or CSV unlocks for $12.99 once."
+          "Yes — Boardcut for iPhone optimizes your cut list into a cutting diagram that minimizes waste. Planning is free with no piece limit. Pro is available as a $12.99 lifetime unlock or a $1.99/week subscription; eligible customers receive a 3-day free trial."
         ]
       ],
       "pdf_fields": [
@@ -1889,7 +1893,7 @@
         ],
         [
           "Is there an app version?",
-          "Yes — Boardcut for iPhone takes your parts list and computes an optimized cut diagram. Planning is free with no piece limit; exporting a PDF or CSV unlocks for $12.99 once."
+          "Yes — Boardcut for iPhone takes your parts list and computes an optimized cut diagram. Planning is free with no piece limit. Pro is available as a $12.99 lifetime unlock or a $1.99/week subscription; eligible customers receive a 3-day free trial."
         ]
       ],
       "pdf_fields": [
@@ -1952,7 +1956,7 @@
         ],
         [
           "Is there an app version?",
-          "Yes — Boardcut for iPhone optimizes your cut list into a cutting diagram that minimizes waste. Planning is free with no piece limit; exporting a PDF or CSV unlocks for $12.99 once."
+          "Yes — Boardcut for iPhone optimizes your cut list into a cutting diagram that minimizes waste. Planning is free with no piece limit. Pro is available as a $12.99 lifetime unlock or a $1.99/week subscription; eligible customers receive a 3-day free trial."
         ]
       ],
       "pdf_fields": [
