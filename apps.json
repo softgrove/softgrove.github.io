@@ -202,7 +202,7 @@
       "onetime": true,
       "spineLabel": "Cut lists",
       "seoTitle": "Boardcut — Cut List Optimizer for Plywood & Boards",
-      "seoDesc": "Turn a parts list into an optimized cutting diagram on iPhone. Fraction keypad, grain-aware layouts, offline. Free up to 10 pieces; $12.99 once.",
+      "seoDesc": "Turn a parts list into an optimized cutting diagram on iPhone. Fraction keypad, grain-aware layouts, offline. Plan free with no piece limit; PDF/CSV export $12.99 once.",
       "template": "cut-list-template"
     }
   },
@@ -1826,7 +1826,7 @@
         ],
         [
           "Is there an app version?",
-          "Yes — Boardcut for iPhone optimizes your cut list into a cutting diagram that minimizes waste. Free up to 10 pieces; the full version is $12.99 once, with no subscription."
+          "Yes — Boardcut for iPhone optimizes your cut list into a cutting diagram that minimizes waste. Planning is free with no piece limit; exporting a PDF or CSV unlocks for $12.99 once."
         ]
       ],
       "pdf_fields": [
@@ -1889,7 +1889,7 @@
         ],
         [
           "Is there an app version?",
-          "Yes — Boardcut for iPhone takes your parts list and computes an optimized cut diagram. Free up to 10 pieces; full version $12.99 once, no subscription."
+          "Yes — Boardcut for iPhone takes your parts list and computes an optimized cut diagram. Planning is free with no piece limit; exporting a PDF or CSV unlocks for $12.99 once."
         ]
       ],
       "pdf_fields": [
@@ -1952,7 +1952,7 @@
         ],
         [
           "Is there an app version?",
-          "Yes — Boardcut for iPhone optimizes your cut list into a cutting diagram that minimizes waste. Free up to 10 pieces; the full version is $12.99 once, with no subscription."
+          "Yes — Boardcut for iPhone optimizes your cut list into a cutting diagram that minimizes waste. Planning is free with no piece limit; exporting a PDF or CSV unlocks for $12.99 once."
         ]
       ],
       "pdf_fields": [

@@ -15,7 +15,7 @@
 - [MotorLog](https://softgrove.github.io/apps/motorlog/): Mileage, service & gas log — Car & fuel log; free core; Premium $6.99/mo or $39.99/yr. App Store id6781159313.
 - [ReadLog](https://softgrove.github.io/apps/readlog/): Track every book you read — Reading journal; free core; Premium $6.99/mo or $39.99/yr. App Store id6781130239.
 - [Coralog](https://softgrove.github.io/apps/coralog/): Reef tank & dosing tracker — Reef tank tracker; free core; Premium $6.99/mo or $39.99/yr. App Store id6786378477.
-- [Boardcut](https://softgrove.github.io/apps/boardcut/): Plywood & sheet cut calculator — Cut list optimizer; free up to 10 pieces; full version $12.99 one-time. App Store id6787905177.
+- [Boardcut](https://softgrove.github.io/apps/boardcut/): Plywood & sheet cut calculator — Cut list optimizer; free with no piece limit; PDF/CSV export $12.99 one-time. App Store id6787905177.
 
 ## Free printable templates (PDF, no sign-up)
 - [Free Printable Eczema Tracker (PDF)](https://softgrove.github.io/templates/eczema-tracker-printable/): A free one-page printable eczema tracker. Log daily flares, itch severity, affected areas, and possible triggers — then bring a concrete record to your dermatologist.

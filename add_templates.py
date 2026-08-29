@@ -426,7 +426,7 @@ new_templates = {
             ["Is this template really free?", "Yes. The PDF is free to download and print — no sign-up, no email."],
             ["Do I need a cut list for small projects?", "For anything with more than four or five parts, a written cut list pays for itself the first time it prevents a measuring mistake. It also lets you calculate how many sheets of plywood you need before buying."],
             ["How do I decide grain direction?", "On structural pieces hidden from view, grain direction doesn't matter much. On visible faces — cabinet doors, tabletops, drawer fronts — grain direction affects both appearance and, in solid wood, expansion and contraction across the grain. The general rule: run grain along the long dimension for panels."],
-            ["Is there an app version?", "Yes — Boardcut for iPhone optimizes your cut list into a cutting diagram that minimizes waste. Free up to 10 pieces; the full version is $12.99 once, with no subscription."]
+            ["Is there an app version?", "Yes — Boardcut for iPhone optimizes your cut list into a cutting diagram that minimizes waste. Planning is free with no piece limit; exporting a PDF or CSV unlocks for $12.99 once."]
         ],
         "pdf_fields": ["Project name", "Date"]
     },
@@ -450,7 +450,7 @@ new_templates = {
             ["Is this template really free?", "Yes. The PDF is free to download and print — no sign-up, no email."],
             ["Why hand-sketch a layout when software can do it?", "For small projects, drawing it takes two minutes. The value isn't precision — it's the moment when you realize your original plan wastes an entire strip that could yield two more parts. A pencil catches this in seconds."],
             ["What's the grid scale?", "The grid is for rough proportional sketching only — it's not to exact scale. If you need a precise nested layout, the Boardcut app computes the optimal arrangement and shows you exactly where to mark each cut."],
-            ["Is there an app version?", "Yes — Boardcut for iPhone takes your parts list and computes an optimized cut diagram. Free up to 10 pieces; full version $12.99 once, no subscription."]
+            ["Is there an app version?", "Yes — Boardcut for iPhone takes your parts list and computes an optimized cut diagram. Planning is free with no piece limit; exporting a PDF or CSV unlocks for $12.99 once."]
         ],
         "pdf_fields": ["Project name", "Sheet material & size"]
     },
