@@ -210,6 +210,288 @@
       "template": "cut-list-template"
     }
   },
+  "guides": {
+    "cut-list-optimizer": {
+      "app": "boardcut",
+      "keyword": "cut list optimizer",
+      "h1": "How to Use a Cut List Optimizer Without Trusting It Blindly",
+      "title": "Cut List Optimizer Guide: Kerf, Grain, Yield & Cut Order",
+      "desc": "A practical cut list optimizer guide for plywood and sheet goods: prepare clean inputs, account for kerf and grain, compare yield, and check that the cut order works in your shop.",
+      "lede": "A cut list optimizer can save a sheet on one job and hand you an awkward plan on the next. The useful skill is not pressing Optimize. It is giving the tool honest constraints, then checking whether its answer can actually be cut.",
+      "answer": "Enter finished part sizes, quantities, real stock dimensions, measured blade kerf, edge trim, and grain constraints. Compare layouts by sheet count first, then by usable offcuts and cut complexity. Before buying material, verify every dimension and walk through the cut sequence from full sheet to finished parts.",
+      "sections": [
+        {
+          "h2": "Clean the parts list before optimizing",
+          "body": [
+            "Use finished dimensions, not rough guesses. Give every part a short, unique name such as Left side, Shelf 01, or Toe kick. If two parts have the same size but different grain or edge requirements, keep them as separate rows. That makes the diagram readable at the saw and prevents a visually identical part from being used in the wrong place.",
+            "Group stock by material, thickness, and face appearance. A 3/4-inch birch panel and a 3/4-inch paint-grade panel are not interchangeable just because their dimensions match. Enter the sheet you can actually buy or the offcut you actually measured; nominal sizes and damaged factory edges can make a mathematically valid layout useless."
+          ],
+          "bullets": [
+            "Finished width and length for every part",
+            "Quantity and an unambiguous part label",
+            "Material and thickness as separate stock groups",
+            "Grain locked only where orientation matters",
+            "Measured kerf and any edge-trim allowance",
+            "Minimum offcut size you would genuinely keep"
+          ]
+        },
+        {
+          "h2": "Treat sheet count, yield, and cut order as different questions",
+          "body": [
+            "The fewest sheets is a purchasing goal. High yield is a material-use goal. A short, repeatable sequence is a shop goal. They often point in the same direction, but not always. A tightly packed layout can contain many one-off setups, trapped pieces, or partial cuts that are slow and error-prone on a table saw.",
+            "Start by rejecting layouts that require more sheets than a practical alternative. Among the remaining options, look for large rectangular offcuts rather than a higher percentage made from narrow scraps. Then inspect the numbered steps: long rips that break a full sheet into manageable strips are usually easier to follow than a patchwork of unrelated cuts. If the most efficient plan is fussy, reshuffle and accept a small yield loss for a clearer sequence."
+          ],
+          "note_title": "A useful comparison order",
+          "note": "1) sheets to buy  →  2) executable cut sequence  →  3) reusable offcuts  →  4) reported yield"
+        },
+        {
+          "h2": "Check kerf, grain, and edge trim before the first cut",
+          "body": [
+            "Kerf is material removed by the cut. Do not assume the number printed on a blade package is the exact result in your setup. Make a test cut in scrap, bring the two pieces together, and compare their combined width with the original. Use the measured loss as the planning value.",
+            "Grain lock is not a global on/off switch. Cabinet sides and visible doors may need consistent face-grain direction; hidden stretchers may not. Locking every part can force an extra sheet, while rotating a visible part can create a result you would never build. Edge trim deserves the same honesty: reserve it when a sheet edge is chipped, bowed, or must be squared, and leave it at zero only when the edge is truly usable."
+          ]
+        },
+        {
+          "h2": "Run a two-minute pre-cut audit",
+          "body": [
+            "Count the parts in the diagram and compare each quantity with the source list. Confirm units, material, thickness, and grain arrows. Check that no finished dimension includes the kerf by mistake. Follow the sequence with a finger and ask where each panel will be supported after every cut. Finally, mark the parts as they come off the saw rather than relying on memory.",
+            "An optimizer is a planning calculator, not a measurement authority or a tool-use guide. Sheet sizes, blade behavior, and shop setups vary. The final check belongs against the material in front of you and the instructions for the tools you use."
+          ]
+        }
+      ],
+      "faq": [
+        [
+          "Does a cut list optimizer guarantee the fewest possible sheets?",
+          "Not necessarily. Most practical tools use heuristics: they search for a good layout quickly rather than proving a mathematical optimum. Use sheet count and yield as planning estimates, then compare alternate layouts."
+        ],
+        [
+          "Should I optimize plywood and solid lumber together?",
+          "Keep different stock types separate. Sheet goods are a two-dimensional layout problem; boards are usually a one-dimensional length problem. Mixing materials or thicknesses can make the totals meaningless."
+        ],
+        [
+          "Is the layout with the highest yield always best?",
+          "No. A slightly lower-yield plan can be better if it uses fewer setups, produces larger reusable offcuts, or gives you a cut order that is easier to execute accurately."
+        ]
+      ],
+      "source": {
+        "community": "r/woodworking",
+        "title": "Cut list (layout cuts)",
+        "url": "https://www.reddit.com/r/woodworking/comments/1fm5q0b/cut_list_layout_cuts/",
+        "quote": "determine the quantity of plywood sheets required and find a method to optimize the layout"
+      }
+    },
+    "sheet-goods-cutting-layout": {
+      "app": "boardcut",
+      "keyword": "sheet goods cutting layout",
+      "h1": "Plan a Sheet Goods Cutting Layout You Can Actually Follow",
+      "title": "Sheet Goods Cutting Layout: A Practical Plywood Workflow",
+      "desc": "Plan a workable sheet goods cutting layout for plywood, MDF, and melamine. Learn strip planning, kerf allowance, grain control, cut sequencing, and offcut decisions.",
+      "lede": "A compact nesting diagram is not automatically a good shop plan. The best layout fits the parts, respects the face and grain, and breaks a heavy sheet into safe, traceable stages without turning every cut into a new setup.",
+      "answer": "Start with full-length cuts that divide the sheet into manageable strips, then crosscut parts from each strip. Leave room for every saw kerf and any edge trim, keep grain-sensitive parts oriented consistently, and label each part as soon as it is cut. Prefer a repeatable sequence over a few extra points of theoretical yield.",
+      "sections": [
+        {
+          "h2": "Build the layout from strips, not isolated rectangles",
+          "body": [
+            "For a manual layout, draw the sheet to scale and mark the unusable border first. Group parts that share one dimension so a single rip can create a strip for several pieces. Crosscut the strip into final lengths afterward. This produces through-cuts that are easier to measure and repeat than a jigsaw of stopped cuts.",
+            "Label both the drawing and the cut list with the same part names. Add quantity ticks beside repeated parts and cross them off only after the finished piece is measured. If a part will be trimmed to final size later, write the rough dimension explicitly; do not rely on a mental allowance."
+          ],
+          "bullets": [
+            "Outline the actual sheet and reserve damaged or trimmed edges",
+            "Draw long rip lines that create useful strips",
+            "Nest repeated widths or lengths within the same strip",
+            "Add crosscuts and count the required kerfs",
+            "Number the cuts and label the resulting parts",
+            "Circle offcuts large enough for a named future use"
+          ]
+        },
+        {
+          "h2": "Kerf turns an exact fit into an impossible fit",
+          "body": [
+            "Every separating cut consumes material. Three nominal 16-inch strips total exactly 48 inches, but two 1/8-inch separating kerfs make the plan require 48 1/4 inches before any edge trim. The arithmetic looked perfect because it treated the blade as having no width.",
+            "For a simple run of equal parts, the occupied distance is the sum of the part widths plus kerf multiplied by the number of separating cuts. A layout tool handles this across the whole diagram, but the same check is worth doing on any tight row. Measure the kerf on your setup and verify whether a shared cut or final trim changes the count."
+          ],
+          "note_title": "Tight-row check",
+          "note": "occupied distance = sum of part widths + kerf × separating cuts + reserved edge trim"
+        },
+        {
+          "h2": "Make the order match the saw and the space",
+          "body": [
+            "A table saw, track saw, and panel saw do not impose the same constraints. Before accepting the layout, trace how the full sheet becomes smaller pieces. Confirm that each stage has a stable reference edge and enough support. If a plan depends on stopping in the middle of a panel or handling a narrow trapped piece, choose another arrangement or change the breakdown method.",
+            "Repeated setups are another hidden cost. If six shelves share a width, rip their strip once and crosscut all six before moving the fence. A plan that saves a sliver of plywood but requires constant fence changes may cost more in time and increase the chance of a measuring error."
+          ]
+        },
+        {
+          "h2": "Plan around grain, faces, defects, and useful leftovers",
+          "body": [
+            "Mark a face side and grain arrow on every visible part before rotating anything in the drawing. With veneered plywood, two rectangles that fit equally well may not be equivalent once the face grain is considered. Also map knots, voids, chipped corners, or a factory label that must stay out of a visible panel.",
+            "Do not judge leftovers only by area. A single 12-by-48-inch strip may be useful shelving stock; the same area divided into narrow shapes may go straight to scrap. Give reusable offcuts dimensions and names, then store them where the next project can find them."
+          ]
+        }
+      ],
+      "faq": [
+        [
+          "What is a guillotine cut layout?",
+          "It is a layout that can be separated by straight cuts running all the way across the current rectangular piece. That structure is often easier to execute with common sheet-goods tools than a tightly nested plan with trapped parts."
+        ],
+        [
+          "How much kerf should I add to a plywood layout?",
+          "Use a measured value from the blade and setup you will use. A nominal blade width is a starting point, not a substitute for a test cut when the layout is tight."
+        ],
+        [
+          "Should all plywood parts keep the same grain direction?",
+          "Only when the project requires it. Lock visible or structurally directional parts, and allow rotation for parts where orientation truly does not matter."
+        ]
+      ],
+      "source": {
+        "community": "r/woodworking",
+        "title": "Cutlist Optimization Question",
+        "url": "https://www.reddit.com/r/woodworking/comments/1amh9sb/cutlist_optimization_question/",
+        "quote": "the number of different cut schemes is headache inducing"
+      }
+    },
+    "plywood-cut-calculator": {
+      "app": "boardcut",
+      "keyword": "plywood cut calculator",
+      "h1": "Plywood Cut Calculator: Estimate Sheets Without the Area Trap",
+      "title": "Plywood Cut Calculator: Sheet Count, Kerf & Yield Explained",
+      "desc": "Estimate plywood sheet count from a parts list, then correct the estimate for geometry, kerf, edge trim, grain direction, defects, and reusable offcuts.",
+      "lede": "Dividing total part area by 32 square feet gives a lower bound for 4×8 plywood, not a purchase quantity. Parts are rectangles, sheets have edges and defects, and saw cuts remove material. A reliable estimate needs a layout.",
+      "answer": "Add the finished area of every part, divide by the usable area of one sheet, and round up for an optimistic lower bound. Then place the actual rectangles with kerf, trim, grain, and stock constraints. The resulting layout—not the area ratio—determines how many sheets to buy.",
+      "sections": [
+        {
+          "h2": "Calculate the optimistic lower bound",
+          "body": [
+            "For each line in the parts list, multiply width by length by quantity. Add those part areas. Next, find the usable sheet area after any edge trim. Divide total part area by usable sheet area and round up. This is the fewest sheets the job could use if geometry caused no loss.",
+            "Keep units consistent. A 48-by-96-inch sheet has 4,608 square inches. A 1,220-by-2,440-millimeter sheet has 2,976,800 square millimeters. Do not mix nominal feet with part dimensions in inches, and do not use square feet if the cut list is in millimeters."
+          ],
+          "note_title": "Lower-bound formula",
+          "note": "minimum by area = ceiling(total finished-part area ÷ usable area per sheet)"
+        },
+        {
+          "h2": "See why area alone can be wrong",
+          "body": [
+            "Imagine five parts measuring 49 by 20 inches and stock measuring 48 by 96 inches. The parts total 4,900 square inches, so area says two sheets might be enough. Rotate the parts and each becomes 20 by 49 inches. Only two fit across a sheet and only one row fits along its length, so each sheet holds two parts. The job needs three sheets even before kerf and edge trim.",
+            "Grain direction can create the same effect. A part that fits only when rotated may be unusable if its face grain must run the other way. This is why a plywood calculator needs a two-dimensional layout rather than only an area total."
+          ]
+        },
+        {
+          "h2": "Use the sheet you will actually receive",
+          "body": [
+            "Measure offcuts and salvaged panels individually. For new stock, confirm the dimensions sold by your supplier and inspect the edges. Reserve trim for a rough, chipped, or out-of-square border. Keep different thicknesses and materials in separate calculations; their areas cannot substitute for one another.",
+            "Add kerf using the blade and setup planned for the job. A layout that has no clearance between parts assumes a zero-width cut. When dimensions are tight, a small change in kerf or trim can move one part to another sheet."
+          ],
+          "bullets": [
+            "Actual sheet width, length, material, and thickness",
+            "Finished part dimensions and quantities",
+            "Measured kerf and edge-trim allowance",
+            "Grain locks for visible parts",
+            "Known defects or areas you cannot use",
+            "Offcuts already on hand before buying new sheets"
+          ]
+        },
+        {
+          "h2": "Read yield as a diagnostic, not a promise",
+          "body": [
+            "Gross yield is total finished-part area divided by the total area of sheets used. It helps compare two plans built from the same stock assumptions. It does not tell you whether the scraps are reusable, whether the sequence works on your saw, or whether every dimension survived the cut.",
+            "Use the final layout to make the shopping decision, then keep one contingency sheet only when the project risk justifies it—expensive matched veneer, uncertain defects, or a deadline with no easy return trip. Do not hide that contingency inside the calculator result; list it separately so the plan remains auditable."
+          ],
+          "note_title": "Yield formula",
+          "note": "gross yield (%) = finished-part area ÷ total purchased sheet area × 100"
+        }
+      ],
+      "faq": [
+        [
+          "How many square feet are in a 4×8 sheet of plywood?",
+          "A nominal 4×8 sheet has 32 square feet, or 4,608 square inches. Use the actual dimensions and usable edges of the stock you will cut."
+        ],
+        [
+          "Can I estimate sheets by adding 10% waste?",
+          "A percentage is useful for an early budget, but it cannot detect geometric conflicts or grain restrictions. Place the real parts before buying material."
+        ],
+        [
+          "Does kerf count as waste in plywood yield?",
+          "Kerf is consumed material, so it reduces what can become finished parts. Whether a tool reports it separately or inside waste, it must be included in the layout."
+        ]
+      ],
+      "source": {
+        "community": "r/woodworking",
+        "title": "Software to plan plywood cuts",
+        "url": "https://www.reddit.com/r/woodworking/comments/vdesw6/software_to_plan_plywood_cuts/",
+        "quote": "plan the cuts onto a piece of 4x8 plywood to ensure i waste as little material as possible"
+      }
+    },
+    "cut-list-spreadsheet": {
+      "app": "boardcut",
+      "keyword": "cut list spreadsheet",
+      "h1": "Build a Cut List Spreadsheet That Is Ready for the Saw",
+      "title": "Cut List Spreadsheet: Columns, Formulas & Layout Handoff",
+      "desc": "Set up a woodworking cut list spreadsheet with clean part IDs, finished dimensions, quantity, material, grain, kerf notes, and a reliable handoff to sheet layout.",
+      "lede": "A spreadsheet is excellent for controlling the source list: names, dimensions, quantities, materials, and revisions. It becomes fragile when it is also asked to behave like a two-dimensional nesting tool. Keep the list clean, then hand its rectangles to a layout step.",
+      "answer": "Use one row per distinct part and columns for part ID, finished width, finished length, quantity, material, thickness, grain lock, and notes. Validate units and duplicate IDs, calculate total finished area for budgeting, then use a diagram or optimizer for sheet count, kerf, and cut order.",
+      "sections": [
+        {
+          "h2": "Use one row for one manufacturing decision",
+          "body": [
+            "Combine parts only when their finished size, material, thickness, grain direction, and treatment are identical. Two cabinet sides can share a row; a left side with a finished face and a hidden stretcher of the same size usually should not. The purpose of the ID is to survive the trip from design to spreadsheet to diagram to physical part.",
+            "Choose one unit for the workbook. If you work in fractional inches, keep a machine-readable decimal or numeric value behind the displayed fraction. Text such as 24 3/8 cannot be sorted or multiplied reliably unless the sheet converts it. Millimeter users should still label the unit in the header rather than relying on memory."
+          ],
+          "bullets": [
+            "Part ID and plain-English name",
+            "Finished width, finished length, and quantity",
+            "Material and thickness",
+            "Grain lock or allowed rotation",
+            "Finished-face or edge-banding notes",
+            "Project revision and cut status"
+          ]
+        },
+        {
+          "h2": "Let formulas catch list errors",
+          "body": [
+            "Use data validation to block blank quantities, zero dimensions, and mixed units. Flag duplicate part IDs with conditional formatting. Calculate line area as width multiplied by length multiplied by quantity, then total it by material and thickness. Those totals are useful for budgeting and for spotting an extra zero before it becomes a purchasing mistake.",
+            "A spreadsheet can also compare the total part area with stock area, but label that result as a lower bound. It cannot infer whether the rectangles fit, how many kerfs occur, whether grain permits rotation, or whether a table-saw sequence is practical without a much more complex model."
+          ],
+          "note_title": "Useful formulas",
+          "note": "line area = width × length × quantity  |  lower-bound sheets = ceiling(total part area ÷ usable sheet area)"
+        },
+        {
+          "h2": "Separate finished dimensions from cutting allowances",
+          "body": [
+            "The source list should state what the part must be when complete. Put rough-cut allowance, edge banding, or final-trim instructions in dedicated fields rather than quietly adding them to the finished dimension. Otherwise the next person—or you two weeks later—cannot tell whether a number is intentional.",
+            "Saw kerf belongs to the layout between parts, not inside every finished part dimension. Edge trim belongs to the stock definition. Keeping those concepts separate prevents double-counting when the spreadsheet is transferred to a diagram or an optimizer."
+          ]
+        },
+        {
+          "h2": "Create a clean handoff to the layout",
+          "body": [
+            "Freeze the revision before laying out sheets. Filter by one material and thickness, then transfer part ID, width, length, quantity, and grain constraint. Add the actual stock sizes and measured kerf in the layout tool. After the diagram is approved, write its sheet number and cut status back to the spreadsheet rather than editing dimensions in two places.",
+            "Print or export a shop copy with large part IDs and checkboxes. Label each physical part as it is cut. If a dimension changes, revise the source row, increment the revision, and regenerate the layout; manually patching the diagram leaves two competing versions of the truth."
+          ],
+          "note_title": "Source-of-truth rule",
+          "note": "edit dimensions in the spreadsheet → regenerate the layout → replace the old shop copy"
+        }
+      ],
+      "faq": [
+        [
+          "Can Excel or Google Sheets optimize a plywood layout?",
+          "They can store the cut list and calculate areas well. Two-dimensional nesting with kerf, rotation, grain, and cut order needs a dedicated model or tool; an area formula alone is not enough."
+        ],
+        [
+          "Should the spreadsheet dimensions include saw kerf?",
+          "No. Keep finished part dimensions clean and apply kerf between parts in the layout. This avoids oversize parts and double-counted allowances."
+        ],
+        [
+          "What is the most important cut list column?",
+          "A stable, unique part ID. It connects the design, dimensions, diagram, labels, and cut status when several parts share similar sizes."
+        ]
+      ],
+      "source": {
+        "community": "r/woodworking",
+        "title": "What do folks use to plan builds, cut lists, buy lists?",
+        "url": "https://www.reddit.com/r/woodworking/comments/1qsa1t1/what_do_folks_use_to_plan_builds_cut_lists_buy/",
+        "quote": "Then I transpose them into an excel spreadsheet, where I identify the part, how many are needed"
+      }
+    }
+  },
   "templates": {
     "eczema-tracker-printable": {
       "app": "skinote",

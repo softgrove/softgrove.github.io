@@ -50,6 +50,12 @@
 - [Free Printable Mileage Log (PDF)](https://softgrove.github.io/templates/mileage-log-printable/): A free one-page printable mileage log. Record every business trip with date, destination, miles, and purpose — the IRS-compliant format needed to claim the standard mileage deduction.
 - [Free Printable Chronic Pain Log (PDF)](https://softgrove.github.io/templates/chronic-pain-log/): A free one-page printable chronic pain log. Record daily pain location, severity, duration, and factors for any chronic pain condition — a dated record gives your doctor and pain management team real data to work with.
 
+## Woodworking cutting guides
+- [How to Use a Cut List Optimizer Without Trusting It Blindly](https://softgrove.github.io/guides/cut-list-optimizer/): A practical cut list optimizer guide for plywood and sheet goods: prepare clean inputs, account for kerf and grain, compare yield, and check that the cut order works in your shop.
+- [Plan a Sheet Goods Cutting Layout You Can Actually Follow](https://softgrove.github.io/guides/sheet-goods-cutting-layout/): Plan a workable sheet goods cutting layout for plywood, MDF, and melamine. Learn strip planning, kerf allowance, grain control, cut sequencing, and offcut decisions.
+- [Plywood Cut Calculator: Estimate Sheets Without the Area Trap](https://softgrove.github.io/guides/plywood-cut-calculator/): Estimate plywood sheet count from a parts list, then correct the estimate for geometry, kerf, edge trim, grain direction, defects, and reusable offcuts.
+- [Build a Cut List Spreadsheet That Is Ready for the Saw](https://softgrove.github.io/guides/cut-list-spreadsheet/): Set up a woodworking cut list spreadsheet with clean part IDs, finished dimensions, quantity, material, grain, kerf notes, and a reliable handoff to sheet layout.
+
 ## Facts
 - All apps are iPhone (iOS). Data is stored on-device only; no account exists.
 - Health apps are journaling tools, not medical devices; they do not give medical advice.

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cut List Spreadsheet: Columns, Formulas &amp; Layout Handoff</title>
+<meta name="description" content="Set up a woodworking cut list spreadsheet with clean part IDs, finished dimensions, quantity, material, grain, kerf notes, and a reliable handoff to sheet layout.">
+<link rel="canonical" href="https://softgrove.github.io/guides/cut-list-spreadsheet/">
+<meta property="og:title" content="Cut List Spreadsheet: Columns, Formulas &amp; Layout Handoff">
+<meta property="og:description" content="Set up a woodworking cut list spreadsheet with clean part IDs, finished dimensions, quantity, material, grain, kerf notes, and a reliable handoff to sheet layout.">
+<meta property="og:url" content="https://softgrove.github.io/guides/cut-list-spreadsheet/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://softgrove.github.io/og/apps-boardcut.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet"></noscript><meta name="apple-itunes-app" content="app-id=6787905177">
+<style>
+:root{--paper:#FBFAF7;--ink:#2C282C;--muted:#6E6870;--line:#E7E2D9;--teal:#3E8E8C}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.serif{font-family:"Newsreader",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+header.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px;padding-bottom:18px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;letter-spacing:-.01em}
+.wordmark b{color:var(--teal);font-weight:600}
+nav.top a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px}
+nav.top a:hover{color:var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;padding:13px 26px;border-radius:8px}
+.btn:hover{opacity:.88}
+.badge-store{display:inline-flex;align-items:center;gap:9px;background:#000;color:#fff;text-decoration:none;border-radius:9px;padding:9px 18px 9px 14px;line-height:1.15}
+.badge-store svg{width:22px;height:26px;flex:none}
+.badge-store small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.badge-store span{font-size:17px;font-weight:600;letter-spacing:.01em}
+footer{border-top:1px solid var(--line);margin-top:96px}
+footer .wrap{padding:34px 24px 46px;display:flex;flex-wrap:wrap;gap:10px 34px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4d4850;max-width:62ch}
+@media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Build a Cut List Spreadsheet That Is Ready for the Saw", "description": "Set up a woodworking cut list spreadsheet with clean part IDs, finished dimensions, quantity, material, grain, kerf notes, and a reliable handoff to sheet layout.", "mainEntityOfPage": "https://softgrove.github.io/guides/cut-list-spreadsheet/", "author": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}, "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can Excel or Google Sheets optimize a plywood layout?", "acceptedAnswer": {"@type": "Answer", "text": "They can store the cut list and calculate areas well. Two-dimensional nesting with kerf, rotation, grain, and cut order needs a dedicated model or tool; an area formula alone is not enough."}}, {"@type": "Question", "name": "Should the spreadsheet dimensions include saw kerf?", "acceptedAnswer": {"@type": "Answer", "text": "No. Keep finished part dimensions clean and apply kerf between parts in the layout. This avoids oversize parts and double-counted allowances."}}, {"@type": "Question", "name": "What is the most important cut list column?", "acceptedAnswer": {"@type": "Answer", "text": "A stable, unique part ID. It connects the design, dimensions, diagram, labels, and cut status when several parts share similar sizes."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Softgrove", "item": "https://softgrove.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Boardcut", "item": "https://softgrove.github.io/apps/boardcut/"}, {"@type": "ListItem", "position": 3, "name": "Build a Cut List Spreadsheet That Is Ready for the Saw"}]}]}</script>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<a class="wordmark" href="/">softgrove<b>.</b></a>
+<nav class="top"><a href="/#apps">Apps</a><a href="/templates/">Free templates</a></nav>
+</div></header>
+
+<style>
+article.wrap{width:100%;max-width:780px}
+.guide-hero{padding:64px 0 20px}
+.guide-hero h1{font-size:clamp(36px,5.8vw,56px);max-width:18ch}
+.guide-hero .lede{font-size:19px;color:#4d4850;margin-top:20px;max-width:62ch}
+.answer{border:1px solid var(--line);border-left:3px solid #C4572A;background:#fff;border-radius:0 10px 10px 0;padding:20px 24px;font-size:16.5px;margin-top:28px}
+article section{margin-top:56px}
+article section h2{font-size:30px;margin-bottom:18px}
+article section p{margin-top:14px;max-width:66ch}
+article section ul{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-width:64ch}
+.work-note{background:#F0EADC;border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:22px}
+.work-note strong{font-size:15px}
+.work-note p{margin-top:7px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14px;line-height:1.55}
+.field-note{margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+.field-note p{margin-top:8px;color:#4d4850}
+.field-note cite{font-style:normal}
+.field-note a{color:#C4572A;font-weight:600}
+.app-cta{margin-top:60px;background:#F0EADC;border:1px solid var(--line);border-radius:14px;padding:28px}
+.app-cta h2{font-size:28px}
+.app-cta p{margin-top:10px;max-width:62ch;color:#4d4850}
+.app-cta .cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px}
+.app-cta .terms{font-size:13px;color:var(--muted);max-width:44ch}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px}
+.related a{border:1px solid var(--line);background:#fff;border-radius:9px;padding:16px;text-decoration:none;display:flex;flex-direction:column;gap:6px}
+.related a:hover{border-color:#C4572A}
+.related strong{font-size:18px;line-height:1.2}
+.related span{font-size:12px;color:var(--muted)}
+</style>
+<article class="wrap">
+<header class="guide-hero">
+<p class="eyebrow">Workshop guide · cut list spreadsheet</p>
+<h1 class="serif">Build a Cut List Spreadsheet That Is Ready for the Saw</h1>
+<p class="lede">A spreadsheet is excellent for controlling the source list: names, dimensions, quantities, materials, and revisions. It becomes fragile when it is also asked to behave like a two-dimensional nesting tool. Keep the list clean, then hand its rectangles to a layout step.</p>
+<div class="answer">Use one row per distinct part and columns for part ID, finished width, finished length, quantity, material, thickness, grain lock, and notes. Validate units and duplicate IDs, calculate total finished area for budgeting, then use a diagram or optimizer for sheet count, kerf, and cut order.</div>
+</header>
+<section><h2 class="serif">Use one row for one manufacturing decision</h2><p>Combine parts only when their finished size, material, thickness, grain direction, and treatment are identical. Two cabinet sides can share a row; a left side with a finished face and a hidden stretcher of the same size usually should not. The purpose of the ID is to survive the trip from design to spreadsheet to diagram to physical part.</p><p>Choose one unit for the workbook. If you work in fractional inches, keep a machine-readable decimal or numeric value behind the displayed fraction. Text such as 24 3/8 cannot be sorted or multiplied reliably unless the sheet converts it. Millimeter users should still label the unit in the header rather than relying on memory.</p><ul><li>Part ID and plain-English name</li><li>Finished width, finished length, and quantity</li><li>Material and thickness</li><li>Grain lock or allowed rotation</li><li>Finished-face or edge-banding notes</li><li>Project revision and cut status</li></ul></section><section><h2 class="serif">Let formulas catch list errors</h2><p>Use data validation to block blank quantities, zero dimensions, and mixed units. Flag duplicate part IDs with conditional formatting. Calculate line area as width multiplied by length multiplied by quantity, then total it by material and thickness. Those totals are useful for budgeting and for spotting an extra zero before it becomes a purchasing mistake.</p><p>A spreadsheet can also compare the total part area with stock area, but label that result as a lower bound. It cannot infer whether the rectangles fit, how many kerfs occur, whether grain permits rotation, or whether a table-saw sequence is practical without a much more complex model.</p><div class="work-note"><strong>Useful formulas</strong><p>line area = width × length × quantity  |  lower-bound sheets = ceiling(total part area ÷ usable sheet area)</p></div></section><section><h2 class="serif">Separate finished dimensions from cutting allowances</h2><p>The source list should state what the part must be when complete. Put rough-cut allowance, edge banding, or final-trim instructions in dedicated fields rather than quietly adding them to the finished dimension. Otherwise the next person—or you two weeks later—cannot tell whether a number is intentional.</p><p>Saw kerf belongs to the layout between parts, not inside every finished part dimension. Edge trim belongs to the stock definition. Keeping those concepts separate prevents double-counting when the spreadsheet is transferred to a diagram or an optimizer.</p></section><section><h2 class="serif">Create a clean handoff to the layout</h2><p>Freeze the revision before laying out sheets. Filter by one material and thickness, then transfer part ID, width, length, quantity, and grain constraint. Add the actual stock sizes and measured kerf in the layout tool. After the diagram is approved, write its sheet number and cut status back to the spreadsheet rather than editing dimensions in two places.</p><p>Print or export a shop copy with large part IDs and checkboxes. Label each physical part as it is cut. If a dimension changes, revise the source row, increment the revision, and regenerate the layout; manually patching the diagram leaves two competing versions of the truth.</p><div class="work-note"><strong>Source-of-truth rule</strong><p>edit dimensions in the spreadsheet → regenerate the layout → replace the old shop copy</p></div></section>
+<aside class="field-note">
+<p class="eyebrow">Why this guide exists</p>
+<p>A woodworker described the problem this way: <q>Then I transpose them into an excel spreadsheet, where I identify the part, how many are needed</q></p>
+<p><cite>Source: <a href="https://www.reddit.com/r/woodworking/comments/1qsa1t1/what_do_folks_use_to_plan_builds_cut_lists_buy/">What do folks use to plan builds, cut lists, buy lists?</a> on r/woodworking</cite>. The quote is evidence of the workflow problem, not an endorsement of Boardcut.</p>
+</aside>
+<section><h2 class="serif">Questions</h2><details><summary>Can Excel or Google Sheets optimize a plywood layout?</summary><p>They can store the cut list and calculate areas well. Two-dimensional nesting with kerf, rotation, grain, and cut order needs a dedicated model or tool; an area formula alone is not enough.</p></details><details><summary>Should the spreadsheet dimensions include saw kerf?</summary><p>No. Keep finished part dimensions clean and apply kerf between parts in the layout. This avoids oversize parts and double-counted allowances.</p></details><details><summary>What is the most important cut list column?</summary><p>A stable, unique part ID. It connects the design, dimensions, diagram, labels, and cut status when several parts share similar sizes.</p></details></section>
+<aside class="app-cta">
+<h2 class="serif">When the layout stops being simple</h2>
+<p>Boardcut for iPhone turns a parts list and your available stock into a dimensioned cutting diagram. Planning has no piece limit and includes kerf, grain direction, yield, sheet count, and ordered cut steps.</p>
+<div class="cta-row"><a class="badge-store" href="https://apps.apple.com/app/id6787905177" aria-label="Download Boardcut on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a><p class="terms">Planning is free. Pro adds vector PDF and CSV export plus saved offcuts: $1.99/week or $12.99 lifetime. Eligible customers receive a 3-day free trial; the weekly subscription renews automatically unless canceled.</p></div>
+</aside>
+<section><h2 class="serif">Related cutting guides</h2><div class="related"><a href="/guides/cut-list-optimizer/"><strong class="serif">How to Use a Cut List Optimizer Without Trusting It Blindly</strong><span>cut list optimizer</span></a><a href="/guides/sheet-goods-cutting-layout/"><strong class="serif">Plan a Sheet Goods Cutting Layout You Can Actually Follow</strong><span>sheet goods cutting layout</span></a><a href="/guides/plywood-cut-calculator/"><strong class="serif">Plywood Cut Calculator: Estimate Sheets Without the Area Trap</strong><span>plywood cut calculator</span></a></div></section>
+</article>
+<footer><div class="wrap">
+<span>© 2026 Softgrove — an independent app studio.</span>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
+<a href="/llms.txt">llms.txt</a>
+</div></footer>
+</body></html>

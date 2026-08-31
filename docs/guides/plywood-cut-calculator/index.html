@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plywood Cut Calculator: Sheet Count, Kerf &amp; Yield Explained</title>
+<meta name="description" content="Estimate plywood sheet count from a parts list, then correct the estimate for geometry, kerf, edge trim, grain direction, defects, and reusable offcuts.">
+<link rel="canonical" href="https://softgrove.github.io/guides/plywood-cut-calculator/">
+<meta property="og:title" content="Plywood Cut Calculator: Sheet Count, Kerf &amp; Yield Explained">
+<meta property="og:description" content="Estimate plywood sheet count from a parts list, then correct the estimate for geometry, kerf, edge trim, grain direction, defects, and reusable offcuts.">
+<meta property="og:url" content="https://softgrove.github.io/guides/plywood-cut-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://softgrove.github.io/og/apps-boardcut.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet"></noscript><meta name="apple-itunes-app" content="app-id=6787905177">
+<style>
+:root{--paper:#FBFAF7;--ink:#2C282C;--muted:#6E6870;--line:#E7E2D9;--teal:#3E8E8C}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.serif{font-family:"Newsreader",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+header.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px;padding-bottom:18px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;letter-spacing:-.01em}
+.wordmark b{color:var(--teal);font-weight:600}
+nav.top a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px}
+nav.top a:hover{color:var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;padding:13px 26px;border-radius:8px}
+.btn:hover{opacity:.88}
+.badge-store{display:inline-flex;align-items:center;gap:9px;background:#000;color:#fff;text-decoration:none;border-radius:9px;padding:9px 18px 9px 14px;line-height:1.15}
+.badge-store svg{width:22px;height:26px;flex:none}
+.badge-store small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.badge-store span{font-size:17px;font-weight:600;letter-spacing:.01em}
+footer{border-top:1px solid var(--line);margin-top:96px}
+footer .wrap{padding:34px 24px 46px;display:flex;flex-wrap:wrap;gap:10px 34px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4d4850;max-width:62ch}
+@media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Plywood Cut Calculator: Estimate Sheets Without the Area Trap", "description": "Estimate plywood sheet count from a parts list, then correct the estimate for geometry, kerf, edge trim, grain direction, defects, and reusable offcuts.", "mainEntityOfPage": "https://softgrove.github.io/guides/plywood-cut-calculator/", "author": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}, "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many square feet are in a 4×8 sheet of plywood?", "acceptedAnswer": {"@type": "Answer", "text": "A nominal 4×8 sheet has 32 square feet, or 4,608 square inches. Use the actual dimensions and usable edges of the stock you will cut."}}, {"@type": "Question", "name": "Can I estimate sheets by adding 10% waste?", "acceptedAnswer": {"@type": "Answer", "text": "A percentage is useful for an early budget, but it cannot detect geometric conflicts or grain restrictions. Place the real parts before buying material."}}, {"@type": "Question", "name": "Does kerf count as waste in plywood yield?", "acceptedAnswer": {"@type": "Answer", "text": "Kerf is consumed material, so it reduces what can become finished parts. Whether a tool reports it separately or inside waste, it must be included in the layout."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Softgrove", "item": "https://softgrove.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Boardcut", "item": "https://softgrove.github.io/apps/boardcut/"}, {"@type": "ListItem", "position": 3, "name": "Plywood Cut Calculator: Estimate Sheets Without the Area Trap"}]}]}</script>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<a class="wordmark" href="/">softgrove<b>.</b></a>
+<nav class="top"><a href="/#apps">Apps</a><a href="/templates/">Free templates</a></nav>
+</div></header>
+
+<style>
+article.wrap{width:100%;max-width:780px}
+.guide-hero{padding:64px 0 20px}
+.guide-hero h1{font-size:clamp(36px,5.8vw,56px);max-width:18ch}
+.guide-hero .lede{font-size:19px;color:#4d4850;margin-top:20px;max-width:62ch}
+.answer{border:1px solid var(--line);border-left:3px solid #C4572A;background:#fff;border-radius:0 10px 10px 0;padding:20px 24px;font-size:16.5px;margin-top:28px}
+article section{margin-top:56px}
+article section h2{font-size:30px;margin-bottom:18px}
+article section p{margin-top:14px;max-width:66ch}
+article section ul{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-width:64ch}
+.work-note{background:#F0EADC;border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:22px}
+.work-note strong{font-size:15px}
+.work-note p{margin-top:7px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14px;line-height:1.55}
+.field-note{margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+.field-note p{margin-top:8px;color:#4d4850}
+.field-note cite{font-style:normal}
+.field-note a{color:#C4572A;font-weight:600}
+.app-cta{margin-top:60px;background:#F0EADC;border:1px solid var(--line);border-radius:14px;padding:28px}
+.app-cta h2{font-size:28px}
+.app-cta p{margin-top:10px;max-width:62ch;color:#4d4850}
+.app-cta .cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px}
+.app-cta .terms{font-size:13px;color:var(--muted);max-width:44ch}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px}
+.related a{border:1px solid var(--line);background:#fff;border-radius:9px;padding:16px;text-decoration:none;display:flex;flex-direction:column;gap:6px}
+.related a:hover{border-color:#C4572A}
+.related strong{font-size:18px;line-height:1.2}
+.related span{font-size:12px;color:var(--muted)}
+</style>
+<article class="wrap">
+<header class="guide-hero">
+<p class="eyebrow">Workshop guide · plywood cut calculator</p>
+<h1 class="serif">Plywood Cut Calculator: Estimate Sheets Without the Area Trap</h1>
+<p class="lede">Dividing total part area by 32 square feet gives a lower bound for 4×8 plywood, not a purchase quantity. Parts are rectangles, sheets have edges and defects, and saw cuts remove material. A reliable estimate needs a layout.</p>
+<div class="answer">Add the finished area of every part, divide by the usable area of one sheet, and round up for an optimistic lower bound. Then place the actual rectangles with kerf, trim, grain, and stock constraints. The resulting layout—not the area ratio—determines how many sheets to buy.</div>
+</header>
+<section><h2 class="serif">Calculate the optimistic lower bound</h2><p>For each line in the parts list, multiply width by length by quantity. Add those part areas. Next, find the usable sheet area after any edge trim. Divide total part area by usable sheet area and round up. This is the fewest sheets the job could use if geometry caused no loss.</p><p>Keep units consistent. A 48-by-96-inch sheet has 4,608 square inches. A 1,220-by-2,440-millimeter sheet has 2,976,800 square millimeters. Do not mix nominal feet with part dimensions in inches, and do not use square feet if the cut list is in millimeters.</p><div class="work-note"><strong>Lower-bound formula</strong><p>minimum by area = ceiling(total finished-part area ÷ usable area per sheet)</p></div></section><section><h2 class="serif">See why area alone can be wrong</h2><p>Imagine five parts measuring 49 by 20 inches and stock measuring 48 by 96 inches. The parts total 4,900 square inches, so area says two sheets might be enough. Rotate the parts and each becomes 20 by 49 inches. Only two fit across a sheet and only one row fits along its length, so each sheet holds two parts. The job needs three sheets even before kerf and edge trim.</p><p>Grain direction can create the same effect. A part that fits only when rotated may be unusable if its face grain must run the other way. This is why a plywood calculator needs a two-dimensional layout rather than only an area total.</p></section><section><h2 class="serif">Use the sheet you will actually receive</h2><p>Measure offcuts and salvaged panels individually. For new stock, confirm the dimensions sold by your supplier and inspect the edges. Reserve trim for a rough, chipped, or out-of-square border. Keep different thicknesses and materials in separate calculations; their areas cannot substitute for one another.</p><p>Add kerf using the blade and setup planned for the job. A layout that has no clearance between parts assumes a zero-width cut. When dimensions are tight, a small change in kerf or trim can move one part to another sheet.</p><ul><li>Actual sheet width, length, material, and thickness</li><li>Finished part dimensions and quantities</li><li>Measured kerf and edge-trim allowance</li><li>Grain locks for visible parts</li><li>Known defects or areas you cannot use</li><li>Offcuts already on hand before buying new sheets</li></ul></section><section><h2 class="serif">Read yield as a diagnostic, not a promise</h2><p>Gross yield is total finished-part area divided by the total area of sheets used. It helps compare two plans built from the same stock assumptions. It does not tell you whether the scraps are reusable, whether the sequence works on your saw, or whether every dimension survived the cut.</p><p>Use the final layout to make the shopping decision, then keep one contingency sheet only when the project risk justifies it—expensive matched veneer, uncertain defects, or a deadline with no easy return trip. Do not hide that contingency inside the calculator result; list it separately so the plan remains auditable.</p><div class="work-note"><strong>Yield formula</strong><p>gross yield (%) = finished-part area ÷ total purchased sheet area × 100</p></div></section>
+<aside class="field-note">
+<p class="eyebrow">Why this guide exists</p>
+<p>A woodworker described the problem this way: <q>plan the cuts onto a piece of 4x8 plywood to ensure i waste as little material as possible</q></p>
+<p><cite>Source: <a href="https://www.reddit.com/r/woodworking/comments/vdesw6/software_to_plan_plywood_cuts/">Software to plan plywood cuts</a> on r/woodworking</cite>. The quote is evidence of the workflow problem, not an endorsement of Boardcut.</p>
+</aside>
+<section><h2 class="serif">Questions</h2><details><summary>How many square feet are in a 4×8 sheet of plywood?</summary><p>A nominal 4×8 sheet has 32 square feet, or 4,608 square inches. Use the actual dimensions and usable edges of the stock you will cut.</p></details><details><summary>Can I estimate sheets by adding 10% waste?</summary><p>A percentage is useful for an early budget, but it cannot detect geometric conflicts or grain restrictions. Place the real parts before buying material.</p></details><details><summary>Does kerf count as waste in plywood yield?</summary><p>Kerf is consumed material, so it reduces what can become finished parts. Whether a tool reports it separately or inside waste, it must be included in the layout.</p></details></section>
+<aside class="app-cta">
+<h2 class="serif">When the layout stops being simple</h2>
+<p>Boardcut for iPhone turns a parts list and your available stock into a dimensioned cutting diagram. Planning has no piece limit and includes kerf, grain direction, yield, sheet count, and ordered cut steps.</p>
+<div class="cta-row"><a class="badge-store" href="https://apps.apple.com/app/id6787905177" aria-label="Download Boardcut on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a><p class="terms">Planning is free. Pro adds vector PDF and CSV export plus saved offcuts: $1.99/week or $12.99 lifetime. Eligible customers receive a 3-day free trial; the weekly subscription renews automatically unless canceled.</p></div>
+</aside>
+<section><h2 class="serif">Related cutting guides</h2><div class="related"><a href="/guides/cut-list-optimizer/"><strong class="serif">How to Use a Cut List Optimizer Without Trusting It Blindly</strong><span>cut list optimizer</span></a><a href="/guides/sheet-goods-cutting-layout/"><strong class="serif">Plan a Sheet Goods Cutting Layout You Can Actually Follow</strong><span>sheet goods cutting layout</span></a><a href="/guides/cut-list-spreadsheet/"><strong class="serif">Build a Cut List Spreadsheet That Is Ready for the Saw</strong><span>cut list spreadsheet</span></a></div></section>
+</article>
+<footer><div class="wrap">
+<span>© 2026 Softgrove — an independent app studio.</span>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
+<a href="/llms.txt">llms.txt</a>
+</div></footer>
+</body></html>

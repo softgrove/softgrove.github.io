@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cut List Optimizer Guide: Kerf, Grain, Yield &amp; Cut Order</title>
+<meta name="description" content="A practical cut list optimizer guide for plywood and sheet goods: prepare clean inputs, account for kerf and grain, compare yield, and check that the cut order works in your shop.">
+<link rel="canonical" href="https://softgrove.github.io/guides/cut-list-optimizer/">
+<meta property="og:title" content="Cut List Optimizer Guide: Kerf, Grain, Yield &amp; Cut Order">
+<meta property="og:description" content="A practical cut list optimizer guide for plywood and sheet goods: prepare clean inputs, account for kerf and grain, compare yield, and check that the cut order works in your shop.">
+<meta property="og:url" content="https://softgrove.github.io/guides/cut-list-optimizer/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://softgrove.github.io/og/apps-boardcut.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet"></noscript><meta name="apple-itunes-app" content="app-id=6787905177">
+<style>
+:root{--paper:#FBFAF7;--ink:#2C282C;--muted:#6E6870;--line:#E7E2D9;--teal:#3E8E8C}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.serif{font-family:"Newsreader",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+header.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px;padding-bottom:18px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;letter-spacing:-.01em}
+.wordmark b{color:var(--teal);font-weight:600}
+nav.top a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px}
+nav.top a:hover{color:var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;padding:13px 26px;border-radius:8px}
+.btn:hover{opacity:.88}
+.badge-store{display:inline-flex;align-items:center;gap:9px;background:#000;color:#fff;text-decoration:none;border-radius:9px;padding:9px 18px 9px 14px;line-height:1.15}
+.badge-store svg{width:22px;height:26px;flex:none}
+.badge-store small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.badge-store span{font-size:17px;font-weight:600;letter-spacing:.01em}
+footer{border-top:1px solid var(--line);margin-top:96px}
+footer .wrap{padding:34px 24px 46px;display:flex;flex-wrap:wrap;gap:10px 34px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4d4850;max-width:62ch}
+@media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "How to Use a Cut List Optimizer Without Trusting It Blindly", "description": "A practical cut list optimizer guide for plywood and sheet goods: prepare clean inputs, account for kerf and grain, compare yield, and check that the cut order works in your shop.", "mainEntityOfPage": "https://softgrove.github.io/guides/cut-list-optimizer/", "author": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}, "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does a cut list optimizer guarantee the fewest possible sheets?", "acceptedAnswer": {"@type": "Answer", "text": "Not necessarily. Most practical tools use heuristics: they search for a good layout quickly rather than proving a mathematical optimum. Use sheet count and yield as planning estimates, then compare alternate layouts."}}, {"@type": "Question", "name": "Should I optimize plywood and solid lumber together?", "acceptedAnswer": {"@type": "Answer", "text": "Keep different stock types separate. Sheet goods are a two-dimensional layout problem; boards are usually a one-dimensional length problem. Mixing materials or thicknesses can make the totals meaningless."}}, {"@type": "Question", "name": "Is the layout with the highest yield always best?", "acceptedAnswer": {"@type": "Answer", "text": "No. A slightly lower-yield plan can be better if it uses fewer setups, produces larger reusable offcuts, or gives you a cut order that is easier to execute accurately."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Softgrove", "item": "https://softgrove.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Boardcut", "item": "https://softgrove.github.io/apps/boardcut/"}, {"@type": "ListItem", "position": 3, "name": "How to Use a Cut List Optimizer Without Trusting It Blindly"}]}]}</script>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<a class="wordmark" href="/">softgrove<b>.</b></a>
+<nav class="top"><a href="/#apps">Apps</a><a href="/templates/">Free templates</a></nav>
+</div></header>
+
+<style>
+article.wrap{width:100%;max-width:780px}
+.guide-hero{padding:64px 0 20px}
+.guide-hero h1{font-size:clamp(36px,5.8vw,56px);max-width:18ch}
+.guide-hero .lede{font-size:19px;color:#4d4850;margin-top:20px;max-width:62ch}
+.answer{border:1px solid var(--line);border-left:3px solid #C4572A;background:#fff;border-radius:0 10px 10px 0;padding:20px 24px;font-size:16.5px;margin-top:28px}
+article section{margin-top:56px}
+article section h2{font-size:30px;margin-bottom:18px}
+article section p{margin-top:14px;max-width:66ch}
+article section ul{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-width:64ch}
+.work-note{background:#F0EADC;border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:22px}
+.work-note strong{font-size:15px}
+.work-note p{margin-top:7px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14px;line-height:1.55}
+.field-note{margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+.field-note p{margin-top:8px;color:#4d4850}
+.field-note cite{font-style:normal}
+.field-note a{color:#C4572A;font-weight:600}
+.app-cta{margin-top:60px;background:#F0EADC;border:1px solid var(--line);border-radius:14px;padding:28px}
+.app-cta h2{font-size:28px}
+.app-cta p{margin-top:10px;max-width:62ch;color:#4d4850}
+.app-cta .cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px}
+.app-cta .terms{font-size:13px;color:var(--muted);max-width:44ch}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px}
+.related a{border:1px solid var(--line);background:#fff;border-radius:9px;padding:16px;text-decoration:none;display:flex;flex-direction:column;gap:6px}
+.related a:hover{border-color:#C4572A}
+.related strong{font-size:18px;line-height:1.2}
+.related span{font-size:12px;color:var(--muted)}
+</style>
+<article class="wrap">
+<header class="guide-hero">
+<p class="eyebrow">Workshop guide · cut list optimizer</p>
+<h1 class="serif">How to Use a Cut List Optimizer Without Trusting It Blindly</h1>
+<p class="lede">A cut list optimizer can save a sheet on one job and hand you an awkward plan on the next. The useful skill is not pressing Optimize. It is giving the tool honest constraints, then checking whether its answer can actually be cut.</p>
+<div class="answer">Enter finished part sizes, quantities, real stock dimensions, measured blade kerf, edge trim, and grain constraints. Compare layouts by sheet count first, then by usable offcuts and cut complexity. Before buying material, verify every dimension and walk through the cut sequence from full sheet to finished parts.</div>
+</header>
+<section><h2 class="serif">Clean the parts list before optimizing</h2><p>Use finished dimensions, not rough guesses. Give every part a short, unique name such as Left side, Shelf 01, or Toe kick. If two parts have the same size but different grain or edge requirements, keep them as separate rows. That makes the diagram readable at the saw and prevents a visually identical part from being used in the wrong place.</p><p>Group stock by material, thickness, and face appearance. A 3/4-inch birch panel and a 3/4-inch paint-grade panel are not interchangeable just because their dimensions match. Enter the sheet you can actually buy or the offcut you actually measured; nominal sizes and damaged factory edges can make a mathematically valid layout useless.</p><ul><li>Finished width and length for every part</li><li>Quantity and an unambiguous part label</li><li>Material and thickness as separate stock groups</li><li>Grain locked only where orientation matters</li><li>Measured kerf and any edge-trim allowance</li><li>Minimum offcut size you would genuinely keep</li></ul></section><section><h2 class="serif">Treat sheet count, yield, and cut order as different questions</h2><p>The fewest sheets is a purchasing goal. High yield is a material-use goal. A short, repeatable sequence is a shop goal. They often point in the same direction, but not always. A tightly packed layout can contain many one-off setups, trapped pieces, or partial cuts that are slow and error-prone on a table saw.</p><p>Start by rejecting layouts that require more sheets than a practical alternative. Among the remaining options, look for large rectangular offcuts rather than a higher percentage made from narrow scraps. Then inspect the numbered steps: long rips that break a full sheet into manageable strips are usually easier to follow than a patchwork of unrelated cuts. If the most efficient plan is fussy, reshuffle and accept a small yield loss for a clearer sequence.</p><div class="work-note"><strong>A useful comparison order</strong><p>1) sheets to buy  →  2) executable cut sequence  →  3) reusable offcuts  →  4) reported yield</p></div></section><section><h2 class="serif">Check kerf, grain, and edge trim before the first cut</h2><p>Kerf is material removed by the cut. Do not assume the number printed on a blade package is the exact result in your setup. Make a test cut in scrap, bring the two pieces together, and compare their combined width with the original. Use the measured loss as the planning value.</p><p>Grain lock is not a global on/off switch. Cabinet sides and visible doors may need consistent face-grain direction; hidden stretchers may not. Locking every part can force an extra sheet, while rotating a visible part can create a result you would never build. Edge trim deserves the same honesty: reserve it when a sheet edge is chipped, bowed, or must be squared, and leave it at zero only when the edge is truly usable.</p></section><section><h2 class="serif">Run a two-minute pre-cut audit</h2><p>Count the parts in the diagram and compare each quantity with the source list. Confirm units, material, thickness, and grain arrows. Check that no finished dimension includes the kerf by mistake. Follow the sequence with a finger and ask where each panel will be supported after every cut. Finally, mark the parts as they come off the saw rather than relying on memory.</p><p>An optimizer is a planning calculator, not a measurement authority or a tool-use guide. Sheet sizes, blade behavior, and shop setups vary. The final check belongs against the material in front of you and the instructions for the tools you use.</p></section>
+<aside class="field-note">
+<p class="eyebrow">Why this guide exists</p>
+<p>A woodworker described the problem this way: <q>determine the quantity of plywood sheets required and find a method to optimize the layout</q></p>
+<p><cite>Source: <a href="https://www.reddit.com/r/woodworking/comments/1fm5q0b/cut_list_layout_cuts/">Cut list (layout cuts)</a> on r/woodworking</cite>. The quote is evidence of the workflow problem, not an endorsement of Boardcut.</p>
+</aside>
+<section><h2 class="serif">Questions</h2><details><summary>Does a cut list optimizer guarantee the fewest possible sheets?</summary><p>Not necessarily. Most practical tools use heuristics: they search for a good layout quickly rather than proving a mathematical optimum. Use sheet count and yield as planning estimates, then compare alternate layouts.</p></details><details><summary>Should I optimize plywood and solid lumber together?</summary><p>Keep different stock types separate. Sheet goods are a two-dimensional layout problem; boards are usually a one-dimensional length problem. Mixing materials or thicknesses can make the totals meaningless.</p></details><details><summary>Is the layout with the highest yield always best?</summary><p>No. A slightly lower-yield plan can be better if it uses fewer setups, produces larger reusable offcuts, or gives you a cut order that is easier to execute accurately.</p></details></section>
+<aside class="app-cta">
+<h2 class="serif">When the layout stops being simple</h2>
+<p>Boardcut for iPhone turns a parts list and your available stock into a dimensioned cutting diagram. Planning has no piece limit and includes kerf, grain direction, yield, sheet count, and ordered cut steps.</p>
+<div class="cta-row"><a class="badge-store" href="https://apps.apple.com/app/id6787905177" aria-label="Download Boardcut on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a><p class="terms">Planning is free. Pro adds vector PDF and CSV export plus saved offcuts: $1.99/week or $12.99 lifetime. Eligible customers receive a 3-day free trial; the weekly subscription renews automatically unless canceled.</p></div>
+</aside>
+<section><h2 class="serif">Related cutting guides</h2><div class="related"><a href="/guides/sheet-goods-cutting-layout/"><strong class="serif">Plan a Sheet Goods Cutting Layout You Can Actually Follow</strong><span>sheet goods cutting layout</span></a><a href="/guides/plywood-cut-calculator/"><strong class="serif">Plywood Cut Calculator: Estimate Sheets Without the Area Trap</strong><span>plywood cut calculator</span></a><a href="/guides/cut-list-spreadsheet/"><strong class="serif">Build a Cut List Spreadsheet That Is Ready for the Saw</strong><span>cut list spreadsheet</span></a></div></section>
+</article>
+<footer><div class="wrap">
+<span>© 2026 Softgrove — an independent app studio.</span>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
+<a href="/llms.txt">llms.txt</a>
+</div></footer>
+</body></html>

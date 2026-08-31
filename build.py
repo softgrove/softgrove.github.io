@@ -21,7 +21,7 @@ DATA = json.loads((ROOT / "apps.json").read_text())
 DESCS = json.loads((ROOT / "_asc_descs.json").read_text())
 SITE = DATA["site"]
 ORIGIN = SITE["origin"]
-TODAY = "2026-07-17"  # set per release; hash-gate keeps unchanged pages stable
+TODAY = "2026-08-31"  # set per release; hash-gate keeps unchanged pages stable
 
 # ---------------------------------------------------------------- desc parsing
 def parse_desc(raw):
@@ -113,7 +113,7 @@ def store_badge(app_id, name):
             f'aria-label="Download {esc(name)} on the App Store">{APPLE_SVG}'
             f'<span><small>Download on the</small>App Store</span></a>')
 
-def page(title, desc, path, body, jsonld=None, extra_head=""):
+def page(title, desc, path, body, jsonld=None, extra_head="", og_image=None):
     canon = ORIGIN + path
     is404 = path == "/404.html"
     og_slug = ("home" if is404 else path.strip("/").replace("/", "-")) or "home"
@@ -121,6 +121,7 @@ def page(title, desc, path, body, jsonld=None, extra_head=""):
     ld = ""
     if jsonld:
         ld = '<script type="application/ld+json">%s</script>' % json.dumps(jsonld, ensure_ascii=False)
+    og_image_url = ORIGIN + (og_image or f"/og/{og_slug}.png")
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -133,7 +134,7 @@ def page(title, desc, path, body, jsonld=None, extra_head=""):
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canon}">
 <meta property="og:type" content="website">
-<meta property="og:image" content="{ORIGIN}/og/{og_slug}.png">
+<meta property="og:image" content="{og_image_url}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 {FONT}{extra_head}
@@ -290,6 +291,19 @@ def app_page(key):
         t = DATA["templates"][a["template"]]
         tpl_html = (f'<p class="tpl-link">Prefer paper? <a href="/templates/{a["template"]}/">{esc(t["h1"])}</a> — '
                     f'the same log as a free printable sheet.</p>')
+    guide_cards = "".join(
+        f'<a class="guide-card" href="/guides/{slug}/"><span class="eyebrow">{esc(g["keyword"])}</span>'
+        f'<strong class="serif">{esc(g["h1"])}</strong><span>{esc(g["desc"])}</span></a>'
+        for slug, g in DATA.get("guides", {}).items() if g["app"] == key)
+    guide_html = (f'<h2 class="sec serif">Practical cutting guides</h2><div class="guide-grid">{guide_cards}</div>'
+                  if guide_cards else "")
+    guide_css = (f'''
+.guide-grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}}
+.guide-card{{border:1px solid var(--line);background:#fff;border-radius:10px;padding:19px;text-decoration:none;display:flex;flex-direction:column;gap:7px}}
+.guide-card:hover{{border-color:{a["accent"]}}}
+.guide-card strong{{font-size:20px;font-weight:500;line-height:1.22}}
+.guide-card>span:last-child{{font-size:14px;color:var(--muted)}}
+''' if guide_cards else "")
     body = f"""
 <style>
 .band{{background:{a["bg"]};border-bottom:1px solid var(--line)}}
@@ -323,7 +337,7 @@ ul.feats li{{display:flex;gap:13px;align-items:baseline;font-size:16.5px;max-wid
 .sib span:last-child{{font-size:13px;color:var(--muted)}}
 .tpl-link{{margin-top:26px;font-size:15.5px}}
 .tpl-link a{{color:{a["accent"]};font-weight:600}}
-</style>
+{guide_css}</style>
 <div class="band"><div class="wrap">
 <p class="eyebrow">{esc(a["catLabel"])} · iPhone</p>
 <h1 class="serif">{esc(name)}</h1>
@@ -346,7 +360,7 @@ ul.feats li{{display:flex;gap:13px;align-items:baseline;font-size:16.5px;max-wid
 <div class="privacy">Everything you record stays only on your device. {esc(name)} never uploads, syncs, shares, or sells your data. No account needed — delete the app and the data is gone, because it was only ever yours.</div>
 <h2 class="sec serif">Questions</h2>
 {faq_html}
-<h2 class="sec serif">From the same shelf</h2>
+{guide_html}<h2 class="sec serif">From the same shelf</h2>
 <div class="sibs">{sib_html}</div>
 </main>"""
     ld = {"@context": "https://schema.org", "@graph": [
@@ -366,6 +380,89 @@ ul.feats li{{display:flex;gap:13px;align-items:baseline;font-size:16.5px;max-wid
             {"@type": "ListItem", "position": 2, "name": name}]}]}
     head = f'<meta name="apple-itunes-app" content="app-id={a["id"]}">'
     return page(a["seoTitle"], a["seoDesc"], f"/apps/{key}/", body, ld, head)
+
+# --------------------------------------------------------------- guide pages
+def guide_page(slug):
+    g = DATA["guides"][slug]; a = DATA["apps"][g["app"]]
+    pricing = a["pricing"]
+    sections = []
+    for section in g["sections"]:
+        paragraphs = "".join(f"<p>{esc(p)}</p>" for p in section.get("body", []))
+        bullets = ("<ul>" + "".join(f"<li>{esc(item)}</li>" for item in section["bullets"]) + "</ul>"
+                   if section.get("bullets") else "")
+        note = f'<div class="work-note"><strong>{esc(section["note_title"])}</strong><p>{esc(section["note"])}</p></div>' if section.get("note") else ""
+        sections.append(f'<section><h2 class="serif">{esc(section["h2"])}</h2>{paragraphs}{bullets}{note}</section>')
+    section_html = "".join(sections)
+    faq_html = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(ans)}</p></details>" for q, ans in g["faq"])
+    related = "".join(
+        f'<a href="/guides/{other_slug}/"><strong class="serif">{esc(other["h1"])}</strong><span>{esc(other["keyword"])}</span></a>'
+        for other_slug, other in DATA["guides"].items() if other_slug != slug and other["app"] == g["app"])
+    source = g["source"]
+    body = f"""
+<style>
+article.wrap{{width:100%;max-width:780px}}
+.guide-hero{{padding:64px 0 20px}}
+.guide-hero h1{{font-size:clamp(36px,5.8vw,56px);max-width:18ch}}
+.guide-hero .lede{{font-size:19px;color:#4d4850;margin-top:20px;max-width:62ch}}
+.answer{{border:1px solid var(--line);border-left:3px solid {a["accent"]};background:#fff;border-radius:0 10px 10px 0;padding:20px 24px;font-size:16.5px;margin-top:28px}}
+article section{{margin-top:56px}}
+article section h2{{font-size:30px;margin-bottom:18px}}
+article section p{{margin-top:14px;max-width:66ch}}
+article section ul{{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-width:64ch}}
+.work-note{{background:{a["bg"]};border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:22px}}
+.work-note strong{{font-size:15px}}
+.work-note p{{margin-top:7px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14px;line-height:1.55}}
+.field-note{{margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}}
+.field-note p{{margin-top:8px;color:#4d4850}}
+.field-note cite{{font-style:normal}}
+.field-note a{{color:{a["accent"]};font-weight:600}}
+.app-cta{{margin-top:60px;background:{a["bg"]};border:1px solid var(--line);border-radius:14px;padding:28px}}
+.app-cta h2{{font-size:28px}}
+.app-cta p{{margin-top:10px;max-width:62ch;color:#4d4850}}
+.app-cta .cta-row{{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px}}
+.app-cta .terms{{font-size:13px;color:var(--muted);max-width:44ch}}
+.related{{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px}}
+.related a{{border:1px solid var(--line);background:#fff;border-radius:9px;padding:16px;text-decoration:none;display:flex;flex-direction:column;gap:6px}}
+.related a:hover{{border-color:{a["accent"]}}}
+.related strong{{font-size:18px;line-height:1.2}}
+.related span{{font-size:12px;color:var(--muted)}}
+</style>
+<article class="wrap">
+<header class="guide-hero">
+<p class="eyebrow">Workshop guide · {esc(g["keyword"])}</p>
+<h1 class="serif">{esc(g["h1"])}</h1>
+<p class="lede">{esc(g["lede"])}</p>
+<div class="answer">{esc(g["answer"])}</div>
+</header>
+{section_html}
+<aside class="field-note">
+<p class="eyebrow">Why this guide exists</p>
+<p>A woodworker described the problem this way: <q>{esc(source["quote"])}</q></p>
+<p><cite>Source: <a href="{esc(source["url"])}">{esc(source["title"])}</a> on {esc(source["community"])}</cite>. The quote is evidence of the workflow problem, not an endorsement of Boardcut.</p>
+</aside>
+<section><h2 class="serif">Questions</h2>{faq_html}</section>
+<aside class="app-cta">
+<h2 class="serif">When the layout stops being simple</h2>
+<p>Boardcut for iPhone turns a parts list and your available stock into a dimensioned cutting diagram. Planning has no piece limit and includes kerf, grain direction, yield, sheet count, and ordered cut steps.</p>
+<div class="cta-row">{store_badge(a["id"], a["name"])}<p class="terms">Planning is free. Pro adds vector PDF and CSV export plus saved offcuts: {esc(pricing["weekly"])} or {esc(pricing["lifetime"])} lifetime. Eligible customers receive a {esc(pricing["trial"])}; the weekly subscription renews automatically unless canceled.</p></div>
+</aside>
+<section><h2 class="serif">Related cutting guides</h2><div class="related">{related}</div></section>
+</article>"""
+    faqs = [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ans}}
+            for q, ans in g["faq"]]
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "Article", "headline": g["h1"], "description": g["desc"],
+         "mainEntityOfPage": ORIGIN + f"/guides/{slug}/",
+         "author": {"@type": "Organization", "name": "Softgrove", "url": ORIGIN + "/"},
+         "publisher": {"@type": "Organization", "name": "Softgrove", "url": ORIGIN + "/"}},
+        {"@type": "FAQPage", "mainEntity": faqs},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Softgrove", "item": ORIGIN + "/"},
+            {"@type": "ListItem", "position": 2, "name": a["name"], "item": ORIGIN + f"/apps/{g['app']}/"},
+            {"@type": "ListItem", "position": 3, "name": g["h1"]}]}]}
+    head = f'<meta name="apple-itunes-app" content="app-id={a["id"]}">'
+    return page(g["title"], g["desc"], f"/guides/{slug}/", body, ld, head,
+                og_image=f"/og/apps-{g['app']}.png")
 
 # -------------------------------------------------------------- template pages
 def tpl_preview_table(t, accent):
@@ -511,6 +608,9 @@ def llms_txt(paths):
     lines += ["", "## Free printable templates (PDF, no sign-up)"]
     for slug, t in DATA["templates"].items():
         lines.append(f"- [{t['h1']}]({ORIGIN}/templates/{slug}/): {t['desc']}")
+    lines += ["", "## Woodworking cutting guides"]
+    for slug, g in DATA.get("guides", {}).items():
+        lines.append(f"- [{g['h1']}]({ORIGIN}/guides/{slug}/): {g['desc']}")
     lines += ["", "## Facts",
               "- All apps are iPhone (iOS). Data is stored on-device only; no account exists.",
               "- Health apps are journaling tools, not medical devices; they do not give medical advice.",
@@ -548,6 +648,8 @@ def main():
         pages[f"/apps/{key}/"] = app_page(key)
     for slug in DATA["templates"]:
         pages[f"/templates/{slug}/"] = template_page(slug)
+    for slug in DATA.get("guides", {}):
+        pages[f"/guides/{slug}/"] = guide_page(slug)
     for path, content in pages.items():
         f = OUT / path.lstrip("/")
         if path.endswith("/"): f = f / "index.html"

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sheet Goods Cutting Layout: A Practical Plywood Workflow</title>
+<meta name="description" content="Plan a workable sheet goods cutting layout for plywood, MDF, and melamine. Learn strip planning, kerf allowance, grain control, cut sequencing, and offcut decisions.">
+<link rel="canonical" href="https://softgrove.github.io/guides/sheet-goods-cutting-layout/">
+<meta property="og:title" content="Sheet Goods Cutting Layout: A Practical Plywood Workflow">
+<meta property="og:description" content="Plan a workable sheet goods cutting layout for plywood, MDF, and melamine. Learn strip planning, kerf allowance, grain control, cut sequencing, and offcut decisions.">
+<meta property="og:url" content="https://softgrove.github.io/guides/sheet-goods-cutting-layout/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://softgrove.github.io/og/apps-boardcut.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet"></noscript><meta name="apple-itunes-app" content="app-id=6787905177">
+<style>
+:root{--paper:#FBFAF7;--ink:#2C282C;--muted:#6E6870;--line:#E7E2D9;--teal:#3E8E8C}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.serif{font-family:"Newsreader",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+header.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px;padding-bottom:18px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;letter-spacing:-.01em}
+.wordmark b{color:var(--teal);font-weight:600}
+nav.top a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px}
+nav.top a:hover{color:var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;padding:13px 26px;border-radius:8px}
+.btn:hover{opacity:.88}
+.badge-store{display:inline-flex;align-items:center;gap:9px;background:#000;color:#fff;text-decoration:none;border-radius:9px;padding:9px 18px 9px 14px;line-height:1.15}
+.badge-store svg{width:22px;height:26px;flex:none}
+.badge-store small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.badge-store span{font-size:17px;font-weight:600;letter-spacing:.01em}
+footer{border-top:1px solid var(--line);margin-top:96px}
+footer .wrap{padding:34px 24px 46px;display:flex;flex-wrap:wrap;gap:10px 34px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4d4850;max-width:62ch}
+@media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Plan a Sheet Goods Cutting Layout You Can Actually Follow", "description": "Plan a workable sheet goods cutting layout for plywood, MDF, and melamine. Learn strip planning, kerf allowance, grain control, cut sequencing, and offcut decisions.", "mainEntityOfPage": "https://softgrove.github.io/guides/sheet-goods-cutting-layout/", "author": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}, "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a guillotine cut layout?", "acceptedAnswer": {"@type": "Answer", "text": "It is a layout that can be separated by straight cuts running all the way across the current rectangular piece. That structure is often easier to execute with common sheet-goods tools than a tightly nested plan with trapped parts."}}, {"@type": "Question", "name": "How much kerf should I add to a plywood layout?", "acceptedAnswer": {"@type": "Answer", "text": "Use a measured value from the blade and setup you will use. A nominal blade width is a starting point, not a substitute for a test cut when the layout is tight."}}, {"@type": "Question", "name": "Should all plywood parts keep the same grain direction?", "acceptedAnswer": {"@type": "Answer", "text": "Only when the project requires it. Lock visible or structurally directional parts, and allow rotation for parts where orientation truly does not matter."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Softgrove", "item": "https://softgrove.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Boardcut", "item": "https://softgrove.github.io/apps/boardcut/"}, {"@type": "ListItem", "position": 3, "name": "Plan a Sheet Goods Cutting Layout You Can Actually Follow"}]}]}</script>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<a class="wordmark" href="/">softgrove<b>.</b></a>
+<nav class="top"><a href="/#apps">Apps</a><a href="/templates/">Free templates</a></nav>
+</div></header>
+
+<style>
+article.wrap{width:100%;max-width:780px}
+.guide-hero{padding:64px 0 20px}
+.guide-hero h1{font-size:clamp(36px,5.8vw,56px);max-width:18ch}
+.guide-hero .lede{font-size:19px;color:#4d4850;margin-top:20px;max-width:62ch}
+.answer{border:1px solid var(--line);border-left:3px solid #C4572A;background:#fff;border-radius:0 10px 10px 0;padding:20px 24px;font-size:16.5px;margin-top:28px}
+article section{margin-top:56px}
+article section h2{font-size:30px;margin-bottom:18px}
+article section p{margin-top:14px;max-width:66ch}
+article section ul{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-width:64ch}
+.work-note{background:#F0EADC;border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:22px}
+.work-note strong{font-size:15px}
+.work-note p{margin-top:7px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14px;line-height:1.55}
+.field-note{margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+.field-note p{margin-top:8px;color:#4d4850}
+.field-note cite{font-style:normal}
+.field-note a{color:#C4572A;font-weight:600}
+.app-cta{margin-top:60px;background:#F0EADC;border:1px solid var(--line);border-radius:14px;padding:28px}
+.app-cta h2{font-size:28px}
+.app-cta p{margin-top:10px;max-width:62ch;color:#4d4850}
+.app-cta .cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px}
+.app-cta .terms{font-size:13px;color:var(--muted);max-width:44ch}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px}
+.related a{border:1px solid var(--line);background:#fff;border-radius:9px;padding:16px;text-decoration:none;display:flex;flex-direction:column;gap:6px}
+.related a:hover{border-color:#C4572A}
+.related strong{font-size:18px;line-height:1.2}
+.related span{font-size:12px;color:var(--muted)}
+</style>
+<article class="wrap">
+<header class="guide-hero">
+<p class="eyebrow">Workshop guide · sheet goods cutting layout</p>
+<h1 class="serif">Plan a Sheet Goods Cutting Layout You Can Actually Follow</h1>
+<p class="lede">A compact nesting diagram is not automatically a good shop plan. The best layout fits the parts, respects the face and grain, and breaks a heavy sheet into safe, traceable stages without turning every cut into a new setup.</p>
+<div class="answer">Start with full-length cuts that divide the sheet into manageable strips, then crosscut parts from each strip. Leave room for every saw kerf and any edge trim, keep grain-sensitive parts oriented consistently, and label each part as soon as it is cut. Prefer a repeatable sequence over a few extra points of theoretical yield.</div>
+</header>
+<section><h2 class="serif">Build the layout from strips, not isolated rectangles</h2><p>For a manual layout, draw the sheet to scale and mark the unusable border first. Group parts that share one dimension so a single rip can create a strip for several pieces. Crosscut the strip into final lengths afterward. This produces through-cuts that are easier to measure and repeat than a jigsaw of stopped cuts.</p><p>Label both the drawing and the cut list with the same part names. Add quantity ticks beside repeated parts and cross them off only after the finished piece is measured. If a part will be trimmed to final size later, write the rough dimension explicitly; do not rely on a mental allowance.</p><ul><li>Outline the actual sheet and reserve damaged or trimmed edges</li><li>Draw long rip lines that create useful strips</li><li>Nest repeated widths or lengths within the same strip</li><li>Add crosscuts and count the required kerfs</li><li>Number the cuts and label the resulting parts</li><li>Circle offcuts large enough for a named future use</li></ul></section><section><h2 class="serif">Kerf turns an exact fit into an impossible fit</h2><p>Every separating cut consumes material. Three nominal 16-inch strips total exactly 48 inches, but two 1/8-inch separating kerfs make the plan require 48 1/4 inches before any edge trim. The arithmetic looked perfect because it treated the blade as having no width.</p><p>For a simple run of equal parts, the occupied distance is the sum of the part widths plus kerf multiplied by the number of separating cuts. A layout tool handles this across the whole diagram, but the same check is worth doing on any tight row. Measure the kerf on your setup and verify whether a shared cut or final trim changes the count.</p><div class="work-note"><strong>Tight-row check</strong><p>occupied distance = sum of part widths + kerf × separating cuts + reserved edge trim</p></div></section><section><h2 class="serif">Make the order match the saw and the space</h2><p>A table saw, track saw, and panel saw do not impose the same constraints. Before accepting the layout, trace how the full sheet becomes smaller pieces. Confirm that each stage has a stable reference edge and enough support. If a plan depends on stopping in the middle of a panel or handling a narrow trapped piece, choose another arrangement or change the breakdown method.</p><p>Repeated setups are another hidden cost. If six shelves share a width, rip their strip once and crosscut all six before moving the fence. A plan that saves a sliver of plywood but requires constant fence changes may cost more in time and increase the chance of a measuring error.</p></section><section><h2 class="serif">Plan around grain, faces, defects, and useful leftovers</h2><p>Mark a face side and grain arrow on every visible part before rotating anything in the drawing. With veneered plywood, two rectangles that fit equally well may not be equivalent once the face grain is considered. Also map knots, voids, chipped corners, or a factory label that must stay out of a visible panel.</p><p>Do not judge leftovers only by area. A single 12-by-48-inch strip may be useful shelving stock; the same area divided into narrow shapes may go straight to scrap. Give reusable offcuts dimensions and names, then store them where the next project can find them.</p></section>
+<aside class="field-note">
+<p class="eyebrow">Why this guide exists</p>
+<p>A woodworker described the problem this way: <q>the number of different cut schemes is headache inducing</q></p>
+<p><cite>Source: <a href="https://www.reddit.com/r/woodworking/comments/1amh9sb/cutlist_optimization_question/">Cutlist Optimization Question</a> on r/woodworking</cite>. The quote is evidence of the workflow problem, not an endorsement of Boardcut.</p>
+</aside>
+<section><h2 class="serif">Questions</h2><details><summary>What is a guillotine cut layout?</summary><p>It is a layout that can be separated by straight cuts running all the way across the current rectangular piece. That structure is often easier to execute with common sheet-goods tools than a tightly nested plan with trapped parts.</p></details><details><summary>How much kerf should I add to a plywood layout?</summary><p>Use a measured value from the blade and setup you will use. A nominal blade width is a starting point, not a substitute for a test cut when the layout is tight.</p></details><details><summary>Should all plywood parts keep the same grain direction?</summary><p>Only when the project requires it. Lock visible or structurally directional parts, and allow rotation for parts where orientation truly does not matter.</p></details></section>
+<aside class="app-cta">
+<h2 class="serif">When the layout stops being simple</h2>
+<p>Boardcut for iPhone turns a parts list and your available stock into a dimensioned cutting diagram. Planning has no piece limit and includes kerf, grain direction, yield, sheet count, and ordered cut steps.</p>
+<div class="cta-row"><a class="badge-store" href="https://apps.apple.com/app/id6787905177" aria-label="Download Boardcut on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a><p class="terms">Planning is free. Pro adds vector PDF and CSV export plus saved offcuts: $1.99/week or $12.99 lifetime. Eligible customers receive a 3-day free trial; the weekly subscription renews automatically unless canceled.</p></div>
+</aside>
+<section><h2 class="serif">Related cutting guides</h2><div class="related"><a href="/guides/cut-list-optimizer/"><strong class="serif">How to Use a Cut List Optimizer Without Trusting It Blindly</strong><span>cut list optimizer</span></a><a href="/guides/plywood-cut-calculator/"><strong class="serif">Plywood Cut Calculator: Estimate Sheets Without the Area Trap</strong><span>plywood cut calculator</span></a><a href="/guides/cut-list-spreadsheet/"><strong class="serif">Build a Cut List Spreadsheet That Is Ready for the Saw</strong><span>cut list spreadsheet</span></a></div></section>
+</article>
+<footer><div class="wrap">
+<span>© 2026 Softgrove — an independent app studio.</span>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
+<a href="/llms.txt">llms.txt</a>
+</div></footer>
+</body></html>

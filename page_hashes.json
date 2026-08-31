@@ -48,8 +48,8 @@
   "lastmod": "2026-07-17"
  },
  "/apps/boardcut/": {
-  "hash": "1a36d365e91bc8a9",
-  "lastmod": "2026-07-17"
+  "hash": "1835d781172e4306",
+  "lastmod": "2026-08-31"
  },
  "/templates/eczema-tracker-printable/": {
   "hash": "37d1c38cc07078e5",
@@ -174,5 +174,21 @@
  "/templates/chronic-pain-log/": {
   "hash": "fe8922b88b6647ab",
   "lastmod": "2026-07-17"
+ },
+ "/guides/cut-list-optimizer/": {
+  "hash": "34ab2c7d2f994949",
+  "lastmod": "2026-08-31"
+ },
+ "/guides/sheet-goods-cutting-layout/": {
+  "hash": "b6bad75a71602696",
+  "lastmod": "2026-08-31"
+ },
+ "/guides/plywood-cut-calculator/": {
+  "hash": "d3ae1763809928be",
+  "lastmod": "2026-08-31"
+ },
+ "/guides/cut-list-spreadsheet/": {
+  "hash": "6513284037984833",
+  "lastmod": "2026-08-31"
  }
 }
