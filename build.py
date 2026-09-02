@@ -284,7 +284,7 @@ def app_page(key):
               f'Every project is free to plan, with no piece limit, no account, and no trial clock. Pro adds PDF and CSV export plus offcut stock. Choose {pricing["weekly"]} or a {pricing["lifetime"]} lifetime unlock; eligible customers receive a {pricing["trial"]}.' if pricing and "weekly" in pricing else
               f'Cataloging stones and blades and logging sessions are free, with no account and no trial clock. A one-time {pricing["lifetime"]} Lifetime unlock adds Blade Card sharing and CSV export — there is no subscription and no renewal.' if pricing else "Yes.")),
             ("Where is my data stored?",
-             f"On your iPhone, and nowhere else. {name} never uploads, syncs, shares, or sells your data — there is no account and no cloud backend."),
+             f"On your iPhone. {name} never uploads what you record, and never shares or sells your data — there is no account and no cloud backend. Some apps send anonymous usage counts (no identifiers) so we can see which features get used; each app's privacy policy spells out exactly what, if anything, is sent."),
             (f"Does {name} require an account?",
              "No. You can start logging the moment the app opens — there is no sign-up, no email, and nothing to create.")]
     if a["category"] == "HealthApplication" and p["disc"]:
@@ -368,7 +368,7 @@ ul.feats li{{display:flex;gap:13px;align-items:baseline;font-size:16.5px;max-wid
 <h2 class="sec serif">Pricing, plainly</h2>
 {price_html}
 <h2 class="sec serif">Private by design</h2>
-<div class="privacy">Everything you record stays only on your device. {esc(name)} never uploads, syncs, shares, or sells your data. No account needed — delete the app and the data is gone, because it was only ever yours.</div>
+<div class="privacy">Everything you record stays on your device. {esc(name)} never uploads what you record, and never shares or sells your data. No account needed — delete the app and your entries are gone. Anything the app does send (some apps report anonymous usage counts, with no identifiers) is listed plainly in its privacy policy.</div>
 <h2 class="sec serif">Questions</h2>
 {faq_html}
 {guide_html}<h2 class="sec serif">From the same shelf</h2>
