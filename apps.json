@@ -37,7 +37,8 @@
       "label": "Workshop tools",
       "note": "Calculators that earn their place at the bench.",
       "apps": [
-        "boardcut"
+        "boardcut",
+        "kilncost"
       ]
     },
     {
@@ -233,6 +234,24 @@
       "seoDesc": "Catalog whetstones by grit, keep a card for every blade, and log each sharpening session's grit progression. Free core, no account — a one-time $9.99 Lifetime unlock adds Blade Card sharing and CSV export.",
       "guidesLabel": "Sharpening guides",
       "guidesRelatedLabel": "Related sharpening guides"
+    },
+    "kilncost": {
+      "name": "KilnCost",
+      "asc": "KilnCost",
+      "id": "6807705100",
+      "bg": "#F2E7D6",
+      "accent": "#B85A22",
+      "deep": "#2A2320",
+      "category": "UtilitiesApplication",
+      "catLabel": "Kiln firing cost calculator",
+      "pricing": {
+        "lifetime": "$6.99"
+      },
+      "spineLabel": "Kiln costs",
+      "seoTitle": "KilnCost — Kiln Firing Cost Calculator for iPhone",
+      "seoDesc": "See what a firing costs before you start. Pick from 24 Skutt and L&L kilns or enter a custom one, flat or time-of-use rates. Free core, no account — a one-time $6.99 Pro Lifetime unlock adds the cost-card image, saved presets, and CSV export.",
+      "guidesLabel": "Firing guides",
+      "guidesRelatedLabel": "Related firing guides"
     }
   },
   "guides": {

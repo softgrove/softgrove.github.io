@@ -16,6 +16,7 @@
 - [ReadLog](https://softgrove.github.io/apps/readlog/): Track every book you read — Reading journal; free core; Premium $6.99/mo or $39.99/yr. App Store id6781130239.
 - [Coralog](https://softgrove.github.io/apps/coralog/): Reef tank & dosing tracker — Reef tank tracker; free core; Premium $6.99/mo or $39.99/yr. App Store id6786378477.
 - [Boardcut](https://softgrove.github.io/apps/boardcut/): Plywood & sheet cut calculator — Cut list optimizer; free with no piece limit; Pro $1.99/week or $12.99 lifetime, with a 3-day free trial for eligible customers. App Store id6787905177.
+- [KilnCost](https://softgrove.github.io/apps/kilncost/): Kiln firing cost calculator — Kiln firing cost calculator; free core; one-time $6.99 Lifetime unlock adds Blade Card sharing and CSV export (no subscription). App Store id6807705100.
 - [Whetlog](https://softgrove.github.io/apps/whetlog/): Whetstone & knife tracker — Sharpening log; free core; one-time $9.99 Lifetime unlock adds Blade Card sharing and CSV export (no subscription). App Store id6806297103.
 
 ## Free printable templates (PDF, no sign-up)

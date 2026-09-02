@@ -1,6 +1,6 @@
 {
  "/": {
-  "hash": "e3cbb36465afdcaf",
+  "hash": "b5ddb4b6d6bd45de",
   "lastmod": "2026-09-02"
  },
  "/templates/": {
@@ -48,11 +48,15 @@
   "lastmod": "2026-09-02"
  },
  "/apps/boardcut/": {
-  "hash": "51f612a7552cf31b",
+  "hash": "bdff21620cfaa380",
   "lastmod": "2026-09-02"
  },
  "/apps/whetlog/": {
   "hash": "e0f73ad12b76f37f",
+  "lastmod": "2026-09-02"
+ },
+ "/apps/kilncost/": {
+  "hash": "d831a427f43ef92c",
   "lastmod": "2026-09-02"
  },
  "/templates/eczema-tracker-printable/": {
