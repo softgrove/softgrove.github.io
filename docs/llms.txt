@@ -16,6 +16,7 @@
 - [ReadLog](https://softgrove.github.io/apps/readlog/): Track every book you read — Reading journal; free core; Premium $6.99/mo or $39.99/yr. App Store id6781130239.
 - [Coralog](https://softgrove.github.io/apps/coralog/): Reef tank & dosing tracker — Reef tank tracker; free core; Premium $6.99/mo or $39.99/yr. App Store id6786378477.
 - [Boardcut](https://softgrove.github.io/apps/boardcut/): Plywood & sheet cut calculator — Cut list optimizer; free with no piece limit; Pro $1.99/week or $12.99 lifetime, with a 3-day free trial for eligible customers. App Store id6787905177.
+- [Whetlog](https://softgrove.github.io/apps/whetlog/): Whetstone & knife tracker — Sharpening log; free core; one-time $9.99 Lifetime unlock adds Blade Card sharing and CSV export (no subscription). App Store id6806297103.
 
 ## Free printable templates (PDF, no sign-up)
 - [Free Printable Eczema Tracker (PDF)](https://softgrove.github.io/templates/eczema-tracker-printable/): A free one-page printable eczema tracker. Log daily flares, itch severity, affected areas, and possible triggers — then bring a concrete record to your dermatologist.
@@ -50,11 +51,14 @@
 - [Free Printable Mileage Log (PDF)](https://softgrove.github.io/templates/mileage-log-printable/): A free one-page printable mileage log. Record every business trip with date, destination, miles, and purpose — the IRS-compliant format needed to claim the standard mileage deduction.
 - [Free Printable Chronic Pain Log (PDF)](https://softgrove.github.io/templates/chronic-pain-log/): A free one-page printable chronic pain log. Record daily pain location, severity, duration, and factors for any chronic pain condition — a dated record gives your doctor and pain management team real data to work with.
 
-## Woodworking cutting guides
+## Workshop guides (woodworking & sharpening)
 - [How to Use a Cut List Optimizer Without Trusting It Blindly](https://softgrove.github.io/guides/cut-list-optimizer/): A practical cut list optimizer guide for plywood and sheet goods: prepare clean inputs, account for kerf and grain, compare yield, and check that the cut order works in your shop.
 - [Plan a Sheet Goods Cutting Layout You Can Actually Follow](https://softgrove.github.io/guides/sheet-goods-cutting-layout/): Plan a workable sheet goods cutting layout for plywood, MDF, and melamine. Learn strip planning, kerf allowance, grain control, cut sequencing, and offcut decisions.
 - [Plywood Cut Calculator: Estimate Sheets Without the Area Trap](https://softgrove.github.io/guides/plywood-cut-calculator/): Estimate plywood sheet count from a parts list, then correct the estimate for geometry, kerf, edge trim, grain direction, defects, and reusable offcuts.
 - [Build a Cut List Spreadsheet That Is Ready for the Saw](https://softgrove.github.io/guides/cut-list-spreadsheet/): Set up a woodworking cut list spreadsheet with clean part IDs, finished dimensions, quantity, material, grain, kerf notes, and a reliable handoff to sheet layout.
+- [Whetstone Grit Progression: Which Stones, in What Order](https://softgrove.github.io/guides/whetstone-grit-progression/): How to sequence whetstone grits for kitchen knives: what each grit band does, common progressions from repair to polish, when a single 1000 stone is enough, and how to know when to move up.
+- [Knife Sharpening Angles by Blade Type: A Practical Reference](https://softgrove.github.io/guides/knife-sharpening-angle-guide/): Commonly used sharpening angles per side for Japanese and Western kitchen knives, pocket and outdoor blades, and woodworking tools — plus why holding one angle consistently beats chasing a perfect number.
+- [How Often Should You Sharpen Kitchen Knives?](https://softgrove.github.io/guides/how-often-to-sharpen-kitchen-knives/): A realistic sharpening interval for home cooks: why edge tests beat the calendar, how honing stretches the time between stone sessions, and what dulls knives faster than it should.
 
 ## Facts
 - All apps are iPhone (iOS). Data is stored on-device only; no account exists.

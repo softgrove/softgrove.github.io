@@ -39,6 +39,13 @@
       "apps": [
         "boardcut"
       ]
+    },
+    {
+      "label": "Kitchen & blade care",
+      "note": "Records for the tools you keep sharp — stones, blades, and the sessions between them.",
+      "apps": [
+        "whetlog"
+      ]
     }
   ],
   "apps": {
@@ -208,6 +215,24 @@
       "seoTitle": "Boardcut — Cut List Optimizer for Plywood & Boards",
       "seoDesc": "Turn a parts list into an optimized cutting diagram on iPhone. Fraction keypad, grain-aware layouts, offline. Plan free with no piece limit; choose weekly Pro or a $12.99 lifetime unlock for exports and offcut stock.",
       "template": "cut-list-template"
+    },
+    "whetlog": {
+      "name": "Whetlog",
+      "asc": "Whetlog",
+      "id": "6806297103",
+      "bg": "#EDE8DC",
+      "accent": "#3E6E8E",
+      "deep": "#23262A",
+      "category": "LifestyleApplication",
+      "catLabel": "Sharpening log",
+      "pricing": {
+        "lifetime": "$9.99"
+      },
+      "spineLabel": "Sharpening",
+      "seoTitle": "Whetlog — Sharpening Log & Whetstone Tracker for iPhone",
+      "seoDesc": "Catalog whetstones by grit, keep a card for every blade, and log each sharpening session's grit progression. Free core, no account — a one-time $9.99 Lifetime unlock adds Blade Card sharing and CSV export.",
+      "guidesLabel": "Sharpening guides",
+      "guidesRelatedLabel": "Related sharpening guides"
     }
   },
   "guides": {
@@ -490,6 +515,208 @@
         "url": "https://www.reddit.com/r/woodworking/comments/1qsa1t1/what_do_folks_use_to_plan_builds_cut_lists_buy/",
         "quote": "Then I transpose them into an excel spreadsheet, where I identify the part, how many are needed"
       }
+    },
+    "whetstone-grit-progression": {
+      "app": "whetlog",
+      "keyword": "whetstone grit progression",
+      "h1": "Whetstone Grit Progression: Which Stones, in What Order",
+      "title": "Whetstone Grit Progression Guide: Bands, Order & When to Skip",
+      "desc": "How to sequence whetstone grits for kitchen knives: what each grit band does, common progressions from repair to polish, when a single 1000 stone is enough, and how to know when to move up.",
+      "lede": "Grit numbers invite collecting: if 1000 is good, surely 8000 is better, and a twelve-stone ladder is best. In practice most edges are made on one or two stones, and the order matters more than the count. The useful question is not which grits to own but which job each stone in the sequence is doing.",
+      "answer": "Most kitchen-knife sharpening is covered by a medium stone around 1000 grit, followed by an optional finisher in the 3000–6000 range. Start lower — roughly 220–600 — only to repair chips or reset a very dull bevel, and add 8000-plus polishing grits only when the knife's work benefits from a refined edge. Move to the next stone once the current one has raised an even burr along the full length of the edge.",
+      "sections": [
+        {
+          "h2": "What each grit band actually does",
+          "body": [
+            "Grit is a measure of abrasive particle size: lower numbers mean larger particles that remove steel quickly and leave a rough scratch pattern, higher numbers mean finer particles that refine the scratches left by the previous stone. The bands matter more than the exact numbers — a 1000 and a 1200 do essentially the same job.",
+            "Numbers are also not perfectly comparable across brands and rating standards, so treat the figure printed on a stone as a position within a band rather than a precise specification. Natural stones and strops often carry no grit rating at all; they sit at the fine end of a progression by convention, not by number."
+          ],
+          "bullets": [
+            "Extra coarse (below ~240) — heavy repair: chips, broken tips, changing a bevel",
+            "Coarse (240–600) — setting a new bevel on a very dull knife",
+            "Medium (800–2000) — the everyday working edge; where most sharpening happens",
+            "Fine (3000–6000) — refining the edge for cleaner slicing",
+            "Extra fine (8000+) — polishing; a mirror bevel and a very keen apex",
+            "Strop — final burr removal and alignment after the stones"
+          ]
+        },
+        {
+          "h2": "Common progressions and the jobs they fit",
+          "body": [
+            "A single stone around 1000 is a complete progression for routine maintenance: it restores a working edge on a knife that has merely dulled. Adding a finisher — 1000 → 3000, or 1000 → 6000 — is the most common two-stone sequence for kitchen knives, trading a few extra minutes for a cleaner, longer-lasting edge. Repair work runs the other direction: something like 140 or 220 to grind past the damage, then 400 → 1000 and upward to rebuild the finish.",
+            "Between stones, moderate steps are comfortable. A step that roughly triples the number — 400 to 1000, 1000 to 3000 — erases the previous scratch pattern quickly. Bigger skips such as 1000 straight to 8000 do work, but the fine stone then spends a long time clearing coarse scratches, which is the slowest way to use your most delicate abrasive."
+          ],
+          "bullets": [
+            "1000 alone — routine maintenance on a knife that still mostly works",
+            "1000 → 3000 or 1000 → 6000 — the standard kitchen two-stone sequence",
+            "400 → 1000 → 6000 — a knife that has gone properly dull",
+            "140–220 start — chip repair and re-profiling, then climb back up",
+            "1000 → 3000 → 8000 — when you want a polished finish that holds"
+          ]
+        },
+        {
+          "h2": "When to move up: the burr is the signal",
+          "body": [
+            "The reliable cue for leaving a stone is not time or stroke count but the burr — the thin wire of steel that forms along the opposite side of the edge once the bevel you are grinding reaches the apex. When you can feel a consistent burr along the full length of the edge, the stone has done its job and finer grits can take over.",
+            "The classic mistake is impatience at the lowest grit. The coarsest stone in the sequence does all the shaping; every stone after it only refines scratches. If the 1000 leaves the edge underdone, no amount of 6000 will fix it — the polish just makes a dull apex shinier."
+          ]
+        },
+        {
+          "h2": "Why the same progression gives different results",
+          "body": [
+            "Steel changes the picture: harder steels take fine edges well but grind slowly, softer stainless raises a burr quickly and may not reward polishing past the mid grits. Stones vary too — two 1000s from different makers can cut at noticeably different speeds — and pressure, angle consistency, and how recently the stone was flattened all shift the outcome.",
+            "That variability is why sharpeners who improve quickly tend to keep records. Knowing that this knife got a 9-out-of-10 edge from 1000 → 6000 last month, while that one needed a 400 start, turns the next session from guesswork into a repeat of what already worked."
+          ]
+        }
+      ],
+      "faq": [
+        [
+          "What grit whetstone should a beginner buy first?",
+          "A medium stone around 1000 grit is the standard first purchase. It is coarse enough to restore a dull kitchen knife in one session and fine enough to leave a very usable edge on its own. A finisher in the 3000–6000 range is a sensible second stone; coarse repair stones can wait until you actually have a chip to fix."
+        ],
+        [
+          "Can I skip from 1000 straight to 8000?",
+          "You can — the progression still works. The 8000 will just spend a long time erasing the 1000's scratch pattern before it can do its own polishing. An intermediate stone around 3000 makes the sequence faster overall, which is why moderate steps are the common advice."
+        ],
+        [
+          "Is a higher grit always a better edge?",
+          "No. Higher grits make a more polished, keener apex, but a highly polished edge can glide over soft skins like tomato where a slightly toothier mid-grit edge bites. Many cooks deliberately finish kitchen knives at 1000–3000 for that reason. Match the finish to the work, not to the biggest number available."
+        ],
+        [
+          "Do grit numbers mean the same thing on every stone?",
+          "Not exactly. Different brands and rating standards size their abrasives differently, so one maker's 1000 can behave like another's 800 or 1200. Treat numbers as positions within a band — coarse, medium, fine — and learn how your specific stones behave rather than trusting the label alone."
+        ]
+      ]
+    },
+    "knife-sharpening-angle-guide": {
+      "app": "whetlog",
+      "keyword": "knife sharpening angle",
+      "h1": "Knife Sharpening Angles by Blade Type: A Practical Reference",
+      "title": "Knife Sharpening Angle Guide: Degrees per Side by Knife Type",
+      "desc": "Commonly used sharpening angles per side for Japanese and Western kitchen knives, pocket and outdoor blades, and woodworking tools — plus why holding one angle consistently beats chasing a perfect number.",
+      "lede": "Angle charts disagree with each other constantly, and the disagreement makes the number feel more important than it is. The honest version: every angle is a trade-off between keenness and durability, the ranges below are conventions rather than laws, and a consistently held mediocre angle cuts better than a perfect one you can't repeat.",
+      "answer": "Most double-bevel kitchen knives are sharpened between 10 and 20 degrees per side: Japanese-style knives commonly 10–15°, Western chef's knives 15–20°. Pocket and outdoor knives run steeper — roughly 17–25° per side — trading slicing ability for edge durability. When the maker publishes a recommended angle, use that instead of any chart, and hold whatever angle you choose consistently through the whole progression.",
+      "sections": [
+        {
+          "h2": "The angle is a trade-off, not a target",
+          "body": [
+            "A lower angle makes a thinner, keener edge that slices with less force — and folds or chips more easily. A higher angle leaves more steel behind the apex, so the edge survives bones, boards, and abuse at the cost of raw sharpness. There is no correct point on that spectrum; there is only the right compromise for the knife's steel and its job.",
+            "Steel decides how far down the spectrum you can go. Hard, fine-grained steels common in Japanese kitchen knives support acute edges; softer stainless found in many Western knives holds up better with a bit more angle behind it. That is why the ranges below differ by blade type at all — they track what the steel and the work will tolerate."
+          ]
+        },
+        {
+          "h2": "Commonly cited ranges by blade type",
+          "body": [
+            "These are per-side figures for double-bevel blades, and they are starting points, not rules. Single-bevel Japanese knives such as yanagiba are a separate discipline — the front bevel is sharpened at the angle the blade was ground with and the back stays flat — so for those, follow the blade's own geometry and the maker's guidance.",
+            "If the knife came with a factory recommendation, prefer it over every number here. Sharpening at the factory angle also means you remove the least metal, since you are following an existing bevel rather than cutting a new one."
+          ],
+          "bullets": [
+            "Japanese double-bevel kitchen (gyuto, santoku): ~10–15° per side",
+            "Western kitchen (chef's knife, utility): ~15–20° per side",
+            "Pocket & EDC knives: ~17–22° per side",
+            "Outdoor, camp & heavy-use blades: ~20–25° per side",
+            "Woodworking chisels & plane irons: ~25–30° bevel, often a slightly steeper micro-bevel",
+            "Single-bevel Japanese blades: follow the existing bevel — not a chart"
+          ]
+        },
+        {
+          "h2": "Per side vs inclusive: why charts seem to disagree",
+          "body": [
+            "Half the contradictions between angle charts are unit confusion. A knife sharpened at 15 degrees per side has a 30-degree inclusive (total) edge angle, and sources routinely quote one without saying which. If a chart's numbers look implausibly steep or shallow, check whether it is counting one bevel or both.",
+            "When you record your own angles, pick one convention and keep it. Per-side is the natural unit for freehand whetstone work, since it describes the angle you actually hold against the stone."
+          ]
+        },
+        {
+          "h2": "Holding the angle without a jig",
+          "body": [
+            "Consistency is the skill. The widely used check is the marker test: color the bevel with a felt-tip marker, take two light strokes, and look at what rubbed off. Ink gone from the shoulder means you are too shallow; gone from the very edge only, too steep; a clean sweep across the bevel means you are riding the existing angle — which also tells you what angle the knife came with.",
+            "Freehand sharpeners keep the angle by feel and reference points — locking the wrist and letting the arms move, watching the gap between spine and stone. Angle guides and jigs remove the variable entirely, at some cost in speed and flexibility. Either way, the angle you can hold for every stroke of every stone beats the theoretically ideal one you hit occasionally."
+          ]
+        }
+      ],
+      "faq": [
+        [
+          "Is 15 or 20 degrees per side better for a kitchen knife?",
+          "Neither is better in the abstract. 15° per side slices noticeably more easily and suits harder steels and careful use; 20° per side leaves a more durable edge that tolerates harder boards and rougher technique. If the maker recommends an angle, use it — otherwise match the number to the steel and how the knife gets treated."
+        ],
+        [
+          "How do I find the angle my knife already has?",
+          "Use the marker test. Ink the bevel, take a light stroke on the stone, and adjust until the ink wears evenly across the whole bevel face — at that point you are holding the knife's existing angle. Following it removes the least metal and keeps the factory geometry intact."
+        ],
+        [
+          "Should the angle change as I move to finer stones?",
+          "Keep the same angle through the whole progression — the finer stones are refining the same bevel, not cutting a new one. Some sharpeners add a micro-bevel at the very end by raising the angle slightly for a few light strokes, which toughens the apex, but that is an optional finishing step, not a per-stone adjustment."
+        ],
+        [
+          "Do I need to measure the angle precisely?",
+          "No. Freehand sharpening works in ranges, not decimals, and the edge cannot tell 15° from 16°. What it can tell is 15° on one stroke and 22° on the next — inconsistency rounds the apex. Aim for a sensible range for the blade type and put your effort into repeating it."
+        ]
+      ]
+    },
+    "how-often-to-sharpen-kitchen-knives": {
+      "app": "whetlog",
+      "keyword": "how often to sharpen kitchen knives",
+      "h1": "How Often Should You Sharpen Kitchen Knives?",
+      "title": "How Often to Sharpen Kitchen Knives: Signs, Not Schedules",
+      "desc": "A realistic sharpening interval for home cooks: why edge tests beat the calendar, how honing stretches the time between stone sessions, and what dulls knives faster than it should.",
+      "lede": "Ask how often to sharpen and you'll hear everything from weekly to yearly, all stated with confidence. The spread isn't dishonesty — intervals genuinely differ that much between kitchens. The calendar is the wrong instrument. The edge itself tells you when it needs the stones, and it never lies about it.",
+      "answer": "For a home cook using a knife most days, a full whetstone sharpening every one to three months is a common rhythm, with light honing on a rod in between. But test the edge rather than counting weeks: sharpen when the knife slides on tomato skin instead of biting, tears paper instead of slicing it, or needs noticeably more pressure than it used to — whatever the calendar says.",
+      "sections": [
+        {
+          "h2": "Test the edge, not the date",
+          "body": [
+            "Two quick checks cover it. The paper test: a sharp knife slices cleanly through a held sheet of paper with light pressure; a dull one snags, tears, or slides off. The tomato test: a sharp edge bites into tomato skin under the knife's own weight, a dull one skates. Both take five seconds before you start cooking.",
+            "The third signal is the one people rationalize away: pressure creep. When you catch yourself pressing harder, sawing, or avoiding certain foods with a particular knife, the edge went dull weeks ago and you adapted. More pressure is also the mechanism behind most kitchen-knife accidents — a dull edge demands force, and force slips."
+          ]
+        },
+        {
+          "h2": "Honing and sharpening are different jobs",
+          "body": [
+            "A honing rod realigns an edge that has folded microscopically out of line, removing little or no steel. It takes seconds and revives a mostly-sharp knife remarkably well. Sharpening on stones removes metal to rebuild the apex itself, which is why it takes minutes rather than seconds and why it can rescue an edge that honing no longer helps.",
+            "The two work as a system: regular honing — many cooks do it weekly or at each use — stretches the interval between stone sessions considerably. When the rod stops bringing the edge back, that is precisely the signal that the apex is worn round and it is time for the stones."
+          ]
+        },
+        {
+          "h2": "What dulls knives faster than they should",
+          "body": [
+            "If your interval feels short, the edge is usually being killed off the cutting board rather than on it. Hard cutting surfaces — glass, stone, ceramic plates used as boards — blunt an edge dramatically faster than wood or soft plastic. Dishwashers batter edges against baskets and other steel. Loose drawer storage does the same in slow motion.",
+            "Work mix matters too: bones, frozen food, hard rinds, and squash-type vegetables are all rough on an apex, and knives in soft steels dull faster than hard ones regardless of care. None of this means avoiding the work the knife exists to do — it means expecting the interval to match how the knife actually lives."
+          ],
+          "bullets": [
+            "Glass, stone, or ceramic cutting surfaces",
+            "Dishwasher cycles instead of hand washing",
+            "Loose storage — knives rattling in a drawer",
+            "Bones, frozen food, and hard rinds",
+            "Softer steel that folds and wears sooner",
+            "A honing rod that never gets used"
+          ]
+        },
+        {
+          "h2": "Find your own interval, then trust it",
+          "body": [
+            "Because steel, boards, and cooking habits differ so much, the honest answer to \"how often\" is measured, not quoted. Note the date each time a knife goes to the stones and how the edge rated afterward; within a few cycles the real interval for that knife in your kitchen becomes obvious — and it will differ between your knives.",
+            "A record also catches the slow patterns memory misses: the knife that suddenly needs sharpening twice as often (worn steel, a new board, someone else using it), or the one that never needs the coarse stone anymore because it is honed regularly. That is the point where a schedule finally makes sense — because it is derived from your own edges rather than someone else's kitchen."
+          ]
+        }
+      ],
+      "faq": [
+        [
+          "Can I sharpen a knife too often?",
+          "Every stone session removes a little steel, so over a knife's lifetime, unnecessary sharpening does shorten it — but for a home cook the effect is small. Sharpening a few times more per year than strictly needed costs far less edge life than routinely cutting on a glass board. Light sessions on a medium-fine stone, done when the edge tests dull, are a sustainable habit."
+        ],
+        [
+          "Does a honing rod count as sharpening?",
+          "No. A rod realigns the existing edge and removes little or no metal; it cannot rebuild an apex that has worn round. It is maintenance between sharpenings, not a replacement for them. If honing no longer restores the edge, the knife needs stones."
+        ],
+        [
+          "Do serrated knives follow the same schedule?",
+          "No — serrated edges stay usable far longer because the points take the wear while the recessed edges keep cutting. They also cannot be maintained on a flat stone in the normal way; the scallops are sharpened individually with a tapered rod. Expect years, not months, between servicings for a bread knife."
+        ],
+        [
+          "My knife dulls within a couple of weeks. Is that normal?",
+          "Only under heavy use. For a home kitchen it usually points to an environmental cause: a glass or ceramic cutting surface, dishwasher washing, drawer storage, or very soft steel. Fix the board and the washing first — they are the usual culprits — and the interval typically stretches to months."
+        ]
+      ]
     }
   },
   "templates": {

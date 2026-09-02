@@ -1,7 +1,7 @@
 {
  "/": {
-  "hash": "46443512f0ae7360",
-  "lastmod": "2026-07-17"
+  "hash": "e3cbb36465afdcaf",
+  "lastmod": "2026-09-02"
  },
  "/templates/": {
   "hash": "9e94f6651322385e",
@@ -50,6 +50,10 @@
  "/apps/boardcut/": {
   "hash": "1835d781172e4306",
   "lastmod": "2026-08-31"
+ },
+ "/apps/whetlog/": {
+  "hash": "2ef668103336d050",
+  "lastmod": "2026-09-02"
  },
  "/templates/eczema-tracker-printable/": {
   "hash": "37d1c38cc07078e5",
@@ -190,5 +194,17 @@
  "/guides/cut-list-spreadsheet/": {
   "hash": "6513284037984833",
   "lastmod": "2026-08-31"
+ },
+ "/guides/whetstone-grit-progression/": {
+  "hash": "c887be5265349cf1",
+  "lastmod": "2026-09-02"
+ },
+ "/guides/knife-sharpening-angle-guide/": {
+  "hash": "01c1f7d7e2897c19",
+  "lastmod": "2026-09-02"
+ },
+ "/guides/how-often-to-sharpen-kitchen-knives/": {
+  "hash": "9ae4b7aa4a5367e2",
+  "lastmod": "2026-09-02"
  }
 }

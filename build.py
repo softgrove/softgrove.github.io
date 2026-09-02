@@ -21,7 +21,7 @@ DATA = json.loads((ROOT / "apps.json").read_text())
 DESCS = json.loads((ROOT / "_asc_descs.json").read_text())
 SITE = DATA["site"]
 ORIGIN = SITE["origin"]
-TODAY = "2026-08-31"  # set per release; hash-gate keeps unchanged pages stable
+TODAY = "2026-09-02"  # set per release; hash-gate keeps unchanged pages stable
 
 # ---------------------------------------------------------------- desc parsing
 def parse_desc(raw):
@@ -48,6 +48,9 @@ def parse_desc(raw):
             if first and len(first) < 60 and not first.isupper():
                 feats.append(first)
         feats = feats[:5]
+    if not feats:  # Whetlog-style ALL-CAPS section heads: take the store bullets directly
+        feats = [re.sub(r"^[•\-]\s*", "", ln.strip()) for ln in lines
+                 if ln.strip().startswith(("•", "-"))][:6]
     m = re.search(r"PREMIUM\s*—\s*7-DAY FREE TRIAL, THEN \$([\d.]+)/MONTH OR \$([\d.]+)/YEAR", raw, re.I)
     monthly, yearly = (m.group(1), m.group(2)) if m else (None, None)
     free_m = re.search(r"^FREE[^\n]*\n(.+?)(?:\n\s*\n|\Z)", raw, re.M | re.S | re.I)
@@ -255,12 +258,19 @@ def app_page(key):
     a = DATA["apps"][key]; d = DESCS[a["asc"]]; p = PARSED[a["asc"]]
     name, sub = a["name"], d["subtitle"]
     feats = "".join(f'<li><span class="fm" style="background:{a["accent"]}"></span>{esc(f)}</li>' for f in p["feats"])
-    if pricing := a.get("pricing"):
+    pricing = a.get("pricing")
+    if pricing and "weekly" in pricing:
         price_html = ('<div class="price"><div><strong>Free — no piece limit</strong>'
                       '<p>Plan any size project free: the optimizer, the cut diagram, the ordered cut steps, and sheet-image sharing. No account, no trial clock.</p></div>'
                       f'<div><strong>Pro — {esc(pricing["weekly"])} or {esc(pricing["lifetime"])} lifetime</strong>'
                       f'<p>{esc(pricing["trial"]).capitalize()} for eligible customers. Pro adds vector PDF and CSV export plus offcut stock. The weekly subscription renews automatically unless canceled.</p></div></div>')
         price_note = f'Free with no piece limit; Pro {pricing["weekly"]} or {pricing["lifetime"]} lifetime, with a {pricing["trial"]} for eligible customers'
+    elif pricing:  # one-time lifetime unlock only (Whetlog)
+        price_html = ('<div class="price"><div><strong>Free — the whole logbook</strong>'
+                      '<p>Catalog unlimited stones and blades and log unlimited sharpening sessions. No account, no trial clock.</p></div>'
+                      f'<div><strong>Lifetime — {esc(pricing["lifetime"])}, once</strong>'
+                      '<p>One purchase unlocks Blade Card sharing and CSV export, forever. No subscription and no renewal.</p></div></div>')
+        price_note = f'Free core; a one-time {pricing["lifetime"]} Lifetime unlock adds Blade Card sharing and CSV export'
     elif p["monthly"]:
         price_html = (f'<div class="price"><div><strong>Free</strong><p>{esc(p["free"])}</p></div>'
                       f'<div><strong>Premium — ${p["monthly"]}/mo or ${p["yearly"]}/yr</strong>'
@@ -271,7 +281,8 @@ def app_page(key):
         price_note = "Free"
     faqs = [(f"Is {name} free?",
              (f"The core app is free, with no account needed. {p['free'].rstrip('.')}. Premium (${p['monthly']}/month or ${p['yearly']}/year after a 7-day trial) adds the analysis features." if p["monthly"] else
-              f'Every project is free to plan, with no piece limit, no account, and no trial clock. Pro adds PDF and CSV export plus offcut stock. Choose {pricing["weekly"]} or a {pricing["lifetime"]} lifetime unlock; eligible customers receive a {pricing["trial"]}.' if pricing else "Yes.")),
+              f'Every project is free to plan, with no piece limit, no account, and no trial clock. Pro adds PDF and CSV export plus offcut stock. Choose {pricing["weekly"]} or a {pricing["lifetime"]} lifetime unlock; eligible customers receive a {pricing["trial"]}.' if pricing and "weekly" in pricing else
+              f'Cataloging stones and blades and logging sessions are free, with no account and no trial clock. A one-time {pricing["lifetime"]} Lifetime unlock adds Blade Card sharing and CSV export — there is no subscription and no renewal.' if pricing else "Yes.")),
             ("Where is my data stored?",
              f"On your iPhone, and nowhere else. {name} never uploads, syncs, shares, or sells your data — there is no account and no cloud backend."),
             (f"Does {name} require an account?",
@@ -295,7 +306,7 @@ def app_page(key):
         f'<a class="guide-card" href="/guides/{slug}/"><span class="eyebrow">{esc(g["keyword"])}</span>'
         f'<strong class="serif">{esc(g["h1"])}</strong><span>{esc(g["desc"])}</span></a>'
         for slug, g in DATA.get("guides", {}).items() if g["app"] == key)
-    guide_html = (f'<h2 class="sec serif">Practical cutting guides</h2><div class="guide-grid">{guide_cards}</div>'
+    guide_html = (f'<h2 class="sec serif">{esc(a.get("guidesLabel", "Practical cutting guides"))}</h2><div class="guide-grid">{guide_cards}</div>'
                   if guide_cards else "")
     guide_css = (f'''
 .guide-grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}}
@@ -382,6 +393,13 @@ ul.feats li{{display:flex;gap:13px;align-items:baseline;font-size:16.5px;max-wid
     return page(a["seoTitle"], a["seoDesc"], f"/apps/{key}/", body, ld, head)
 
 # --------------------------------------------------------------- guide pages
+GUIDE_CTA = {
+    "boardcut": ("When the layout stops being simple",
+                 "Boardcut for iPhone turns a parts list and your available stock into a dimensioned cutting diagram. Planning has no piece limit and includes kerf, grain direction, yield, sheet count, and ordered cut steps."),
+    "whetlog": ("When you stop remembering what worked",
+                "Whetlog for iPhone keeps your whetstones, blades, and sharpening sessions in one private logbook. Catalog stones by grit, log each session's progression in order, and check what worked last time before you sharpen. No account — everything stays on your device."),
+}
+
 def guide_page(slug):
     g = DATA["guides"][slug]; a = DATA["apps"][g["app"]]
     pricing = a["pricing"]
@@ -397,7 +415,19 @@ def guide_page(slug):
     related = "".join(
         f'<a href="/guides/{other_slug}/"><strong class="serif">{esc(other["h1"])}</strong><span>{esc(other["keyword"])}</span></a>'
         for other_slug, other in DATA["guides"].items() if other_slug != slug and other["app"] == g["app"])
-    source = g["source"]
+    source = g.get("source")
+    field_note = (f'''<aside class="field-note">
+<p class="eyebrow">Why this guide exists</p>
+<p>A woodworker described the problem this way: <q>{esc(source["quote"])}</q></p>
+<p><cite>Source: <a href="{esc(source["url"])}">{esc(source["title"])}</a> on {esc(source["community"])}</cite>. The quote is evidence of the workflow problem, not an endorsement of {esc(a["name"])}.</p>
+</aside>''' if source else "")
+    cta_h2, cta_body = GUIDE_CTA[g["app"]]
+    if "weekly" in pricing:
+        cta_terms = (f'Planning is free. Pro adds vector PDF and CSV export plus saved offcuts: {esc(pricing["weekly"])} or '
+                     f'{esc(pricing["lifetime"])} lifetime. Eligible customers receive a {esc(pricing["trial"])}; the weekly subscription renews automatically unless canceled.')
+    else:
+        cta_terms = (f'The logbook is free. A one-time {esc(pricing["lifetime"])} Lifetime unlock adds Blade Card sharing '
+                     'and CSV export — no subscription, no renewal.')
     body = f"""
 <style>
 article.wrap{{width:100%;max-width:780px}}
@@ -435,18 +465,14 @@ article section ul{{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-
 <div class="answer">{esc(g["answer"])}</div>
 </header>
 {section_html}
-<aside class="field-note">
-<p class="eyebrow">Why this guide exists</p>
-<p>A woodworker described the problem this way: <q>{esc(source["quote"])}</q></p>
-<p><cite>Source: <a href="{esc(source["url"])}">{esc(source["title"])}</a> on {esc(source["community"])}</cite>. The quote is evidence of the workflow problem, not an endorsement of Boardcut.</p>
-</aside>
+{field_note}
 <section><h2 class="serif">Questions</h2>{faq_html}</section>
 <aside class="app-cta">
-<h2 class="serif">When the layout stops being simple</h2>
-<p>Boardcut for iPhone turns a parts list and your available stock into a dimensioned cutting diagram. Planning has no piece limit and includes kerf, grain direction, yield, sheet count, and ordered cut steps.</p>
-<div class="cta-row">{store_badge(a["id"], a["name"])}<p class="terms">Planning is free. Pro adds vector PDF and CSV export plus saved offcuts: {esc(pricing["weekly"])} or {esc(pricing["lifetime"])} lifetime. Eligible customers receive a {esc(pricing["trial"])}; the weekly subscription renews automatically unless canceled.</p></div>
+<h2 class="serif">{esc(cta_h2)}</h2>
+<p>{esc(cta_body)}</p>
+<div class="cta-row">{store_badge(a["id"], a["name"])}<p class="terms">{cta_terms}</p></div>
 </aside>
-<section><h2 class="serif">Related cutting guides</h2><div class="related">{related}</div></section>
+<section><h2 class="serif">{esc(a.get("guidesRelatedLabel", "Related cutting guides"))}</h2><div class="related">{related}</div></section>
 </article>"""
     faqs = [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ans}}
             for q, ans in g["faq"]]
@@ -602,13 +628,14 @@ def llms_txt(paths):
         for k in sh["apps"]:
             a = DATA["apps"][k]; p = PARSED[a["asc"]]; d = DESCS[a["asc"]]
             pricing = a.get("pricing")
-            price = f'free with no piece limit; Pro {pricing["weekly"]} or {pricing["lifetime"]} lifetime, with a {pricing["trial"]} for eligible customers' if pricing else (
+            price = f'free with no piece limit; Pro {pricing["weekly"]} or {pricing["lifetime"]} lifetime, with a {pricing["trial"]} for eligible customers' if pricing and "weekly" in pricing else (
+                f'free core; one-time {pricing["lifetime"]} Lifetime unlock adds Blade Card sharing and CSV export (no subscription)' if pricing else
                 f"free core; Premium ${p['monthly']}/mo or ${p['yearly']}/yr" if p["monthly"] else "free")
             lines.append(f"- [{a['name']}]({ORIGIN}/apps/{k}/): {d['subtitle']} — {a['catLabel']}; {price}. App Store id{a['id']}.")
     lines += ["", "## Free printable templates (PDF, no sign-up)"]
     for slug, t in DATA["templates"].items():
         lines.append(f"- [{t['h1']}]({ORIGIN}/templates/{slug}/): {t['desc']}")
-    lines += ["", "## Woodworking cutting guides"]
+    lines += ["", "## Workshop guides (woodworking & sharpening)"]
     for slug, g in DATA.get("guides", {}).items():
         lines.append(f"- [{g['h1']}]({ORIGIN}/guides/{slug}/): {g['desc']}")
     lines += ["", "## Facts",
