@@ -60,6 +60,9 @@
 - [Whetstone Grit Progression: Which Stones, in What Order](https://softgrove.github.io/guides/whetstone-grit-progression/): How to sequence whetstone grits for kitchen knives: what each grit band does, common progressions from repair to polish, when a single 1000 stone is enough, and how to know when to move up.
 - [Knife Sharpening Angles by Blade Type: A Practical Reference](https://softgrove.github.io/guides/knife-sharpening-angle-guide/): Commonly used sharpening angles per side for Japanese and Western kitchen knives, pocket and outdoor blades, and woodworking tools — plus why holding one angle consistently beats chasing a perfect number.
 - [How Often Should You Sharpen Kitchen Knives?](https://softgrove.github.io/guides/how-often-to-sharpen-kitchen-knives/): A realistic sharpening interval for home cooks: why edge tests beat the calendar, how honing stretches the time between stone sessions, and what dulls knives faster than it should.
+- [How Much Does It Cost to Fire an Electric Kiln?](https://softgrove.github.io/guides/electric-kiln-firing-cost/): Calculate the electricity cost of an electric kiln firing with kWh × utility rate, see worked examples, and learn which parts of the firing change the final bill.
+- [Kiln kWh per Firing: How to Measure or Estimate It](https://softgrove.github.io/guides/kiln-kwh-per-firing/): Find your kiln's kWh per firing with a meter or estimate it from rated kW, firing time, and element duty cycle, with a worked example and safety notes.
+- [Bisque vs Glaze Firing Cost: Which Uses More Electricity?](https://softgrove.github.io/guides/bisque-vs-glaze-firing-cost/): Compare bisque and glaze firing costs without relying on a fixed ratio: measure kWh, account for cone, ramps and holds, and calculate the difference at your utility rate.
 
 ## Facts
 - All apps are iPhone (iOS). Data is stored on-device only; no account exists.

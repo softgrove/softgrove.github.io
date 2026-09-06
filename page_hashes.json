@@ -56,8 +56,8 @@
   "lastmod": "2026-09-02"
  },
  "/apps/kilncost/": {
-  "hash": "d831a427f43ef92c",
-  "lastmod": "2026-09-02"
+  "hash": "efbb75f4b28003bc",
+  "lastmod": "2026-09-06"
  },
  "/templates/eczema-tracker-printable/": {
   "hash": "37d1c38cc07078e5",
@@ -210,5 +210,17 @@
  "/guides/how-often-to-sharpen-kitchen-knives/": {
   "hash": "9ae4b7aa4a5367e2",
   "lastmod": "2026-09-02"
+ },
+ "/guides/electric-kiln-firing-cost/": {
+  "hash": "e72da6a4e0a12c71",
+  "lastmod": "2026-09-06"
+ },
+ "/guides/kiln-kwh-per-firing/": {
+  "hash": "adb06ea0b95e3cd1",
+  "lastmod": "2026-09-06"
+ },
+ "/guides/bisque-vs-glaze-firing-cost/": {
+  "hash": "2baa883496fc15a1",
+  "lastmod": "2026-09-06"
  }
 }

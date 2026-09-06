@@ -21,7 +21,7 @@ DATA = json.loads((ROOT / "apps.json").read_text())
 DESCS = json.loads((ROOT / "_asc_descs.json").read_text())
 SITE = DATA["site"]
 ORIGIN = SITE["origin"]
-TODAY = "2026-09-02"  # set per release; hash-gate keeps unchanged pages stable
+TODAY = "2026-09-06"  # set per release; hash-gate keeps unchanged pages stable
 
 # ---------------------------------------------------------------- desc parsing
 def parse_desc(raw):
@@ -398,6 +398,8 @@ GUIDE_CTA = {
                  "Boardcut for iPhone turns a parts list and your available stock into a dimensioned cutting diagram. Planning has no piece limit and includes kerf, grain direction, yield, sheet count, and ordered cut steps."),
     "whetlog": ("When you stop remembering what worked",
                 "Whetlog for iPhone keeps your whetstones, blades, and sharpening sessions in one private logbook. Catalog stones by grit, log each session's progression in order, and check what worked last time before you sharpen. No account — everything stays on your device."),
+    "kilncost": ("When you need the number before loading the kiln",
+                 "KilnCost for iPhone estimates firing cost from your kiln, schedule, and electricity rate. Choose a listed kiln or enter your own, then compare flat and time-of-use rates before you fire."),
 }
 
 def guide_page(slug):
@@ -425,9 +427,12 @@ def guide_page(slug):
     if "weekly" in pricing:
         cta_terms = (f'Planning is free. Pro adds vector PDF and CSV export plus saved offcuts: {esc(pricing["weekly"])} or '
                      f'{esc(pricing["lifetime"])} lifetime. Eligible customers receive a {esc(pricing["trial"])}; the weekly subscription renews automatically unless canceled.')
-    else:
+    elif g["app"] == "whetlog":
         cta_terms = (f'The logbook is free. A one-time {esc(pricing["lifetime"])} Lifetime unlock adds Blade Card sharing '
                      'and CSV export — no subscription, no renewal.')
+    else:
+        cta_terms = (f'The calculator is free. A one-time {esc(pricing["lifetime"])} Pro Lifetime unlock adds cost-card sharing, '
+                     'saved presets, and CSV export — no subscription, no renewal.')
     body = f"""
 <style>
 article.wrap{{width:100%;max-width:780px}}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Electric Kiln Firing Cost: Formula, Examples &amp; Variables</title>
+<meta name="description" content="Calculate the electricity cost of an electric kiln firing with kWh × utility rate, see worked examples, and learn which parts of the firing change the final bill.">
+<link rel="canonical" href="https://softgrove.github.io/guides/electric-kiln-firing-cost/">
+<meta property="og:title" content="Electric Kiln Firing Cost: Formula, Examples &amp; Variables">
+<meta property="og:description" content="Calculate the electricity cost of an electric kiln firing with kWh × utility rate, see worked examples, and learn which parts of the firing change the final bill.">
+<meta property="og:url" content="https://softgrove.github.io/guides/electric-kiln-firing-cost/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://softgrove.github.io/og/apps-kilncost.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet"></noscript><meta name="apple-itunes-app" content="app-id=6807705100">
+<style>
+:root{--paper:#FBFAF7;--ink:#2C282C;--muted:#6E6870;--line:#E7E2D9;--teal:#3E8E8C}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.serif{font-family:"Newsreader",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+header.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px;padding-bottom:18px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;letter-spacing:-.01em}
+.wordmark b{color:var(--teal);font-weight:600}
+nav.top a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px}
+nav.top a:hover{color:var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;padding:13px 26px;border-radius:8px}
+.btn:hover{opacity:.88}
+.badge-store{display:inline-flex;align-items:center;gap:9px;background:#000;color:#fff;text-decoration:none;border-radius:9px;padding:9px 18px 9px 14px;line-height:1.15}
+.badge-store svg{width:22px;height:26px;flex:none}
+.badge-store small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.badge-store span{font-size:17px;font-weight:600;letter-spacing:.01em}
+footer{border-top:1px solid var(--line);margin-top:96px}
+footer .wrap{padding:34px 24px 46px;display:flex;flex-wrap:wrap;gap:10px 34px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4d4850;max-width:62ch}
+@media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "How Much Does It Cost to Fire an Electric Kiln?", "description": "Calculate the electricity cost of an electric kiln firing with kWh × utility rate, see worked examples, and learn which parts of the firing change the final bill.", "mainEntityOfPage": "https://softgrove.github.io/guides/electric-kiln-firing-cost/", "author": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}, "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does a kiln firing add to an electric bill?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply the measured kWh by your own electricity rate. For example, 45 kWh at $0.18 per kWh adds $8.10 before any demand charge or studio overhead. There is no universal dollar figure because kiln energy use and utility rates both vary."}}, {"@type": "Question", "name": "Can I calculate firing cost from the kiln's wattage?", "acceptedAnswer": {"@type": "Answer", "text": "You can estimate a ceiling. Divide rated watts by 1,000 to get kW, then multiply by firing hours. The result assumes the elements are on for the entire firing; a controller normally cycles them, so measured kWh will usually be lower."}}, {"@type": "Question", "name": "Should I include cooling time in the calculation?", "acceptedAnswer": {"@type": "Answer", "text": "Include any cooling segment during which the controller powers the elements, such as a controlled-cooling program. Passive cooling after the relays stop drawing kiln power adds time but essentially no kiln-heating kWh. Fans and vents should be counted separately if you need a complete studio total."}}, {"@type": "Question", "name": "Does firing a half-empty kiln cost half as much?", "acceptedAnswer": {"@type": "Answer", "text": "No. The kiln still heats its brick, shelves, and chamber to the same heatwork. A lighter load may use somewhat less energy, but not in direct proportion to the number of pieces, which is why fuller loads usually have a lower electricity cost per piece."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Softgrove", "item": "https://softgrove.github.io/"}, {"@type": "ListItem", "position": 2, "name": "KilnCost", "item": "https://softgrove.github.io/apps/kilncost/"}, {"@type": "ListItem", "position": 3, "name": "How Much Does It Cost to Fire an Electric Kiln?"}]}]}</script>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<a class="wordmark" href="/">softgrove<b>.</b></a>
+<nav class="top"><a href="/#apps">Apps</a><a href="/templates/">Free templates</a></nav>
+</div></header>
+
+<style>
+article.wrap{width:100%;max-width:780px}
+.guide-hero{padding:64px 0 20px}
+.guide-hero h1{font-size:clamp(36px,5.8vw,56px);max-width:18ch}
+.guide-hero .lede{font-size:19px;color:#4d4850;margin-top:20px;max-width:62ch}
+.answer{border:1px solid var(--line);border-left:3px solid #B85A22;background:#fff;border-radius:0 10px 10px 0;padding:20px 24px;font-size:16.5px;margin-top:28px}
+article section{margin-top:56px}
+article section h2{font-size:30px;margin-bottom:18px}
+article section p{margin-top:14px;max-width:66ch}
+article section ul{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-width:64ch}
+.work-note{background:#F2E7D6;border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:22px}
+.work-note strong{font-size:15px}
+.work-note p{margin-top:7px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14px;line-height:1.55}
+.field-note{margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+.field-note p{margin-top:8px;color:#4d4850}
+.field-note cite{font-style:normal}
+.field-note a{color:#B85A22;font-weight:600}
+.app-cta{margin-top:60px;background:#F2E7D6;border:1px solid var(--line);border-radius:14px;padding:28px}
+.app-cta h2{font-size:28px}
+.app-cta p{margin-top:10px;max-width:62ch;color:#4d4850}
+.app-cta .cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px}
+.app-cta .terms{font-size:13px;color:var(--muted);max-width:44ch}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px}
+.related a{border:1px solid var(--line);background:#fff;border-radius:9px;padding:16px;text-decoration:none;display:flex;flex-direction:column;gap:6px}
+.related a:hover{border-color:#B85A22}
+.related strong{font-size:18px;line-height:1.2}
+.related span{font-size:12px;color:var(--muted)}
+</style>
+<article class="wrap">
+<header class="guide-hero">
+<p class="eyebrow">Workshop guide · how much does it cost to fire an electric kiln</p>
+<h1 class="serif">How Much Does It Cost to Fire an Electric Kiln?</h1>
+<p class="lede">The question sounds as if it should have one price, but the kiln is only half of the bill. The same firing can cost several times more in one studio than another because kiln size, schedule, and electricity rate all move independently. The useful answer starts with one measured number: the kilowatt-hours used by that firing.</p>
+<div class="answer">Electricity cost equals the firing&#x27;s energy use in kilowatt-hours multiplied by your price per kWh. A firing that uses 45 kWh at $0.18 per kWh costs $8.10 in electricity. Small and midsize studio kilns can have full-power ratings from roughly 2 to 12 kW, but their elements cycle during a firing, so rated kW multiplied by clock hours is a ceiling rather than an exact bill. Use a meter or controller energy reading when available, and use the per-kWh charges from your own utility plan because rates vary widely by location and time of day.</div>
+</header>
+<section><h2 class="serif">The firing-cost formula</h2><p>The arithmetic is short: kWh used × price per kWh = electricity cost. Kilowatt-hours measure energy; your utility rate prices that energy. Keep dollars and cents straight when you enter the rate: 18 cents per kWh is $0.18, not 18.</p><p>Use the charges that change when you consume another kWh. On a simple plan, that may be one energy rate. On a time-of-use plan, split the firing across peak, off-peak, and shoulder periods and price each block separately. Fixed monthly account charges do not make one firing more expensive, though a business may still allocate part of them as overhead.</p><ul><li>20 kWh × $0.12/kWh = $2.40</li><li>45 kWh × $0.18/kWh = $8.10</li><li>80 kWh × $0.30/kWh = $24.00</li><li>Time-of-use plan: calculate each rate period, then add the results</li></ul></section><section><h2 class="serif">How to find the kWh for one firing</h2><p>The cleanest figure comes from a dedicated energy meter: note the reading before the kiln starts and after the controller stops supplying heat, then subtract. Some controllers or studio submeters report the same total. A plug-in meter is suitable only when both the meter and outlet are rated for the kiln; most 240-volt and hardwired pottery kilns need properly installed metering rather than a household plug adapter.</p><p>Without a meter, start with the kiln&#x27;s rated input in kilowatts and multiply it by firing hours. That gives the maximum possible energy if every element stayed on continuously. Real consumption is lower whenever the controller cycles the elements off, so use the result as a conservative ceiling until measured firings replace the estimate.</p></section><section><h2 class="serif">What changes the cost from one firing to the next</h2><p>Target cone is the obvious variable, but the route there matters too. A slow ramp, a long preheat for damp work, or a hold near the top adds element-on time. A higher-temperature glaze firing often uses more energy than a lower-temperature bisque firing in the same kiln, but there is no fixed ratio because schedules and loads differ.</p><p>Kiln condition also shows up on the bill. Worn elements, low supply voltage, damaged brick, a poor lid seal, cold surroundings, and repeated peeking all make the kiln work longer. Load mass changes warm-up demand, while a well-filled kiln usually lowers the electricity cost per piece even if the firing total rises slightly.</p><ul><li>Kiln size, insulation, voltage, and element condition</li><li>Target cone and programmed ramp rate</li><li>Preheat, holds, and controlled-cooling segments that use power</li><li>Load mass and how efficiently the chamber is filled</li><li>Room temperature and heat lost through openings or seals</li></ul></section><section><h2 class="serif">From electricity cost to a useful studio price</h2><p>Electricity is only the first line of a firing cost. For a per-piece figure, divide the firing&#x27;s electricity cost by the number of usable pieces, not merely the number loaded. Then add the costs your decision actually needs: kiln-wash and shelf wear, element and thermocouple replacement, studio rent, labor, and a share of failed work.</p><p>Keep the electricity calculation separate from those allocations. The measured kWh tells you whether the firing itself changed; overhead and yield tell you whether the work was profitable. Combining them too early makes it hard to see which part moved.</p></section>
+
+<section><h2 class="serif">Questions</h2><details><summary>How much does a kiln firing add to an electric bill?</summary><p>Multiply the measured kWh by your own electricity rate. For example, 45 kWh at $0.18 per kWh adds $8.10 before any demand charge or studio overhead. There is no universal dollar figure because kiln energy use and utility rates both vary.</p></details><details><summary>Can I calculate firing cost from the kiln&#x27;s wattage?</summary><p>You can estimate a ceiling. Divide rated watts by 1,000 to get kW, then multiply by firing hours. The result assumes the elements are on for the entire firing; a controller normally cycles them, so measured kWh will usually be lower.</p></details><details><summary>Should I include cooling time in the calculation?</summary><p>Include any cooling segment during which the controller powers the elements, such as a controlled-cooling program. Passive cooling after the relays stop drawing kiln power adds time but essentially no kiln-heating kWh. Fans and vents should be counted separately if you need a complete studio total.</p></details><details><summary>Does firing a half-empty kiln cost half as much?</summary><p>No. The kiln still heats its brick, shelves, and chamber to the same heatwork. A lighter load may use somewhat less energy, but not in direct proportion to the number of pieces, which is why fuller loads usually have a lower electricity cost per piece.</p></details></section>
+<aside class="app-cta">
+<h2 class="serif">When you need the number before loading the kiln</h2>
+<p>KilnCost for iPhone estimates firing cost from your kiln, schedule, and electricity rate. Choose a listed kiln or enter your own, then compare flat and time-of-use rates before you fire.</p>
+<div class="cta-row"><a class="badge-store" href="https://apps.apple.com/app/id6807705100" aria-label="Download KilnCost on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a><p class="terms">The calculator is free. A one-time $6.99 Pro Lifetime unlock adds cost-card sharing, saved presets, and CSV export — no subscription, no renewal.</p></div>
+</aside>
+<section><h2 class="serif">Related firing guides</h2><div class="related"><a href="/guides/kiln-kwh-per-firing/"><strong class="serif">Kiln kWh per Firing: How to Measure or Estimate It</strong><span>kiln kWh per firing</span></a><a href="/guides/bisque-vs-glaze-firing-cost/"><strong class="serif">Bisque vs Glaze Firing Cost: Which Uses More Electricity?</strong><span>bisque vs glaze firing cost</span></a></div></section>
+</article>
+<footer><div class="wrap">
+<span>© 2026 Softgrove — an independent app studio.</span>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
+<a href="/llms.txt">llms.txt</a>
+</div></footer>
+</body></html>

@@ -736,6 +736,214 @@
           "Only under heavy use. For a home kitchen it usually points to an environmental cause: a glass or ceramic cutting surface, dishwasher washing, drawer storage, or very soft steel. Fix the board and the washing first — they are the usual culprits — and the interval typically stretches to months."
         ]
       ]
+    },
+    "electric-kiln-firing-cost": {
+      "app": "kilncost",
+      "keyword": "how much does it cost to fire an electric kiln",
+      "h1": "How Much Does It Cost to Fire an Electric Kiln?",
+      "title": "Electric Kiln Firing Cost: Formula, Examples & Variables",
+      "desc": "Calculate the electricity cost of an electric kiln firing with kWh × utility rate, see worked examples, and learn which parts of the firing change the final bill.",
+      "lede": "The question sounds as if it should have one price, but the kiln is only half of the bill. The same firing can cost several times more in one studio than another because kiln size, schedule, and electricity rate all move independently. The useful answer starts with one measured number: the kilowatt-hours used by that firing.",
+      "answer": "Electricity cost equals the firing's energy use in kilowatt-hours multiplied by your price per kWh. A firing that uses 45 kWh at $0.18 per kWh costs $8.10 in electricity. Small and midsize studio kilns can have full-power ratings from roughly 2 to 12 kW, but their elements cycle during a firing, so rated kW multiplied by clock hours is a ceiling rather than an exact bill. Use a meter or controller energy reading when available, and use the per-kWh charges from your own utility plan because rates vary widely by location and time of day.",
+      "sections": [
+        {
+          "h2": "The firing-cost formula",
+          "body": [
+            "The arithmetic is short: kWh used × price per kWh = electricity cost. Kilowatt-hours measure energy; your utility rate prices that energy. Keep dollars and cents straight when you enter the rate: 18 cents per kWh is $0.18, not 18.",
+            "Use the charges that change when you consume another kWh. On a simple plan, that may be one energy rate. On a time-of-use plan, split the firing across peak, off-peak, and shoulder periods and price each block separately. Fixed monthly account charges do not make one firing more expensive, though a business may still allocate part of them as overhead."
+          ],
+          "bullets": [
+            "20 kWh × $0.12/kWh = $2.40",
+            "45 kWh × $0.18/kWh = $8.10",
+            "80 kWh × $0.30/kWh = $24.00",
+            "Time-of-use plan: calculate each rate period, then add the results"
+          ]
+        },
+        {
+          "h2": "How to find the kWh for one firing",
+          "body": [
+            "The cleanest figure comes from a dedicated energy meter: note the reading before the kiln starts and after the controller stops supplying heat, then subtract. Some controllers or studio submeters report the same total. A plug-in meter is suitable only when both the meter and outlet are rated for the kiln; most 240-volt and hardwired pottery kilns need properly installed metering rather than a household plug adapter.",
+            "Without a meter, start with the kiln's rated input in kilowatts and multiply it by firing hours. That gives the maximum possible energy if every element stayed on continuously. Real consumption is lower whenever the controller cycles the elements off, so use the result as a conservative ceiling until measured firings replace the estimate."
+          ]
+        },
+        {
+          "h2": "What changes the cost from one firing to the next",
+          "body": [
+            "Target cone is the obvious variable, but the route there matters too. A slow ramp, a long preheat for damp work, or a hold near the top adds element-on time. A higher-temperature glaze firing often uses more energy than a lower-temperature bisque firing in the same kiln, but there is no fixed ratio because schedules and loads differ.",
+            "Kiln condition also shows up on the bill. Worn elements, low supply voltage, damaged brick, a poor lid seal, cold surroundings, and repeated peeking all make the kiln work longer. Load mass changes warm-up demand, while a well-filled kiln usually lowers the electricity cost per piece even if the firing total rises slightly."
+          ],
+          "bullets": [
+            "Kiln size, insulation, voltage, and element condition",
+            "Target cone and programmed ramp rate",
+            "Preheat, holds, and controlled-cooling segments that use power",
+            "Load mass and how efficiently the chamber is filled",
+            "Room temperature and heat lost through openings or seals"
+          ]
+        },
+        {
+          "h2": "From electricity cost to a useful studio price",
+          "body": [
+            "Electricity is only the first line of a firing cost. For a per-piece figure, divide the firing's electricity cost by the number of usable pieces, not merely the number loaded. Then add the costs your decision actually needs: kiln-wash and shelf wear, element and thermocouple replacement, studio rent, labor, and a share of failed work.",
+            "Keep the electricity calculation separate from those allocations. The measured kWh tells you whether the firing itself changed; overhead and yield tell you whether the work was profitable. Combining them too early makes it hard to see which part moved."
+          ]
+        }
+      ],
+      "faq": [
+        [
+          "How much does a kiln firing add to an electric bill?",
+          "Multiply the measured kWh by your own electricity rate. For example, 45 kWh at $0.18 per kWh adds $8.10 before any demand charge or studio overhead. There is no universal dollar figure because kiln energy use and utility rates both vary."
+        ],
+        [
+          "Can I calculate firing cost from the kiln's wattage?",
+          "You can estimate a ceiling. Divide rated watts by 1,000 to get kW, then multiply by firing hours. The result assumes the elements are on for the entire firing; a controller normally cycles them, so measured kWh will usually be lower."
+        ],
+        [
+          "Should I include cooling time in the calculation?",
+          "Include any cooling segment during which the controller powers the elements, such as a controlled-cooling program. Passive cooling after the relays stop drawing kiln power adds time but essentially no kiln-heating kWh. Fans and vents should be counted separately if you need a complete studio total."
+        ],
+        [
+          "Does firing a half-empty kiln cost half as much?",
+          "No. The kiln still heats its brick, shelves, and chamber to the same heatwork. A lighter load may use somewhat less energy, but not in direct proportion to the number of pieces, which is why fuller loads usually have a lower electricity cost per piece."
+        ]
+      ]
+    },
+    "kiln-kwh-per-firing": {
+      "app": "kilncost",
+      "keyword": "kiln kWh per firing",
+      "h1": "Kiln kWh per Firing: How to Measure or Estimate It",
+      "title": "Kiln kWh per Firing: Measure, Estimate & Check the Math",
+      "desc": "Find your kiln's kWh per firing with a meter or estimate it from rated kW, firing time, and element duty cycle, with a worked example and safety notes.",
+      "lede": "Firing time looks like the obvious input, yet an eight-hour program does not mean eight hours at full power. The relays switch the elements on and off as the kiln climbs and holds. To get kWh per firing, you need either the energy that crossed the meter or a clear assumption about how long the elements were actually on.",
+      "answer": "The best kWh-per-firing figure is the change on a dedicated energy meter from the start of heating until the controller stops powering the elements. To estimate it, use rated kW × firing hours × average element-on fraction. An 8 kW kiln running an eight-hour schedule at an assumed 65% average duty cycle uses an estimated 41.6 kWh. If the duty cycle is unknown, calculate several scenarios rather than presenting one guess as measured fact: the same example is 32 kWh at 50%, 48 kWh at 75%, and 64 kWh at 100%.",
+      "sections": [
+        {
+          "h2": "Measure at the meter when you can",
+          "body": [
+            "Record the meter immediately before the kiln begins heating and again when the last powered segment ends. The difference is the firing's kWh. If the circuit meter also serves a vent, fan, or controller, decide whether you want the whole firing-system total or the kiln alone and label the result accordingly.",
+            "Use equipment matched to the circuit. A common plug-in energy monitor is not a shortcut for a high-current or hardwired kiln. For those installations, use a controller feature that reports energy, a utility interval meter you can isolate from other loads, or a submeter installed by a qualified electrician."
+          ],
+          "bullets": [
+            "Start reading: just before the first heating segment",
+            "End reading: after the final powered hold or controlled-cooling segment",
+            "Firing kWh: end reading minus start reading",
+            "Label whether ventilation and other circuit loads are included"
+          ]
+        },
+        {
+          "h2": "Estimate from rated power and duty cycle",
+          "body": [
+            "Find the rated watts or kilowatts on the kiln's data plate or manual. If watts are listed, divide by 1,000. For a single-phase kiln with no watt figure, volts multiplied by amps and divided by 1,000 gives an approximate maximum kW; for three-phase equipment, use the maker's stated kW rather than applying the single-phase shortcut.",
+            "Next multiply by schedule length and the fraction of time the elements are assumed to be on. This duty-cycle figure is the uncertain part. Do not describe a planning assumption as a kiln specification: show a low, middle, and full-power case, then replace the bracket with a measured total after the first firing."
+          ],
+          "bullets": [
+            "Rated kW = rated watts ÷ 1,000",
+            "Estimated kWh = rated kW × firing hours × duty-cycle fraction",
+            "Example: 8 kW × 8 hours × 0.65 = 41.6 kWh",
+            "Full-power ceiling: 8 kW × 8 hours = 64 kWh"
+          ]
+        },
+        {
+          "h2": "Why clock time and kWh move differently",
+          "body": [
+            "Early in a firing, the kiln may climb while the controller cycles the elements. Near the top, heat loss is greater and the elements may stay on for longer stretches. A hold adds clock time, but its energy depends on how often the kiln must re-energize to maintain the target heatwork. Passive cooling adds hours without adding element energy.",
+            "That is why two programs of equal length can use different kWh, and why a slower firing is not automatically cheaper or more expensive. The answer depends on the total on-time across every powered segment, not the wall-clock duration alone."
+          ]
+        },
+        {
+          "h2": "Build a baseline for your own kiln",
+          "body": [
+            "Measure several normal firings and record the program, target cone, load, room conditions, total time, and kWh. Group like with like: compare cone 6 glaze firings with other cone 6 glaze firings, not with a short low-fire program. After a few cycles, a useful range emerges for that kiln in that studio.",
+            "A rising kWh trend can flag more than an expensive schedule. If similar loads at the same target begin taking longer and using more energy, inspect element condition, supply voltage, lid and peephole seals, thermocouple behavior, and insulation before treating the new total as normal."
+          ]
+        }
+      ],
+      "faq": [
+        [
+          "What is the difference between kiln kW and kWh?",
+          "kW is the kiln's rate of power draw at a moment in time; kWh is the energy used over time. A kiln rated at 8 kW would use 8 kWh in one hour at continuous full power, but controller cycling usually makes the average draw lower than the nameplate maximum."
+        ],
+        [
+          "Can a kiln controller tell me the kWh used?",
+          "Some can report energy or element-on time, while others only show program time and temperature. Check the controller manual. A direct meter reading remains the clearest comparison because it records the electricity actually delivered to the circuit."
+        ],
+        [
+          "Does kiln cooldown use electricity?",
+          "Passive cooldown does not use element energy once the relays stay off. A programmed controlled-cooling segment may switch the elements back on, so it belongs in the firing total. Vents and fans continue to draw their own smaller loads while they run."
+        ],
+        [
+          "Why does the same kiln program use different kWh?",
+          "Load mass, starting temperature, room temperature, voltage, element condition, holds, and heat loss can all change element on-time. Small differences are expected; a sustained jump across comparable firings is worth investigating."
+        ]
+      ]
+    },
+    "bisque-vs-glaze-firing-cost": {
+      "app": "kilncost",
+      "keyword": "bisque vs glaze firing cost",
+      "h1": "Bisque vs Glaze Firing Cost: Which Uses More Electricity?",
+      "title": "Bisque vs Glaze Firing Cost: kWh, Heatwork & Examples",
+      "desc": "Compare bisque and glaze firing costs without relying on a fixed ratio: measure kWh, account for cone, ramps and holds, and calculate the difference at your utility rate.",
+      "lede": "Glaze firing is often called the expensive firing, but that shortcut hides the variable that matters: the schedule. A cone 6 glaze load asks for much more heatwork than a cone 06 bisque load, while a low-fire glaze can finish near the bisque range. The honest comparison is kWh against kWh on the same kiln.",
+      "answer": "There is no fixed bisque-to-glaze cost ratio. In the same kiln, a cone 6 glaze firing will usually use more electricity than a cone 06 bisque firing because it reaches substantially higher heatwork. A low-fire glaze firing near cone 06 may cost about the same as, or less than, a slow bisque schedule with a long preheat. Measure each firing's kWh and multiply by your electricity rate. If bisque uses 38 kWh and glaze uses 52 kWh at $0.18 per kWh, the electricity costs are $6.84 and $9.36 — a $2.52 difference for that kiln and those two schedules, not a universal ratio.",
+      "sections": [
+        {
+          "h2": "Target cone sets the broad direction",
+          "body": [
+            "A common bisque target is around cone 06 to cone 04. Stoneware glaze firings often go to cone 5 or cone 6, so the kiln spends longer in the high-temperature part of the climb where heat loss is greatest. That usually makes the glaze cycle the larger electricity user in this particular comparison.",
+            "But glaze does not always mean cone 6. Low-fire glaze can mature around the same cone range as bisque, and firing schedules can cross: a carefully dried glaze load with a direct ramp may use less energy than a damp bisque load that needs hours of preheat. Compare actual target cone and schedule, not the labels alone."
+          ]
+        },
+        {
+          "h2": "A like-for-like cost example",
+          "body": [
+            "Suppose the meter shows 38 kWh for a bisque firing and 52 kWh for a glaze firing in the same kiln. At $0.18 per kWh, multiply each total by 0.18. The glaze firing uses 14 kWh more and costs $2.52 more in electricity, about 37% above this bisque firing.",
+            "Those numbers are an example, not a benchmark. Change the rate to $0.30 per kWh and the same energy totals cost $11.40 and $15.60. The kWh comparison describes the kiln and schedules; the dollar comparison also reflects where and when the studio buys electricity."
+          ],
+          "bullets": [
+            "Bisque: 38 kWh × $0.18 = $6.84",
+            "Glaze: 52 kWh × $0.18 = $9.36",
+            "Difference: 14 kWh × $0.18 = $2.52",
+            "Percentage difference for this example: 14 ÷ 38 × 100 ≈ 37%"
+          ]
+        },
+        {
+          "h2": "The schedule can outweigh the label",
+          "body": [
+            "Preheat and candling are common reasons a bisque firing runs long: remaining physical moisture must leave safely before the main climb. At the other end, glaze programs may add a top hold, a drop-and-hold, or a controlled-cooling segment that switches the elements back on. Every powered extension adds kWh, even if the target cone stays unchanged.",
+            "Other variables affect both firings: load mass, shelf arrangement, starting temperature, supply voltage, element age, thermocouple behavior, and the condition of brick and seals. For a fair comparison, meter several firings of each type and compare medians rather than treating one unusual load as the rule."
+          ],
+          "bullets": [
+            "Bisque: moisture level, preheat length, and ramp through early stages",
+            "Glaze: target cone, top hold, drop-and-hold, and controlled cooling",
+            "Both: load mass, room temperature, voltage, elements, and insulation",
+            "Time-of-use rates: the same kWh can cost more during peak hours"
+          ]
+        },
+        {
+          "h2": "Compare cost per finished piece, not just per cycle",
+          "body": [
+            "A pot that reaches the shelf has usually occupied space in both a bisque and a glaze load. For a simple per-piece electricity figure, add the two firing costs and divide by the number of saleable glazed pieces. If loads contain different work, allocate by shelf area, volume, or another method you can repeat consistently.",
+            "Use saleable output rather than loaded count when failures matter. A cheaper cycle with poor yield can cost more per finished piece than a slightly longer firing that produces reliable results. Keep electricity, consumables, labor, and kiln wear as separate lines so you can see what actually changed."
+          ]
+        }
+      ],
+      "faq": [
+        [
+          "Is glaze firing always more expensive than bisque firing?",
+          "No. A higher-temperature stoneware glaze firing commonly uses more electricity than a lower-temperature bisque firing, but low-fire glaze, long bisque preheats, holds, and controlled cooling can reverse or narrow the difference. Measured kWh settles the comparison."
+        ],
+        [
+          "How do I calculate the percentage difference?",
+          "Subtract bisque kWh from glaze kWh, divide the difference by bisque kWh, then multiply by 100. With 38 kWh bisque and 52 kWh glaze, the calculation is (52 − 38) ÷ 38 × 100, or about 37%."
+        ],
+        [
+          "Should kiln firing cost be divided by every piece loaded?",
+          "For production pricing, divide by saleable pieces rather than everything loaded. Failed or test pieces still consumed kiln space and energy, so excluding them from the denominator makes the cost of finished work more honest."
+        ],
+        [
+          "Can bisque and glaze firings be combined to save electricity?",
+          "Only when the clay, glaze, and process are designed for single firing. It is not a drop-in shortcut for a normal two-fire workflow: moisture removal, glaze application, gas release, and glaze fit all change. Follow tested material and firing guidance rather than combining cycles only to reduce the bill."
+        ]
+      ]
     }
   },
   "templates": {

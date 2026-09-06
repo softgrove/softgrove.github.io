@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bisque vs Glaze Firing Cost: kWh, Heatwork &amp; Examples</title>
+<meta name="description" content="Compare bisque and glaze firing costs without relying on a fixed ratio: measure kWh, account for cone, ramps and holds, and calculate the difference at your utility rate.">
+<link rel="canonical" href="https://softgrove.github.io/guides/bisque-vs-glaze-firing-cost/">
+<meta property="og:title" content="Bisque vs Glaze Firing Cost: kWh, Heatwork &amp; Examples">
+<meta property="og:description" content="Compare bisque and glaze firing costs without relying on a fixed ratio: measure kWh, account for cone, ramps and holds, and calculate the difference at your utility rate.">
+<meta property="og:url" content="https://softgrove.github.io/guides/bisque-vs-glaze-firing-cost/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://softgrove.github.io/og/apps-kilncost.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet"></noscript><meta name="apple-itunes-app" content="app-id=6807705100">
+<style>
+:root{--paper:#FBFAF7;--ink:#2C282C;--muted:#6E6870;--line:#E7E2D9;--teal:#3E8E8C}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.serif{font-family:"Newsreader",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+header.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px;padding-bottom:18px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;letter-spacing:-.01em}
+.wordmark b{color:var(--teal);font-weight:600}
+nav.top a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px}
+nav.top a:hover{color:var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;padding:13px 26px;border-radius:8px}
+.btn:hover{opacity:.88}
+.badge-store{display:inline-flex;align-items:center;gap:9px;background:#000;color:#fff;text-decoration:none;border-radius:9px;padding:9px 18px 9px 14px;line-height:1.15}
+.badge-store svg{width:22px;height:26px;flex:none}
+.badge-store small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.badge-store span{font-size:17px;font-weight:600;letter-spacing:.01em}
+footer{border-top:1px solid var(--line);margin-top:96px}
+footer .wrap{padding:34px 24px 46px;display:flex;flex-wrap:wrap;gap:10px 34px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4d4850;max-width:62ch}
+@media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Bisque vs Glaze Firing Cost: Which Uses More Electricity?", "description": "Compare bisque and glaze firing costs without relying on a fixed ratio: measure kWh, account for cone, ramps and holds, and calculate the difference at your utility rate.", "mainEntityOfPage": "https://softgrove.github.io/guides/bisque-vs-glaze-firing-cost/", "author": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}, "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is glaze firing always more expensive than bisque firing?", "acceptedAnswer": {"@type": "Answer", "text": "No. A higher-temperature stoneware glaze firing commonly uses more electricity than a lower-temperature bisque firing, but low-fire glaze, long bisque preheats, holds, and controlled cooling can reverse or narrow the difference. Measured kWh settles the comparison."}}, {"@type": "Question", "name": "How do I calculate the percentage difference?", "acceptedAnswer": {"@type": "Answer", "text": "Subtract bisque kWh from glaze kWh, divide the difference by bisque kWh, then multiply by 100. With 38 kWh bisque and 52 kWh glaze, the calculation is (52 − 38) ÷ 38 × 100, or about 37%."}}, {"@type": "Question", "name": "Should kiln firing cost be divided by every piece loaded?", "acceptedAnswer": {"@type": "Answer", "text": "For production pricing, divide by saleable pieces rather than everything loaded. Failed or test pieces still consumed kiln space and energy, so excluding them from the denominator makes the cost of finished work more honest."}}, {"@type": "Question", "name": "Can bisque and glaze firings be combined to save electricity?", "acceptedAnswer": {"@type": "Answer", "text": "Only when the clay, glaze, and process are designed for single firing. It is not a drop-in shortcut for a normal two-fire workflow: moisture removal, glaze application, gas release, and glaze fit all change. Follow tested material and firing guidance rather than combining cycles only to reduce the bill."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Softgrove", "item": "https://softgrove.github.io/"}, {"@type": "ListItem", "position": 2, "name": "KilnCost", "item": "https://softgrove.github.io/apps/kilncost/"}, {"@type": "ListItem", "position": 3, "name": "Bisque vs Glaze Firing Cost: Which Uses More Electricity?"}]}]}</script>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<a class="wordmark" href="/">softgrove<b>.</b></a>
+<nav class="top"><a href="/#apps">Apps</a><a href="/templates/">Free templates</a></nav>
+</div></header>
+
+<style>
+article.wrap{width:100%;max-width:780px}
+.guide-hero{padding:64px 0 20px}
+.guide-hero h1{font-size:clamp(36px,5.8vw,56px);max-width:18ch}
+.guide-hero .lede{font-size:19px;color:#4d4850;margin-top:20px;max-width:62ch}
+.answer{border:1px solid var(--line);border-left:3px solid #B85A22;background:#fff;border-radius:0 10px 10px 0;padding:20px 24px;font-size:16.5px;margin-top:28px}
+article section{margin-top:56px}
+article section h2{font-size:30px;margin-bottom:18px}
+article section p{margin-top:14px;max-width:66ch}
+article section ul{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-width:64ch}
+.work-note{background:#F2E7D6;border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:22px}
+.work-note strong{font-size:15px}
+.work-note p{margin-top:7px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14px;line-height:1.55}
+.field-note{margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+.field-note p{margin-top:8px;color:#4d4850}
+.field-note cite{font-style:normal}
+.field-note a{color:#B85A22;font-weight:600}
+.app-cta{margin-top:60px;background:#F2E7D6;border:1px solid var(--line);border-radius:14px;padding:28px}
+.app-cta h2{font-size:28px}
+.app-cta p{margin-top:10px;max-width:62ch;color:#4d4850}
+.app-cta .cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px}
+.app-cta .terms{font-size:13px;color:var(--muted);max-width:44ch}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px}
+.related a{border:1px solid var(--line);background:#fff;border-radius:9px;padding:16px;text-decoration:none;display:flex;flex-direction:column;gap:6px}
+.related a:hover{border-color:#B85A22}
+.related strong{font-size:18px;line-height:1.2}
+.related span{font-size:12px;color:var(--muted)}
+</style>
+<article class="wrap">
+<header class="guide-hero">
+<p class="eyebrow">Workshop guide · bisque vs glaze firing cost</p>
+<h1 class="serif">Bisque vs Glaze Firing Cost: Which Uses More Electricity?</h1>
+<p class="lede">Glaze firing is often called the expensive firing, but that shortcut hides the variable that matters: the schedule. A cone 6 glaze load asks for much more heatwork than a cone 06 bisque load, while a low-fire glaze can finish near the bisque range. The honest comparison is kWh against kWh on the same kiln.</p>
+<div class="answer">There is no fixed bisque-to-glaze cost ratio. In the same kiln, a cone 6 glaze firing will usually use more electricity than a cone 06 bisque firing because it reaches substantially higher heatwork. A low-fire glaze firing near cone 06 may cost about the same as, or less than, a slow bisque schedule with a long preheat. Measure each firing&#x27;s kWh and multiply by your electricity rate. If bisque uses 38 kWh and glaze uses 52 kWh at $0.18 per kWh, the electricity costs are $6.84 and $9.36 — a $2.52 difference for that kiln and those two schedules, not a universal ratio.</div>
+</header>
+<section><h2 class="serif">Target cone sets the broad direction</h2><p>A common bisque target is around cone 06 to cone 04. Stoneware glaze firings often go to cone 5 or cone 6, so the kiln spends longer in the high-temperature part of the climb where heat loss is greatest. That usually makes the glaze cycle the larger electricity user in this particular comparison.</p><p>But glaze does not always mean cone 6. Low-fire glaze can mature around the same cone range as bisque, and firing schedules can cross: a carefully dried glaze load with a direct ramp may use less energy than a damp bisque load that needs hours of preheat. Compare actual target cone and schedule, not the labels alone.</p></section><section><h2 class="serif">A like-for-like cost example</h2><p>Suppose the meter shows 38 kWh for a bisque firing and 52 kWh for a glaze firing in the same kiln. At $0.18 per kWh, multiply each total by 0.18. The glaze firing uses 14 kWh more and costs $2.52 more in electricity, about 37% above this bisque firing.</p><p>Those numbers are an example, not a benchmark. Change the rate to $0.30 per kWh and the same energy totals cost $11.40 and $15.60. The kWh comparison describes the kiln and schedules; the dollar comparison also reflects where and when the studio buys electricity.</p><ul><li>Bisque: 38 kWh × $0.18 = $6.84</li><li>Glaze: 52 kWh × $0.18 = $9.36</li><li>Difference: 14 kWh × $0.18 = $2.52</li><li>Percentage difference for this example: 14 ÷ 38 × 100 ≈ 37%</li></ul></section><section><h2 class="serif">The schedule can outweigh the label</h2><p>Preheat and candling are common reasons a bisque firing runs long: remaining physical moisture must leave safely before the main climb. At the other end, glaze programs may add a top hold, a drop-and-hold, or a controlled-cooling segment that switches the elements back on. Every powered extension adds kWh, even if the target cone stays unchanged.</p><p>Other variables affect both firings: load mass, shelf arrangement, starting temperature, supply voltage, element age, thermocouple behavior, and the condition of brick and seals. For a fair comparison, meter several firings of each type and compare medians rather than treating one unusual load as the rule.</p><ul><li>Bisque: moisture level, preheat length, and ramp through early stages</li><li>Glaze: target cone, top hold, drop-and-hold, and controlled cooling</li><li>Both: load mass, room temperature, voltage, elements, and insulation</li><li>Time-of-use rates: the same kWh can cost more during peak hours</li></ul></section><section><h2 class="serif">Compare cost per finished piece, not just per cycle</h2><p>A pot that reaches the shelf has usually occupied space in both a bisque and a glaze load. For a simple per-piece electricity figure, add the two firing costs and divide by the number of saleable glazed pieces. If loads contain different work, allocate by shelf area, volume, or another method you can repeat consistently.</p><p>Use saleable output rather than loaded count when failures matter. A cheaper cycle with poor yield can cost more per finished piece than a slightly longer firing that produces reliable results. Keep electricity, consumables, labor, and kiln wear as separate lines so you can see what actually changed.</p></section>
+
+<section><h2 class="serif">Questions</h2><details><summary>Is glaze firing always more expensive than bisque firing?</summary><p>No. A higher-temperature stoneware glaze firing commonly uses more electricity than a lower-temperature bisque firing, but low-fire glaze, long bisque preheats, holds, and controlled cooling can reverse or narrow the difference. Measured kWh settles the comparison.</p></details><details><summary>How do I calculate the percentage difference?</summary><p>Subtract bisque kWh from glaze kWh, divide the difference by bisque kWh, then multiply by 100. With 38 kWh bisque and 52 kWh glaze, the calculation is (52 − 38) ÷ 38 × 100, or about 37%.</p></details><details><summary>Should kiln firing cost be divided by every piece loaded?</summary><p>For production pricing, divide by saleable pieces rather than everything loaded. Failed or test pieces still consumed kiln space and energy, so excluding them from the denominator makes the cost of finished work more honest.</p></details><details><summary>Can bisque and glaze firings be combined to save electricity?</summary><p>Only when the clay, glaze, and process are designed for single firing. It is not a drop-in shortcut for a normal two-fire workflow: moisture removal, glaze application, gas release, and glaze fit all change. Follow tested material and firing guidance rather than combining cycles only to reduce the bill.</p></details></section>
+<aside class="app-cta">
+<h2 class="serif">When you need the number before loading the kiln</h2>
+<p>KilnCost for iPhone estimates firing cost from your kiln, schedule, and electricity rate. Choose a listed kiln or enter your own, then compare flat and time-of-use rates before you fire.</p>
+<div class="cta-row"><a class="badge-store" href="https://apps.apple.com/app/id6807705100" aria-label="Download KilnCost on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a><p class="terms">The calculator is free. A one-time $6.99 Pro Lifetime unlock adds cost-card sharing, saved presets, and CSV export — no subscription, no renewal.</p></div>
+</aside>
+<section><h2 class="serif">Related firing guides</h2><div class="related"><a href="/guides/electric-kiln-firing-cost/"><strong class="serif">How Much Does It Cost to Fire an Electric Kiln?</strong><span>how much does it cost to fire an electric kiln</span></a><a href="/guides/kiln-kwh-per-firing/"><strong class="serif">Kiln kWh per Firing: How to Measure or Estimate It</strong><span>kiln kWh per firing</span></a></div></section>
+</article>
+<footer><div class="wrap">
+<span>© 2026 Softgrove — an independent app studio.</span>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
+<a href="/llms.txt">llms.txt</a>
+</div></footer>
+</body></html>

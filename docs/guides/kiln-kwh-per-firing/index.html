@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kiln kWh per Firing: Measure, Estimate &amp; Check the Math</title>
+<meta name="description" content="Find your kiln&#x27;s kWh per firing with a meter or estimate it from rated kW, firing time, and element duty cycle, with a worked example and safety notes.">
+<link rel="canonical" href="https://softgrove.github.io/guides/kiln-kwh-per-firing/">
+<meta property="og:title" content="Kiln kWh per Firing: Measure, Estimate &amp; Check the Math">
+<meta property="og:description" content="Find your kiln&#x27;s kWh per firing with a meter or estimate it from rated kW, firing time, and element duty cycle, with a worked example and safety notes.">
+<meta property="og:url" content="https://softgrove.github.io/guides/kiln-kwh-per-firing/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://softgrove.github.io/og/apps-kilncost.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet"></noscript><meta name="apple-itunes-app" content="app-id=6807705100">
+<style>
+:root{--paper:#FBFAF7;--ink:#2C282C;--muted:#6E6870;--line:#E7E2D9;--teal:#3E8E8C}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.serif{font-family:"Newsreader",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+header.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px;padding-bottom:18px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;letter-spacing:-.01em}
+.wordmark b{color:var(--teal);font-weight:600}
+nav.top a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px}
+nav.top a:hover{color:var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;padding:13px 26px;border-radius:8px}
+.btn:hover{opacity:.88}
+.badge-store{display:inline-flex;align-items:center;gap:9px;background:#000;color:#fff;text-decoration:none;border-radius:9px;padding:9px 18px 9px 14px;line-height:1.15}
+.badge-store svg{width:22px;height:26px;flex:none}
+.badge-store small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.badge-store span{font-size:17px;font-weight:600;letter-spacing:.01em}
+footer{border-top:1px solid var(--line);margin-top:96px}
+footer .wrap{padding:34px 24px 46px;display:flex;flex-wrap:wrap;gap:10px 34px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4d4850;max-width:62ch}
+@media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Kiln kWh per Firing: How to Measure or Estimate It", "description": "Find your kiln's kWh per firing with a meter or estimate it from rated kW, firing time, and element duty cycle, with a worked example and safety notes.", "mainEntityOfPage": "https://softgrove.github.io/guides/kiln-kwh-per-firing/", "author": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}, "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between kiln kW and kWh?", "acceptedAnswer": {"@type": "Answer", "text": "kW is the kiln's rate of power draw at a moment in time; kWh is the energy used over time. A kiln rated at 8 kW would use 8 kWh in one hour at continuous full power, but controller cycling usually makes the average draw lower than the nameplate maximum."}}, {"@type": "Question", "name": "Can a kiln controller tell me the kWh used?", "acceptedAnswer": {"@type": "Answer", "text": "Some can report energy or element-on time, while others only show program time and temperature. Check the controller manual. A direct meter reading remains the clearest comparison because it records the electricity actually delivered to the circuit."}}, {"@type": "Question", "name": "Does kiln cooldown use electricity?", "acceptedAnswer": {"@type": "Answer", "text": "Passive cooldown does not use element energy once the relays stay off. A programmed controlled-cooling segment may switch the elements back on, so it belongs in the firing total. Vents and fans continue to draw their own smaller loads while they run."}}, {"@type": "Question", "name": "Why does the same kiln program use different kWh?", "acceptedAnswer": {"@type": "Answer", "text": "Load mass, starting temperature, room temperature, voltage, element condition, holds, and heat loss can all change element on-time. Small differences are expected; a sustained jump across comparable firings is worth investigating."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Softgrove", "item": "https://softgrove.github.io/"}, {"@type": "ListItem", "position": 2, "name": "KilnCost", "item": "https://softgrove.github.io/apps/kilncost/"}, {"@type": "ListItem", "position": 3, "name": "Kiln kWh per Firing: How to Measure or Estimate It"}]}]}</script>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<a class="wordmark" href="/">softgrove<b>.</b></a>
+<nav class="top"><a href="/#apps">Apps</a><a href="/templates/">Free templates</a></nav>
+</div></header>
+
+<style>
+article.wrap{width:100%;max-width:780px}
+.guide-hero{padding:64px 0 20px}
+.guide-hero h1{font-size:clamp(36px,5.8vw,56px);max-width:18ch}
+.guide-hero .lede{font-size:19px;color:#4d4850;margin-top:20px;max-width:62ch}
+.answer{border:1px solid var(--line);border-left:3px solid #B85A22;background:#fff;border-radius:0 10px 10px 0;padding:20px 24px;font-size:16.5px;margin-top:28px}
+article section{margin-top:56px}
+article section h2{font-size:30px;margin-bottom:18px}
+article section p{margin-top:14px;max-width:66ch}
+article section ul{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-width:64ch}
+.work-note{background:#F2E7D6;border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:22px}
+.work-note strong{font-size:15px}
+.work-note p{margin-top:7px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14px;line-height:1.55}
+.field-note{margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+.field-note p{margin-top:8px;color:#4d4850}
+.field-note cite{font-style:normal}
+.field-note a{color:#B85A22;font-weight:600}
+.app-cta{margin-top:60px;background:#F2E7D6;border:1px solid var(--line);border-radius:14px;padding:28px}
+.app-cta h2{font-size:28px}
+.app-cta p{margin-top:10px;max-width:62ch;color:#4d4850}
+.app-cta .cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px}
+.app-cta .terms{font-size:13px;color:var(--muted);max-width:44ch}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px}
+.related a{border:1px solid var(--line);background:#fff;border-radius:9px;padding:16px;text-decoration:none;display:flex;flex-direction:column;gap:6px}
+.related a:hover{border-color:#B85A22}
+.related strong{font-size:18px;line-height:1.2}
+.related span{font-size:12px;color:var(--muted)}
+</style>
+<article class="wrap">
+<header class="guide-hero">
+<p class="eyebrow">Workshop guide · kiln kWh per firing</p>
+<h1 class="serif">Kiln kWh per Firing: How to Measure or Estimate It</h1>
+<p class="lede">Firing time looks like the obvious input, yet an eight-hour program does not mean eight hours at full power. The relays switch the elements on and off as the kiln climbs and holds. To get kWh per firing, you need either the energy that crossed the meter or a clear assumption about how long the elements were actually on.</p>
+<div class="answer">The best kWh-per-firing figure is the change on a dedicated energy meter from the start of heating until the controller stops powering the elements. To estimate it, use rated kW × firing hours × average element-on fraction. An 8 kW kiln running an eight-hour schedule at an assumed 65% average duty cycle uses an estimated 41.6 kWh. If the duty cycle is unknown, calculate several scenarios rather than presenting one guess as measured fact: the same example is 32 kWh at 50%, 48 kWh at 75%, and 64 kWh at 100%.</div>
+</header>
+<section><h2 class="serif">Measure at the meter when you can</h2><p>Record the meter immediately before the kiln begins heating and again when the last powered segment ends. The difference is the firing&#x27;s kWh. If the circuit meter also serves a vent, fan, or controller, decide whether you want the whole firing-system total or the kiln alone and label the result accordingly.</p><p>Use equipment matched to the circuit. A common plug-in energy monitor is not a shortcut for a high-current or hardwired kiln. For those installations, use a controller feature that reports energy, a utility interval meter you can isolate from other loads, or a submeter installed by a qualified electrician.</p><ul><li>Start reading: just before the first heating segment</li><li>End reading: after the final powered hold or controlled-cooling segment</li><li>Firing kWh: end reading minus start reading</li><li>Label whether ventilation and other circuit loads are included</li></ul></section><section><h2 class="serif">Estimate from rated power and duty cycle</h2><p>Find the rated watts or kilowatts on the kiln&#x27;s data plate or manual. If watts are listed, divide by 1,000. For a single-phase kiln with no watt figure, volts multiplied by amps and divided by 1,000 gives an approximate maximum kW; for three-phase equipment, use the maker&#x27;s stated kW rather than applying the single-phase shortcut.</p><p>Next multiply by schedule length and the fraction of time the elements are assumed to be on. This duty-cycle figure is the uncertain part. Do not describe a planning assumption as a kiln specification: show a low, middle, and full-power case, then replace the bracket with a measured total after the first firing.</p><ul><li>Rated kW = rated watts ÷ 1,000</li><li>Estimated kWh = rated kW × firing hours × duty-cycle fraction</li><li>Example: 8 kW × 8 hours × 0.65 = 41.6 kWh</li><li>Full-power ceiling: 8 kW × 8 hours = 64 kWh</li></ul></section><section><h2 class="serif">Why clock time and kWh move differently</h2><p>Early in a firing, the kiln may climb while the controller cycles the elements. Near the top, heat loss is greater and the elements may stay on for longer stretches. A hold adds clock time, but its energy depends on how often the kiln must re-energize to maintain the target heatwork. Passive cooling adds hours without adding element energy.</p><p>That is why two programs of equal length can use different kWh, and why a slower firing is not automatically cheaper or more expensive. The answer depends on the total on-time across every powered segment, not the wall-clock duration alone.</p></section><section><h2 class="serif">Build a baseline for your own kiln</h2><p>Measure several normal firings and record the program, target cone, load, room conditions, total time, and kWh. Group like with like: compare cone 6 glaze firings with other cone 6 glaze firings, not with a short low-fire program. After a few cycles, a useful range emerges for that kiln in that studio.</p><p>A rising kWh trend can flag more than an expensive schedule. If similar loads at the same target begin taking longer and using more energy, inspect element condition, supply voltage, lid and peephole seals, thermocouple behavior, and insulation before treating the new total as normal.</p></section>
+
+<section><h2 class="serif">Questions</h2><details><summary>What is the difference between kiln kW and kWh?</summary><p>kW is the kiln&#x27;s rate of power draw at a moment in time; kWh is the energy used over time. A kiln rated at 8 kW would use 8 kWh in one hour at continuous full power, but controller cycling usually makes the average draw lower than the nameplate maximum.</p></details><details><summary>Can a kiln controller tell me the kWh used?</summary><p>Some can report energy or element-on time, while others only show program time and temperature. Check the controller manual. A direct meter reading remains the clearest comparison because it records the electricity actually delivered to the circuit.</p></details><details><summary>Does kiln cooldown use electricity?</summary><p>Passive cooldown does not use element energy once the relays stay off. A programmed controlled-cooling segment may switch the elements back on, so it belongs in the firing total. Vents and fans continue to draw their own smaller loads while they run.</p></details><details><summary>Why does the same kiln program use different kWh?</summary><p>Load mass, starting temperature, room temperature, voltage, element condition, holds, and heat loss can all change element on-time. Small differences are expected; a sustained jump across comparable firings is worth investigating.</p></details></section>
+<aside class="app-cta">
+<h2 class="serif">When you need the number before loading the kiln</h2>
+<p>KilnCost for iPhone estimates firing cost from your kiln, schedule, and electricity rate. Choose a listed kiln or enter your own, then compare flat and time-of-use rates before you fire.</p>
+<div class="cta-row"><a class="badge-store" href="https://apps.apple.com/app/id6807705100" aria-label="Download KilnCost on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a><p class="terms">The calculator is free. A one-time $6.99 Pro Lifetime unlock adds cost-card sharing, saved presets, and CSV export — no subscription, no renewal.</p></div>
+</aside>
+<section><h2 class="serif">Related firing guides</h2><div class="related"><a href="/guides/electric-kiln-firing-cost/"><strong class="serif">How Much Does It Cost to Fire an Electric Kiln?</strong><span>how much does it cost to fire an electric kiln</span></a><a href="/guides/bisque-vs-glaze-firing-cost/"><strong class="serif">Bisque vs Glaze Firing Cost: Which Uses More Electricity?</strong><span>bisque vs glaze firing cost</span></a></div></section>
+</article>
+<footer><div class="wrap">
+<span>© 2026 Softgrove — an independent app studio.</span>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
+<a href="/llms.txt">llms.txt</a>
+</div></footer>
+</body></html>

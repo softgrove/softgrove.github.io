@@ -90,6 +90,12 @@ ul.feats li{display:flex;gap:13px;align-items:baseline;font-size:16.5px;max-widt
 .sib span:last-child{font-size:13px;color:var(--muted)}
 .tpl-link{margin-top:26px;font-size:15.5px}
 .tpl-link a{color:#B85A22;font-weight:600}
+
+.guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.guide-card{border:1px solid var(--line);background:#fff;border-radius:10px;padding:19px;text-decoration:none;display:flex;flex-direction:column;gap:7px}
+.guide-card:hover{border-color:#B85A22}
+.guide-card strong{font-size:20px;font-weight:500;line-height:1.22}
+.guide-card>span:last-child{font-size:14px;color:var(--muted)}
 </style>
 <div class="band"><div class="wrap">
 <p class="eyebrow">Kiln firing cost calculator · iPhone</p>
@@ -113,7 +119,7 @@ ul.feats li{display:flex;gap:13px;align-items:baseline;font-size:16.5px;max-widt
 <div class="privacy">Everything you record stays on your device. KilnCost never uploads what you record, and never shares or sells your data. No account needed — delete the app and your entries are gone. Anything the app does send (some apps report anonymous usage counts, with no identifiers) is listed plainly in its privacy policy.</div>
 <h2 class="sec serif">Questions</h2>
 <details><summary>Is KilnCost free?</summary><p>Cataloging stones and blades and logging sessions are free, with no account and no trial clock. A one-time $6.99 Lifetime unlock adds Blade Card sharing and CSV export — there is no subscription and no renewal.</p></details><details><summary>Where is my data stored?</summary><p>On your iPhone. KilnCost never uploads what you record, and never shares or sells your data — there is no account and no cloud backend. Some apps send anonymous usage counts (no identifiers) so we can see which features get used; each app&#x27;s privacy policy spells out exactly what, if anything, is sent.</p></details><details><summary>Does KilnCost require an account?</summary><p>No. You can start logging the moment the app opens — there is no sign-up, no email, and nothing to create.</p></details>
-<h2 class="sec serif">From the same shelf</h2>
+<h2 class="sec serif">Firing guides</h2><div class="guide-grid"><a class="guide-card" href="/guides/electric-kiln-firing-cost/"><span class="eyebrow">how much does it cost to fire an electric kiln</span><strong class="serif">How Much Does It Cost to Fire an Electric Kiln?</strong><span>Calculate the electricity cost of an electric kiln firing with kWh × utility rate, see worked examples, and learn which parts of the firing change the final bill.</span></a><a class="guide-card" href="/guides/kiln-kwh-per-firing/"><span class="eyebrow">kiln kWh per firing</span><strong class="serif">Kiln kWh per Firing: How to Measure or Estimate It</strong><span>Find your kiln&#x27;s kWh per firing with a meter or estimate it from rated kW, firing time, and element duty cycle, with a worked example and safety notes.</span></a><a class="guide-card" href="/guides/bisque-vs-glaze-firing-cost/"><span class="eyebrow">bisque vs glaze firing cost</span><strong class="serif">Bisque vs Glaze Firing Cost: Which Uses More Electricity?</strong><span>Compare bisque and glaze firing costs without relying on a fixed ratio: measure kWh, account for cone, ramps and holds, and calculate the difference at your utility rate.</span></a></div><h2 class="sec serif">From the same shelf</h2>
 <div class="sibs"><a class="sib" href="/apps/boardcut/"><span class="chip" style="background:#C4572A"></span><strong>Boardcut</strong><span>Cut list optimizer</span></a></div>
 </main>
 <footer><div class="wrap">
