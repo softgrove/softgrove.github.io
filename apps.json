@@ -47,6 +47,13 @@
       "apps": [
         "whetlog"
       ]
+    },
+    {
+      "label": "Photography tools",
+      "note": "Calculators built from published data, not guesswork.",
+      "apps": [
+        "filmrecip"
+      ]
     }
   ],
   "apps": {
@@ -252,6 +259,22 @@
       "seoDesc": "See what a firing costs before you start. Pick from 24 Skutt and L&L kilns or enter a custom one, flat or time-of-use rates. Free core, no account — a one-time $6.99 Pro Lifetime unlock adds the cost-card image, saved presets, and CSV export.",
       "guidesLabel": "Firing guides",
       "guidesRelatedLabel": "Related firing guides"
+    },
+    "filmrecip": {
+      "name": "FilmRecip",
+      "asc": "FilmRecip",
+      "id": "6809852097",
+      "bg": "#EDE7DC",
+      "accent": "#B87333",
+      "deep": "#241F1A",
+      "category": "PhotoAndVideoApplication",
+      "catLabel": "Film reciprocity calculator",
+      "pricing": {
+        "lifetime": "$7.99"
+      },
+      "spineLabel": "Reciprocity",
+      "seoTitle": "FilmRecip — Film Reciprocity Failure Calculator for iPhone",
+      "seoDesc": "See the real exposure time before you open the shutter. Meter a long exposure and pick from 40 film stocks — FilmRecip shows the reciprocity-corrected time using each manufacturer's published correction model. Free core, no account — a one-time $7.99 Pro Lifetime unlock adds the shareable result card, favorites, and CSV export."
     }
   },
   "guides": {
