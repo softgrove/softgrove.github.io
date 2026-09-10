@@ -16,6 +16,7 @@
       "note": "Symptom and trigger logs for chronic conditions — built to make doctor visits concrete.",
       "apps": [
         "skinote",
+        "fibrolog",
         "settura",
         "refluxlog",
         "goutlog",
@@ -72,6 +73,21 @@
       "seoDesc": "Track eczema flares, itch, and triggers on iPhone. Photos, trends, and a dermatologist-ready PDF. Free core, no account — data stays on your device.",
       "spine_bg": "#3A2E3A",
       "spine_text": "#F2ECEA"
+    },
+    "fibrolog": {
+      "name": "Fibrolog",
+      "asc": "Fibrolog",
+      "id": "6785810091",
+      "bg": "#F1EEF4",
+      "accent": "#6A4E7C",
+      "deep": "#2B2431",
+      "spine_bg": "#2B2431",
+      "spine_text": "#F1EEF4",
+      "category": "HealthApplication",
+      "catLabel": "Eczema trigger correlation",
+      "spineLabel": "Flare triggers",
+      "seoTitle": "Fibrolog — Eczema Trigger Correlation & Flare Log for iPhone",
+      "seoDesc": "Log flares, itch, photos, and what you ate or used — then see which logged triggers actually tend to show up before your flares. Exports a dermatologist-ready PDF summary. Free core, no account, data stays on your device."
     },
     "settura": {
       "name": "Settura",
