@@ -82,11 +82,20 @@ def main():
     jobs = [("home", "Quiet, private logbooks for the things you live with.", "Private iPhone apps",
              ["#3E8E8C", "#7A2E33", "#E87722", "#2E5E54", "#E07A5F", "#2A3354"])]
     for key, a in DATA["apps"].items():
+        if a["asc"] not in DESCS: continue  # e.g. Fibrolog: added to apps.json, ASC desc not live yet
         sub = DESCS[a["asc"]]["subtitle"]
         jobs.append((f"apps-{key}", f"{a['name']} — {sub}", "Free on the App Store",
                      [a.get("spine_bg", a["accent"]), a["bg"]]))
     jobs.append(("templates", "Tracker templates, free to print.", "PDF · no sign-up",
                  [DATA["apps"][t["app"]]["accent"] for t in DATA["templates"].values()]))
+    tool_jobs = [
+        ("tools-reciprocity-calculator", "Film reciprocity failure calculator", "filmrecip"),
+        ("tools-kiln-firing-cost-calculator", "Kiln firing cost calculator", "kilncost"),
+        ("tools-cut-list-optimizer", "Cut list optimizer", "boardcut"),
+    ]
+    for name, title, app_key in tool_jobs:
+        ap = DATA["apps"][app_key]
+        jobs.append((name, title, "Free web tool", [ap["accent"], ap["bg"]]))
     for slug, t in DATA["templates"].items():
         jobs.append((f"templates-{slug}", t["h1"], "Free PDF download",
                      [DATA["apps"][t["app"]]["accent"]]))

@@ -20,6 +20,11 @@
 - [Whetlog](https://softgrove.github.io/apps/whetlog/): Whetstone & knife tracker — Sharpening log; free core; one-time $9.99 Lifetime unlock adds Blade Card sharing and CSV export (no subscription). App Store id6806297103.
 - [FilmRecip](https://softgrove.github.io/apps/filmrecip/): Film reciprocity calculator — Film reciprocity calculator; free core; one-time $7.99 Lifetime unlock adds Blade Card sharing and CSV export (no subscription). App Store id6809852097.
 
+## Free web tools (no sign-up, no install)
+- [Film Reciprocity Failure Calculator](https://softgrove.github.io/tools/reciprocity-calculator/): Reciprocity-corrected long exposure times for HP5 Plus, Tri-X, T-Max, Delta, Portra 400, Fomapan, and more.
+- [Kiln Firing Cost Calculator](https://softgrove.github.io/tools/kiln-firing-cost-calculator/): Electric kiln firing cost from kilowatts, Orton cone, ramp rate, and electricity rate; 49 Skutt/L&L presets or custom.
+- [Cut List Optimizer](https://softgrove.github.io/tools/cut-list-optimizer/): Guillotine cutting diagram and yield from stock and part dimensions, kerf-aware; free for up to 10 parts.
+
 ## Free printable templates (PDF, no sign-up)
 - [Free Printable Eczema Tracker (PDF)](https://softgrove.github.io/templates/eczema-tracker-printable/): A free one-page printable eczema tracker. Log daily flares, itch severity, affected areas, and possible triggers — then bring a concrete record to your dermatologist.
 - [Free Printable Car Maintenance Log (PDF)](https://softgrove.github.io/templates/car-maintenance-log-template/): A free one-page printable car maintenance log. Record every oil change, tire rotation, repair, and service with date, mileage, and cost — a clean history for taxes or resale.
