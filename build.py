@@ -172,7 +172,8 @@ def spine(key):
 def house():
     shelves = ""
     for sh in DATA["shelves"]:
-        spines = "".join(spine(k) for k in sh["apps"])
+        # skip apps whose ASC description isn't loaded yet (no /apps/<key>/ page is built for them)
+        spines = "".join(spine(k) for k in sh["apps"] if DATA["apps"][k]["asc"] in DESCS)
         shelves += (f'<section class="shelf-row"><p class="eyebrow">{esc(sh["label"])}</p>'
                     f'<p class="shelf-note">{esc(sh["note"])}</p>'
                     f'<div class="shelf">{spines}</div><div class="board"></div></section>')
