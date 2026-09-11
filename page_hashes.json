@@ -1,7 +1,7 @@
 {
  "/": {
-  "hash": "b5ddb4b6d6bd45de",
-  "lastmod": "2026-09-02"
+  "hash": "d61b3f37248f441d",
+  "lastmod": "2026-09-06"
  },
  "/templates/": {
   "hash": "9e94f6651322385e",
@@ -57,6 +57,10 @@
  },
  "/apps/kilncost/": {
   "hash": "efbb75f4b28003bc",
+  "lastmod": "2026-09-06"
+ },
+ "/apps/filmrecip/": {
+  "hash": "a6b9006660795f45",
   "lastmod": "2026-09-06"
  },
  "/templates/eczema-tracker-printable/": {
