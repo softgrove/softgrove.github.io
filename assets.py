@@ -104,12 +104,17 @@ def main():
         ("tools-pet-age-calculator", "Pet age calculator", "pawlog"),
         ("tools-dog-cat-calorie-calculator", "Dog & cat calorie calculator", "pawlog"),
         ("tools-whetstone-angle-calculator", "Whetstone angle calculator", "whetlog"),
+        ("tools-wallpaper-roll-calculator", "Wallpaper roll calculator", None),
     ]
+    house_accent = DATA["site"]["house_accent"]
     jobs.append(("tools", "Free calculators, in your browser.", "No sign-up · no install",
-                 [DATA["apps"][k]["accent"] for _, _, k in tool_jobs]))
+                 [DATA["apps"][k]["accent"] if k else house_accent for _, _, k in tool_jobs]))
     for name, title, app_key in tool_jobs:
-        ap = DATA["apps"][app_key]
-        jobs.append((name, title, "Free web tool", [ap["accent"], ap["bg"]]))
+        if app_key:
+            ap = DATA["apps"][app_key]
+            jobs.append((name, title, "Free web tool", [ap["accent"], ap["bg"]]))
+        else:
+            jobs.append((name, title, "Free web tool", [house_accent, DATA["site"]["hairline"]]))
     for slug, t in DATA["templates"].items():
         jobs.append((f"templates-{slug}", t["h1"], "Free PDF download",
                      [DATA["apps"][t["app"]]["accent"]]))

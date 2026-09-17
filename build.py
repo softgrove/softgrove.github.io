@@ -613,6 +613,42 @@ button.danger{{background:transparent;color:#7a2e33;padding:8px}}
 <aside class="app-cta"><h2>Keep it with you</h2><p>Use {esc(a["name"])} on iPhone when you need the full tool away from your desk.</p>{store_badge(a["id"], a["name"])}</aside>
 </article></main>"""
 
+def tool_shell_standalone(eyebrow, h1, lede, calculator, below):
+    """Same layout as tool_shell but with no app tie-in — for tools whose
+    matching app isn't published yet, so we make no App Store promise."""
+    return f"""
+<style>
+.tool-hero{{padding:64px 0 30px;max-width:820px}}
+.tool-hero h1{{font-size:clamp(38px,6vw,60px);max-width:18ch;margin-top:8px}}
+.tool-hero .lede{{font-size:19px;color:#4d4850;margin-top:18px;max-width:64ch}}
+.calculator{{max-width:820px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--teal);border-radius:14px;padding:clamp(18px,4vw,34px);box-shadow:0 10px 30px rgba(44,40,44,.06)}}
+.fields{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
+.field{{display:flex;flex-direction:column;gap:6px;min-width:0}}
+.field.wide{{grid-column:1/-1}}
+label,.label{{font-weight:600;font-size:14px}}
+input,select,button{{font:inherit}}
+input,select{{width:100%;min-height:46px;border:1px solid #b9b2a6;border-radius:8px;background:#fff;color:var(--ink);padding:9px 11px}}
+select:disabled,input:disabled{{opacity:.6}}
+button{{border:0;border-radius:8px;background:var(--ink);color:var(--paper);font-weight:600;padding:12px 19px;cursor:pointer}}
+button.secondary{{background:#fff;color:var(--ink);border:1px solid var(--line)}}
+.actions{{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}}
+.hint,.fine{{font-size:13px;color:var(--muted)}}
+.result{{margin-top:24px;background:#EAF3F2;border-radius:10px;padding:20px}}
+.result strong.big{{display:block;font-family:"Newsreader",Georgia,serif;font-size:clamp(28px,6vw,42px);font-weight:500;line-height:1.1;color:#2A6E6C}}
+.result dl{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}}
+.result dt{{font-size:12px;color:var(--muted)}}.result dd{{font-weight:600}}
+.error{{color:#9b2c2c;font-size:14px;margin-top:12px;min-height:1.5em}}
+.tool-copy{{max-width:780px;margin-top:62px}}.tool-copy section{{margin-top:46px}}
+.tool-copy h2{{font-size:30px;margin-bottom:14px}}.tool-copy p{{margin-top:12px;max-width:66ch}}
+.sources{{padding-left:20px;display:grid;gap:9px;margin-top:14px;font-size:14px}}
+@media(max-width:640px){{.tool-hero{{padding-top:46px}}.fields,.result dl{{grid-template-columns:1fr}}nav.top a{{margin-left:12px;font-size:12px}}}}
+</style>
+<main class="wrap">
+<header class="tool-hero"><p class="eyebrow">{esc(eyebrow)}</p><h1>{esc(h1)}</h1><p class="lede">{esc(lede)}</p></header>
+<section class="calculator" aria-label="{esc(h1)}">{calculator}</section>
+<article class="tool-copy">{below}
+</article></main>"""
+
 def reciprocity_tool():
     a = DATA["apps"]["filmrecip"]
     calculator = r'''
@@ -1107,6 +1143,7 @@ TOOLS_INDEX = [
     ("/tools/pet-age-calculator/", "Pet age calculator", "Dog or cat age in human years — a 2020 DNA-methylation study for dogs, International Cat Care's chart for cats.", "pawlog"),
     ("/tools/dog-cat-calorie-calculator/", "Dog & cat calorie calculator", "Daily calories (RER/MER) from weight, species, and life stage or status, the standard veterinary formula.", "pawlog"),
     ("/tools/whetstone-angle-calculator/", "Whetstone angle calculator", "Spine-lift height for a target sharpening angle, or the angle for a lift you used — freehand or guided rod.", "whetlog"),
+    ("/tools/wallpaper-roll-calculator/", "Wallpaper roll calculator", "Rolls needed from wall width, ceiling height, roll size, pattern repeat, and door/window openings, metric or imperial.", None),
 ]
 
 def more_tools(current_path):
@@ -2085,14 +2122,145 @@ syncVisibility();run();
     body = tool_shell("whetlog", "Free sharpening tool", "Whetstone angle calculator", "Spine-lift height for a target sharpening angle (or the angle for a lift you used), freehand or on a guided rod system.", calculator, below)
     return page("Whetstone Angle Calculator — Sharpening Angle & Spine Lift | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-whetstone-angle-calculator.png")
 
+def wallpaper_roll_tool():
+    path = "/tools/wallpaper-roll-calculator/"
+    calculator = r'''
+<style>.calculator [hidden]{display:none!important}</style>
+<div class="fields">
+<div class="field wide"><label for="wr-units">Units</label><select id="wr-units"><option value="metric" selected>Metric (m / cm)</option><option value="imperial">Imperial (ft / in)</option></select></div>
+<div class="field wide"><label for="wr-width" id="wr-width-label">Total wall width, all walls added together (m)</label><input id="wr-width" type="number" min="0" step="0.01" value="12" data-kind="length"></div>
+<div class="field"><label for="wr-height" id="wr-height-label">Wall height / ceiling drop (m)</label><input id="wr-height" type="number" min="0" step="0.01" value="2.4" data-kind="length"></div>
+<div class="field"><label for="wr-repeat" id="wr-repeat-label">Pattern repeat, 0 for none (cm)</label><input id="wr-repeat" type="number" min="0" step="0.1" value="0" data-kind="short"></div>
+<div class="field"><label for="wr-doors">Doors</label><input id="wr-doors" type="number" min="0" max="20" step="1" value="0"></div>
+<div class="field"><label for="wr-windows">Windows</label><input id="wr-windows" type="number" min="0" max="20" step="1" value="0"></div>
+<div class="field wide"><label for="wr-preset">Roll size</label><select id="wr-preset"><option value="european" selected>European roll — 53cm &times; 10m</option><option value="us">US roll/bolt — 20.5in &times; 33ft</option><option value="custom">Custom</option></select></div>
+<div class="field"><label for="wr-rollwidth" id="wr-rollwidth-label">Roll width (cm)</label><input id="wr-rollwidth" type="number" min="0.1" step="0.1" value="53" data-kind="short"></div>
+<div class="field"><label for="wr-rolllength" id="wr-rolllength-label">Roll length (m)</label><input id="wr-rolllength" type="number" min="0.1" step="0.1" value="10" data-kind="length"></div>
+<div class="field"><label for="wr-waste">Waste / buffer</label><select id="wr-waste"><option value="0">0%</option><option value="0.05">5%</option><option value="0.10" selected>10%</option><option value="0.15">15%</option><option value="0.20">20%</option><option value="0.25">25%</option><option value="0.30">30%</option></select></div>
+<div class="field"><label for="wr-price">Price per roll ($, optional)</label><input id="wr-price" type="number" min="0" step="0.01" placeholder="0.00"></div>
+</div>
+<div class="actions"><button id="wr-calc" type="button">Calculate</button><span class="hint">Updates as you type</span></div>
+<p id="wr-error" class="error" role="alert"></p>
+<div id="wr-result" class="result" aria-live="polite" hidden>
+<span class="eyebrow">Rolls needed</span><strong class="big" id="wr-big">6 rolls</strong>
+<dl>
+<div><dt>Strips needed</dt><dd id="wr-v1">23</dd></div>
+<div><dt>Strip length</dt><dd id="wr-v2">2.50 m</dd></div>
+<div><dt>Strips per roll</dt><dd id="wr-v3">4</dd></div>
+<div><dt>Rolls before buffer</dt><dd id="wr-v4">6</dd></div>
+<div><dt>Total cost</dt><dd id="wr-v5">—</dd></div>
+</dl>
+<p class="fine" id="wr-note" style="margin-top:14px"></p>
+</div>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+const MM_PER_M=1000, MM_PER_FT=304.8, MM_PER_CM=10, MM_PER_IN=25.4;
+const TRIM_MM=100, OPENING_MM=700;
+const PRESETS={european:{widthMM:530, lengthMM:10000}, us:{widthMM:520.7, lengthMM:10058.4}};
+const LABELS={
+ metric:{width:"Total wall width, all walls added together (m)", height:"Wall height / ceiling drop (m)", repeat:"Pattern repeat, 0 for none (cm)", rollwidth:"Roll width (cm)", rolllength:"Roll length (m)"},
+ imperial:{width:"Total wall width, all walls added together (ft)", height:"Wall height / ceiling drop (ft)", repeat:"Pattern repeat, 0 for none (in)", rollwidth:"Roll width (in)", rolllength:"Roll length (ft)"}
+};
+let currentUnit="metric";
+function toMM(v,kind,unit){if(kind==="length")return unit==="metric"?v*MM_PER_M:v*MM_PER_FT;return unit==="metric"?v*MM_PER_CM:v*MM_PER_IN}
+function fromMM(mm,kind,unit){if(kind==="length")return unit==="metric"?mm/MM_PER_M:mm/MM_PER_FT;return unit==="metric"?mm/MM_PER_CM:mm/MM_PER_IN}
+function round2(v){return Math.round(v*100)/100}
+function fmtLen(mm,unit){return unit==="metric"?`${round2(mm/MM_PER_M).toFixed(2)} m`:`${round2(mm/MM_PER_FT).toFixed(2)} ft`}
+function relabel(){
+ const L=LABELS[currentUnit];
+ $("#wr-width-label").textContent=L.width; $("#wr-height-label").textContent=L.height;
+ $("#wr-repeat-label").textContent=L.repeat; $("#wr-rollwidth-label").textContent=L.rollwidth;
+ $("#wr-rolllength-label").textContent=L.rolllength;
+}
+function applyPreset(){
+ const preset=$("#wr-preset").value; if(preset==="custom")return;
+ const p=PRESETS[preset];
+ $("#wr-rollwidth").value=round2(fromMM(p.widthMM,"short",currentUnit));
+ $("#wr-rolllength").value=round2(fromMM(p.lengthMM,"length",currentUnit));
+}
+function convertOnUnitChange(newUnit){
+ const oldUnit=currentUnit; if(newUnit===oldUnit)return;
+ const custom=$("#wr-preset").value==="custom";
+ const ids=custom?["wr-width","wr-height","wr-repeat","wr-rollwidth","wr-rolllength"]:["wr-width","wr-height","wr-repeat"];
+ ids.forEach(id=>{
+  const el=$("#"+id), kind=el.dataset.kind, v=Number(el.value);
+  if(!(v>=0))return;
+  el.value=round2(fromMM(toMM(v,kind,oldUnit),kind,newUnit));
+ });
+ currentUnit=newUnit; relabel();
+ if(!custom)applyPreset();
+}
+function run(){
+ const err=$("#wr-error"); err.textContent=""; $("#wr-result").hidden=true;
+ const unit=currentUnit;
+ const widthMM=toMM(Number($("#wr-width").value),"length",unit);
+ const heightMM=toMM(Number($("#wr-height").value),"length",unit);
+ const repeatMM=Math.max(0,toMM(Number($("#wr-repeat").value)||0,"short",unit));
+ const doors=Math.max(0,Math.round(Number($("#wr-doors").value)||0));
+ const windows=Math.max(0,Math.round(Number($("#wr-windows").value)||0));
+ const rollWidthMM=toMM(Number($("#wr-rollwidth").value),"short",unit);
+ const rollLengthMM=toMM(Number($("#wr-rolllength").value),"length",unit);
+ const waste=Math.max(0,Number($("#wr-waste").value));
+ const priceRaw=$("#wr-price").value.trim();
+ const price=priceRaw!==""&&Number(priceRaw)>0?Number(priceRaw):null;
+ if(!(widthMM>0)){err.textContent="Enter a total wall width greater than 0.";return}
+ if(!(heightMM>0)){err.textContent="Enter a wall height greater than 0.";return}
+ if(!(rollWidthMM>0)||!(rollLengthMM>0)){err.textContent="Enter a roll width and roll length greater than 0.";return}
+ let stripLength=heightMM+TRIM_MM;
+ if(repeatMM>0)stripLength=Math.ceil(stripLength/repeatMM)*repeatMM;
+ const stripsPerRoll=Math.max(1,Math.floor(rollLengthMM/stripLength));
+ const openingRelief=(doors+windows)*OPENING_MM;
+ const paperableWidth=Math.max(0,widthMM-openingRelief);
+ if(!(paperableWidth>0)){err.textContent="Doors and windows remove more width than your total wall width. Reduce the opening count or check the wall width.";return}
+ const stripsNeeded=Math.ceil(paperableWidth/rollWidthMM);
+ const rollsBeforeWaste=Math.ceil(stripsNeeded/stripsPerRoll);
+ const rollsNeeded=waste>0?Math.ceil(rollsBeforeWaste*(1+waste)):rollsBeforeWaste;
+ const totalCost=price!=null?rollsNeeded*price:null;
+ $("#wr-big").textContent=`${rollsNeeded} roll${rollsNeeded===1?"":"s"}`;
+ $("#wr-v1").textContent=String(stripsNeeded);
+ $("#wr-v2").textContent=fmtLen(stripLength,unit);
+ $("#wr-v3").textContent=String(stripsPerRoll);
+ $("#wr-v4").textContent=String(rollsBeforeWaste);
+ $("#wr-v5").textContent=totalCost!=null?`$${totalCost.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}`:"—";
+ $("#wr-note").textContent=`${stripsNeeded} strip${stripsNeeded===1?"":"s"} at ${fmtLen(stripLength,unit)} each, ${stripsPerRoll} per roll.`+(waste>0?` A ${Math.round(waste*100)}% buffer rounds ${rollsBeforeWaste} up to ${rollsNeeded}.`:" No waste buffer applied.");
+ $("#wr-result").hidden=false;
+}
+$("#wr-units").addEventListener("change",e=>{convertOnUnitChange(e.target.value);run()});
+$("#wr-preset").addEventListener("change",()=>{applyPreset();run()});
+document.querySelectorAll("#wr-width,#wr-height,#wr-repeat,#wr-doors,#wr-windows,#wr-rollwidth,#wr-rolllength,#wr-waste,#wr-price").forEach(el=>el.addEventListener("input",run));
+$("#wr-calc").addEventListener("click",run);
+relabel();run();
+})();
+</script>'''
+    faq_html, faq_ld = tool_faq([
+        ("How many rolls of wallpaper do I need for a room?", "Add up the width of every wall you're papering, divide by the roll width to get the number of strips, then divide the strips by how many strip-lengths fit in one roll (your ceiling height plus a trim allowance). Round each step up to a whole strip and a whole roll — you can't buy a fraction of either."),
+        ("What's the difference between a \"single roll\" and a \"double roll\"?", "In the US, wallpaper is usually shipped as a bolt about 33 feet long — physically two old-style single rolls joined together — but many retailers still price and list it per \"single roll,\" even though what arrives is one double-roll bolt. Always check the roll dimensions printed on the label rather than assuming from the name."),
+        ("How much extra wallpaper should I buy for waste?", "About 10% is standard for a plain or small-pattern wallpaper. A large pattern repeat pushes real-world waste higher because more of each strip gets trimmed to keep the pattern aligned, so 15–20% is a more realistic buffer once the repeat is over about 25–26cm (10in)."),
+        ("Does a pattern repeat change how much wallpaper I need?", "Yes. Every strip has to be cut long enough to land on a full repeat, so the strip length gets rounded up to the next multiple of the repeat — which can also reduce how many strips fit in one roll. A 640mm repeat on a 2.4m wall, for example, rounds a 2.5m strip up to 2.56m."),
+    ])
+    below = f'''
+<section><h2>How this wallpaper roll calculator works</h2><p>This is the standard strip method used by wallpaper retailers' own calculators: total wall width &divide; roll width gives the number of strips; wall height plus a fixed trim allowance (100mm, about 4 inches, for top and bottom slack) gives the length of one strip, rounded up to the next full pattern repeat if you set one; how many of those strips fit in one roll (rounded down) gives strips per roll; strips needed &divide; strips per roll, rounded up, gives rolls before any buffer. Each door or window then removes a flat width credit (700mm / 27.5in per opening) from the paperable wall width before the strip count is worked out — a conservative floor that only credits whole strips an opening fully covers, never a fractional strip. The waste buffer you choose is applied last and is always rounded up to a whole roll, never a fraction of one.</p></section>
+<section><h2>Sources</h2><p>Strip-method formula (perimeter &divide; roll width = strips; height + trim = strip length; strips &times; strip length &divide; roll length = rolls) and the 10% plain-pattern / 15&ndash;20% large-repeat waste guidance: <a href="https://www.wallcover.com/blog/wallpaper-roll-calculation">Wallcover, "Wallpaper Roll Calculator: How Many Rolls Do You Need?"</a>. Standard European roll size (0.53m &times; 10m): the same source. US "single roll" vs. double-roll bolt naming: <a href="https://uswalldecor.com/blogs/inspiration/single-roll-vs-double-roll-wallpaper-key-differences-explained">US Wall Decor, "Single Roll vs Double Roll Wallpaper"</a> and <a href="https://www.wallpaperboulevard.com/page/single-vs-double-roll-23.aspx">Wallpaper Boulevard, "Single vs Double Roll"</a>. Coverage and trim allowances vary by manufacturer — always check the figures printed on your roll's label. Verified against this calculator on September 18, 2026.</p></section>
+<section><h2>Questions</h2>{faq_html}</section>
+{more_tools(path)}'''
+    desc = "Free wallpaper roll calculator. Enter total wall width, ceiling height, roll size, pattern repeat, and door/window count to get rolls needed, strips per roll, and cost. Metric or imperial."
+    ld = tool_ld("Wallpaper Roll Calculator", path, desc, "UtilitiesApplication", faq_ld)
+    body = tool_shell_standalone("Free DIY tool", "Wallpaper roll calculator", "How many rolls of wallpaper you need, from wall width, ceiling height, roll size, pattern repeat, and door/window openings — the same strip-method math wallpaper retailers use.", calculator, below)
+    return page("Wallpaper Roll Calculator — How Many Rolls Do I Need? | Softgrove", desc, path, body, ld)
+
 # ---------------------------------------------------------------- tools hub
 def tools_hub():
     cards = ""
     for p, t, d, key in TOOLS_INDEX:
-        ap = DATA["apps"][key]
-        cards += (f'<a class="tpl-card" href="{p}"><span class="chip" style="background:{ap["accent"]}"></span>'
-                  f'<strong class="serif">{esc(t)}</strong><span>{esc(d)}</span>'
-                  f'<span class="fine" style="margin-top:6px">From {esc(ap["name"])}</span></a>')
+        if key:
+            ap = DATA["apps"][key]
+            chip, origin = ap["accent"], f'<span class="fine" style="margin-top:6px">From {esc(ap["name"])}</span>'
+        else:
+            chip, origin = SITE["house_accent"], ""
+        cards += (f'<a class="tpl-card" href="{p}"><span class="chip" style="background:{chip}"></span>'
+                  f'<strong class="serif">{esc(t)}</strong><span>{esc(d)}</span>{origin}</a>')
     body = f"""
 <style>
 .hub-hero{{padding:64px 0 30px;max-width:760px}}.hub-hero h1{{font-size:clamp(38px,6vw,60px);margin-top:8px}}
@@ -2110,7 +2278,7 @@ def tools_hub():
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Free web tools", "url": ORIGIN + "/tools/",
           "publisher": {"@type": "Organization", "name": "Softgrove", "url": ORIGIN + "/"}}
     return page("Free Web Calculators — Fuel Cost, Sourdough Hydration, Reef Dosing & More | Softgrove",
-                "Fifteen free browser calculators from Softgrove: fuel cost, houseplant watering, sourdough hydration, reef dosing, reading time, varroa mites, film reciprocity, kiln cost, cut list, board feet, miter angle, shelf sag, pet age, pet calories, whetstone angle.",
+                "Sixteen free browser calculators from Softgrove: fuel cost, houseplant watering, sourdough hydration, reef dosing, reading time, varroa mites, film reciprocity, kiln cost, cut list, board feet, miter angle, shelf sag, pet age, pet calories, whetstone angle, wallpaper rolls.",
                 "/tools/", body, ld, "", "/og/tools.png")
 
 def templates_hub():
@@ -2245,7 +2413,8 @@ def main():
              "/tools/wood-shelf-sag-calculator/": shelf_sag_tool(),
              "/tools/pet-age-calculator/": pet_age_tool(),
              "/tools/dog-cat-calorie-calculator/": pet_calorie_tool(),
-             "/tools/whetstone-angle-calculator/": whetstone_angle_tool()}
+             "/tools/whetstone-angle-calculator/": whetstone_angle_tool(),
+             "/tools/wallpaper-roll-calculator/": wallpaper_roll_tool()}
     for key, a in DATA["apps"].items():
         if a["asc"] not in DESCS: continue  # e.g. Fibrolog: added to apps.json, ASC desc not live yet
         pages[f"/apps/{key}/"] = app_page(key)

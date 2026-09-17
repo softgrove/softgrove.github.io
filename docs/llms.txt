@@ -36,6 +36,7 @@
 - [Pet age calculator](https://softgrove.github.io/tools/pet-age-calculator/): Dog or cat age in human years — a 2020 DNA-methylation study for dogs, International Cat Care's chart for cats.
 - [Dog & cat calorie calculator](https://softgrove.github.io/tools/dog-cat-calorie-calculator/): Daily calories (RER/MER) from weight, species, and life stage or status, the standard veterinary formula.
 - [Whetstone angle calculator](https://softgrove.github.io/tools/whetstone-angle-calculator/): Spine-lift height for a target sharpening angle, or the angle for a lift you used — freehand or guided rod.
+- [Wallpaper roll calculator](https://softgrove.github.io/tools/wallpaper-roll-calculator/): Rolls needed from wall width, ceiling height, roll size, pattern repeat, and door/window openings, metric or imperial.
 - Index of all tools: https://softgrove.github.io/tools/
 
 ## Free printable templates (PDF, no sign-up)

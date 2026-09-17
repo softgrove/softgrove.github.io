@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wallpaper Roll Calculator — How Many Rolls Do I Need? | Softgrove</title>
+<meta name="description" content="Free wallpaper roll calculator. Enter total wall width, ceiling height, roll size, pattern repeat, and door/window count to get rolls needed, strips per roll, and cost. Metric or imperial.">
+<link rel="canonical" href="https://softgrove.github.io/tools/wallpaper-roll-calculator/">
+<meta property="og:title" content="Wallpaper Roll Calculator — How Many Rolls Do I Need? | Softgrove">
+<meta property="og:description" content="Free wallpaper roll calculator. Enter total wall width, ceiling height, roll size, pattern repeat, and door/window count to get rolls needed, strips per roll, and cost. Metric or imperial.">
+<meta property="og:url" content="https://softgrove.github.io/tools/wallpaper-roll-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://softgrove.github.io/og/tools-wallpaper-roll-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet"></noscript>
+<style>
+:root{--paper:#FBFAF7;--ink:#2C282C;--muted:#6E6870;--line:#E7E2D9;--teal:#3E8E8C}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.serif{font-family:"Newsreader",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+header.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px;padding-bottom:18px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;letter-spacing:-.01em}
+.wordmark b{color:var(--teal);font-weight:600}
+nav.top a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px}
+nav.top a:hover{color:var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;padding:13px 26px;border-radius:8px}
+.btn:hover{opacity:.88}
+.badge-store{display:inline-flex;align-items:center;gap:9px;background:#000;color:#fff;text-decoration:none;border-radius:9px;padding:9px 18px 9px 14px;line-height:1.15}
+.badge-store svg{width:22px;height:26px;flex:none}
+.badge-store small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.badge-store span{font-size:17px;font-weight:600;letter-spacing:.01em}
+footer{border-top:1px solid var(--line);margin-top:96px}
+footer .wrap{padding:34px 24px 46px;display:flex;flex-wrap:wrap;gap:10px 34px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4d4850;max-width:62ch}
+@media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Wallpaper Roll Calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "url": "https://softgrove.github.io/tools/wallpaper-roll-calculator/", "isAccessibleForFree": true, "description": "Free wallpaper roll calculator. Enter total wall width, ceiling height, roll size, pattern repeat, and door/window count to get rolls needed, strips per roll, and cost. Metric or imperial.", "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many rolls of wallpaper do I need for a room?", "acceptedAnswer": {"@type": "Answer", "text": "Add up the width of every wall you're papering, divide by the roll width to get the number of strips, then divide the strips by how many strip-lengths fit in one roll (your ceiling height plus a trim allowance). Round each step up to a whole strip and a whole roll — you can't buy a fraction of either."}}, {"@type": "Question", "name": "What's the difference between a \"single roll\" and a \"double roll\"?", "acceptedAnswer": {"@type": "Answer", "text": "In the US, wallpaper is usually shipped as a bolt about 33 feet long — physically two old-style single rolls joined together — but many retailers still price and list it per \"single roll,\" even though what arrives is one double-roll bolt. Always check the roll dimensions printed on the label rather than assuming from the name."}}, {"@type": "Question", "name": "How much extra wallpaper should I buy for waste?", "acceptedAnswer": {"@type": "Answer", "text": "About 10% is standard for a plain or small-pattern wallpaper. A large pattern repeat pushes real-world waste higher because more of each strip gets trimmed to keep the pattern aligned, so 15–20% is a more realistic buffer once the repeat is over about 25–26cm (10in)."}}, {"@type": "Question", "name": "Does a pattern repeat change how much wallpaper I need?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every strip has to be cut long enough to land on a full repeat, so the strip length gets rounded up to the next multiple of the repeat — which can also reduce how many strips fit in one roll. A 640mm repeat on a 2.4m wall, for example, rounds a 2.5m strip up to 2.56m."}}]}]}</script>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<a class="wordmark" href="/">softgrove<b>.</b></a>
+<nav class="top"><a href="/#apps">Apps</a><a href="/tools/reciprocity-calculator/">Free tools</a><a href="/templates/">Free templates</a></nav>
+</div></header>
+
+<style>
+.tool-hero{padding:64px 0 30px;max-width:820px}
+.tool-hero h1{font-size:clamp(38px,6vw,60px);max-width:18ch;margin-top:8px}
+.tool-hero .lede{font-size:19px;color:#4d4850;margin-top:18px;max-width:64ch}
+.calculator{max-width:820px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--teal);border-radius:14px;padding:clamp(18px,4vw,34px);box-shadow:0 10px 30px rgba(44,40,44,.06)}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.wide{grid-column:1/-1}
+label,.label{font-weight:600;font-size:14px}
+input,select,button{font:inherit}
+input,select{width:100%;min-height:46px;border:1px solid #b9b2a6;border-radius:8px;background:#fff;color:var(--ink);padding:9px 11px}
+select:disabled,input:disabled{opacity:.6}
+button{border:0;border-radius:8px;background:var(--ink);color:var(--paper);font-weight:600;padding:12px 19px;cursor:pointer}
+button.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}
+.hint,.fine{font-size:13px;color:var(--muted)}
+.result{margin-top:24px;background:#EAF3F2;border-radius:10px;padding:20px}
+.result strong.big{display:block;font-family:"Newsreader",Georgia,serif;font-size:clamp(28px,6vw,42px);font-weight:500;line-height:1.1;color:#2A6E6C}
+.result dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+.result dt{font-size:12px;color:var(--muted)}.result dd{font-weight:600}
+.error{color:#9b2c2c;font-size:14px;margin-top:12px;min-height:1.5em}
+.tool-copy{max-width:780px;margin-top:62px}.tool-copy section{margin-top:46px}
+.tool-copy h2{font-size:30px;margin-bottom:14px}.tool-copy p{margin-top:12px;max-width:66ch}
+.sources{padding-left:20px;display:grid;gap:9px;margin-top:14px;font-size:14px}
+@media(max-width:640px){.tool-hero{padding-top:46px}.fields,.result dl{grid-template-columns:1fr}nav.top a{margin-left:12px;font-size:12px}}
+</style>
+<main class="wrap">
+<header class="tool-hero"><p class="eyebrow">Free DIY tool</p><h1>Wallpaper roll calculator</h1><p class="lede">How many rolls of wallpaper you need, from wall width, ceiling height, roll size, pattern repeat, and door/window openings — the same strip-method math wallpaper retailers use.</p></header>
+<section class="calculator" aria-label="Wallpaper roll calculator">
+<style>.calculator [hidden]{display:none!important}</style>
+<div class="fields">
+<div class="field wide"><label for="wr-units">Units</label><select id="wr-units"><option value="metric" selected>Metric (m / cm)</option><option value="imperial">Imperial (ft / in)</option></select></div>
+<div class="field wide"><label for="wr-width" id="wr-width-label">Total wall width, all walls added together (m)</label><input id="wr-width" type="number" min="0" step="0.01" value="12" data-kind="length"></div>
+<div class="field"><label for="wr-height" id="wr-height-label">Wall height / ceiling drop (m)</label><input id="wr-height" type="number" min="0" step="0.01" value="2.4" data-kind="length"></div>
+<div class="field"><label for="wr-repeat" id="wr-repeat-label">Pattern repeat, 0 for none (cm)</label><input id="wr-repeat" type="number" min="0" step="0.1" value="0" data-kind="short"></div>
+<div class="field"><label for="wr-doors">Doors</label><input id="wr-doors" type="number" min="0" max="20" step="1" value="0"></div>
+<div class="field"><label for="wr-windows">Windows</label><input id="wr-windows" type="number" min="0" max="20" step="1" value="0"></div>
+<div class="field wide"><label for="wr-preset">Roll size</label><select id="wr-preset"><option value="european" selected>European roll — 53cm &times; 10m</option><option value="us">US roll/bolt — 20.5in &times; 33ft</option><option value="custom">Custom</option></select></div>
+<div class="field"><label for="wr-rollwidth" id="wr-rollwidth-label">Roll width (cm)</label><input id="wr-rollwidth" type="number" min="0.1" step="0.1" value="53" data-kind="short"></div>
+<div class="field"><label for="wr-rolllength" id="wr-rolllength-label">Roll length (m)</label><input id="wr-rolllength" type="number" min="0.1" step="0.1" value="10" data-kind="length"></div>
+<div class="field"><label for="wr-waste">Waste / buffer</label><select id="wr-waste"><option value="0">0%</option><option value="0.05">5%</option><option value="0.10" selected>10%</option><option value="0.15">15%</option><option value="0.20">20%</option><option value="0.25">25%</option><option value="0.30">30%</option></select></div>
+<div class="field"><label for="wr-price">Price per roll ($, optional)</label><input id="wr-price" type="number" min="0" step="0.01" placeholder="0.00"></div>
+</div>
+<div class="actions"><button id="wr-calc" type="button">Calculate</button><span class="hint">Updates as you type</span></div>
+<p id="wr-error" class="error" role="alert"></p>
+<div id="wr-result" class="result" aria-live="polite" hidden>
+<span class="eyebrow">Rolls needed</span><strong class="big" id="wr-big">6 rolls</strong>
+<dl>
+<div><dt>Strips needed</dt><dd id="wr-v1">23</dd></div>
+<div><dt>Strip length</dt><dd id="wr-v2">2.50 m</dd></div>
+<div><dt>Strips per roll</dt><dd id="wr-v3">4</dd></div>
+<div><dt>Rolls before buffer</dt><dd id="wr-v4">6</dd></div>
+<div><dt>Total cost</dt><dd id="wr-v5">—</dd></div>
+</dl>
+<p class="fine" id="wr-note" style="margin-top:14px"></p>
+</div>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+const MM_PER_M=1000, MM_PER_FT=304.8, MM_PER_CM=10, MM_PER_IN=25.4;
+const TRIM_MM=100, OPENING_MM=700;
+const PRESETS={european:{widthMM:530, lengthMM:10000}, us:{widthMM:520.7, lengthMM:10058.4}};
+const LABELS={
+ metric:{width:"Total wall width, all walls added together (m)", height:"Wall height / ceiling drop (m)", repeat:"Pattern repeat, 0 for none (cm)", rollwidth:"Roll width (cm)", rolllength:"Roll length (m)"},
+ imperial:{width:"Total wall width, all walls added together (ft)", height:"Wall height / ceiling drop (ft)", repeat:"Pattern repeat, 0 for none (in)", rollwidth:"Roll width (in)", rolllength:"Roll length (ft)"}
+};
+let currentUnit="metric";
+function toMM(v,kind,unit){if(kind==="length")return unit==="metric"?v*MM_PER_M:v*MM_PER_FT;return unit==="metric"?v*MM_PER_CM:v*MM_PER_IN}
+function fromMM(mm,kind,unit){if(kind==="length")return unit==="metric"?mm/MM_PER_M:mm/MM_PER_FT;return unit==="metric"?mm/MM_PER_CM:mm/MM_PER_IN}
+function round2(v){return Math.round(v*100)/100}
+function fmtLen(mm,unit){return unit==="metric"?`${round2(mm/MM_PER_M).toFixed(2)} m`:`${round2(mm/MM_PER_FT).toFixed(2)} ft`}
+function relabel(){
+ const L=LABELS[currentUnit];
+ $("#wr-width-label").textContent=L.width; $("#wr-height-label").textContent=L.height;
+ $("#wr-repeat-label").textContent=L.repeat; $("#wr-rollwidth-label").textContent=L.rollwidth;
+ $("#wr-rolllength-label").textContent=L.rolllength;
+}
+function applyPreset(){
+ const preset=$("#wr-preset").value; if(preset==="custom")return;
+ const p=PRESETS[preset];
+ $("#wr-rollwidth").value=round2(fromMM(p.widthMM,"short",currentUnit));
+ $("#wr-rolllength").value=round2(fromMM(p.lengthMM,"length",currentUnit));
+}
+function convertOnUnitChange(newUnit){
+ const oldUnit=currentUnit; if(newUnit===oldUnit)return;
+ const custom=$("#wr-preset").value==="custom";
+ const ids=custom?["wr-width","wr-height","wr-repeat","wr-rollwidth","wr-rolllength"]:["wr-width","wr-height","wr-repeat"];
+ ids.forEach(id=>{
+  const el=$("#"+id), kind=el.dataset.kind, v=Number(el.value);
+  if(!(v>=0))return;
+  el.value=round2(fromMM(toMM(v,kind,oldUnit),kind,newUnit));
+ });
+ currentUnit=newUnit; relabel();
+ if(!custom)applyPreset();
+}
+function run(){
+ const err=$("#wr-error"); err.textContent=""; $("#wr-result").hidden=true;
+ const unit=currentUnit;
+ const widthMM=toMM(Number($("#wr-width").value),"length",unit);
+ const heightMM=toMM(Number($("#wr-height").value),"length",unit);
+ const repeatMM=Math.max(0,toMM(Number($("#wr-repeat").value)||0,"short",unit));
+ const doors=Math.max(0,Math.round(Number($("#wr-doors").value)||0));
+ const windows=Math.max(0,Math.round(Number($("#wr-windows").value)||0));
+ const rollWidthMM=toMM(Number($("#wr-rollwidth").value),"short",unit);
+ const rollLengthMM=toMM(Number($("#wr-rolllength").value),"length",unit);
+ const waste=Math.max(0,Number($("#wr-waste").value));
+ const priceRaw=$("#wr-price").value.trim();
+ const price=priceRaw!==""&&Number(priceRaw)>0?Number(priceRaw):null;
+ if(!(widthMM>0)){err.textContent="Enter a total wall width greater than 0.";return}
+ if(!(heightMM>0)){err.textContent="Enter a wall height greater than 0.";return}
+ if(!(rollWidthMM>0)||!(rollLengthMM>0)){err.textContent="Enter a roll width and roll length greater than 0.";return}
+ let stripLength=heightMM+TRIM_MM;
+ if(repeatMM>0)stripLength=Math.ceil(stripLength/repeatMM)*repeatMM;
+ const stripsPerRoll=Math.max(1,Math.floor(rollLengthMM/stripLength));
+ const openingRelief=(doors+windows)*OPENING_MM;
+ const paperableWidth=Math.max(0,widthMM-openingRelief);
+ if(!(paperableWidth>0)){err.textContent="Doors and windows remove more width than your total wall width. Reduce the opening count or check the wall width.";return}
+ const stripsNeeded=Math.ceil(paperableWidth/rollWidthMM);
+ const rollsBeforeWaste=Math.ceil(stripsNeeded/stripsPerRoll);
+ const rollsNeeded=waste>0?Math.ceil(rollsBeforeWaste*(1+waste)):rollsBeforeWaste;
+ const totalCost=price!=null?rollsNeeded*price:null;
+ $("#wr-big").textContent=`${rollsNeeded} roll${rollsNeeded===1?"":"s"}`;
+ $("#wr-v1").textContent=String(stripsNeeded);
+ $("#wr-v2").textContent=fmtLen(stripLength,unit);
+ $("#wr-v3").textContent=String(stripsPerRoll);
+ $("#wr-v4").textContent=String(rollsBeforeWaste);
+ $("#wr-v5").textContent=totalCost!=null?`$${totalCost.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}`:"—";
+ $("#wr-note").textContent=`${stripsNeeded} strip${stripsNeeded===1?"":"s"} at ${fmtLen(stripLength,unit)} each, ${stripsPerRoll} per roll.`+(waste>0?` A ${Math.round(waste*100)}% buffer rounds ${rollsBeforeWaste} up to ${rollsNeeded}.`:" No waste buffer applied.");
+ $("#wr-result").hidden=false;
+}
+$("#wr-units").addEventListener("change",e=>{convertOnUnitChange(e.target.value);run()});
+$("#wr-preset").addEventListener("change",()=>{applyPreset();run()});
+document.querySelectorAll("#wr-width,#wr-height,#wr-repeat,#wr-doors,#wr-windows,#wr-rollwidth,#wr-rolllength,#wr-waste,#wr-price").forEach(el=>el.addEventListener("input",run));
+$("#wr-calc").addEventListener("click",run);
+relabel();run();
+})();
+</script></section>
+<article class="tool-copy">
+<section><h2>How this wallpaper roll calculator works</h2><p>This is the standard strip method used by wallpaper retailers' own calculators: total wall width &divide; roll width gives the number of strips; wall height plus a fixed trim allowance (100mm, about 4 inches, for top and bottom slack) gives the length of one strip, rounded up to the next full pattern repeat if you set one; how many of those strips fit in one roll (rounded down) gives strips per roll; strips needed &divide; strips per roll, rounded up, gives rolls before any buffer. Each door or window then removes a flat width credit (700mm / 27.5in per opening) from the paperable wall width before the strip count is worked out — a conservative floor that only credits whole strips an opening fully covers, never a fractional strip. The waste buffer you choose is applied last and is always rounded up to a whole roll, never a fraction of one.</p></section>
+<section><h2>Sources</h2><p>Strip-method formula (perimeter &divide; roll width = strips; height + trim = strip length; strips &times; strip length &divide; roll length = rolls) and the 10% plain-pattern / 15&ndash;20% large-repeat waste guidance: <a href="https://www.wallcover.com/blog/wallpaper-roll-calculation">Wallcover, "Wallpaper Roll Calculator: How Many Rolls Do You Need?"</a>. Standard European roll size (0.53m &times; 10m): the same source. US "single roll" vs. double-roll bolt naming: <a href="https://uswalldecor.com/blogs/inspiration/single-roll-vs-double-roll-wallpaper-key-differences-explained">US Wall Decor, "Single Roll vs Double Roll Wallpaper"</a> and <a href="https://www.wallpaperboulevard.com/page/single-vs-double-roll-23.aspx">Wallpaper Boulevard, "Single vs Double Roll"</a>. Coverage and trim allowances vary by manufacturer — always check the figures printed on your roll's label. Verified against this calculator on September 18, 2026.</p></section>
+<section><h2>Questions</h2><details><summary>How many rolls of wallpaper do I need for a room?</summary><p>Add up the width of every wall you're papering, divide by the roll width to get the number of strips, then divide the strips by how many strip-lengths fit in one roll (your ceiling height plus a trim allowance). Round each step up to a whole strip and a whole roll — you can't buy a fraction of either.</p></details><details><summary>What&#x27;s the difference between a &quot;single roll&quot; and a &quot;double roll&quot;?</summary><p>In the US, wallpaper is usually shipped as a bolt about 33 feet long — physically two old-style single rolls joined together — but many retailers still price and list it per "single roll," even though what arrives is one double-roll bolt. Always check the roll dimensions printed on the label rather than assuming from the name.</p></details><details><summary>How much extra wallpaper should I buy for waste?</summary><p>About 10% is standard for a plain or small-pattern wallpaper. A large pattern repeat pushes real-world waste higher because more of each strip gets trimmed to keep the pattern aligned, so 15–20% is a more realistic buffer once the repeat is over about 25–26cm (10in).</p></details><details><summary>Does a pattern repeat change how much wallpaper I need?</summary><p>Yes. Every strip has to be cut long enough to land on a full repeat, so the strip length gets rounded up to the next multiple of the repeat — which can also reduce how many strips fit in one roll. A 640mm repeat on a 2.4m wall, for example, rounds a 2.5m strip up to 2.56m.</p></details></section>
+<section><h2>More free tools</h2><ul class="sources" style="font-size:15px"><li><a href="/tools/fuel-cost-calculator/">Fuel cost calculator</a> — Trip fuel cost and cost per mile from distance, economy, and pump price; MPG from two fill-ups.</li><li><a href="/tools/houseplant-watering-calculator/">Houseplant watering calculator</a> — How often to water 25 common houseplants, with your next watering dates.</li><li><a href="/tools/sourdough-hydration-calculator/">Sourdough hydration calculator</a> — Dough hydration with levain included, or the water to hit a target, plus salt.</li><li><a href="/tools/reef-dosing-calculator/">Reef dosing calculator</a> — Millilitres of alkalinity, calcium, or magnesium additive to reach a target, from your product label.</li><li><a href="/tools/reading-time-calculator/">Reading time calculator</a> — Days to finish a book from your page pace, or pages per day to hit a deadline.</li><li><a href="/tools/varroa-mite-calculator/">Varroa mite calculator</a> — Mites per 100 bees from an alcohol wash or sugar roll, with the 3% treatment flag.</li><li><a href="/tools/reciprocity-calculator/">Film reciprocity failure calculator</a> — Corrected long-exposure times for HP5 Plus, Tri-X, T-Max, Delta, Portra, Fomapan.</li><li><a href="/tools/kiln-firing-cost-calculator/">Kiln firing cost calculator</a> — Electric kiln firing cost from kilowatts, Orton cone, ramp rate, and electricity rate.</li><li><a href="/tools/cut-list-optimizer/">Cut list optimizer</a> — Guillotine cutting diagram and yield from stock and part sizes, kerf-aware.</li><li><a href="/tools/board-feet-calculator/">Board feet calculator</a> — Total board feet and cost for a lumber order, across as many board sizes as you need.</li><li><a href="/tools/miter-angle-calculator/">Miter angle calculator</a> — Compound miter and bevel for crown molding, or a plain miter for baseboard and picture frames.</li><li><a href="/tools/wood-shelf-sag-calculator/">Wood shelf sag calculator</a> — Expected shelf sag from span, depth, thickness, material, and load, Sagulator-style.</li><li><a href="/tools/pet-age-calculator/">Pet age calculator</a> — Dog or cat age in human years — a 2020 DNA-methylation study for dogs, International Cat Care&#x27;s chart for cats.</li><li><a href="/tools/dog-cat-calorie-calculator/">Dog &amp; cat calorie calculator</a> — Daily calories (RER/MER) from weight, species, and life stage or status, the standard veterinary formula.</li><li><a href="/tools/whetstone-angle-calculator/">Whetstone angle calculator</a> — Spine-lift height for a target sharpening angle, or the angle for a lift you used — freehand or guided rod.</li></ul><p class="fine" style="margin-top:12px"><a href="/tools/">All free tools</a> · <a href="/templates/">Free printable templates</a></p></section>
+</article></main>
+<footer><div class="wrap">
+<span>© 2026 Softgrove — an independent app studio.</span>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
+<a href="/llms.txt">llms.txt</a>
+</div></footer>
+</body></html>

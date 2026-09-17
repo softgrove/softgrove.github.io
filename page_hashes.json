@@ -20,55 +20,59 @@
   "lastmod": "2026-09-12"
  },
  "/tools/": {
-  "hash": "836e769ef752619a",
+  "hash": "41bc89ee57d64c50",
   "lastmod": "2026-09-18"
  },
  "/tools/fuel-cost-calculator/": {
-  "hash": "553ba0531f548df7",
+  "hash": "6b5e623777a5dc90",
   "lastmod": "2026-09-18"
  },
  "/tools/houseplant-watering-calculator/": {
-  "hash": "75c52d79ecc2aed7",
+  "hash": "9fc929140e005bb8",
   "lastmod": "2026-09-18"
  },
  "/tools/sourdough-hydration-calculator/": {
-  "hash": "2fdbfaef02fcea78",
+  "hash": "7cb4bf3cad106eb9",
   "lastmod": "2026-09-18"
  },
  "/tools/reef-dosing-calculator/": {
-  "hash": "9a51b986384087af",
+  "hash": "2b74602368353cdc",
   "lastmod": "2026-09-18"
  },
  "/tools/reading-time-calculator/": {
-  "hash": "2395528adc243102",
+  "hash": "62cfacedc9ca7654",
   "lastmod": "2026-09-18"
  },
  "/tools/varroa-mite-calculator/": {
-  "hash": "086bca604e2bb04b",
+  "hash": "bc876a2d4ec009b5",
   "lastmod": "2026-09-18"
  },
  "/tools/board-feet-calculator/": {
-  "hash": "bdf93a63e63e119e",
+  "hash": "1d3b629c7b08578f",
   "lastmod": "2026-09-18"
  },
  "/tools/miter-angle-calculator/": {
-  "hash": "e05aac50df11203a",
+  "hash": "1f9c91c09c8afd43",
   "lastmod": "2026-09-18"
  },
  "/tools/wood-shelf-sag-calculator/": {
-  "hash": "76dafa6d94203537",
+  "hash": "2befb8ba4294f9ad",
   "lastmod": "2026-09-18"
  },
  "/tools/pet-age-calculator/": {
-  "hash": "71158be7cef8da10",
+  "hash": "27e54201f1980996",
   "lastmod": "2026-09-18"
  },
  "/tools/dog-cat-calorie-calculator/": {
-  "hash": "cc985f565415b15d",
+  "hash": "c6e3dff31bc5e5e2",
   "lastmod": "2026-09-18"
  },
  "/tools/whetstone-angle-calculator/": {
-  "hash": "f9356839f8e30734",
+  "hash": "65f6ed570a75853f",
+  "lastmod": "2026-09-18"
+ },
+ "/tools/wallpaper-roll-calculator/": {
+  "hash": "1cd39ab354be1f85",
   "lastmod": "2026-09-18"
  },
  "/apps/skinote/": {
