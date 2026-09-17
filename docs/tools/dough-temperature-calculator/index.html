@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dough Temperature Calculator (DDT) — Water Temp for Bread &amp; Sourdough | Softgrove</title>
+<meta name="description" content="Free desired dough temperature (DDT) calculator for bread and sourdough. Enter your target dough temperature, room, flour, and levain temperatures to get the water temperature to mix with — the standard ×3/×4 baker&#x27;s formula.">
+<link rel="canonical" href="https://softgrove.github.io/tools/dough-temperature-calculator/">
+<meta property="og:title" content="Dough Temperature Calculator (DDT) — Water Temp for Bread &amp; Sourdough | Softgrove">
+<meta property="og:description" content="Free desired dough temperature (DDT) calculator for bread and sourdough. Enter your target dough temperature, room, flour, and levain temperatures to get the water temperature to mix with — the standard ×3/×4 baker&#x27;s formula.">
+<meta property="og:url" content="https://softgrove.github.io/tools/dough-temperature-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://softgrove.github.io/og/tools-dough-temperature-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet"></noscript><meta name="apple-itunes-app" content="app-id=6786377205">
+<style>
+:root{--paper:#FBFAF7;--ink:#2C282C;--muted:#6E6870;--line:#E7E2D9;--teal:#3E8E8C}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.serif{font-family:"Newsreader",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+header.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px;padding-bottom:18px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;letter-spacing:-.01em}
+.wordmark b{color:var(--teal);font-weight:600}
+nav.top a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px}
+nav.top a:hover{color:var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;padding:13px 26px;border-radius:8px}
+.btn:hover{opacity:.88}
+.badge-store{display:inline-flex;align-items:center;gap:9px;background:#000;color:#fff;text-decoration:none;border-radius:9px;padding:9px 18px 9px 14px;line-height:1.15}
+.badge-store svg{width:22px;height:26px;flex:none}
+.badge-store small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.badge-store span{font-size:17px;font-weight:600;letter-spacing:.01em}
+footer{border-top:1px solid var(--line);margin-top:96px}
+footer .wrap{padding:34px 24px 46px;display:flex;flex-wrap:wrap;gap:10px 34px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4d4850;max-width:62ch}
+@media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Dough Temperature Calculator", "applicationCategory": "FoodAndDrinkApplication", "operatingSystem": "Any", "url": "https://softgrove.github.io/tools/dough-temperature-calculator/", "isAccessibleForFree": true, "description": "Free desired dough temperature (DDT) calculator for bread and sourdough. Enter your target dough temperature, room, flour, and levain temperatures to get the water temperature to mix with — the standard ×3/×4 baker's formula.", "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is desired dough temperature (DDT)?", "acceptedAnswer": {"@type": "Answer", "text": "The dough temperature you're aiming for right after mixing, because it's the single biggest lever over fermentation speed and, with it, flavor and rise. Most wheat-based yeast breads and sourdoughs target 75–78°F (24–26°C)."}}, {"@type": "Question", "name": "Why multiply by 3 or by 4?", "acceptedAnswer": {"@type": "Answer", "text": "The formula assumes final dough temperature is roughly the average of every ingredient's temperature plus the heat mixing adds. Multiplying DDT by the number of factors you're tracking — room, flour, and friction (3), or those plus a levain/preferment (4) — gives a \"total temperature factor\" you can subtract the known temperatures from, leaving the one you control: water."}}, {"@type": "Question", "name": "What's a friction factor and how do I find mine?", "acceptedAnswer": {"@type": "Answer", "text": "It's the heat your mixing method adds to the dough — near zero for gentle hand folding, a few degrees for vigorous hand kneading, and considerably more from a stand mixer's motor and friction (King Arthur measured roughly 22–24°F / 12–13°C for a 7-quart KitchenAid). To measure your own: mix a batch, take the dough's temperature right after, then solve the same formula backwards — friction factor = (final dough temp × factors) − room − flour − water (− levain if used)."}}, {"@type": "Question", "name": "The water temperature comes out negative or oddly high — what does that mean?", "acceptedAnswer": {"@type": "Answer", "text": "It usually means your room or flour is already warmer than needed to hit your DDT, so even ice-cold water can't bring it down (or vice versa in a cold kitchen). Treat that as a sign to adjust DDT slightly, chill your flour, or accept the dough will run a bit off-target rather than chasing an impossible tap temperature."}}]}]}</script>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<a class="wordmark" href="/">softgrove<b>.</b></a>
+<nav class="top"><a href="/#apps">Apps</a><a href="/tools/reciprocity-calculator/">Free tools</a><a href="/templates/">Free templates</a></nav>
+</div></header>
+
+<style>
+.tool-hero{padding:64px 0 30px;max-width:820px}
+.tool-hero h1{font-size:clamp(38px,6vw,60px);max-width:18ch;margin-top:8px}
+.tool-hero .lede{font-size:19px;color:#4d4850;margin-top:18px;max-width:64ch}
+.calculator{max-width:820px;background:#fff;border:1px solid var(--line);border-top:5px solid #D98A2B;border-radius:14px;padding:clamp(18px,4vw,34px);box-shadow:0 10px 30px rgba(44,40,44,.06)}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.wide{grid-column:1/-1}
+label,.label{font-weight:600;font-size:14px}
+input,select,button{font:inherit}
+input,select{width:100%;min-height:46px;border:1px solid #b9b2a6;border-radius:8px;background:#fff;color:var(--ink);padding:9px 11px}
+button{border:0;border-radius:8px;background:var(--ink);color:var(--paper);font-weight:600;padding:12px 19px;cursor:pointer}
+button.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+button.danger{background:transparent;color:#7a2e33;padding:8px}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}
+.hint,.fine{font-size:13px;color:var(--muted)}
+.result{margin-top:24px;background:#EDE7DA;border-radius:10px;padding:20px}
+.result strong.big{display:block;font-family:"Newsreader",Georgia,serif;font-size:clamp(30px,6vw,44px);font-weight:500;line-height:1.1;color:#2E2014}
+.result dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+.result dt{font-size:12px;color:var(--muted)}.result dd{font-weight:600}
+.error{color:#9b2c2c;font-size:14px;margin-top:12px;min-height:1.5em}
+.rows{display:grid;gap:10px;margin-top:10px}
+.entry-row{display:grid;grid-template-columns:2fr 2fr 1fr auto;gap:8px;align-items:end}
+.tool-copy{max-width:780px;margin-top:62px}.tool-copy section{margin-top:46px}
+.tool-copy h2{font-size:30px;margin-bottom:14px}.tool-copy p{margin-top:12px;max-width:66ch}
+.sources{padding-left:20px;display:grid;gap:9px;margin-top:14px;font-size:14px}
+.app-cta{margin-top:56px;background:#EDE7DA;border:1px solid var(--line);border-radius:14px;padding:28px}
+.app-cta h2{font-size:28px}.app-cta p{margin:10px 0 20px;max-width:62ch;color:#4d4850}
+.sheet-output{display:grid;gap:20px;margin-top:18px}
+.sheet-output figure{margin:0}.sheet-output figcaption{font-size:13px;color:var(--muted);margin-bottom:7px}
+.sheet-output svg{display:block;width:100%;height:auto;max-height:520px;background:#f8f5ef;border:1px solid var(--line)}
+@media(max-width:640px){.tool-hero{padding-top:46px}.fields,.result dl{grid-template-columns:1fr}.entry-row{grid-template-columns:1fr 1fr auto}.entry-row .row-name{grid-column:1/-1}nav.top a{margin-left:12px;font-size:12px}}
+</style>
+<main class="wrap">
+<header class="tool-hero"><p class="eyebrow">Free sourdough tool</p><h1>Dough temperature calculator</h1><p class="lede">The water temperature to mix with, from your target dough temperature, room and flour temperature, friction factor, and levain temperature if you&#x27;re using one — the standard baker&#x27;s DDT formula.</p></header>
+<section class="calculator" aria-label="Dough temperature calculator">
+<style>.calculator [hidden]{display:none!important}</style>
+<div class="fields">
+<div class="field"><label for="dt-unit">Temperature unit</label><select id="dt-unit"><option value="f" selected>&deg;F</option><option value="c">&deg;C</option></select></div>
+<div class="field"><label for="dt-preferment">Dough type</label><select id="dt-preferment"><option value="3">Straight dough (no levain/preferment)</option><option value="4" selected>Levain or preferment included</option></select></div>
+<div class="field"><label for="dt-ddt">Desired dough temperature</label><input id="dt-ddt" type="number" step="0.1" value="78" inputmode="decimal"></div>
+<div class="field"><label for="dt-room">Room temperature</label><input id="dt-room" type="number" step="0.1" value="72" inputmode="decimal"></div>
+<div class="field"><label for="dt-flour">Flour temperature</label><input id="dt-flour" type="number" step="0.1" value="71" inputmode="decimal"></div>
+<div class="field" id="dt-lev-field"><label for="dt-levain">Levain / preferment temperature</label><input id="dt-levain" type="number" step="0.1" value="76" inputmode="decimal"></div>
+<div class="field wide"><label for="dt-friction-preset">Friction factor</label><select id="dt-friction-preset">
+<option value="custom">Custom (enter below)</option>
+<option value="0">By hand, gentle folding (~0&deg;F / 0&deg;C)</option>
+<option value="7" selected>By hand, vigorous kneading, ~8 min (~7&deg;F / 4&deg;C)</option>
+<option value="23">Stand mixer, e.g. 7-qt KitchenAid (~23&deg;F / 13&deg;C)</option>
+</select></div>
+<div class="field"><label for="dt-friction">Friction factor (&deg;)</label><input id="dt-friction" type="number" step="0.1" value="7" inputmode="decimal"></div>
+</div>
+<div class="actions"><button id="dt-calc" type="button">Calculate</button><span class="hint">Updates as you type</span></div>
+<p id="dt-error" class="error" role="alert"></p>
+<div id="dt-result" class="result" aria-live="polite" hidden>
+<span class="eyebrow">Water temperature to use</span><strong class="big" id="dt-big">&mdash;</strong>
+<dl><div><dt>Total temperature factor</dt><dd id="dt-v1">&mdash;</dd></div><div><dt>Multiplier</dt><dd id="dt-v2">&mdash;</dd></div></dl>
+<p class="fine" id="dt-note" style="margin-top:14px"></p>
+</div>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+const prefSel=$("#dt-preferment"), levField=$("#dt-lev-field");
+function syncPreferment(){levField.hidden=prefSel.value!=="4"}
+prefSel.addEventListener("change",()=>{syncPreferment();run()});
+$("#dt-friction-preset").addEventListener("change",e=>{if(e.target.value!=="custom")$("#dt-friction").value=e.target.value;run()});
+function run(){
+ const err=$("#dt-error"); err.textContent=""; $("#dt-result").hidden=true;
+ const unit=$("#dt-unit").value;
+ const factors=Number(prefSel.value);
+ const ddt=Number($("#dt-ddt").value), room=Number($("#dt-room").value), flour=Number($("#dt-flour").value);
+ const levain=factors===4?Number($("#dt-levain").value):0;
+ const friction=Number($("#dt-friction").value)||0;
+ if(![ddt,room,flour,friction].every(Number.isFinite)||(factors===4&&!Number.isFinite(levain))){err.textContent="Enter a number in every temperature field.";return}
+ const totalFactor=ddt*factors;
+ const known=room+flour+friction+levain;
+ const water=totalFactor-known;
+ const deg=unit==="f"?"°F":"°C";
+ $("#dt-big").textContent=`${water.toFixed(1)}${deg}`;
+ $("#dt-v1").textContent=`${ddt} &times; ${factors} = ${totalFactor.toFixed(1)}${deg}`.replace("&times;","×");
+ $("#dt-v2").textContent=factors===4?"×4 (room + flour + levain + friction)":"×3 (room + flour + friction)";
+ const lowFlag=unit==="f"?(water<32||water>110):(water<0||water>43);
+ $("#dt-note").textContent=`Water temp = (DDT × ${factors}) − room − flour${factors===4?" − levain":""} − friction factor = ${totalFactor.toFixed(1)} − ${known.toFixed(1)} = ${water.toFixed(1)}${deg}.`+(lowFlag?" That's outside a normal tap-water range — double-check your inputs, or use ice water / a touch of warm water and adjust by feel.":"");
+ $("#dt-result").hidden=false;
+}
+["dt-ddt","dt-room","dt-flour","dt-levain","dt-friction"].forEach(id=>$("#"+id).addEventListener("input",run));
+$("#dt-unit").addEventListener("change",run);
+$("#dt-calc").addEventListener("click",run);
+syncPreferment();run();
+})();
+</script></section>
+<article class="tool-copy">
+<section><h2>How this dough temperature calculator works</h2><p>This is the standard baker's Desired Dough Temperature (DDT) formula: multiply your target dough temperature by 3 (room + flour + friction) or by 4 if a levain or other preferment is part of the dough (room + flour + levain + friction), then subtract every temperature you already know. What's left is the water temperature to mix with. <span class="mono">Water = (DDT &times; factors) &minus; room &minus; flour &minus; friction &minus; levain</span>.</p></section>
+<section><h2>Sources</h2><p>DDT formula, the &times;3/&times;4 multiplier logic, the 75&ndash;78&deg;F target range, and the worked example (78&deg;F DDT, 72&deg;F room, 71&deg;F flour, 22&deg;F friction factor → 69&deg;F water) verified against: <a href="https://www.kingarthurbaking.com/blog/2018/05/29/desired-dough-temperature">King Arthur Baking, "Desired dough temperature"</a>. Friction factor ranges by mixing method (hand kneading ~6&ndash;8&deg;F / 3&ndash;4&deg;C, gentle hand folding ~0&ndash;4&deg;F, 7-quart KitchenAid stand mixer ~22&ndash;24&deg;F / 12&ndash;13&deg;C) and how to measure your own: <a href="https://www.kingarthurbaking.com/blog/2018/08/27/determining-the-friction-factor-in-baking">King Arthur Baking, "Determining the friction factor in baking"</a>. Fetched September 18, 2026.</p></section>
+<section><h2>Questions</h2><details><summary>What is desired dough temperature (DDT)?</summary><p>The dough temperature you're aiming for right after mixing, because it's the single biggest lever over fermentation speed and, with it, flavor and rise. Most wheat-based yeast breads and sourdoughs target 75–78°F (24–26°C).</p></details><details><summary>Why multiply by 3 or by 4?</summary><p>The formula assumes final dough temperature is roughly the average of every ingredient's temperature plus the heat mixing adds. Multiplying DDT by the number of factors you're tracking — room, flour, and friction (3), or those plus a levain/preferment (4) — gives a "total temperature factor" you can subtract the known temperatures from, leaving the one you control: water.</p></details><details><summary>What&#x27;s a friction factor and how do I find mine?</summary><p>It's the heat your mixing method adds to the dough — near zero for gentle hand folding, a few degrees for vigorous hand kneading, and considerably more from a stand mixer's motor and friction (King Arthur measured roughly 22–24°F / 12–13°C for a 7-quart KitchenAid). To measure your own: mix a batch, take the dough's temperature right after, then solve the same formula backwards — friction factor = (final dough temp × factors) − room − flour − water (− levain if used).</p></details><details><summary>The water temperature comes out negative or oddly high — what does that mean?</summary><p>It usually means your room or flour is already warmer than needed to hit your DDT, so even ice-cold water can't bring it down (or vice versa in a cold kitchen). Treat that as a sign to adjust DDT slightly, chill your flour, or accept the dough will run a bit off-target rather than chasing an impossible tap temperature.</p></details></section>
+<section><h2>More free tools</h2><ul class="sources" style="font-size:15px"><li><a href="/tools/fuel-cost-calculator/">Fuel cost calculator</a> — Trip fuel cost and cost per mile from distance, economy, and pump price; MPG from two fill-ups.</li><li><a href="/tools/houseplant-watering-calculator/">Houseplant watering calculator</a> — How often to water 25 common houseplants, with your next watering dates.</li><li><a href="/tools/sourdough-hydration-calculator/">Sourdough hydration calculator</a> — Dough hydration with levain included, or the water to hit a target, plus salt.</li><li><a href="/tools/reef-dosing-calculator/">Reef dosing calculator</a> — Millilitres of alkalinity, calcium, or magnesium additive to reach a target, from your product label.</li><li><a href="/tools/reading-time-calculator/">Reading time calculator</a> — Days to finish a book from your page pace, or pages per day to hit a deadline.</li><li><a href="/tools/varroa-mite-calculator/">Varroa mite calculator</a> — Mites per 100 bees from an alcohol wash or sugar roll, with the 3% treatment flag.</li><li><a href="/tools/reciprocity-calculator/">Film reciprocity failure calculator</a> — Corrected long-exposure times for HP5 Plus, Tri-X, T-Max, Delta, Portra, Fomapan.</li><li><a href="/tools/kiln-firing-cost-calculator/">Kiln firing cost calculator</a> — Electric kiln firing cost from kilowatts, Orton cone, ramp rate, and electricity rate.</li><li><a href="/tools/cut-list-optimizer/">Cut list optimizer</a> — Guillotine cutting diagram and yield from stock and part sizes, kerf-aware.</li><li><a href="/tools/board-feet-calculator/">Board feet calculator</a> — Total board feet and cost for a lumber order, across as many board sizes as you need.</li><li><a href="/tools/miter-angle-calculator/">Miter angle calculator</a> — Compound miter and bevel for crown molding, or a plain miter for baseboard and picture frames.</li><li><a href="/tools/wood-shelf-sag-calculator/">Wood shelf sag calculator</a> — Expected shelf sag from span, depth, thickness, material, and load, Sagulator-style.</li><li><a href="/tools/pet-age-calculator/">Pet age calculator</a> — Dog or cat age in human years — a 2020 DNA-methylation study for dogs, International Cat Care&#x27;s chart for cats.</li><li><a href="/tools/dog-cat-calorie-calculator/">Dog &amp; cat calorie calculator</a> — Daily calories (RER/MER) from weight, species, and life stage or status, the standard veterinary formula.</li><li><a href="/tools/whetstone-angle-calculator/">Whetstone angle calculator</a> — Spine-lift height for a target sharpening angle, or the angle for a lift you used — freehand or guided rod.</li><li><a href="/tools/wallpaper-roll-calculator/">Wallpaper roll calculator</a> — Rolls needed from wall width, ceiling height, roll size, pattern repeat, and door/window openings, metric or imperial.</li></ul><p class="fine" style="margin-top:12px"><a href="/tools/">All free tools</a> · <a href="/templates/">Free printable templates</a></p></section>
+<aside class="app-cta"><h2>Keep it with you</h2><p>Use Banneton on iPhone when you need the full tool away from your desk.</p><a class="badge-store" href="https://apps.apple.com/app/id6786377205" aria-label="Download Banneton on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a></aside>
+</article></main>
+<footer><div class="wrap">
+<span>© 2026 Softgrove — an independent app studio.</span>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
+<a href="/llms.txt">llms.txt</a>
+</div></footer>
+</body></html>

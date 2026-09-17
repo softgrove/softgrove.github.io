@@ -105,6 +105,7 @@ def main():
         ("tools-dog-cat-calorie-calculator", "Dog & cat calorie calculator", "pawlog"),
         ("tools-whetstone-angle-calculator", "Whetstone angle calculator", "whetlog"),
         ("tools-wallpaper-roll-calculator", "Wallpaper roll calculator", None),
+        ("tools-dough-temperature-calculator", "Dough temperature calculator", "banneton"),
     ]
     house_accent = DATA["site"]["house_accent"]
     jobs.append(("tools", "Free calculators, in your browser.", "No sign-up · no install",
