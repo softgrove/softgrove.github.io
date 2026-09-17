@@ -1145,6 +1145,7 @@ TOOLS_INDEX = [
     ("/tools/whetstone-angle-calculator/", "Whetstone angle calculator", "Spine-lift height for a target sharpening angle, or the angle for a lift you used — freehand or guided rod.", "whetlog"),
     ("/tools/wallpaper-roll-calculator/", "Wallpaper roll calculator", "Rolls needed from wall width, ceiling height, roll size, pattern repeat, and door/window openings, metric or imperial.", None),
     ("/tools/dough-temperature-calculator/", "Dough temperature calculator", "Water temperature to hit a target dough temp from room, flour, and levain temperature — the standard ×3/×4 baker's formula.", "banneton"),
+    ("/tools/bee-syrup-calculator/", "Bee syrup calculator", "Sugar to add for 1:1 spring or 2:1 fall syrup, by the correct weight-based ratio, with a cup measure.", "combwise"),
 ]
 
 def more_tools(current_path):
@@ -2326,6 +2327,83 @@ syncPreferment();run();
     body = tool_shell("banneton", "Free sourdough tool", "Dough temperature calculator", "The water temperature to mix with, from your target dough temperature, room and flour temperature, friction factor, and levain temperature if you're using one — the standard baker's DDT formula.", calculator, below)
     return page("Dough Temperature Calculator (DDT) — Water Temp for Bread & Sourdough | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-dough-temperature-calculator.png")
 
+def bee_syrup_tool():
+    a = DATA["apps"]["combwise"]; path = "/tools/bee-syrup-calculator/"
+    calculator = r'''
+<style>.calculator [hidden]{display:none!important}</style>
+<div class="fields">
+<div class="field wide"><label for="bs-ratio-preset">Syrup ratio (by weight)</label><select id="bs-ratio-preset">
+<option value="1">1:1 — light / spring syrup (stimulative feeding)</option>
+<option value="2" selected>2:1 — heavy / fall syrup (winter stores)</option>
+<option value="custom">Custom ratio</option>
+</select></div>
+<div class="field" id="bs-custom-field" hidden><label for="bs-ratio-custom">Custom ratio (sugar : 1 water, by weight)</label><input id="bs-ratio-custom" type="number" step="0.1" min="0.1" value="1.5" inputmode="decimal"></div>
+<div class="field"><label for="bs-water">Water you're starting with</label><input id="bs-water" type="number" step="0.1" min="0" value="1" inputmode="decimal"></div>
+<div class="field"><label for="bs-unit">Unit</label><select id="bs-unit">
+<option value="quart" selected>US quarts</option>
+<option value="gallon">US gallons</option>
+<option value="cup">US cups</option>
+<option value="l">Liters</option>
+<option value="ml">Milliliters</option>
+</select></div>
+</div>
+<div class="actions"><button id="bs-calc" type="button">Calculate</button><span class="hint">Updates as you type</span></div>
+<p id="bs-error" class="error" role="alert"></p>
+<div id="bs-result" class="result" aria-live="polite" hidden>
+<span class="eyebrow">Sugar to add</span><strong class="big" id="bs-big">&mdash;</strong>
+<dl><div><dt>In cups (granulated, approx.)</dt><dd id="bs-cups">&mdash;</dd></div><div><dt>Total finished syrup weight</dt><dd id="bs-total">&mdash;</dd></div></dl>
+<p class="fine" id="bs-note" style="margin-top:14px"></p>
+</div>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+const presetSel=$("#bs-ratio-preset"), customField=$("#bs-custom-field");
+const UNIT_G={quart:946.353,gallon:3785.41,cup:236.588,l:1000,ml:1};
+function syncPreset(){customField.hidden=presetSel.value!=="custom"}
+presetSel.addEventListener("change",()=>{syncPreset();run()});
+function run(){
+ const err=$("#bs-error"); err.textContent=""; $("#bs-result").hidden=true;
+ const ratio=presetSel.value==="custom"?Number($("#bs-ratio-custom").value):Number(presetSel.value);
+ const amount=Number($("#bs-water").value);
+ const unit=$("#bs-unit").value;
+ if(!Number.isFinite(ratio)||ratio<=0||!Number.isFinite(amount)||amount<=0){err.textContent="Enter a positive water amount and ratio.";return}
+ const waterG=amount*UNIT_G[unit];
+ const sugarG=waterG*ratio;
+ const totalG=waterG+sugarG;
+ const sugarLbTotal=sugarG/453.592;
+ const lb=Math.floor(sugarLbTotal);
+ const oz=(sugarLbTotal-lb)*16;
+ const sugarKg=sugarG/1000;
+ $("#bs-big").textContent=`${lb} lb ${oz.toFixed(1)} oz (${sugarKg.toFixed(2)} kg)`;
+ $("#bs-cups").textContent=`${(sugarG/200).toFixed(2)} cups`;
+ $("#bs-total").textContent=`${(totalG/453.592).toFixed(2)} lb (${(totalG/1000).toFixed(2)} kg)`;
+ $("#bs-note").textContent=`${ratio}:1 sugar:water by weight — ${amount} ${unit==="l"?"L":unit==="ml"?"mL":unit+(amount===1?"":"s")} of water (${waterG.toFixed(0)} g) needs ${sugarG.toFixed(0)} g of sugar. Ratios are by weight, not volume — a cup of granulated sugar weighs less than a cup of water, so measuring 2:1 by volume gives a thinner syrup than 2:1 by weight. Use only plain white granulated cane or beet sugar; never brown sugar, molasses, sorghum, powdered sugar, or fruit juice — these can cause bee dysentery.`;
+ $("#bs-result").hidden=false;
+}
+$("#bs-water").addEventListener("input",run);
+$("#bs-unit").addEventListener("change",run);
+$("#bs-ratio-custom").addEventListener("input",run);
+$("#bs-calc").addEventListener("click",run);
+syncPreset();run();
+})();
+</script>'''
+    faq_html, faq_ld = tool_faq([
+        ("Should sugar syrup ratios be measured by weight or volume?", "By weight. A cup of granulated sugar weighs less than a cup of water, so mixing \"2 cups sugar to 1 cup water\" produces a thinner syrup than a true 2:1 made by weighing both — close enough for small batches, but the gap grows with larger volumes. This calculator works in weight (grams/pounds) and converts to approximate cups so you can check either way."),
+        ("When do I use 1:1 vs. 2:1 syrup?", "1:1 (light/spring syrup) is used for stimulative spring feeding — it's thin, close to the concentration of natural nectar, and encourages the queen to ramp up brood rearing. 2:1 (heavy/fall syrup) is used going into fall — it's thick, so bees spend less energy evaporating it before capping, which matters as days get shorter and cooler, and it packs more sugar into the same volume of stores for winter."),
+        ("Can I use brown sugar, molasses, or powdered sugar instead of white granulated sugar?", "No. Only plain white granulated cane or beet sugar is safe for bees. Brown sugar, molasses, sorghum, powdered/confectioner's sugar (it contains cornstarch), and fruit juices contain impurities and ash content that bees can't digest well, which can cause dysentery — especially serious in winter when bees can't leave the hive to void."),
+        ("How much does a gallon of 2:1 syrup add to a colony's stores?", "Roughly 7 pounds, since the finished syrup is mostly dissolved sugar by weight. That's why 2:1 is the standard choice for building up winter stores in the fall rather than 1:1, which carries less sugar per gallon fed."),
+    ])
+    below = f'''
+<section><h2>How this bee syrup calculator works</h2><p>Beekeeping syrup ratios are defined by weight: 1:1 means one part sugar to one part water by weight, 2:1 means two parts sugar to one part water by weight. This calculator converts your water amount to grams, multiplies by the ratio to get the sugar weight, and also shows an approximate cup measure for granulated sugar (using the standard 200g per cup) since most beekeepers measure by volume in practice.</p></section>
+<section><h2>Sources</h2><p>1:1 (light/spring) vs. 2:1 (heavy/fall) ratio definitions, that they are measured by weight, the stimulative-feeding rationale for 1:1, the winter-stores rationale for 2:1, the ~7 lb per gallon stores estimate for 2:1 syrup, and the white-sugar-only safety guidance (no brown sugar, molasses, sorghum, powdered sugar, or fruit juice, due to dysentery risk): <a href="https://www.honeybeesuite.com/sugar-syrup-ratios-which-one-to-use/">Honey Bee Suite, "Sugar syrup ratios: which one to use?"</a>. Seasonal use of 1:1 for spring/stimulative feeding and 2:1 for fall feeding, confirmed by weight, cross-checked against: <a href="https://extension.arizona.edu/sites/default/files/2024-08/az2014-2022.pdf">University of Arizona Cooperative Extension, "Feeding Your Bees"</a> and <a href="https://pollinators.msu.edu/sites/_pollinators/assets/File/FeedingHoneyBees-Final.pdf">Michigan State University Extension, "Feeding Honey Bees"</a>. Fetched September 18, 2026.</p></section>
+<section><h2>Questions</h2>{faq_html}</section>
+{more_tools(path)}'''
+    desc = "Free bee syrup calculator for beekeepers. Enter your water amount and pick 1:1 (spring) or 2:1 (fall) — get the sugar weight to add, by the correct weight-based ratio, plus a cup measure."
+    ld = tool_ld("Bee Syrup Calculator", path, desc, "FoodAndDrinkApplication", faq_ld)
+    body = tool_shell("combwise", "Free beekeeping tool", "Bee syrup calculator", "How much sugar to add to your water for 1:1 spring syrup or 2:1 fall syrup — the correct weight-based ratio, with a cup measure for convenience.", calculator, below)
+    return page("Bee Syrup Calculator — 1:1 & 2:1 Sugar Syrup for Bees | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-bee-syrup-calculator.png")
+
 # ---------------------------------------------------------------- tools hub
 def tools_hub():
     cards = ""
@@ -2491,7 +2569,8 @@ def main():
              "/tools/dog-cat-calorie-calculator/": pet_calorie_tool(),
              "/tools/whetstone-angle-calculator/": whetstone_angle_tool(),
              "/tools/wallpaper-roll-calculator/": wallpaper_roll_tool(),
-             "/tools/dough-temperature-calculator/": dough_temp_tool()}
+             "/tools/dough-temperature-calculator/": dough_temp_tool(),
+             "/tools/bee-syrup-calculator/": bee_syrup_tool()}
     for key, a in DATA["apps"].items():
         if a["asc"] not in DESCS: continue  # e.g. Fibrolog: added to apps.json, ASC desc not live yet
         pages[f"/apps/{key}/"] = app_page(key)

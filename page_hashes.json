@@ -20,63 +20,67 @@
   "lastmod": "2026-09-12"
  },
  "/tools/": {
-  "hash": "1deaa6de4f25794b",
+  "hash": "e1b471c192f45e06",
   "lastmod": "2026-09-18"
  },
  "/tools/fuel-cost-calculator/": {
-  "hash": "5e79d340b20a5f5a",
+  "hash": "a2446ce8380e342b",
   "lastmod": "2026-09-18"
  },
  "/tools/houseplant-watering-calculator/": {
-  "hash": "646010c3a89012d1",
+  "hash": "b9f7c3136cbbb93d",
   "lastmod": "2026-09-18"
  },
  "/tools/sourdough-hydration-calculator/": {
-  "hash": "ac4ffa241ea20cf3",
+  "hash": "7157144d757156a4",
   "lastmod": "2026-09-18"
  },
  "/tools/reef-dosing-calculator/": {
-  "hash": "ac5eb3e439e259a9",
+  "hash": "a78d55f3be81039f",
   "lastmod": "2026-09-18"
  },
  "/tools/reading-time-calculator/": {
-  "hash": "8877eef4b460000f",
+  "hash": "9382b22920bd3569",
   "lastmod": "2026-09-18"
  },
  "/tools/varroa-mite-calculator/": {
-  "hash": "2c08cdb8c7b153ea",
+  "hash": "2c283a609809996d",
   "lastmod": "2026-09-18"
  },
  "/tools/board-feet-calculator/": {
-  "hash": "0ddcbd32bb9b7fae",
+  "hash": "1649fd462d4b4151",
   "lastmod": "2026-09-18"
  },
  "/tools/miter-angle-calculator/": {
-  "hash": "ade8eed2830ed864",
+  "hash": "7e1c8cc309fc6ec0",
   "lastmod": "2026-09-18"
  },
  "/tools/wood-shelf-sag-calculator/": {
-  "hash": "e476c83e279782ef",
+  "hash": "42fafcc83da44d78",
   "lastmod": "2026-09-18"
  },
  "/tools/pet-age-calculator/": {
-  "hash": "7b13965ceffcd950",
+  "hash": "5f51219011bf4734",
   "lastmod": "2026-09-18"
  },
  "/tools/dog-cat-calorie-calculator/": {
-  "hash": "51251f6b3b74d3fd",
+  "hash": "6517f541f320763c",
   "lastmod": "2026-09-18"
  },
  "/tools/whetstone-angle-calculator/": {
-  "hash": "e00d91ba5a52ab61",
+  "hash": "ffb2a11f59837d09",
   "lastmod": "2026-09-18"
  },
  "/tools/wallpaper-roll-calculator/": {
-  "hash": "52f10b6756792794",
+  "hash": "a272923047294db0",
   "lastmod": "2026-09-18"
  },
  "/tools/dough-temperature-calculator/": {
-  "hash": "1936956a3c0522f3",
+  "hash": "786333b43c7df921",
+  "lastmod": "2026-09-18"
+ },
+ "/tools/bee-syrup-calculator/": {
+  "hash": "f12b1aa1a86dc428",
   "lastmod": "2026-09-18"
  },
  "/apps/skinote/": {
