@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Miter Angle Calculator — Crown Molding Miter &amp; Bevel | Softgrove</title>
+<meta name="description" content="Free miter angle calculator for crown molding (compound miter + bevel) and flat trim like baseboard or picture frames. Enter a corner angle and spring angle, get the saw settings.">
+<link rel="canonical" href="https://softgrove.github.io/tools/miter-angle-calculator/">
+<meta property="og:title" content="Miter Angle Calculator — Crown Molding Miter &amp; Bevel | Softgrove">
+<meta property="og:description" content="Free miter angle calculator for crown molding (compound miter + bevel) and flat trim like baseboard or picture frames. Enter a corner angle and spring angle, get the saw settings.">
+<meta property="og:url" content="https://softgrove.github.io/tools/miter-angle-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://softgrove.github.io/og/tools-miter-angle-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet"></noscript><meta name="apple-itunes-app" content="app-id=6787905177">
+<style>
+:root{--paper:#FBFAF7;--ink:#2C282C;--muted:#6E6870;--line:#E7E2D9;--teal:#3E8E8C}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.serif{font-family:"Newsreader",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+header.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px;padding-bottom:18px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;letter-spacing:-.01em}
+.wordmark b{color:var(--teal);font-weight:600}
+nav.top a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px}
+nav.top a:hover{color:var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;padding:13px 26px;border-radius:8px}
+.btn:hover{opacity:.88}
+.badge-store{display:inline-flex;align-items:center;gap:9px;background:#000;color:#fff;text-decoration:none;border-radius:9px;padding:9px 18px 9px 14px;line-height:1.15}
+.badge-store svg{width:22px;height:26px;flex:none}
+.badge-store small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.badge-store span{font-size:17px;font-weight:600;letter-spacing:.01em}
+footer{border-top:1px solid var(--line);margin-top:96px}
+footer .wrap{padding:34px 24px 46px;display:flex;flex-wrap:wrap;gap:10px 34px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4d4850;max-width:62ch}
+@media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Miter Angle Calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "url": "https://softgrove.github.io/tools/miter-angle-calculator/", "isAccessibleForFree": true, "description": "Free miter angle calculator for crown molding (compound miter + bevel) and flat trim like baseboard or picture frames. Enter a corner angle and spring angle, get the saw settings.", "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a compound miter cut?", "acceptedAnswer": {"@type": "Answer", "text": "A cut that combines a miter angle (table rotation) with a bevel angle (blade tilt), needed whenever molding sits at a spring angle against the wall and ceiling instead of lying flat. Crown molding is the common example."}}, {"@type": "Question", "name": "What is spring angle?", "acceptedAnswer": {"@type": "Answer", "text": "The angle the back of the molding makes with the wall when installed. The two common crown profiles are 38° spring (labeled 52/38) and 45° spring (labeled 45/45); flat trim like baseboard or a picture frame has no spring angle, so its bevel is always 0°."}}, {"@type": "Question", "name": "Why is the miter angle for crown molding not just half the corner angle?", "acceptedAnswer": {"@type": "Answer", "text": "Because the molding is tilted against the wall at the spring angle, the saw doesn't see the room's true corner angle — it sees that angle projected through the spring tilt. Trigonometry corrects for it, which is why 38° crown and 45° crown need different saw settings for the same 90° corner."}}, {"@type": "Question", "name": "How do I find the actual corner angle?", "acceptedAnswer": {"@type": "Answer", "text": "Measure it with a digital angle finder or draw the two walls and measure with a protractor — don't assume 90°. Many room corners are a degree or two off, and crown molding is unforgiving of that error."}}]}]}</script>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<a class="wordmark" href="/">softgrove<b>.</b></a>
+<nav class="top"><a href="/#apps">Apps</a><a href="/tools/reciprocity-calculator/">Free tools</a><a href="/templates/">Free templates</a></nav>
+</div></header>
+
+<style>
+.tool-hero{padding:64px 0 30px;max-width:820px}
+.tool-hero h1{font-size:clamp(38px,6vw,60px);max-width:18ch;margin-top:8px}
+.tool-hero .lede{font-size:19px;color:#4d4850;margin-top:18px;max-width:64ch}
+.calculator{max-width:820px;background:#fff;border:1px solid var(--line);border-top:5px solid #C4572A;border-radius:14px;padding:clamp(18px,4vw,34px);box-shadow:0 10px 30px rgba(44,40,44,.06)}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.wide{grid-column:1/-1}
+label,.label{font-weight:600;font-size:14px}
+input,select,button{font:inherit}
+input,select{width:100%;min-height:46px;border:1px solid #b9b2a6;border-radius:8px;background:#fff;color:var(--ink);padding:9px 11px}
+button{border:0;border-radius:8px;background:var(--ink);color:var(--paper);font-weight:600;padding:12px 19px;cursor:pointer}
+button.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+button.danger{background:transparent;color:#7a2e33;padding:8px}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}
+.hint,.fine{font-size:13px;color:var(--muted)}
+.result{margin-top:24px;background:#F0EADC;border-radius:10px;padding:20px}
+.result strong.big{display:block;font-family:"Newsreader",Georgia,serif;font-size:clamp(30px,6vw,44px);font-weight:500;line-height:1.1;color:#3F3B35}
+.result dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+.result dt{font-size:12px;color:var(--muted)}.result dd{font-weight:600}
+.error{color:#9b2c2c;font-size:14px;margin-top:12px;min-height:1.5em}
+.rows{display:grid;gap:10px;margin-top:10px}
+.entry-row{display:grid;grid-template-columns:2fr 2fr 1fr auto;gap:8px;align-items:end}
+.tool-copy{max-width:780px;margin-top:62px}.tool-copy section{margin-top:46px}
+.tool-copy h2{font-size:30px;margin-bottom:14px}.tool-copy p{margin-top:12px;max-width:66ch}
+.sources{padding-left:20px;display:grid;gap:9px;margin-top:14px;font-size:14px}
+.app-cta{margin-top:56px;background:#F0EADC;border:1px solid var(--line);border-radius:14px;padding:28px}
+.app-cta h2{font-size:28px}.app-cta p{margin:10px 0 20px;max-width:62ch;color:#4d4850}
+.sheet-output{display:grid;gap:20px;margin-top:18px}
+.sheet-output figure{margin:0}.sheet-output figcaption{font-size:13px;color:var(--muted);margin-bottom:7px}
+.sheet-output svg{display:block;width:100%;height:auto;max-height:520px;background:#f8f5ef;border:1px solid var(--line)}
+@media(max-width:640px){.tool-hero{padding-top:46px}.fields,.result dl{grid-template-columns:1fr}.entry-row{grid-template-columns:1fr 1fr auto}.entry-row .row-name{grid-column:1/-1}nav.top a{margin-left:12px;font-size:12px}}
+</style>
+<main class="wrap">
+<header class="tool-hero"><p class="eyebrow">Free woodworking tool</p><h1>Miter angle calculator</h1><p class="lede">Miter and bevel angles for crown molding at any spring and corner angle, or a plain miter for baseboard and picture frames.</p></header>
+<section class="calculator" aria-label="Miter angle calculator">
+<style>.calculator [hidden]{display:none!important}</style>
+<div class="fields">
+<div class="field"><label for="ma-corner">Corner angle (degrees)</label><input id="ma-corner" type="number" min="1" max="179" step="0.1" value="90"></div>
+<div class="field wide"><label for="ma-type">Trim type</label><select id="ma-type">
+<option value="90">Flat trim — baseboard, casing, picture frames (no bevel)</option>
+<option value="45">Crown molding, 45&deg; spring (45/45)</option>
+<option value="38">Crown molding, 38&deg; spring (52/38)</option>
+<option value="52">Crown molding, 52&deg; spring (38/52)</option>
+<option value="custom">Custom spring angle</option>
+</select></div>
+<div class="field" id="ma-custom-field" hidden><label for="ma-custom">Spring angle (degrees)</label><input id="ma-custom" type="number" min="1" max="89" step="0.1" value="45"></div>
+</div>
+<div class="actions"><button id="ma-calc" type="button">Calculate</button><span class="hint">Cuts laid flat on the saw table (the modern compound-miter method)</span></div>
+<p id="ma-error" class="error" role="alert"></p>
+<div id="ma-result" class="result" aria-live="polite" hidden>
+<span class="eyebrow">Miter angle</span><strong class="big" id="ma-miter">45.00&deg;</strong>
+<dl><div><dt>Bevel angle</dt><dd id="ma-bevel">0.00&deg;</dd></div><div><dt>Spring angle used</dt><dd id="ma-spring">90&deg;</dd></div><div><dt>Corner angle</dt><dd id="ma-corner-out">90&deg;</dd></div></dl>
+<p class="fine" id="ma-note" style="margin-top:14px"></p>
+</div>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+const typeSel=$("#ma-type"), customField=$("#ma-custom-field");
+typeSel.addEventListener("change",()=>{customField.hidden=typeSel.value!=="custom";run()});
+function run(){
+ const err=$("#ma-error"); err.textContent=""; $("#ma-result").hidden=true;
+ const corner=Number($("#ma-corner").value);
+ if(!(corner>0)||corner>=180){err.textContent="Enter a corner angle greater than 0 and less than 180 degrees.";return}
+ const spring=typeSel.value==="custom"?Number($("#ma-custom").value):Number(typeSel.value);
+ if(!(spring>0)||spring>90){err.textContent="Enter a spring angle greater than 0 and up to 90 degrees.";return}
+ const rad=d=>d*Math.PI/180, deg=r=>r*180/Math.PI;
+ const miter=deg(Math.atan(Math.tan(rad(corner/2))*Math.sin(rad(spring))));
+ const bevel=deg(Math.asin(Math.cos(rad(corner/2))*Math.cos(rad(spring))));
+ $("#ma-miter").textContent=`${miter.toFixed(2)}°`;
+ $("#ma-bevel").textContent=`${bevel.toFixed(2)}°`;
+ $("#ma-spring").textContent=`${spring}°`;
+ $("#ma-corner-out").textContent=`${corner}°`;
+ $("#ma-note").textContent=bevel<0.05?"Bevel is 0° — this is a flat cut with no blade tilt. Set the miter gauge to this angle and cut both pieces, mirrored left and right.":"Set the miter (table rotation) and bevel (blade tilt) to these angles. Cut both mating pieces with the same settings, mirrored left/right so they meet at the corner. Always test-cut scrap first — real corners are rarely exactly square.";
+ $("#ma-result").hidden=false;
+}
+$("#ma-calc").addEventListener("click",run);
+document.querySelectorAll("#ma-corner,#ma-custom").forEach(el=>el.addEventListener("input",run));
+run();
+})();
+</script></section>
+<article class="tool-copy">
+<section><h2>How this miter angle calculator works</h2><p>For a corner angle <span class="mono">C</span> and a spring angle <span class="mono">S</span>, laid flat on the saw table (the standard modern method, as opposed to holding crown upside-down against the fence):</p><p><span class="mono">miter = atan( tan(C / 2) &times; sin(S) )</span><br><span class="mono">bevel = asin( cos(C / 2) &times; cos(S) )</span></p><p>Flat trim is the special case S = 90&deg;, where <span class="mono">sin(S) = 1</span> and <span class="mono">cos(S) = 0</span> — the formula collapses to <span class="mono">miter = C / 2</span> and <span class="mono">bevel = 0</span>, which is exactly the simple miter rule for baseboard, casing, and picture frames.</p></section>
+<section><h2>Sources</h2><p>Formula and worked reference check (90&deg; corner, 38&deg; spring → 31.62&deg; miter, 33.86&deg; bevel, the standard 38/52 crown setting) from <a href="https://starlighttools.org/construction/compound-miter-crown-molding-calculator">Starlight Tools' compound miter crown molding calculator</a> and <a href="https://blog.woodworkingforamateurs.com/compound-miter-cuts-for-crown-molding-the-angle-math-that-actually-works/">"Compound Miter Cuts for Crown Molding: The Angle Math That Actually Works"</a>. Verified against this calculator on September 18, 2026.</p></section>
+<section><h2>Questions</h2><details><summary>What is a compound miter cut?</summary><p>A cut that combines a miter angle (table rotation) with a bevel angle (blade tilt), needed whenever molding sits at a spring angle against the wall and ceiling instead of lying flat. Crown molding is the common example.</p></details><details><summary>What is spring angle?</summary><p>The angle the back of the molding makes with the wall when installed. The two common crown profiles are 38° spring (labeled 52/38) and 45° spring (labeled 45/45); flat trim like baseboard or a picture frame has no spring angle, so its bevel is always 0°.</p></details><details><summary>Why is the miter angle for crown molding not just half the corner angle?</summary><p>Because the molding is tilted against the wall at the spring angle, the saw doesn't see the room's true corner angle — it sees that angle projected through the spring tilt. Trigonometry corrects for it, which is why 38° crown and 45° crown need different saw settings for the same 90° corner.</p></details><details><summary>How do I find the actual corner angle?</summary><p>Measure it with a digital angle finder or draw the two walls and measure with a protractor — don't assume 90°. Many room corners are a degree or two off, and crown molding is unforgiving of that error.</p></details></section>
+<section><h2>More free tools</h2><ul class="sources" style="font-size:15px"><li><a href="/tools/fuel-cost-calculator/">Fuel cost calculator</a> — Trip fuel cost and cost per mile from distance, economy, and pump price; MPG from two fill-ups.</li><li><a href="/tools/houseplant-watering-calculator/">Houseplant watering calculator</a> — How often to water 25 common houseplants, with your next watering dates.</li><li><a href="/tools/sourdough-hydration-calculator/">Sourdough hydration calculator</a> — Dough hydration with levain included, or the water to hit a target, plus salt.</li><li><a href="/tools/reef-dosing-calculator/">Reef dosing calculator</a> — Millilitres of alkalinity, calcium, or magnesium additive to reach a target, from your product label.</li><li><a href="/tools/reading-time-calculator/">Reading time calculator</a> — Days to finish a book from your page pace, or pages per day to hit a deadline.</li><li><a href="/tools/varroa-mite-calculator/">Varroa mite calculator</a> — Mites per 100 bees from an alcohol wash or sugar roll, with the 3% treatment flag.</li><li><a href="/tools/reciprocity-calculator/">Film reciprocity failure calculator</a> — Corrected long-exposure times for HP5 Plus, Tri-X, T-Max, Delta, Portra, Fomapan.</li><li><a href="/tools/kiln-firing-cost-calculator/">Kiln firing cost calculator</a> — Electric kiln firing cost from kilowatts, Orton cone, ramp rate, and electricity rate.</li><li><a href="/tools/cut-list-optimizer/">Cut list optimizer</a> — Guillotine cutting diagram and yield from stock and part sizes, kerf-aware.</li><li><a href="/tools/board-feet-calculator/">Board feet calculator</a> — Total board feet and cost for a lumber order, across as many board sizes as you need.</li><li><a href="/tools/wood-shelf-sag-calculator/">Wood shelf sag calculator</a> — Expected shelf sag from span, depth, thickness, material, and load, Sagulator-style.</li></ul><p class="fine" style="margin-top:12px"><a href="/tools/">All free tools</a> · <a href="/templates/">Free printable templates</a></p></section>
+<aside class="app-cta"><h2>Keep it with you</h2><p>Use Boardcut on iPhone when you need the full tool away from your desk.</p><a class="badge-store" href="https://apps.apple.com/app/id6787905177" aria-label="Download Boardcut on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a></aside>
+</article></main>
+<footer><div class="wrap">
+<span>© 2026 Softgrove — an independent app studio.</span>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
+<a href="/llms.txt">llms.txt</a>
+</div></footer>
+</body></html>

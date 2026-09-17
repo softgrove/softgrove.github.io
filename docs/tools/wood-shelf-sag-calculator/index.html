@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wood Shelf Sag Calculator — Shelf Deflection Estimator | Softgrove</title>
+<meta name="description" content="Free wood shelf sag calculator (Sagulator-style). Pick a species or sheet good, enter span, depth, thickness and load, get expected sag and whether it&#x27;s within the usual 0.02in/ft guideline.">
+<link rel="canonical" href="https://softgrove.github.io/tools/wood-shelf-sag-calculator/">
+<meta property="og:title" content="Wood Shelf Sag Calculator — Shelf Deflection Estimator | Softgrove">
+<meta property="og:description" content="Free wood shelf sag calculator (Sagulator-style). Pick a species or sheet good, enter span, depth, thickness and load, get expected sag and whether it&#x27;s within the usual 0.02in/ft guideline.">
+<meta property="og:url" content="https://softgrove.github.io/tools/wood-shelf-sag-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://softgrove.github.io/og/tools-wood-shelf-sag-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet"></noscript><meta name="apple-itunes-app" content="app-id=6787905177">
+<style>
+:root{--paper:#FBFAF7;--ink:#2C282C;--muted:#6E6870;--line:#E7E2D9;--teal:#3E8E8C}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.serif{font-family:"Newsreader",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+header.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px;padding-bottom:18px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;letter-spacing:-.01em}
+.wordmark b{color:var(--teal);font-weight:600}
+nav.top a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px}
+nav.top a:hover{color:var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;padding:13px 26px;border-radius:8px}
+.btn:hover{opacity:.88}
+.badge-store{display:inline-flex;align-items:center;gap:9px;background:#000;color:#fff;text-decoration:none;border-radius:9px;padding:9px 18px 9px 14px;line-height:1.15}
+.badge-store svg{width:22px;height:26px;flex:none}
+.badge-store small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.badge-store span{font-size:17px;font-weight:600;letter-spacing:.01em}
+footer{border-top:1px solid var(--line);margin-top:96px}
+footer .wrap{padding:34px 24px 46px;display:flex;flex-wrap:wrap;gap:10px 34px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4d4850;max-width:62ch}
+@media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Wood Shelf Sag Calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "url": "https://softgrove.github.io/tools/wood-shelf-sag-calculator/", "isAccessibleForFree": true, "description": "Free wood shelf sag calculator (Sagulator-style). Pick a species or sheet good, enter span, depth, thickness and load, get expected sag and whether it's within the usual 0.02in/ft guideline.", "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much shelf sag is acceptable?", "acceptedAnswer": {"@type": "Answer", "text": "A common engineering guideline is 0.02 in. of sag per foot of span or less. Beyond that, sag around 1/32 in. (0.03 in.) per foot starts to look visibly crooked to the eye."}}, {"@type": "Question", "name": "Does shelf sag get worse over time?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — wood creeps under sustained load, so a shelf that measures fine on day one typically sags further afterward. A widely used rule of thumb is roughly 50% more sag than the initial elastic deflection this calculator computes."}}, {"@type": "Question", "name": "Is plywood or solid wood stiffer for a shelf?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on species and grain direction more than on plywood-vs-solid as a category. This calculator's plywood figure assumes the face grain runs parallel to the span (the stiffest orientation) — grain running across the span is much weaker."}}, {"@type": "Question", "name": "What's the fastest way to stop a shelf from sagging?", "acceptedAnswer": {"@type": "Answer", "text": "Shorten the span (add a support) or add thickness — thickness matters a lot, since stiffness scales with thickness cubed. Doubling thickness cuts sag to about an eighth, all else equal."}}]}]}</script>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<a class="wordmark" href="/">softgrove<b>.</b></a>
+<nav class="top"><a href="/#apps">Apps</a><a href="/tools/reciprocity-calculator/">Free tools</a><a href="/templates/">Free templates</a></nav>
+</div></header>
+
+<style>
+.tool-hero{padding:64px 0 30px;max-width:820px}
+.tool-hero h1{font-size:clamp(38px,6vw,60px);max-width:18ch;margin-top:8px}
+.tool-hero .lede{font-size:19px;color:#4d4850;margin-top:18px;max-width:64ch}
+.calculator{max-width:820px;background:#fff;border:1px solid var(--line);border-top:5px solid #C4572A;border-radius:14px;padding:clamp(18px,4vw,34px);box-shadow:0 10px 30px rgba(44,40,44,.06)}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.wide{grid-column:1/-1}
+label,.label{font-weight:600;font-size:14px}
+input,select,button{font:inherit}
+input,select{width:100%;min-height:46px;border:1px solid #b9b2a6;border-radius:8px;background:#fff;color:var(--ink);padding:9px 11px}
+button{border:0;border-radius:8px;background:var(--ink);color:var(--paper);font-weight:600;padding:12px 19px;cursor:pointer}
+button.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+button.danger{background:transparent;color:#7a2e33;padding:8px}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}
+.hint,.fine{font-size:13px;color:var(--muted)}
+.result{margin-top:24px;background:#F0EADC;border-radius:10px;padding:20px}
+.result strong.big{display:block;font-family:"Newsreader",Georgia,serif;font-size:clamp(30px,6vw,44px);font-weight:500;line-height:1.1;color:#3F3B35}
+.result dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+.result dt{font-size:12px;color:var(--muted)}.result dd{font-weight:600}
+.error{color:#9b2c2c;font-size:14px;margin-top:12px;min-height:1.5em}
+.rows{display:grid;gap:10px;margin-top:10px}
+.entry-row{display:grid;grid-template-columns:2fr 2fr 1fr auto;gap:8px;align-items:end}
+.tool-copy{max-width:780px;margin-top:62px}.tool-copy section{margin-top:46px}
+.tool-copy h2{font-size:30px;margin-bottom:14px}.tool-copy p{margin-top:12px;max-width:66ch}
+.sources{padding-left:20px;display:grid;gap:9px;margin-top:14px;font-size:14px}
+.app-cta{margin-top:56px;background:#F0EADC;border:1px solid var(--line);border-radius:14px;padding:28px}
+.app-cta h2{font-size:28px}.app-cta p{margin:10px 0 20px;max-width:62ch;color:#4d4850}
+.sheet-output{display:grid;gap:20px;margin-top:18px}
+.sheet-output figure{margin:0}.sheet-output figcaption{font-size:13px;color:var(--muted);margin-bottom:7px}
+.sheet-output svg{display:block;width:100%;height:auto;max-height:520px;background:#f8f5ef;border:1px solid var(--line)}
+@media(max-width:640px){.tool-hero{padding-top:46px}.fields,.result dl{grid-template-columns:1fr}.entry-row{grid-template-columns:1fr 1fr auto}.entry-row .row-name{grid-column:1/-1}nav.top a{margin-left:12px;font-size:12px}}
+</style>
+<main class="wrap">
+<header class="tool-hero"><p class="eyebrow">Free woodworking tool</p><h1>Wood shelf sag calculator</h1><p class="lede">Estimate how much a shelf will sag from its span, depth, thickness, material, and load, using standard beam deflection formulas.</p></header>
+<section class="calculator" aria-label="Wood shelf sag calculator">
+<div class="fields">
+<div class="field wide"><label for="ss-species">Shelf material (E, million psi)</label><select id="ss-species"><optgroup label="Solid wood"><option value="1.24">Pine, eastern white — 1.24</option><option value="1.79">Pine, southern yellow (loblolly) — 1.79</option><option value="1.95">Douglas fir — 1.95</option><option value="1.58">Poplar, yellow — 1.58</option><option value="1.82">Oak, red — 1.82</option><option value="1.78">Oak, white — 1.78</option><option value="1.83">Maple, hard (sugar) — 1.83</option><option value="1.64">Maple, soft (red) — 1.64</option><option value="1.68">Walnut, black — 1.68</option><option value="1.49">Cherry, black — 1.49</option><option value="2.01">Birch, yellow — 2.01</option><option value="2.16">Hickory — 2.16</option><option value="1.18">Aspen — 1.18</option><option value="1.46">Basswood — 1.46</option></optgroup><optgroup label="Sheet goods (typical, varies by grade)"><option value="1.5">Plywood (face grain parallel to span) — 1.50</option><option value="0.5">MDF — 0.50</option><option value="0.45">Particleboard — 0.45</option><option value="0.7">OSB — 0.70</option></optgroup></select></div>
+<div class="field"><label for="ss-span">Span between supports (in)</label><input id="ss-span" type="number" min="1" max="240" step="0.25" value="30"></div>
+<div class="field"><label for="ss-depth">Shelf depth, front to back (in)</label><input id="ss-depth" type="number" min="0.5" max="48" step="0.125" value="11.5"></div>
+<div class="field"><label for="ss-thick">Shelf thickness (in)</label><input id="ss-thick" type="number" min="0.125" max="4" step="0.0625" value="0.75"></div>
+<div class="field"><label for="ss-loadtype">How the load sits</label><select id="ss-loadtype"><option value="uniform">Spread evenly (books, general storage)</option><option value="point">Concentrated at the center (one heavy item)</option></select></div>
+<div class="field"><label for="ss-load">Total load on the shelf (lb)</label><input id="ss-load" type="number" min="0.1" step="1" value="40"></div>
+</div>
+<div class="actions"><button id="ss-calc" type="button">Calculate sag</button></div>
+<p id="ss-error" class="error" role="alert"></p>
+<div id="ss-result" class="result" aria-live="polite" hidden>
+<span class="eyebrow">Initial sag at center</span><strong class="big" id="ss-big">0.00&Prime;</strong>
+<dl><div><dt>Sag per foot of span</dt><dd id="ss-perfoot">0.00&Prime;/ft</dd></div><div><dt>Estimated long-term sag</dt><dd id="ss-creep">0.00&Prime;</dd></div><div><dt>Verdict</dt><dd id="ss-verdict">—</dd></div></dl>
+<p class="fine" id="ss-note" style="margin-top:14px"></p>
+</div>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+function run(){
+ const err=$("#ss-error"); err.textContent=""; $("#ss-result").hidden=true;
+ const E=Number($("#ss-species").value)*1e6, span=Number($("#ss-span").value), depth=Number($("#ss-depth").value),
+       thick=Number($("#ss-thick").value), load=Number($("#ss-load").value), loadType=$("#ss-loadtype").value;
+ if(!(span>0)||!(depth>0)||!(thick>0)||!(load>0)){err.textContent="Enter a span, depth, thickness, and load greater than 0.";return}
+ const I=(depth*Math.pow(thick,3))/12;
+ const sag=loadType==="uniform" ? (5*load*Math.pow(span,3))/(384*E*I) : (load*Math.pow(span,3))/(48*E*I);
+ const perFoot=sag/(span/12), creep=sag*1.5;
+ $("#ss-big").textContent=`${sag.toFixed(3)}″`;
+ $("#ss-perfoot").textContent=`${perFoot.toFixed(3)}″/ft`;
+ $("#ss-creep").textContent=`${creep.toFixed(3)}″ (rule of thumb, +50%)`;
+ let verdict, note;
+ if(perFoot<=0.02){verdict="Should read flat";note="At or under 0.02 in. per foot of span, the common engineering guideline for a shelf that won't visibly sag."}
+ else if(perFoot<=0.04){verdict="Borderline";note="Above the 0.02 in./ft guideline. It may not bother you today, but visible sag (roughly 1/32 in. per foot) often shows up after months of sustained load."}
+ else{verdict="Will sag visibly";note="Well above the 0.02 in./ft guideline. Use a stiffer species, a thicker shelf, a shorter span, or add a center support or a hardwood edge strip."}
+ $("#ss-verdict").textContent=verdict; $("#ss-note").textContent=note;
+ $("#ss-result").hidden=false;
+}
+document.querySelectorAll("#ss-species,#ss-span,#ss-depth,#ss-thick,#ss-loadtype,#ss-load").forEach(el=>el.addEventListener("input",run));
+$("#ss-calc").addEventListener("click",run);
+run();
+})();
+</script></section>
+<article class="tool-copy">
+<section><h2>How this shelf sag calculator works</h2><p>It applies the standard simply-supported beam deflection formulas: for a load spread evenly across the shelf, <span class="mono">sag = 5WL&sup3; / (384EI)</span>; for a load concentrated at the center, <span class="mono">sag = WL&sup3; / (48EI)</span>. <span class="mono">W</span> is the total load in pounds, <span class="mono">L</span> the span in inches, <span class="mono">E</span> the species' modulus of elasticity, and <span class="mono">I = (depth &times; thickness&sup3;) / 12</span> the moment of inertia of the shelf's rectangular cross-section — which is why thickness matters so much more than depth.</p><p>This estimates the shelf itself, not the wall brackets, cleats, or dado joints holding its ends — those can sag or pull loose independently of the wood's own stiffness.</p></section>
+<section><h2>Sources</h2><p>Modulus of elasticity for solid species: USDA Forest Products Laboratory, <a href="https://www.fpl.fs.usda.gov/documnts/fplgtr/fplgtr190/chapter_05.pdf">Wood Handbook: Wood as an Engineering Material (FPL-GTR-190), Chapter 5, Table 5-3b</a> (12% moisture content, static bending). Sheet-good figures: <a href="https://www.engineeringtoolbox.com/timber-mechanical-properties-d_1789.html">Engineering ToolBox, timber &amp; panel mechanical properties</a>. Deflection formulas, the 0.02 in./ft guideline, and the "+50% over time" creep rule of thumb: <a href="https://www.finewoodworking.com/2007/01/05/engineer-shelves-with-the-sagulator">Fine Woodworking, "Engineer Shelves With the Sagulator"</a> and the <a href="https://woodbin.com/calcs/sagulator/">WoodBin Sagulator</a>.</p></section>
+<section><h2>Questions</h2><details><summary>How much shelf sag is acceptable?</summary><p>A common engineering guideline is 0.02 in. of sag per foot of span or less. Beyond that, sag around 1/32 in. (0.03 in.) per foot starts to look visibly crooked to the eye.</p></details><details><summary>Does shelf sag get worse over time?</summary><p>Yes — wood creeps under sustained load, so a shelf that measures fine on day one typically sags further afterward. A widely used rule of thumb is roughly 50% more sag than the initial elastic deflection this calculator computes.</p></details><details><summary>Is plywood or solid wood stiffer for a shelf?</summary><p>It depends on species and grain direction more than on plywood-vs-solid as a category. This calculator's plywood figure assumes the face grain runs parallel to the span (the stiffest orientation) — grain running across the span is much weaker.</p></details><details><summary>What&#x27;s the fastest way to stop a shelf from sagging?</summary><p>Shorten the span (add a support) or add thickness — thickness matters a lot, since stiffness scales with thickness cubed. Doubling thickness cuts sag to about an eighth, all else equal.</p></details></section>
+<section><h2>More free tools</h2><ul class="sources" style="font-size:15px"><li><a href="/tools/fuel-cost-calculator/">Fuel cost calculator</a> — Trip fuel cost and cost per mile from distance, economy, and pump price; MPG from two fill-ups.</li><li><a href="/tools/houseplant-watering-calculator/">Houseplant watering calculator</a> — How often to water 25 common houseplants, with your next watering dates.</li><li><a href="/tools/sourdough-hydration-calculator/">Sourdough hydration calculator</a> — Dough hydration with levain included, or the water to hit a target, plus salt.</li><li><a href="/tools/reef-dosing-calculator/">Reef dosing calculator</a> — Millilitres of alkalinity, calcium, or magnesium additive to reach a target, from your product label.</li><li><a href="/tools/reading-time-calculator/">Reading time calculator</a> — Days to finish a book from your page pace, or pages per day to hit a deadline.</li><li><a href="/tools/varroa-mite-calculator/">Varroa mite calculator</a> — Mites per 100 bees from an alcohol wash or sugar roll, with the 3% treatment flag.</li><li><a href="/tools/reciprocity-calculator/">Film reciprocity failure calculator</a> — Corrected long-exposure times for HP5 Plus, Tri-X, T-Max, Delta, Portra, Fomapan.</li><li><a href="/tools/kiln-firing-cost-calculator/">Kiln firing cost calculator</a> — Electric kiln firing cost from kilowatts, Orton cone, ramp rate, and electricity rate.</li><li><a href="/tools/cut-list-optimizer/">Cut list optimizer</a> — Guillotine cutting diagram and yield from stock and part sizes, kerf-aware.</li><li><a href="/tools/board-feet-calculator/">Board feet calculator</a> — Total board feet and cost for a lumber order, across as many board sizes as you need.</li><li><a href="/tools/miter-angle-calculator/">Miter angle calculator</a> — Compound miter and bevel for crown molding, or a plain miter for baseboard and picture frames.</li></ul><p class="fine" style="margin-top:12px"><a href="/tools/">All free tools</a> · <a href="/templates/">Free printable templates</a></p></section>
+<aside class="app-cta"><h2>Keep it with you</h2><p>Use Boardcut on iPhone when you need the full tool away from your desk.</p><a class="badge-store" href="https://apps.apple.com/app/id6787905177" aria-label="Download Boardcut on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a></aside>
+</article></main>
+<footer><div class="wrap">
+<span>© 2026 Softgrove — an independent app studio.</span>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
+<a href="/llms.txt">llms.txt</a>
+</div></footer>
+</body></html>

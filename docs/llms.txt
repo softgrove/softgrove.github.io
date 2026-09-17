@@ -30,6 +30,9 @@
 - [Reef dosing calculator](https://softgrove.github.io/tools/reef-dosing-calculator/): Millilitres of alkalinity, calcium, or magnesium additive to reach a target, from your product label.
 - [Reading time calculator](https://softgrove.github.io/tools/reading-time-calculator/): Days to finish a book from your page pace, or pages per day to hit a deadline.
 - [Varroa mite calculator](https://softgrove.github.io/tools/varroa-mite-calculator/): Mites per 100 bees from an alcohol wash or sugar roll, with the 3% treatment flag.
+- [Board feet calculator](https://softgrove.github.io/tools/board-feet-calculator/): Total board feet and cost for a lumber order, across as many board sizes as you need.
+- [Miter angle calculator](https://softgrove.github.io/tools/miter-angle-calculator/): Compound miter and bevel for crown molding, or a plain miter for baseboard and picture frames.
+- [Wood shelf sag calculator](https://softgrove.github.io/tools/wood-shelf-sag-calculator/): Expected shelf sag from span, depth, thickness, material, and load, Sagulator-style.
 - Index of all tools: https://softgrove.github.io/tools/
 
 ## Free printable templates (PDF, no sign-up)

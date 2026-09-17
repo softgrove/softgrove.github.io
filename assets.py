@@ -98,6 +98,9 @@ def main():
         ("tools-reef-dosing-calculator", "Reef dosing calculator", "coralog"),
         ("tools-reading-time-calculator", "Reading time calculator", "readlog"),
         ("tools-varroa-mite-calculator", "Varroa mite calculator", "combwise"),
+        ("tools-board-feet-calculator", "Board feet calculator", "boardcut"),
+        ("tools-miter-angle-calculator", "Miter angle calculator", "boardcut"),
+        ("tools-wood-shelf-sag-calculator", "Wood shelf sag calculator", "boardcut"),
     ]
     jobs.append(("tools", "Free calculators, in your browser.", "No sign-up · no install",
                  [DATA["apps"][k]["accent"] for _, _, k in tool_jobs]))

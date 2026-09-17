@@ -21,7 +21,7 @@ DATA = json.loads((ROOT / "apps.json").read_text())
 DESCS = json.loads((ROOT / "_asc_descs.json").read_text())
 SITE = DATA["site"]
 ORIGIN = SITE["origin"]
-TODAY = "2026-09-17"  # set per release; hash-gate keeps unchanged pages stable
+TODAY = "2026-09-18"  # set per release; hash-gate keeps unchanged pages stable
 
 # ---------------------------------------------------------------- desc parsing
 def parse_desc(raw):
@@ -1101,6 +1101,9 @@ TOOLS_INDEX = [
     ("/tools/reciprocity-calculator/", "Film reciprocity failure calculator", "Corrected long-exposure times for HP5 Plus, Tri-X, T-Max, Delta, Portra, Fomapan.", "filmrecip"),
     ("/tools/kiln-firing-cost-calculator/", "Kiln firing cost calculator", "Electric kiln firing cost from kilowatts, Orton cone, ramp rate, and electricity rate.", "kilncost"),
     ("/tools/cut-list-optimizer/", "Cut list optimizer", "Guillotine cutting diagram and yield from stock and part sizes, kerf-aware.", "boardcut"),
+    ("/tools/board-feet-calculator/", "Board feet calculator", "Total board feet and cost for a lumber order, across as many board sizes as you need.", "boardcut"),
+    ("/tools/miter-angle-calculator/", "Miter angle calculator", "Compound miter and bevel for crown molding, or a plain miter for baseboard and picture frames.", "boardcut"),
+    ("/tools/wood-shelf-sag-calculator/", "Wood shelf sag calculator", "Expected shelf sag from span, depth, thickness, material, and load, Sagulator-style.", "boardcut"),
 ]
 
 def more_tools(current_path):
@@ -1568,6 +1571,230 @@ document.querySelectorAll(".calculator input,.calculator select").forEach(el=>el
     body = tool_shell("combwise", "Free beekeeping tool", "Varroa mite calculator", "Turn an alcohol wash or sugar roll count into mites per 100 bees, and see whether it crosses the treatment line.", calculator, below)
     return page("Varroa Mite Calculator — Mites per 100 Bees & Treatment Threshold | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-varroa-mite-calculator.png")
 
+# ---------------------------------------------- free tools, batch 3 (2026-09-18)
+# Standalone calculators — not mirroring an app's internal Swift code (Boardcut
+# doesn't compute these), so each formula is sourced to a public/industry
+# reference instead, per the "Sources" section below. All funnel to Boardcut.
+
+def board_feet_tool():
+    a = DATA["apps"]["boardcut"]; path = "/tools/board-feet-calculator/"
+    calculator = r'''
+<style>
+.bf-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:8px;align-items:end}
+.bf-row .rlabel{font-size:11px;color:var(--muted);margin-bottom:3px;display:block}
+@media(max-width:640px){.bf-row{grid-template-columns:1fr 1fr 1fr;row-gap:8px}.bf-row>button{grid-column:1/-1;justify-self:start;padding:4px 10px}}
+</style>
+<div class="fields">
+<div class="field"><label for="bf-lenunit">Length is in</label><select id="bf-lenunit"><option value="ft">feet</option><option value="in">inches</option></select></div>
+<div class="field"><label for="bf-price">Price per board foot ($, optional)</label><input id="bf-price" type="number" min="0" step="0.01" value="6.50" inputmode="decimal"></div>
+</div>
+<h3 style="margin-top:24px;font-size:15px;font-weight:600">Boards</h3>
+<div class="rows" id="bf-rows"></div>
+<button type="button" class="secondary" id="bf-add" style="margin-top:10px">+ Add board size</button>
+<div class="actions"><button id="bf-calc" type="button">Calculate</button><span class="hint">Nominal (rough-sawn) thickness, actual width &amp; length</span></div>
+<p id="bf-error" class="error" role="alert"></p>
+<div id="bf-result" class="result" aria-live="polite" hidden>
+<span class="eyebrow">Total board feet</span><strong class="big" id="bf-big">0 bf</strong>
+<dl><div><dt>Total cost</dt><dd id="bf-cost">—</dd></div><div><dt>Boards</dt><dd id="bf-count">0</dd></div><div><dt>Avg per board</dt><dd id="bf-avg">0 bf</dd></div></dl>
+</div>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+const rowsWrap=$("#bf-rows");
+function rowHTML(t,w,l,q){
+ return `<div class="bf-row"><div><span class="rlabel">Thickness (in)</span><input class="bf-t" type="number" min="0.01" step="0.0625" value="${t}"></div>`+
+ `<div><span class="rlabel">Width (in)</span><input class="bf-w" type="number" min="0.01" step="0.0625" value="${w}"></div>`+
+ `<div><span class="rlabel">Length</span><input class="bf-l" type="number" min="0.01" step="0.01" value="${l}"></div>`+
+ `<div><span class="rlabel">Qty</span><input class="bf-q" type="number" min="1" step="1" value="${q}"></div>`+
+ `<button type="button" class="danger" aria-label="Remove row">&times;</button></div>`;
+}
+function addRow(t,w,l,q){const d=document.createElement("div");d.innerHTML=rowHTML(t,w,l,q);const row=d.firstElementChild;row.querySelector(".danger").addEventListener("click",()=>{if(rowsWrap.children.length>1){row.remove();run()}});rowsWrap.append(row)}
+addRow(1,6,8,4);
+addRow(0.75,4,10,6);
+$("#bf-add").addEventListener("click",()=>{addRow(1,6,8,1);run()});
+function money(x){return x.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}
+function run(){
+ const err=$("#bf-error"); err.textContent=""; $("#bf-result").hidden=true;
+ const lu=$("#bf-lenunit").value, price=Number($("#bf-price").value)||0;
+ const rows=[...rowsWrap.children].map(r=>({
+  t:Number(r.querySelector(".bf-t").value), w:Number(r.querySelector(".bf-w").value),
+  l:Number(r.querySelector(".bf-l").value), q:Math.max(1,Math.round(Number(r.querySelector(".bf-q").value)||1))
+ }));
+ if(rows.some(r=>!(r.t>0)||!(r.w>0)||!(r.l>0))){err.textContent="Every board needs a thickness, width, and length greater than 0.";return}
+ let total=0,count=0;
+ rows.forEach(r=>{const lenIn=lu==="ft"?r.l*12:r.l; const bf=(r.t*r.w*lenIn)/144; total+=bf*r.q; count+=r.q});
+ $("#bf-big").textContent=`${total.toFixed(2)} bf`;
+ $("#bf-cost").textContent=price>0?`$${money(total*price)}`:"—";
+ $("#bf-count").textContent=String(count);
+ $("#bf-avg").textContent=`${(total/count).toFixed(2)} bf`;
+ $("#bf-result").hidden=false;
+}
+rowsWrap.addEventListener("input",run);
+$("#bf-lenunit").addEventListener("change",run);$("#bf-price").addEventListener("input",run);$("#bf-calc").addEventListener("click",run);
+run();
+})();
+</script>'''
+    faq_html, faq_ld = tool_faq([
+        ("What is a board foot?", "A volume unit equal to 144 cubic inches — a board 12 in. long, 12 in. wide, and 1 in. thick. It's the standard unit hardwood is priced and sold by, because hardwood boards vary in width and length in a way that dimensional softwood lumber doesn't."),
+        ("What is the board foot formula?", "Thickness (in) × width (in) × length (ft) ÷ 12, or thickness × width × length in inches ÷ 144. This calculator uses actual measured thickness and width, and lets you enter length in feet or inches."),
+        ("How many board feet in an 8 ft 2×4?", "A construction 2×4 is nominal — its actual size is 1.5 × 3.5 in. So 1.5 × 3.5 × 8 ÷ 12 = 3.5 board feet, not 8 as the \"2×4\" name might suggest."),
+        ("Rough or surfaced (S4S) thickness?", "Hardwood is sold and tallied at its rough-sawn nominal thickness (4/4 = 1 in., 5/4 = 1.25 in., 8/4 = 2 in.), even after it's been planed thinner. Use the nominal thickness here to match a lumberyard quote, or the true thickness if you're estimating your own material."),
+    ])
+    below = f'''
+<section><h2>How this board foot calculator works</h2><p>Each row multiplies thickness × width × length and divides by 144 (or by 12 when length is in feet), then multiplies by quantity. Rows are summed, so you can total a mixed order — a few 4/4 boards and a few 8/4 boards — in one pass.</p><p>This is a volume figure. It says nothing about the shape you can actually cut from a board: two 6-ft boards and one 12-ft board have the same board footage but very different usable lengths. For laying out actual parts against actual stock, use the <a href="/tools/cut-list-optimizer/">cut list optimizer</a> instead.</p></section>
+<section><h2>Sources</h2><p>Board foot definition and formula: <a href="https://woodweb.com/knowledge_base/What_is_a_Board_Foot.html">WoodWeb, "What is a Board Foot?"</a>. Nominal 2×4 actual dimensions (1.5 × 3.5 in.) are the standard S4S softwood sizing used throughout North American lumber yards.</p></section>
+<section><h2>Questions</h2>{faq_html}</section>
+{more_tools(path)}'''
+    desc = "Free board feet calculator for lumber. Enter thickness, width, and length for as many board sizes as you need, get total board feet and cost. Handles feet or inches."
+    ld = tool_ld("Board Feet Calculator", path, desc, "UtilitiesApplication", faq_ld)
+    body = tool_shell("boardcut", "Free lumber tool", "Board feet calculator", "Total board feet and cost for a lumber order — thickness × width × length, added up across as many board sizes as you need.", calculator, below)
+    return page("Board Feet Calculator — Lumber Volume & Cost | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-board-feet-calculator.png")
+
+def miter_angle_tool():
+    a = DATA["apps"]["boardcut"]; path = "/tools/miter-angle-calculator/"
+    calculator = r'''
+<style>.calculator [hidden]{display:none!important}</style>
+<div class="fields">
+<div class="field"><label for="ma-corner">Corner angle (degrees)</label><input id="ma-corner" type="number" min="1" max="179" step="0.1" value="90"></div>
+<div class="field wide"><label for="ma-type">Trim type</label><select id="ma-type">
+<option value="90">Flat trim — baseboard, casing, picture frames (no bevel)</option>
+<option value="45">Crown molding, 45&deg; spring (45/45)</option>
+<option value="38">Crown molding, 38&deg; spring (52/38)</option>
+<option value="52">Crown molding, 52&deg; spring (38/52)</option>
+<option value="custom">Custom spring angle</option>
+</select></div>
+<div class="field" id="ma-custom-field" hidden><label for="ma-custom">Spring angle (degrees)</label><input id="ma-custom" type="number" min="1" max="89" step="0.1" value="45"></div>
+</div>
+<div class="actions"><button id="ma-calc" type="button">Calculate</button><span class="hint">Cuts laid flat on the saw table (the modern compound-miter method)</span></div>
+<p id="ma-error" class="error" role="alert"></p>
+<div id="ma-result" class="result" aria-live="polite" hidden>
+<span class="eyebrow">Miter angle</span><strong class="big" id="ma-miter">45.00&deg;</strong>
+<dl><div><dt>Bevel angle</dt><dd id="ma-bevel">0.00&deg;</dd></div><div><dt>Spring angle used</dt><dd id="ma-spring">90&deg;</dd></div><div><dt>Corner angle</dt><dd id="ma-corner-out">90&deg;</dd></div></dl>
+<p class="fine" id="ma-note" style="margin-top:14px"></p>
+</div>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+const typeSel=$("#ma-type"), customField=$("#ma-custom-field");
+typeSel.addEventListener("change",()=>{customField.hidden=typeSel.value!=="custom";run()});
+function run(){
+ const err=$("#ma-error"); err.textContent=""; $("#ma-result").hidden=true;
+ const corner=Number($("#ma-corner").value);
+ if(!(corner>0)||corner>=180){err.textContent="Enter a corner angle greater than 0 and less than 180 degrees.";return}
+ const spring=typeSel.value==="custom"?Number($("#ma-custom").value):Number(typeSel.value);
+ if(!(spring>0)||spring>90){err.textContent="Enter a spring angle greater than 0 and up to 90 degrees.";return}
+ const rad=d=>d*Math.PI/180, deg=r=>r*180/Math.PI;
+ const miter=deg(Math.atan(Math.tan(rad(corner/2))*Math.sin(rad(spring))));
+ const bevel=deg(Math.asin(Math.cos(rad(corner/2))*Math.cos(rad(spring))));
+ $("#ma-miter").textContent=`${miter.toFixed(2)}°`;
+ $("#ma-bevel").textContent=`${bevel.toFixed(2)}°`;
+ $("#ma-spring").textContent=`${spring}°`;
+ $("#ma-corner-out").textContent=`${corner}°`;
+ $("#ma-note").textContent=bevel<0.05?"Bevel is 0° — this is a flat cut with no blade tilt. Set the miter gauge to this angle and cut both pieces, mirrored left and right.":"Set the miter (table rotation) and bevel (blade tilt) to these angles. Cut both mating pieces with the same settings, mirrored left/right so they meet at the corner. Always test-cut scrap first — real corners are rarely exactly square.";
+ $("#ma-result").hidden=false;
+}
+$("#ma-calc").addEventListener("click",run);
+document.querySelectorAll("#ma-corner,#ma-custom").forEach(el=>el.addEventListener("input",run));
+run();
+})();
+</script>'''
+    faq_html, faq_ld = tool_faq([
+        ("What is a compound miter cut?", "A cut that combines a miter angle (table rotation) with a bevel angle (blade tilt), needed whenever molding sits at a spring angle against the wall and ceiling instead of lying flat. Crown molding is the common example."),
+        ("What is spring angle?", "The angle the back of the molding makes with the wall when installed. The two common crown profiles are 38° spring (labeled 52/38) and 45° spring (labeled 45/45); flat trim like baseboard or a picture frame has no spring angle, so its bevel is always 0°."),
+        ("Why is the miter angle for crown molding not just half the corner angle?", "Because the molding is tilted against the wall at the spring angle, the saw doesn't see the room's true corner angle — it sees that angle projected through the spring tilt. Trigonometry corrects for it, which is why 38° crown and 45° crown need different saw settings for the same 90° corner."),
+        ("How do I find the actual corner angle?", "Measure it with a digital angle finder or draw the two walls and measure with a protractor — don't assume 90°. Many room corners are a degree or two off, and crown molding is unforgiving of that error."),
+    ])
+    below = f'''
+<section><h2>How this miter angle calculator works</h2><p>For a corner angle <span class="mono">C</span> and a spring angle <span class="mono">S</span>, laid flat on the saw table (the standard modern method, as opposed to holding crown upside-down against the fence):</p><p><span class="mono">miter = atan( tan(C / 2) &times; sin(S) )</span><br><span class="mono">bevel = asin( cos(C / 2) &times; cos(S) )</span></p><p>Flat trim is the special case S = 90&deg;, where <span class="mono">sin(S) = 1</span> and <span class="mono">cos(S) = 0</span> — the formula collapses to <span class="mono">miter = C / 2</span> and <span class="mono">bevel = 0</span>, which is exactly the simple miter rule for baseboard, casing, and picture frames.</p></section>
+<section><h2>Sources</h2><p>Formula and worked reference check (90&deg; corner, 38&deg; spring → 31.62&deg; miter, 33.86&deg; bevel, the standard 38/52 crown setting) from <a href="https://starlighttools.org/construction/compound-miter-crown-molding-calculator">Starlight Tools' compound miter crown molding calculator</a> and <a href="https://blog.woodworkingforamateurs.com/compound-miter-cuts-for-crown-molding-the-angle-math-that-actually-works/">"Compound Miter Cuts for Crown Molding: The Angle Math That Actually Works"</a>. Verified against this calculator on September 18, 2026.</p></section>
+<section><h2>Questions</h2>{faq_html}</section>
+{more_tools(path)}'''
+    desc = "Free miter angle calculator for crown molding (compound miter + bevel) and flat trim like baseboard or picture frames. Enter a corner angle and spring angle, get the saw settings."
+    ld = tool_ld("Miter Angle Calculator", path, desc, "UtilitiesApplication", faq_ld)
+    body = tool_shell("boardcut", "Free woodworking tool", "Miter angle calculator", "Miter and bevel angles for crown molding at any spring and corner angle, or a plain miter for baseboard and picture frames.", calculator, below)
+    return page("Miter Angle Calculator — Crown Molding Miter & Bevel | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-miter-angle-calculator.png")
+
+# Modulus of elasticity, 12% MC, static bending, 10^6 lbf/in^2 — USDA Forest
+# Products Laboratory, Wood Handbook FPL-GTR-190, Table 5-3b (solid species).
+# Sheet-good values are typical published figures (EngineeringToolBox), not
+# lab-measured per species/grade, and assume face grain parallel to the span.
+SHELF_SPECIES = [
+    ("solid", "Pine, eastern white", 1.24), ("solid", "Pine, southern yellow (loblolly)", 1.79),
+    ("solid", "Douglas fir", 1.95), ("solid", "Poplar, yellow", 1.58),
+    ("solid", "Oak, red", 1.82), ("solid", "Oak, white", 1.78),
+    ("solid", "Maple, hard (sugar)", 1.83), ("solid", "Maple, soft (red)", 1.64),
+    ("solid", "Walnut, black", 1.68), ("solid", "Cherry, black", 1.49),
+    ("solid", "Birch, yellow", 2.01), ("solid", "Hickory", 2.16),
+    ("solid", "Aspen", 1.18), ("solid", "Basswood", 1.46),
+    ("sheet", "Plywood (face grain parallel to span)", 1.50),
+    ("sheet", "MDF", 0.50), ("sheet", "Particleboard", 0.45), ("sheet", "OSB", 0.70),
+]
+
+def shelf_sag_tool():
+    a = DATA["apps"]["boardcut"]; path = "/tools/wood-shelf-sag-calculator/"
+    solid_opts = "".join(f'<option value="{e}">{esc(n)} — {e:.2f}</option>' for k,n,e in SHELF_SPECIES if k=="solid")
+    sheet_opts = "".join(f'<option value="{e}">{esc(n)} — {e:.2f}</option>' for k,n,e in SHELF_SPECIES if k=="sheet")
+    calculator = f'''
+<div class="fields">
+<div class="field wide"><label for="ss-species">Shelf material (E, million psi)</label><select id="ss-species"><optgroup label="Solid wood">{solid_opts}</optgroup><optgroup label="Sheet goods (typical, varies by grade)">{sheet_opts}</optgroup></select></div>
+<div class="field"><label for="ss-span">Span between supports (in)</label><input id="ss-span" type="number" min="1" max="240" step="0.25" value="30"></div>
+<div class="field"><label for="ss-depth">Shelf depth, front to back (in)</label><input id="ss-depth" type="number" min="0.5" max="48" step="0.125" value="11.5"></div>
+<div class="field"><label for="ss-thick">Shelf thickness (in)</label><input id="ss-thick" type="number" min="0.125" max="4" step="0.0625" value="0.75"></div>
+<div class="field"><label for="ss-loadtype">How the load sits</label><select id="ss-loadtype"><option value="uniform">Spread evenly (books, general storage)</option><option value="point">Concentrated at the center (one heavy item)</option></select></div>
+<div class="field"><label for="ss-load">Total load on the shelf (lb)</label><input id="ss-load" type="number" min="0.1" step="1" value="40"></div>
+</div>
+<div class="actions"><button id="ss-calc" type="button">Calculate sag</button></div>
+<p id="ss-error" class="error" role="alert"></p>
+<div id="ss-result" class="result" aria-live="polite" hidden>
+<span class="eyebrow">Initial sag at center</span><strong class="big" id="ss-big">0.00&Prime;</strong>
+<dl><div><dt>Sag per foot of span</dt><dd id="ss-perfoot">0.00&Prime;/ft</dd></div><div><dt>Estimated long-term sag</dt><dd id="ss-creep">0.00&Prime;</dd></div><div><dt>Verdict</dt><dd id="ss-verdict">—</dd></div></dl>
+<p class="fine" id="ss-note" style="margin-top:14px"></p>
+</div>
+<script>
+(()=>{{
+"use strict";
+const $=s=>document.querySelector(s);
+function run(){{
+ const err=$("#ss-error"); err.textContent=""; $("#ss-result").hidden=true;
+ const E=Number($("#ss-species").value)*1e6, span=Number($("#ss-span").value), depth=Number($("#ss-depth").value),
+       thick=Number($("#ss-thick").value), load=Number($("#ss-load").value), loadType=$("#ss-loadtype").value;
+ if(!(span>0)||!(depth>0)||!(thick>0)||!(load>0)){{err.textContent="Enter a span, depth, thickness, and load greater than 0.";return}}
+ const I=(depth*Math.pow(thick,3))/12;
+ const sag=loadType==="uniform" ? (5*load*Math.pow(span,3))/(384*E*I) : (load*Math.pow(span,3))/(48*E*I);
+ const perFoot=sag/(span/12), creep=sag*1.5;
+ $("#ss-big").textContent=`${{sag.toFixed(3)}}″`;
+ $("#ss-perfoot").textContent=`${{perFoot.toFixed(3)}}″/ft`;
+ $("#ss-creep").textContent=`${{creep.toFixed(3)}}″ (rule of thumb, +50%)`;
+ let verdict, note;
+ if(perFoot<=0.02){{verdict="Should read flat";note="At or under 0.02 in. per foot of span, the common engineering guideline for a shelf that won't visibly sag."}}
+ else if(perFoot<=0.04){{verdict="Borderline";note="Above the 0.02 in./ft guideline. It may not bother you today, but visible sag (roughly 1/32 in. per foot) often shows up after months of sustained load."}}
+ else{{verdict="Will sag visibly";note="Well above the 0.02 in./ft guideline. Use a stiffer species, a thicker shelf, a shorter span, or add a center support or a hardwood edge strip."}}
+ $("#ss-verdict").textContent=verdict; $("#ss-note").textContent=note;
+ $("#ss-result").hidden=false;
+}}
+document.querySelectorAll("#ss-species,#ss-span,#ss-depth,#ss-thick,#ss-loadtype,#ss-load").forEach(el=>el.addEventListener("input",run));
+$("#ss-calc").addEventListener("click",run);
+run();
+}})();
+</script>'''
+    faq_html, faq_ld = tool_faq([
+        ("How much shelf sag is acceptable?", "A common engineering guideline is 0.02 in. of sag per foot of span or less. Beyond that, sag around 1/32 in. (0.03 in.) per foot starts to look visibly crooked to the eye."),
+        ("Does shelf sag get worse over time?", "Yes — wood creeps under sustained load, so a shelf that measures fine on day one typically sags further afterward. A widely used rule of thumb is roughly 50% more sag than the initial elastic deflection this calculator computes."),
+        ("Is plywood or solid wood stiffer for a shelf?", "It depends on species and grain direction more than on plywood-vs-solid as a category. This calculator's plywood figure assumes the face grain runs parallel to the span (the stiffest orientation) — grain running across the span is much weaker."),
+        ("What's the fastest way to stop a shelf from sagging?", "Shorten the span (add a support) or add thickness — thickness matters a lot, since stiffness scales with thickness cubed. Doubling thickness cuts sag to about an eighth, all else equal."),
+    ])
+    below = f'''
+<section><h2>How this shelf sag calculator works</h2><p>It applies the standard simply-supported beam deflection formulas: for a load spread evenly across the shelf, <span class="mono">sag = 5WL&sup3; / (384EI)</span>; for a load concentrated at the center, <span class="mono">sag = WL&sup3; / (48EI)</span>. <span class="mono">W</span> is the total load in pounds, <span class="mono">L</span> the span in inches, <span class="mono">E</span> the species' modulus of elasticity, and <span class="mono">I = (depth &times; thickness&sup3;) / 12</span> the moment of inertia of the shelf's rectangular cross-section — which is why thickness matters so much more than depth.</p><p>This estimates the shelf itself, not the wall brackets, cleats, or dado joints holding its ends — those can sag or pull loose independently of the wood's own stiffness.</p></section>
+<section><h2>Sources</h2><p>Modulus of elasticity for solid species: USDA Forest Products Laboratory, <a href="https://www.fpl.fs.usda.gov/documnts/fplgtr/fplgtr190/chapter_05.pdf">Wood Handbook: Wood as an Engineering Material (FPL-GTR-190), Chapter 5, Table 5-3b</a> (12% moisture content, static bending). Sheet-good figures: <a href="https://www.engineeringtoolbox.com/timber-mechanical-properties-d_1789.html">Engineering ToolBox, timber &amp; panel mechanical properties</a>. Deflection formulas, the 0.02 in./ft guideline, and the "+50% over time" creep rule of thumb: <a href="https://www.finewoodworking.com/2007/01/05/engineer-shelves-with-the-sagulator">Fine Woodworking, "Engineer Shelves With the Sagulator"</a> and the <a href="https://woodbin.com/calcs/sagulator/">WoodBin Sagulator</a>.</p></section>
+<section><h2>Questions</h2>{faq_html}</section>
+{more_tools(path)}'''
+    desc = "Free wood shelf sag calculator (Sagulator-style). Pick a species or sheet good, enter span, depth, thickness and load, get expected sag and whether it's within the usual 0.02in/ft guideline."
+    ld = tool_ld("Wood Shelf Sag Calculator", path, desc, "UtilitiesApplication", faq_ld)
+    body = tool_shell("boardcut", "Free woodworking tool", "Wood shelf sag calculator", "Estimate how much a shelf will sag from its span, depth, thickness, material, and load, using standard beam deflection formulas.", calculator, below)
+    return page("Wood Shelf Sag Calculator — Shelf Deflection Estimator | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-wood-shelf-sag-calculator.png")
+
 # ---------------------------------------------------------------- tools hub
 def tools_hub():
     cards = ""
@@ -1593,7 +1820,7 @@ def tools_hub():
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Free web tools", "url": ORIGIN + "/tools/",
           "publisher": {"@type": "Organization", "name": "Softgrove", "url": ORIGIN + "/"}}
     return page("Free Web Calculators — Fuel Cost, Sourdough Hydration, Reef Dosing & More | Softgrove",
-                "Nine free browser calculators from Softgrove: fuel cost, houseplant watering, sourdough hydration, reef dosing, reading time, varroa mites, film reciprocity, kiln cost, cut list.",
+                "Twelve free browser calculators from Softgrove: fuel cost, houseplant watering, sourdough hydration, reef dosing, reading time, varroa mites, film reciprocity, kiln cost, cut list, board feet, miter angle, shelf sag.",
                 "/tools/", body, ld, "", "/og/tools.png")
 
 def templates_hub():
@@ -1722,7 +1949,10 @@ def main():
              "/tools/sourdough-hydration-calculator/": hydration_tool(),
              "/tools/reef-dosing-calculator/": reef_dosing_tool(),
              "/tools/reading-time-calculator/": reading_time_tool(),
-             "/tools/varroa-mite-calculator/": varroa_tool()}
+             "/tools/varroa-mite-calculator/": varroa_tool(),
+             "/tools/board-feet-calculator/": board_feet_tool(),
+             "/tools/miter-angle-calculator/": miter_angle_tool(),
+             "/tools/wood-shelf-sag-calculator/": shelf_sag_tool()}
     for key, a in DATA["apps"].items():
         if a["asc"] not in DESCS: continue  # e.g. Fibrolog: added to apps.json, ASC desc not live yet
         pages[f"/apps/{key}/"] = app_page(key)
