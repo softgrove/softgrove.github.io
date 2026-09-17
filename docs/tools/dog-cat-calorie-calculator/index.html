@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dog &amp; Cat Calorie Calculator — RER/MER Daily Feeding | Softgrove</title>
+<meta name="description" content="Free dog and cat daily calorie calculator (RER/MER). Enter weight, species, and life stage/status to get resting and maintenance energy needs, plus cups/day if you know your food&#x27;s kcal per cup.">
+<link rel="canonical" href="https://softgrove.github.io/tools/dog-cat-calorie-calculator/">
+<meta property="og:title" content="Dog &amp; Cat Calorie Calculator — RER/MER Daily Feeding | Softgrove">
+<meta property="og:description" content="Free dog and cat daily calorie calculator (RER/MER). Enter weight, species, and life stage/status to get resting and maintenance energy needs, plus cups/day if you know your food&#x27;s kcal per cup.">
+<meta property="og:url" content="https://softgrove.github.io/tools/dog-cat-calorie-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://softgrove.github.io/og/tools-dog-cat-calorie-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet"></noscript><meta name="apple-itunes-app" content="app-id=6782466968">
+<style>
+:root{--paper:#FBFAF7;--ink:#2C282C;--muted:#6E6870;--line:#E7E2D9;--teal:#3E8E8C}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.serif{font-family:"Newsreader",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+header.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px;padding-bottom:18px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;letter-spacing:-.01em}
+.wordmark b{color:var(--teal);font-weight:600}
+nav.top a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px}
+nav.top a:hover{color:var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;padding:13px 26px;border-radius:8px}
+.btn:hover{opacity:.88}
+.badge-store{display:inline-flex;align-items:center;gap:9px;background:#000;color:#fff;text-decoration:none;border-radius:9px;padding:9px 18px 9px 14px;line-height:1.15}
+.badge-store svg{width:22px;height:26px;flex:none}
+.badge-store small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.badge-store span{font-size:17px;font-weight:600;letter-spacing:.01em}
+footer{border-top:1px solid var(--line);margin-top:96px}
+footer .wrap{padding:34px 24px 46px;display:flex;flex-wrap:wrap;gap:10px 34px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4d4850;max-width:62ch}
+@media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Dog & Cat Calorie Calculator", "applicationCategory": "LifestyleApplication", "operatingSystem": "Any", "url": "https://softgrove.github.io/tools/dog-cat-calorie-calculator/", "isAccessibleForFree": true, "description": "Free dog and cat daily calorie calculator (RER/MER). Enter weight, species, and life stage/status to get resting and maintenance energy needs, plus cups/day if you know your food's kcal per cup.", "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is RER and MER?", "acceptedAnswer": {"@type": "Answer", "text": "RER (Resting Energy Requirement) is the calories a pet burns at complete rest — base metabolism only. MER (Maintenance Energy Requirement) multiplies RER by a life-stage and activity factor to estimate typical daily need."}}, {"@type": "Question", "name": "Why does neutering lower the calorie estimate?", "acceptedAnswer": {"@type": "Answer", "text": "Neutered pets tend to run a lower metabolic rate, so veterinary references use a smaller multiplier — 1.6× RER for dogs and 1.2× for cats — than for intact adults, at 1.8× and 1.4×."}}, {"@type": "Question", "name": "How much food is that in cups?", "acceptedAnswer": {"@type": "Answer", "text": "Enter your food's energy density (kcal per cup — check the bag or the manufacturer's site for \"metabolizable energy\" or \"kcal/cup\") and the calculator divides your daily calories by it."}}, {"@type": "Question", "name": "Should I trust this over my vet or the bag's feeding chart?", "acceptedAnswer": {"@type": "Answer", "text": "Use it as a starting point, not a prescription. Bag feeding charts often run high because they assume an average, unneutered, moderately active pet — actual needs vary a good deal between individuals at the same weight. Weigh your pet periodically and adjust the amount you feed."}}]}]}</script>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<a class="wordmark" href="/">softgrove<b>.</b></a>
+<nav class="top"><a href="/#apps">Apps</a><a href="/tools/reciprocity-calculator/">Free tools</a><a href="/templates/">Free templates</a></nav>
+</div></header>
+
+<style>
+.tool-hero{padding:64px 0 30px;max-width:820px}
+.tool-hero h1{font-size:clamp(38px,6vw,60px);max-width:18ch;margin-top:8px}
+.tool-hero .lede{font-size:19px;color:#4d4850;margin-top:18px;max-width:64ch}
+.calculator{max-width:820px;background:#fff;border:1px solid var(--line);border-top:5px solid #E07A5F;border-radius:14px;padding:clamp(18px,4vw,34px);box-shadow:0 10px 30px rgba(44,40,44,.06)}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.wide{grid-column:1/-1}
+label,.label{font-weight:600;font-size:14px}
+input,select,button{font:inherit}
+input,select{width:100%;min-height:46px;border:1px solid #b9b2a6;border-radius:8px;background:#fff;color:var(--ink);padding:9px 11px}
+button{border:0;border-radius:8px;background:var(--ink);color:var(--paper);font-weight:600;padding:12px 19px;cursor:pointer}
+button.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+button.danger{background:transparent;color:#7a2e33;padding:8px}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}
+.hint,.fine{font-size:13px;color:var(--muted)}
+.result{margin-top:24px;background:#F4EFE6;border-radius:10px;padding:20px}
+.result strong.big{display:block;font-family:"Newsreader",Georgia,serif;font-size:clamp(30px,6vw,44px);font-weight:500;line-height:1.1;color:#2E2A24}
+.result dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+.result dt{font-size:12px;color:var(--muted)}.result dd{font-weight:600}
+.error{color:#9b2c2c;font-size:14px;margin-top:12px;min-height:1.5em}
+.rows{display:grid;gap:10px;margin-top:10px}
+.entry-row{display:grid;grid-template-columns:2fr 2fr 1fr auto;gap:8px;align-items:end}
+.tool-copy{max-width:780px;margin-top:62px}.tool-copy section{margin-top:46px}
+.tool-copy h2{font-size:30px;margin-bottom:14px}.tool-copy p{margin-top:12px;max-width:66ch}
+.sources{padding-left:20px;display:grid;gap:9px;margin-top:14px;font-size:14px}
+.app-cta{margin-top:56px;background:#F4EFE6;border:1px solid var(--line);border-radius:14px;padding:28px}
+.app-cta h2{font-size:28px}.app-cta p{margin:10px 0 20px;max-width:62ch;color:#4d4850}
+.sheet-output{display:grid;gap:20px;margin-top:18px}
+.sheet-output figure{margin:0}.sheet-output figcaption{font-size:13px;color:var(--muted);margin-bottom:7px}
+.sheet-output svg{display:block;width:100%;height:auto;max-height:520px;background:#f8f5ef;border:1px solid var(--line)}
+@media(max-width:640px){.tool-hero{padding-top:46px}.fields,.result dl{grid-template-columns:1fr}.entry-row{grid-template-columns:1fr 1fr auto}.entry-row .row-name{grid-column:1/-1}nav.top a{margin-left:12px;font-size:12px}}
+</style>
+<main class="wrap">
+<header class="tool-hero"><p class="eyebrow">Free pet tool</p><h1>Dog &amp; cat calorie calculator</h1><p class="lede">Daily calorie needs (RER and MER) for a dog or cat, from weight, species, and life stage or status, using the standard veterinary formula.</p></header>
+<section class="calculator" aria-label="Dog &amp; cat calorie calculator">
+<style>.calculator [hidden]{display:none!important}</style>
+<div class="fields">
+<div class="field"><label for="pc-species">Pet</label><select id="pc-species"><option value="dog">Dog</option><option value="cat">Cat</option></select></div>
+<div class="field"><label for="pc-weight">Weight</label><input id="pc-weight" type="number" min="0.1" step="0.1" value="20" inputmode="decimal"></div>
+<div class="field"><label for="pc-unit">Unit</label><select id="pc-unit"><option value="kg">kg</option><option value="lb">lb</option></select></div>
+<div class="field wide" id="pc-dog-status"><label for="pc-dog-select">Life stage / status</label><select id="pc-dog-select">
+<option value="1.6">Adult, neutered or spayed</option>
+<option value="1.8">Adult, intact (not neutered/spayed)</option>
+<option value="1.4">Adult prone to weight gain, or on a weight-loss plan</option>
+<option value="2">Puppy, over 4 months old</option>
+<option value="3">Puppy, 4 months or younger</option>
+</select></div>
+<div class="field wide" id="pc-cat-status" hidden><label for="pc-cat-select">Life stage / status</label><select id="pc-cat-select">
+<option value="1.2">Adult, neutered or spayed</option>
+<option value="1.4">Adult, intact (not neutered/spayed)</option>
+<option value="1">Adult prone to weight gain</option>
+<option value="2.5">Kitten</option>
+</select></div>
+<div class="field"><label for="pc-kcal">Food energy (kcal per cup, optional)</label><input id="pc-kcal" type="number" min="0" step="1" value="" inputmode="decimal" placeholder="e.g. 350"></div>
+</div>
+<div class="actions"><button id="pc-calc" type="button">Calculate</button><span class="hint">Uses your pet's current healthy weight</span></div>
+<p id="pc-error" class="error" role="alert"></p>
+<div id="pc-result" class="result" aria-live="polite" hidden>
+<span class="eyebrow">Daily calories (MER)</span><strong class="big" id="pc-big">—</strong>
+<dl><div><dt>Resting energy (RER)</dt><dd id="pc-rer">—</dd></div><div><dt>Multiplier</dt><dd id="pc-mult">—</dd></div><div><dt>Food needed</dt><dd id="pc-cups">—</dd></div></dl>
+<p class="fine" id="pc-note" style="margin-top:14px"></p>
+</div>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+const speciesSel=$("#pc-species");
+speciesSel.addEventListener("change",()=>{$("#pc-dog-status").hidden=speciesSel.value!=="dog";$("#pc-cat-status").hidden=speciesSel.value!=="cat";run()});
+function run(){
+ const err=$("#pc-error"); err.textContent=""; $("#pc-result").hidden=true;
+ const w=Number($("#pc-weight").value), unit=$("#pc-unit").value, kcalPerCup=Number($("#pc-kcal").value);
+ if(!(w>0)){err.textContent="Enter a weight greater than 0.";return}
+ const kg=unit==="lb"?w/2.2046226218:w;
+ const species=speciesSel.value;
+ const statusSel=species==="dog"?$("#pc-dog-select"):$("#pc-cat-select");
+ const mult=Number(statusSel.value), label=statusSel.selectedOptions[0].textContent;
+ const rer=70*Math.pow(kg,0.75);
+ const mer=rer*mult;
+ $("#pc-big").textContent=`${Math.round(mer)} kcal/day`;
+ $("#pc-rer").textContent=`${Math.round(rer)} kcal/day`;
+ $("#pc-mult").textContent=`${mult}× (${label})`;
+ $("#pc-cups").textContent=kcalPerCup>0?`${(mer/kcalPerCup).toFixed(2)} cups/day`:"Enter kcal/cup above for a cups/day estimate";
+ $("#pc-note").textContent=`RER = 70 × (weight in kg)^0.75 = 70 × ${kg.toFixed(2)}kg^0.75. MER = RER × ${mult} for "${label.toLowerCase()}". Treat this as a starting point — adjust from your pet's actual body condition, and check with a vet for weight-loss or medical diets.`;
+ $("#pc-result").hidden=false;
+}
+$("#pc-weight").addEventListener("input",run);$("#pc-unit").addEventListener("input",run);$("#pc-kcal").addEventListener("input",run);
+$("#pc-dog-select").addEventListener("input",run);$("#pc-cat-select").addEventListener("input",run);
+$("#pc-calc").addEventListener("click",run);
+run();
+})();
+</script></section>
+<article class="tool-copy">
+<section><h2>How this calorie calculator works</h2><p><span class="mono">RER = 70 &times; (weight in kg)<sup>0.75</sup></span> is the standard veterinary formula for resting energy, valid at any body weight. <span class="mono">MER = RER &times; multiplier</span>, where the multiplier depends on life stage and reproductive status — from 1.0&times; for a cat prone to weight gain up to 3&times; for a puppy under 4 months old.</p></section>
+<section><h2>Sources</h2><p>RER formula and the full MER multiplier table (life stage / status &times; RER): <a href="https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/nutritional-requirements-of-small-animals">Merck Veterinary Manual, "Nutritional Requirements of Small Animals"</a>, the standard veterinary reference, itself drawn from the National Research Council's <em>Nutrient Requirements of Dogs and Cats</em> (2006). Fetched September 18, 2026.</p></section>
+<section><h2>Questions</h2><details><summary>What is RER and MER?</summary><p>RER (Resting Energy Requirement) is the calories a pet burns at complete rest — base metabolism only. MER (Maintenance Energy Requirement) multiplies RER by a life-stage and activity factor to estimate typical daily need.</p></details><details><summary>Why does neutering lower the calorie estimate?</summary><p>Neutered pets tend to run a lower metabolic rate, so veterinary references use a smaller multiplier — 1.6× RER for dogs and 1.2× for cats — than for intact adults, at 1.8× and 1.4×.</p></details><details><summary>How much food is that in cups?</summary><p>Enter your food's energy density (kcal per cup — check the bag or the manufacturer's site for "metabolizable energy" or "kcal/cup") and the calculator divides your daily calories by it.</p></details><details><summary>Should I trust this over my vet or the bag&#x27;s feeding chart?</summary><p>Use it as a starting point, not a prescription. Bag feeding charts often run high because they assume an average, unneutered, moderately active pet — actual needs vary a good deal between individuals at the same weight. Weigh your pet periodically and adjust the amount you feed.</p></details></section>
+<section><h2>More free tools</h2><ul class="sources" style="font-size:15px"><li><a href="/tools/fuel-cost-calculator/">Fuel cost calculator</a> — Trip fuel cost and cost per mile from distance, economy, and pump price; MPG from two fill-ups.</li><li><a href="/tools/houseplant-watering-calculator/">Houseplant watering calculator</a> — How often to water 25 common houseplants, with your next watering dates.</li><li><a href="/tools/sourdough-hydration-calculator/">Sourdough hydration calculator</a> — Dough hydration with levain included, or the water to hit a target, plus salt.</li><li><a href="/tools/reef-dosing-calculator/">Reef dosing calculator</a> — Millilitres of alkalinity, calcium, or magnesium additive to reach a target, from your product label.</li><li><a href="/tools/reading-time-calculator/">Reading time calculator</a> — Days to finish a book from your page pace, or pages per day to hit a deadline.</li><li><a href="/tools/varroa-mite-calculator/">Varroa mite calculator</a> — Mites per 100 bees from an alcohol wash or sugar roll, with the 3% treatment flag.</li><li><a href="/tools/reciprocity-calculator/">Film reciprocity failure calculator</a> — Corrected long-exposure times for HP5 Plus, Tri-X, T-Max, Delta, Portra, Fomapan.</li><li><a href="/tools/kiln-firing-cost-calculator/">Kiln firing cost calculator</a> — Electric kiln firing cost from kilowatts, Orton cone, ramp rate, and electricity rate.</li><li><a href="/tools/cut-list-optimizer/">Cut list optimizer</a> — Guillotine cutting diagram and yield from stock and part sizes, kerf-aware.</li><li><a href="/tools/board-feet-calculator/">Board feet calculator</a> — Total board feet and cost for a lumber order, across as many board sizes as you need.</li><li><a href="/tools/miter-angle-calculator/">Miter angle calculator</a> — Compound miter and bevel for crown molding, or a plain miter for baseboard and picture frames.</li><li><a href="/tools/wood-shelf-sag-calculator/">Wood shelf sag calculator</a> — Expected shelf sag from span, depth, thickness, material, and load, Sagulator-style.</li><li><a href="/tools/pet-age-calculator/">Pet age calculator</a> — Dog or cat age in human years — a 2020 DNA-methylation study for dogs, International Cat Care&#x27;s chart for cats.</li><li><a href="/tools/whetstone-angle-calculator/">Whetstone angle calculator</a> — Spine-lift height for a target sharpening angle, or the angle for a lift you used — freehand or guided rod.</li></ul><p class="fine" style="margin-top:12px"><a href="/tools/">All free tools</a> · <a href="/templates/">Free printable templates</a></p></section>
+<aside class="app-cta"><h2>Keep it with you</h2><p>Use PawLog on iPhone when you need the full tool away from your desk.</p><a class="badge-store" href="https://apps.apple.com/app/id6782466968" aria-label="Download PawLog on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a></aside>
+</article></main>
+<footer><div class="wrap">
+<span>© 2026 Softgrove — an independent app studio.</span>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
+<a href="/llms.txt">llms.txt</a>
+</div></footer>
+</body></html>

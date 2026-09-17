@@ -101,6 +101,9 @@ def main():
         ("tools-board-feet-calculator", "Board feet calculator", "boardcut"),
         ("tools-miter-angle-calculator", "Miter angle calculator", "boardcut"),
         ("tools-wood-shelf-sag-calculator", "Wood shelf sag calculator", "boardcut"),
+        ("tools-pet-age-calculator", "Pet age calculator", "pawlog"),
+        ("tools-dog-cat-calorie-calculator", "Dog & cat calorie calculator", "pawlog"),
+        ("tools-whetstone-angle-calculator", "Whetstone angle calculator", "whetlog"),
     ]
     jobs.append(("tools", "Free calculators, in your browser.", "No sign-up · no install",
                  [DATA["apps"][k]["accent"] for _, _, k in tool_jobs]))

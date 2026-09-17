@@ -1104,6 +1104,9 @@ TOOLS_INDEX = [
     ("/tools/board-feet-calculator/", "Board feet calculator", "Total board feet and cost for a lumber order, across as many board sizes as you need.", "boardcut"),
     ("/tools/miter-angle-calculator/", "Miter angle calculator", "Compound miter and bevel for crown molding, or a plain miter for baseboard and picture frames.", "boardcut"),
     ("/tools/wood-shelf-sag-calculator/", "Wood shelf sag calculator", "Expected shelf sag from span, depth, thickness, material, and load, Sagulator-style.", "boardcut"),
+    ("/tools/pet-age-calculator/", "Pet age calculator", "Dog or cat age in human years — a 2020 DNA-methylation study for dogs, International Cat Care's chart for cats.", "pawlog"),
+    ("/tools/dog-cat-calorie-calculator/", "Dog & cat calorie calculator", "Daily calories (RER/MER) from weight, species, and life stage or status, the standard veterinary formula.", "pawlog"),
+    ("/tools/whetstone-angle-calculator/", "Whetstone angle calculator", "Spine-lift height for a target sharpening angle, or the angle for a lift you used — freehand or guided rod.", "whetlog"),
 ]
 
 def more_tools(current_path):
@@ -1795,6 +1798,293 @@ run();
     body = tool_shell("boardcut", "Free woodworking tool", "Wood shelf sag calculator", "Estimate how much a shelf will sag from its span, depth, thickness, material, and load, using standard beam deflection formulas.", calculator, below)
     return page("Wood Shelf Sag Calculator — Shelf Deflection Estimator | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-wood-shelf-sag-calculator.png")
 
+# ---------------------------------------------- free tools, batch 4 (2026-09-18)
+# Three more tools for apps still without an acquisition page or a tool of
+# their own: PawLog (pet age + calorie calculators) and Whetlog (sharpening
+# angle calculator). Formulas cite external primary sources (peer-reviewed
+# study, veterinary body guidelines, industry references) rather than
+# mirroring app-internal logic, matching the board-feet/miter/shelf-sag set.
+
+def pet_age_tool():
+    a = DATA["apps"]["pawlog"]; path = "/tools/pet-age-calculator/"
+    calculator = r'''
+<style>.calculator [hidden]{display:none!important}</style>
+<div class="fields">
+<div class="field"><label for="pa-species">Pet</label><select id="pa-species"><option value="dog">Dog</option><option value="cat">Cat</option></select></div>
+<div class="field"><label for="pa-age">Age (years)</label><input id="pa-age" type="number" min="0" step="0.01" value="3" inputmode="decimal"></div>
+</div>
+<div class="actions"><button id="pa-calc" type="button">Calculate</button><span class="hint" id="pa-hint">Use a decimal for months — 0.5 is 6 months</span></div>
+<p id="pa-error" class="error" role="alert"></p>
+<div id="pa-result" class="result" aria-live="polite" hidden>
+<span class="eyebrow">In human years</span><strong class="big" id="pa-big">45</strong>
+<dl><div><dt>You entered</dt><dd id="pa-age-out">3 years</dd></div><div><dt id="pa-k2">Life stage</dt><dd id="pa-v2">Adult</dd></div><div><dt>Source</dt><dd id="pa-v3">—</dd></div></dl>
+<p class="fine" id="pa-note" style="margin-top:14px"></p>
+</div>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+const CAT_PTS=[[0,0],[0.0833,1],[0.1667,2],[0.25,4],[0.3333,6],[0.4167,8],[0.5,10],[0.5833,12],[1,15],[1.5,21],[2,24],[3,28],[4,32],[5,36],[6,40],[7,44],[8,48],[9,52],[10,56],[11,60],[12,64],[13,68],[14,72],[15,76]];
+function catHuman(age){
+ if(age>=15) return 76+4*(age-15);
+ for(let i=1;i<CAT_PTS.length;i++){
+  if(age<=CAT_PTS[i][0]){
+   const a0=CAT_PTS[i-1][0],h0=CAT_PTS[i-1][1],a1=CAT_PTS[i][0],h1=CAT_PTS[i][1];
+   const t=a1===a0?0:(age-a0)/(a1-a0);
+   return h0+t*(h1-h0);
+  }
+ }
+ return 76;
+}
+function catStage(age){
+ if(age<0.5834) return "Kitten";
+ if(age<3) return "Junior";
+ if(age<7) return "Adult";
+ if(age<11) return "Mature";
+ if(age<15) return "Senior";
+ return "Super Senior";
+}
+function dogHuman(age){ return 16*Math.log(age)+31; }
+function run(){
+ const err=$("#pa-error"); err.textContent=""; $("#pa-result").hidden=true;
+ const species=$("#pa-species").value, age=Number($("#pa-age").value);
+ if(!(age>=0)){err.textContent="Enter an age of 0 or more.";return}
+ if(species==="dog"){
+  if(age<0.15){err.textContent="Enter a dog age of at least 0.15 years (about 8 weeks) — that's the youngest age this formula is validated for.";return}
+  const human=dogHuman(age);
+  $("#pa-big").textContent=`${Math.round(human)}`;
+  $("#pa-age-out").textContent=`${age} years`;
+  $("#pa-k2").textContent="Formula";
+  $("#pa-v2").textContent="16 × ln(age) + 31";
+  $("#pa-v3").textContent="Wang et al., Cell Systems (2020)";
+  $("#pa-note").textContent="Based on a DNA-methylation \"epigenetic clock\" built from 104 Labrador retrievers aged 4 weeks to 16 years. The study's own reference points: a 2-year-old dog ≈ 42, an 8-year-old ≈ 64, and a 12-year-old ≈ 71 — close to the 70-year worldwide human life expectancy the authors used to check the senior end of the curve.";
+ } else {
+  if(!(age>0)){err.textContent="Enter a cat age greater than 0.";return}
+  const human=catHuman(age);
+  $("#pa-big").textContent=`${Math.round(human)}`;
+  $("#pa-age-out").textContent=`${age} years`;
+  $("#pa-k2").textContent="Life stage";
+  $("#pa-v2").textContent=catStage(age);
+  $("#pa-v3").textContent="Int'l Cat Care / AAHA-AAFP (2021)";
+  $("#pa-note").textContent="Interpolated from International Cat Care's published age chart (developed with the AAHA and AAFP): 6 months ≈ 10 human years, 1 year ≈ 15, 2 years ≈ 24, then +4 human years per cat year after that.";
+ }
+ $("#pa-result").hidden=false;
+}
+$("#pa-species").addEventListener("change",()=>{$("#pa-hint").textContent=$("#pa-species").value==="dog"?"Use a decimal for months — 0.17 is about 2 months. Minimum 0.15 years (8 weeks).":"Use a decimal for months — 0.5 is 6 months.";run()});
+$("#pa-age").addEventListener("input",run);
+$("#pa-calc").addEventListener("click",run);
+run();
+})();
+</script>'''
+    faq_html, faq_ld = tool_faq([
+        ("What formula converts dog years to human years?", "The most current science-based formula comes from a 2020 study that mapped DNA-methylation changes in dogs onto the same changes in humans: human age = 16 × ln(dog age) + 31. It replaces the old \"first year = 15, second = 9, then 5 per year after\" rule, which the AVMA has since removed from its site."),
+        ("Is the cat-years formula the same everywhere?", "This calculator uses International Cat Care's published chart, developed jointly with the American Animal Hospital Association and the American Association of Feline Practitioners: the first year is 15 human years, the second brings the total to 24, and each year after that adds 4."),
+        ("Why can't I enter a dog age under 0.15 years?", "The DNA-methylation formula was fit to dogs from about 4 weeks old, but the equation itself only holds up from roughly 8 weeks onward — below that it produces negative, meaningless numbers. For very young puppies, milestone-based charts are more reliable than a single equation."),
+        ("Does breed or size change the human-year conversion?", "For dogs, yes in practice — small breeds tend to live longer and age more slowly than giant breeds, something one formula can't capture. The 2020 study's formula is a population average from Labrador retrievers, a medium-large breed, so treat it as a reasonable estimate rather than an exact figure for every breed."),
+    ])
+    below = f'''
+<section><h2>How this pet age calculator works</h2><p>For dogs, it applies the combined function from a 2020 DNA-methylation study: <span class="mono">human age = 16 &times; ln(dog age) + 31</span>. For cats, it linearly interpolates International Cat Care's published age chart — a series of known points (6 months ≈ 10, 1 year ≈ 15, 2 years ≈ 24, then +4 per year) rather than a single formula, since cat aging doesn't follow a clean logarithmic curve the same way.</p></section>
+<section><h2>Sources</h2><p>Dog formula and reference points: Wang, T., Ma, J., Hogan, A.N., et al., <a href="https://www.cell.com/cell-systems/fulltext/S2405-4712(20)30203-9">"Quantitative Translation of Dog-to-Human Aging by Conserved Remodeling of the DNA Methylome"</a>, Cell Systems 11 (2020) — formula confirmed from the <a href="https://idekerlab.ucsd.edu/wp-content/uploads/2020/07/Wang_CellSystems2020.pdf">authors' own PDF</a> (combined function, Figure 3D). Cat age chart: <a href="https://icatcare.org/articles/how-to-tell-your-cats-age-in-human-years">International Cat Care, "How to tell your cat's age in human years"</a>, developed with the AAHA and AAFP; life stage boundaries confirmed against the <a href="https://www.aaha.org/wp-content/uploads/globalassets/02-guidelines/feline-life-stage-2021/2021-aaha-aafp-feline-life-stage-guidelines.pdf">2021 AAHA/AAFP Feline Life Stage Guidelines</a>. Fetched September 18, 2026.</p></section>
+<section><h2>Questions</h2>{faq_html}</section>
+{more_tools(path)}'''
+    desc = "Free pet age calculator for dogs and cats. Dogs use the 2020 DNA-methylation study formula; cats use International Cat Care's published age chart (with AAHA/AAFP). Get human years and life stage."
+    ld = tool_ld("Pet Age Calculator", path, desc, "LifestyleApplication", faq_ld)
+    body = tool_shell("pawlog", "Free pet tool", "Pet age calculator", "How old your dog or cat is in human years, using a 2020 DNA-methylation study for dogs and International Cat Care's published chart for cats.", calculator, below)
+    return page("Pet Age Calculator — Dog & Cat Years to Human Years | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-pet-age-calculator.png")
+
+def pet_calorie_tool():
+    a = DATA["apps"]["pawlog"]; path = "/tools/dog-cat-calorie-calculator/"
+    calculator = r'''
+<style>.calculator [hidden]{display:none!important}</style>
+<div class="fields">
+<div class="field"><label for="pc-species">Pet</label><select id="pc-species"><option value="dog">Dog</option><option value="cat">Cat</option></select></div>
+<div class="field"><label for="pc-weight">Weight</label><input id="pc-weight" type="number" min="0.1" step="0.1" value="20" inputmode="decimal"></div>
+<div class="field"><label for="pc-unit">Unit</label><select id="pc-unit"><option value="kg">kg</option><option value="lb">lb</option></select></div>
+<div class="field wide" id="pc-dog-status"><label for="pc-dog-select">Life stage / status</label><select id="pc-dog-select">
+<option value="1.6">Adult, neutered or spayed</option>
+<option value="1.8">Adult, intact (not neutered/spayed)</option>
+<option value="1.4">Adult prone to weight gain, or on a weight-loss plan</option>
+<option value="2">Puppy, over 4 months old</option>
+<option value="3">Puppy, 4 months or younger</option>
+</select></div>
+<div class="field wide" id="pc-cat-status" hidden><label for="pc-cat-select">Life stage / status</label><select id="pc-cat-select">
+<option value="1.2">Adult, neutered or spayed</option>
+<option value="1.4">Adult, intact (not neutered/spayed)</option>
+<option value="1">Adult prone to weight gain</option>
+<option value="2.5">Kitten</option>
+</select></div>
+<div class="field"><label for="pc-kcal">Food energy (kcal per cup, optional)</label><input id="pc-kcal" type="number" min="0" step="1" value="" inputmode="decimal" placeholder="e.g. 350"></div>
+</div>
+<div class="actions"><button id="pc-calc" type="button">Calculate</button><span class="hint">Uses your pet's current healthy weight</span></div>
+<p id="pc-error" class="error" role="alert"></p>
+<div id="pc-result" class="result" aria-live="polite" hidden>
+<span class="eyebrow">Daily calories (MER)</span><strong class="big" id="pc-big">—</strong>
+<dl><div><dt>Resting energy (RER)</dt><dd id="pc-rer">—</dd></div><div><dt>Multiplier</dt><dd id="pc-mult">—</dd></div><div><dt>Food needed</dt><dd id="pc-cups">—</dd></div></dl>
+<p class="fine" id="pc-note" style="margin-top:14px"></p>
+</div>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+const speciesSel=$("#pc-species");
+speciesSel.addEventListener("change",()=>{$("#pc-dog-status").hidden=speciesSel.value!=="dog";$("#pc-cat-status").hidden=speciesSel.value!=="cat";run()});
+function run(){
+ const err=$("#pc-error"); err.textContent=""; $("#pc-result").hidden=true;
+ const w=Number($("#pc-weight").value), unit=$("#pc-unit").value, kcalPerCup=Number($("#pc-kcal").value);
+ if(!(w>0)){err.textContent="Enter a weight greater than 0.";return}
+ const kg=unit==="lb"?w/2.2046226218:w;
+ const species=speciesSel.value;
+ const statusSel=species==="dog"?$("#pc-dog-select"):$("#pc-cat-select");
+ const mult=Number(statusSel.value), label=statusSel.selectedOptions[0].textContent;
+ const rer=70*Math.pow(kg,0.75);
+ const mer=rer*mult;
+ $("#pc-big").textContent=`${Math.round(mer)} kcal/day`;
+ $("#pc-rer").textContent=`${Math.round(rer)} kcal/day`;
+ $("#pc-mult").textContent=`${mult}× (${label})`;
+ $("#pc-cups").textContent=kcalPerCup>0?`${(mer/kcalPerCup).toFixed(2)} cups/day`:"Enter kcal/cup above for a cups/day estimate";
+ $("#pc-note").textContent=`RER = 70 × (weight in kg)^0.75 = 70 × ${kg.toFixed(2)}kg^0.75. MER = RER × ${mult} for "${label.toLowerCase()}". Treat this as a starting point — adjust from your pet's actual body condition, and check with a vet for weight-loss or medical diets.`;
+ $("#pc-result").hidden=false;
+}
+$("#pc-weight").addEventListener("input",run);$("#pc-unit").addEventListener("input",run);$("#pc-kcal").addEventListener("input",run);
+$("#pc-dog-select").addEventListener("input",run);$("#pc-cat-select").addEventListener("input",run);
+$("#pc-calc").addEventListener("click",run);
+run();
+})();
+</script>'''
+    faq_html, faq_ld = tool_faq([
+        ("What is RER and MER?", "RER (Resting Energy Requirement) is the calories a pet burns at complete rest — base metabolism only. MER (Maintenance Energy Requirement) multiplies RER by a life-stage and activity factor to estimate typical daily need."),
+        ("Why does neutering lower the calorie estimate?", "Neutered pets tend to run a lower metabolic rate, so veterinary references use a smaller multiplier — 1.6× RER for dogs and 1.2× for cats — than for intact adults, at 1.8× and 1.4×."),
+        ("How much food is that in cups?", "Enter your food's energy density (kcal per cup — check the bag or the manufacturer's site for \"metabolizable energy\" or \"kcal/cup\") and the calculator divides your daily calories by it."),
+        ("Should I trust this over my vet or the bag's feeding chart?", "Use it as a starting point, not a prescription. Bag feeding charts often run high because they assume an average, unneutered, moderately active pet — actual needs vary a good deal between individuals at the same weight. Weigh your pet periodically and adjust the amount you feed."),
+    ])
+    below = f'''
+<section><h2>How this calorie calculator works</h2><p><span class="mono">RER = 70 &times; (weight in kg)<sup>0.75</sup></span> is the standard veterinary formula for resting energy, valid at any body weight. <span class="mono">MER = RER &times; multiplier</span>, where the multiplier depends on life stage and reproductive status — from 1.0&times; for a cat prone to weight gain up to 3&times; for a puppy under 4 months old.</p></section>
+<section><h2>Sources</h2><p>RER formula and the full MER multiplier table (life stage / status &times; RER): <a href="https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/nutritional-requirements-of-small-animals">Merck Veterinary Manual, "Nutritional Requirements of Small Animals"</a>, the standard veterinary reference, itself drawn from the National Research Council's <em>Nutrient Requirements of Dogs and Cats</em> (2006). Fetched September 18, 2026.</p></section>
+<section><h2>Questions</h2>{faq_html}</section>
+{more_tools(path)}'''
+    desc = "Free dog and cat daily calorie calculator (RER/MER). Enter weight, species, and life stage/status to get resting and maintenance energy needs, plus cups/day if you know your food's kcal per cup."
+    ld = tool_ld("Dog & Cat Calorie Calculator", path, desc, "LifestyleApplication", faq_ld)
+    body = tool_shell("pawlog", "Free pet tool", "Dog & cat calorie calculator", "Daily calorie needs (RER and MER) for a dog or cat, from weight, species, and life stage or status, using the standard veterinary formula.", calculator, below)
+    return page("Dog & Cat Calorie Calculator — RER/MER Daily Feeding | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-dog-cat-calorie-calculator.png")
+
+def whetstone_angle_tool():
+    a = DATA["apps"]["whetlog"]; path = "/tools/whetstone-angle-calculator/"
+    calculator = r'''
+<style>.calculator [hidden]{display:none!important}</style>
+<div class="fields">
+<div class="field wide"><label for="wa-mode">Method</label><select id="wa-mode"><option value="freehand">Freehand — prop the spine up</option><option value="guided">Guided rod system</option></select></div>
+</div>
+<div id="wa-freehand">
+<div class="fields" style="margin-top:16px">
+<div class="field"><label for="wa-height">Blade height, edge to spine (mm)</label><input id="wa-height" type="number" min="1" max="200" step="0.5" value="35"></div>
+<div class="field wide"><label for="wa-solve">Solve for</label><select id="wa-solve"><option value="lift">Spine lift, for a target angle</option><option value="angle">Angle, from a spine lift I used</option></select></div>
+<div class="field" id="wa-anglefield"><label for="wa-angle-preset">Target angle, per side</label><select id="wa-angle-preset">
+<option value="10">10&deg; — very acute (Japanese single-bevel)</option>
+<option value="12">12&deg; — Japanese double-bevel, fine</option>
+<option value="15" selected>15&deg; — Japanese double-bevel, standard</option>
+<option value="18">18&deg; — Western kitchen knife</option>
+<option value="20">20&deg; — Western kitchen / EDC</option>
+<option value="25">25&deg; — outdoor / heavy-use knife</option>
+<option value="custom">Custom</option>
+</select></div>
+<div class="field" id="wa-anglecustom" hidden><label for="wa-angle-custom">Custom angle, per side (&deg;)</label><input id="wa-angle-custom" type="number" min="1" max="45" step="0.1" value="15"></div>
+<div class="field" id="wa-liftfield" hidden><label for="wa-lift">Spine lift you used (mm)</label><input id="wa-lift" type="number" min="0" step="0.1" value="9"></div>
+</div>
+</div>
+<div id="wa-guided" hidden>
+<div class="fields" style="margin-top:16px">
+<div class="field"><label for="wa-rod">Rod / spacer height (mm)</label><input id="wa-rod" type="number" min="0.1" step="0.1" value="50"></div>
+<div class="field"><label for="wa-dist">Horizontal distance, edge to rod (mm)</label><input id="wa-dist" type="number" min="1" step="1" value="200"></div>
+</div>
+</div>
+<div class="actions"><button id="wa-calc" type="button">Calculate</button></div>
+<p id="wa-error" class="error" role="alert"></p>
+<div id="wa-result" class="result" aria-live="polite" hidden>
+<span class="eyebrow" id="wa-lead">Per-side angle</span><strong class="big" id="wa-big">15.00&deg;</strong>
+<dl><div><dt>Per-side angle</dt><dd id="wa-v1">15.00&deg;</dd></div><div><dt>Inclusive edge angle</dt><dd id="wa-v2">30.00&deg;</dd></div><div><dt id="wa-k3">Spine lift</dt><dd id="wa-v3">9.06mm</dd></div></dl>
+<p class="fine" id="wa-note" style="margin-top:14px"></p>
+</div>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+const modeSel=$("#wa-mode"), solveSel=$("#wa-solve"), anglePreset=$("#wa-angle-preset");
+function syncVisibility(){
+ const mode=modeSel.value;
+ $("#wa-freehand").hidden = mode!=="freehand";
+ $("#wa-guided").hidden = mode!=="guided";
+ const solve=solveSel.value;
+ $("#wa-anglefield").hidden = solve!=="lift";
+ $("#wa-anglecustom").hidden = !(solve==="lift" && anglePreset.value==="custom");
+ $("#wa-liftfield").hidden = solve!=="angle";
+}
+modeSel.addEventListener("change",()=>{syncVisibility();run()});
+solveSel.addEventListener("change",()=>{syncVisibility();run()});
+anglePreset.addEventListener("change",()=>{syncVisibility();run()});
+function run(){
+ syncVisibility();
+ const err=$("#wa-error"); err.textContent=""; $("#wa-result").hidden=true;
+ const mode=modeSel.value;
+ const rad=d=>d*Math.PI/180, deg=r=>r*180/Math.PI;
+ if(mode==="freehand"){
+  const height=Number($("#wa-height").value);
+  if(!(height>0)){err.textContent="Enter a blade height greater than 0.";return}
+  const solve=solveSel.value;
+  let angle, lift;
+  if(solve==="lift"){
+   angle = anglePreset.value==="custom" ? Number($("#wa-angle-custom").value) : Number(anglePreset.value);
+   if(!(angle>0)||angle>=90){err.textContent="Enter an angle greater than 0 and less than 90 degrees.";return}
+   lift = height*Math.sin(rad(angle));
+   $("#wa-lead").textContent="Spine lift";
+   $("#wa-big").textContent=`${lift.toFixed(2)}mm`;
+  } else {
+   lift = Number($("#wa-lift").value);
+   if(!(lift>0)||lift>height){err.textContent="Enter a spine lift greater than 0 and no more than the blade height.";return}
+   angle = deg(Math.asin(lift/height));
+   $("#wa-lead").textContent="Per-side angle";
+   $("#wa-big").textContent=`${angle.toFixed(2)}°`;
+  }
+  $("#wa-v1").textContent=`${angle.toFixed(2)}°`;
+  $("#wa-v2").textContent=`${(angle*2).toFixed(2)}°`;
+  $("#wa-k3").textContent="Spine lift";
+  $("#wa-v3").textContent=`${lift.toFixed(2)}mm`;
+  $("#wa-note").textContent=`Prop the spine up ${lift.toFixed(1)}mm above the stone (stacked coins, a stack of cards, or an angle guide) and hold that height through every stroke. Blade height measured ${height}mm, edge to spine.`;
+ } else {
+  const rod=Number($("#wa-rod").value), dist=Number($("#wa-dist").value);
+  if(!(rod>0)){err.textContent="Enter a rod or spacer height greater than 0.";return}
+  if(!(dist>0)){err.textContent="Enter a horizontal distance greater than 0.";return}
+  const angle=deg(Math.atan(rod/dist));
+  $("#wa-lead").textContent="Per-side angle";
+  $("#wa-big").textContent=`${angle.toFixed(2)}°`;
+  $("#wa-v1").textContent=`${angle.toFixed(2)}°`;
+  $("#wa-v2").textContent=`${(angle*2).toFixed(2)}°`;
+  $("#wa-k3").textContent="Rod height : distance";
+  $("#wa-v3").textContent=`${rod}mm : ${dist}mm`;
+  $("#wa-note").textContent="Guided-rod angle = atan(rod height ÷ horizontal distance from the edge to the rod). Move the clamp further from the rod, or use a shorter rod, to shallow the angle.";
+ }
+ $("#wa-result").hidden=false;
+}
+document.querySelectorAll("#wa-height,#wa-angle-custom,#wa-lift,#wa-rod,#wa-dist").forEach(el=>el.addEventListener("input",run));
+$("#wa-calc").addEventListener("click",run);
+syncVisibility();run();
+})();
+</script>'''
+    faq_html, faq_ld = tool_faq([
+        ("What's the easiest way to set a consistent sharpening angle without a jig?", "Measure your blade's height from edge to spine, multiply by the sine of your target angle, and that's how high to prop the spine off the stone — with two stacked coins, a stack of playing cards, or a wedge. Hold that height through every stroke."),
+        ("Why do Japanese knives use a shallower angle than Western knives?", "Japanese kitchen knives typically run harder steel (often 60+ HRC) that can hold a thinner, more acute edge without chipping in normal kitchen use. Western knives use softer, tougher steel that needs more metal behind the edge to survive, hence the wider angle."),
+        ("How does a guided (fixed-angle) sharpening system set its angle?", "The angle is the arctangent of the rod or spacer height divided by the horizontal distance from the blade's clamped edge to that rod. Raising the rod, or clamping the blade closer to it, steepens the angle."),
+        ("Is spine lift the same as bevel width?", "No. Spine lift is how far you raise the knife's back off the stone to hit an angle; bevel width is how wide the resulting ground facet looks on the blade, which depends on the angle and the edge's thickness, not on spine lift directly."),
+    ])
+    below = f'''
+<section><h2>How this whetstone angle calculator works</h2><p>Freehand mode uses the trigonometric relationship between a blade's height and the sharpening angle: <span class="mono">spine lift = blade height &times; sin(angle)</span>, and its inverse, <span class="mono">angle = asin(spine lift / blade height)</span>. Guided-rod mode uses <span class="mono">angle = atan(rod height / horizontal distance)</span>, the geometry of a fixed pivot and a spacer under one end of a straight guide rod. Both modes report the per-side angle (what you set on one face) and the inclusive angle (both sides combined, what you'd measure across the finished edge).</p></section>
+<section><h2>Sources</h2><p>Spine-lift formula and worked check (50mm blade at 15&deg; needs 12.94mm of lift): <a href="https://www.knivesandtools.com/en/ct/find-the-correct-sharpening-angle-in-three-steps.htm">Knivesandtools, "Find the correct sharpening angle in three steps"</a>. Typical angle ranges (about 15&deg; per side for Japanese double-bevel knives, 18&ndash;20&deg; for Western): the same source and <a href="https://us.santokuknives.co.uk/blogs/blog/how-to-use-a-whetstone-angle-guide">Santoku Knives, "How to Use a Whetstone Angle Guide"</a>. Guided-rod formula and worked check (0.4cm spacer at 19cm gives 1.21&deg;, at 9.5cm gives 2.41&deg;): <a href="https://www.bladeforums.com/threads/trigonometry.369442/">BladeForums, "Trigonometry"</a>. Verified against this calculator on September 18, 2026.</p></section>
+<section><h2>Questions</h2>{faq_html}</section>
+{more_tools(path)}'''
+    desc = "Free whetstone sharpening angle calculator. Freehand mode converts blade height and target angle to spine-lift height (or back). Guided-rod mode converts rod height and clamp distance to angle."
+    ld = tool_ld("Whetstone Angle Calculator", path, desc, "UtilitiesApplication", faq_ld)
+    body = tool_shell("whetlog", "Free sharpening tool", "Whetstone angle calculator", "Spine-lift height for a target sharpening angle (or the angle for a lift you used), freehand or on a guided rod system.", calculator, below)
+    return page("Whetstone Angle Calculator — Sharpening Angle & Spine Lift | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-whetstone-angle-calculator.png")
+
 # ---------------------------------------------------------------- tools hub
 def tools_hub():
     cards = ""
@@ -1820,7 +2110,7 @@ def tools_hub():
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Free web tools", "url": ORIGIN + "/tools/",
           "publisher": {"@type": "Organization", "name": "Softgrove", "url": ORIGIN + "/"}}
     return page("Free Web Calculators — Fuel Cost, Sourdough Hydration, Reef Dosing & More | Softgrove",
-                "Twelve free browser calculators from Softgrove: fuel cost, houseplant watering, sourdough hydration, reef dosing, reading time, varroa mites, film reciprocity, kiln cost, cut list, board feet, miter angle, shelf sag.",
+                "Fifteen free browser calculators from Softgrove: fuel cost, houseplant watering, sourdough hydration, reef dosing, reading time, varroa mites, film reciprocity, kiln cost, cut list, board feet, miter angle, shelf sag, pet age, pet calories, whetstone angle.",
                 "/tools/", body, ld, "", "/og/tools.png")
 
 def templates_hub():
@@ -1952,7 +2242,10 @@ def main():
              "/tools/varroa-mite-calculator/": varroa_tool(),
              "/tools/board-feet-calculator/": board_feet_tool(),
              "/tools/miter-angle-calculator/": miter_angle_tool(),
-             "/tools/wood-shelf-sag-calculator/": shelf_sag_tool()}
+             "/tools/wood-shelf-sag-calculator/": shelf_sag_tool(),
+             "/tools/pet-age-calculator/": pet_age_tool(),
+             "/tools/dog-cat-calorie-calculator/": pet_calorie_tool(),
+             "/tools/whetstone-angle-calculator/": whetstone_angle_tool()}
     for key, a in DATA["apps"].items():
         if a["asc"] not in DESCS: continue  # e.g. Fibrolog: added to apps.json, ASC desc not live yet
         pages[f"/apps/{key}/"] = app_page(key)
