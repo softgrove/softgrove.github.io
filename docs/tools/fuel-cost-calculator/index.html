@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fuel Cost Calculator — Trip Cost, Cost per Mile &amp; MPG | Softgrove</title>
+<meta name="description" content="Free fuel cost calculator: trip fuel cost and cost per mile from distance, MPG or L/100 km, and pump price. Also works out MPG from two fill-ups the way MotorLog does.">
+<link rel="canonical" href="https://softgrove.github.io/tools/fuel-cost-calculator/">
+<meta property="og:title" content="Fuel Cost Calculator — Trip Cost, Cost per Mile &amp; MPG | Softgrove">
+<meta property="og:description" content="Free fuel cost calculator: trip fuel cost and cost per mile from distance, MPG or L/100 km, and pump price. Also works out MPG from two fill-ups the way MotorLog does.">
+<meta property="og:url" content="https://softgrove.github.io/tools/fuel-cost-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://softgrove.github.io/og/tools-fuel-cost-calculator.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&display=swap" rel="stylesheet"></noscript><meta name="apple-itunes-app" content="app-id=6781159313">
+<style>
+:root{--paper:#FBFAF7;--ink:#2C282C;--muted:#6E6870;--line:#E7E2D9;--teal:#3E8E8C}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.serif{font-family:"Newsreader",Georgia,serif}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+header.mast{border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:baseline;justify-content:space-between;padding-top:22px;padding-bottom:18px}
+.wordmark{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;text-decoration:none;letter-spacing:-.01em}
+.wordmark b{color:var(--teal);font-weight:600}
+nav.top a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px}
+nav.top a:hover{color:var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.015em}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-size:15px;font-weight:600;padding:13px 26px;border-radius:8px}
+.btn:hover{opacity:.88}
+.badge-store{display:inline-flex;align-items:center;gap:9px;background:#000;color:#fff;text-decoration:none;border-radius:9px;padding:9px 18px 9px 14px;line-height:1.15}
+.badge-store svg{width:22px;height:26px;flex:none}
+.badge-store small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.badge-store span{font-size:17px;font-weight:600;letter-spacing:.01em}
+footer{border-top:1px solid var(--line);margin-top:96px}
+footer .wrap{padding:34px 24px 46px;display:flex;flex-wrap:wrap;gap:10px 34px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-family:ui-monospace,monospace;color:var(--muted);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#4d4850;max-width:62ch}
+@media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Fuel Cost Calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "url": "https://softgrove.github.io/tools/fuel-cost-calculator/", "isAccessibleForFree": true, "description": "Free fuel cost calculator: trip fuel cost and cost per mile from distance, MPG or L/100 km, and pump price. Also works out MPG from two fill-ups the way MotorLog does.", "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate the fuel cost of a trip?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the distance by your fuel economy to get the fuel needed, then multiply by the price per gallon or litre. For 250 miles at 32 MPG and $3.45 per gallon: 250 ÷ 32 = 7.81 gallons, × 3.45 = $26.95."}}, {"@type": "Question", "name": "How do I work out MPG from fill-ups?", "acceptedAnswer": {"@type": "Answer", "text": "Fill the tank, note the odometer, drive, fill it again to full. MPG = miles driven ÷ gallons added on the second fill. Any partial fills in between are added to that gallon figure. Two full fills are the minimum."}}, {"@type": "Question", "name": "What is cost per mile?", "acceptedAnswer": {"@type": "Answer", "text": "Total spent on fuel divided by miles driven over the same interval. MotorLog also adds service costs to give an all-in cost per mile in its Insights view."}}, {"@type": "Question", "name": "Why does the calculator support L/100 km, km/L, and UK MPG?", "acceptedAnswer": {"@type": "Answer", "text": "Fuel economy is quoted differently by region. All inputs are converted to litres per 100 km internally, so mixing units such as miles with litre prices works."}}]}]}</script>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<a class="wordmark" href="/">softgrove<b>.</b></a>
+<nav class="top"><a href="/#apps">Apps</a><a href="/tools/reciprocity-calculator/">Free tools</a><a href="/templates/">Free templates</a></nav>
+</div></header>
+
+<style>
+.tool-hero{padding:64px 0 30px;max-width:820px}
+.tool-hero h1{font-size:clamp(38px,6vw,60px);max-width:18ch;margin-top:8px}
+.tool-hero .lede{font-size:19px;color:#4d4850;margin-top:18px;max-width:64ch}
+.calculator{max-width:820px;background:#fff;border:1px solid var(--line);border-top:5px solid #E87722;border-radius:14px;padding:clamp(18px,4vw,34px);box-shadow:0 10px 30px rgba(44,40,44,.06)}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.wide{grid-column:1/-1}
+label,.label{font-weight:600;font-size:14px}
+input,select,button{font:inherit}
+input,select{width:100%;min-height:46px;border:1px solid #b9b2a6;border-radius:8px;background:#fff;color:var(--ink);padding:9px 11px}
+button{border:0;border-radius:8px;background:var(--ink);color:var(--paper);font-weight:600;padding:12px 19px;cursor:pointer}
+button.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+button.danger{background:transparent;color:#7a2e33;padding:8px}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}
+.hint,.fine{font-size:13px;color:var(--muted)}
+.result{margin-top:24px;background:#F5F5F4;border-radius:10px;padding:20px}
+.result strong.big{display:block;font-family:"Newsreader",Georgia,serif;font-size:clamp(30px,6vw,44px);font-weight:500;line-height:1.1;color:#21242A}
+.result dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+.result dt{font-size:12px;color:var(--muted)}.result dd{font-weight:600}
+.error{color:#9b2c2c;font-size:14px;margin-top:12px;min-height:1.5em}
+.rows{display:grid;gap:10px;margin-top:10px}
+.entry-row{display:grid;grid-template-columns:2fr 2fr 1fr auto;gap:8px;align-items:end}
+.tool-copy{max-width:780px;margin-top:62px}.tool-copy section{margin-top:46px}
+.tool-copy h2{font-size:30px;margin-bottom:14px}.tool-copy p{margin-top:12px;max-width:66ch}
+.sources{padding-left:20px;display:grid;gap:9px;margin-top:14px;font-size:14px}
+.app-cta{margin-top:56px;background:#F5F5F4;border:1px solid var(--line);border-radius:14px;padding:28px}
+.app-cta h2{font-size:28px}.app-cta p{margin:10px 0 20px;max-width:62ch;color:#4d4850}
+.sheet-output{display:grid;gap:20px;margin-top:18px}
+.sheet-output figure{margin:0}.sheet-output figcaption{font-size:13px;color:var(--muted);margin-bottom:7px}
+.sheet-output svg{display:block;width:100%;height:auto;max-height:520px;background:#f8f5ef;border:1px solid var(--line)}
+@media(max-width:640px){.tool-hero{padding-top:46px}.fields,.result dl{grid-template-columns:1fr}.entry-row{grid-template-columns:1fr 1fr auto}.entry-row .row-name{grid-column:1/-1}nav.top a{margin-left:12px;font-size:12px}}
+</style>
+<main class="wrap">
+<header class="tool-hero"><p class="eyebrow">Free car tool</p><h1>Fuel cost calculator</h1><p class="lede">How much a trip will cost in fuel, your cost per mile, and the MPG you actually got on the last tank.</p></header>
+<section class="calculator" aria-label="Fuel cost calculator">
+<style>.calculator [hidden]{display:none!important}</style>
+<div class="fields">
+<div class="field wide"><label for="fc-mode">What do you want to work out?</label><select id="fc-mode"><option value="trip">Fuel cost of a trip</option><option value="mpg">Fuel economy from two fill-ups</option></select></div>
+</div>
+<div id="fc-trip">
+<div class="fields" style="margin-top:16px">
+<div class="field"><label for="fc-dist">Distance</label><input id="fc-dist" type="number" min="0" step="1" value="250" inputmode="decimal"></div>
+<div class="field"><label for="fc-dist-unit">Distance unit</label><select id="fc-dist-unit"><option value="mi">miles</option><option value="km">kilometres</option></select></div>
+<div class="field"><label for="fc-econ">Fuel economy</label><input id="fc-econ" type="number" min="0" step="0.1" value="32" inputmode="decimal"></div>
+<div class="field"><label for="fc-econ-unit">Economy unit</label><select id="fc-econ-unit"><option value="mpgus">MPG (US gallon)</option><option value="mpguk">MPG (UK gallon)</option><option value="l100">L/100 km</option><option value="kml">km/L</option></select></div>
+<div class="field"><label for="fc-price">Fuel price</label><input id="fc-price" type="number" min="0" step="0.001" value="3.45" inputmode="decimal"></div>
+<div class="field"><label for="fc-price-unit">Price per</label><select id="fc-price-unit"><option value="galus">US gallon</option><option value="galuk">UK gallon</option><option value="l">litre</option></select></div>
+</div>
+</div>
+<div id="fc-fill" hidden>
+<div class="fields" style="margin-top:16px">
+<div class="field"><label for="fc-odo1">Odometer at previous full fill</label><input id="fc-odo1" type="number" min="0" step="1" value="41200" inputmode="decimal"></div>
+<div class="field"><label for="fc-odo2">Odometer at this full fill</label><input id="fc-odo2" type="number" min="0" step="1" value="41538" inputmode="decimal"></div>
+<div class="field"><label for="fc-vol">Fuel added to refill (this fill + any partial fills since)</label><input id="fc-vol" type="number" min="0" step="0.01" value="10.6" inputmode="decimal"></div>
+<div class="field"><label for="fc-vol-unit">Units</label><select id="fc-vol-unit"><option value="mi-galus">miles &amp; US gallons</option><option value="mi-galuk">miles &amp; UK gallons</option><option value="km-l">kilometres &amp; litres</option></select></div>
+<div class="field"><label for="fc-paid">Total paid for that fuel (optional)</label><input id="fc-paid" type="number" min="0" step="0.01" value="36.57" inputmode="decimal"></div>
+</div>
+</div>
+<div class="actions"><button id="fc-calc" type="button">Calculate</button><span class="hint">Updates as you type</span></div>
+<p id="fc-error" class="error" role="alert"></p>
+<div id="fc-result" class="result" aria-live="polite">
+<span class="eyebrow" id="fc-lead">Trip fuel cost</span><strong class="big" id="fc-big">—</strong>
+<dl><div><dt id="fc-k1">Fuel needed</dt><dd id="fc-v1">—</dd></div><div><dt id="fc-k2">Cost per mile</dt><dd id="fc-v2">—</dd></div><div><dt id="fc-k3">Economy used</dt><dd id="fc-v3">—</dd></div></dl>
+<p class="fine" id="fc-note" style="margin-top:14px"></p>
+</div>
+<script>
+(()=>{
+"use strict";
+const KM_PER_MI=1.609344,L_PER_GALUS=3.785411784,L_PER_GALUK=4.54609;
+const $=s=>document.querySelector(s),num=id=>Number($(id).value);
+function toL100(v,u){if(v<=0)return NaN;if(u==="l100")return v;if(u==="kml")return 100/v;if(u==="mpgus")return 100*L_PER_GALUS/(v*KM_PER_MI);return 100*L_PER_GALUK/(v*KM_PER_MI)}
+function litresPerUnit(u){return u==="galus"?L_PER_GALUS:u==="galuk"?L_PER_GALUK:1}
+function money(x){return x.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}
+function trip(){
+ const dist=num("#fc-dist"),du=$("#fc-dist-unit").value,econ=num("#fc-econ"),eu=$("#fc-econ-unit").value,price=num("#fc-price"),pu=$("#fc-price-unit").value;
+ if(!(dist>0)||!(econ>0)||!(price>=0))return "Enter a distance, a fuel economy, and a fuel price above zero.";
+ const km=du==="mi"?dist*KM_PER_MI:dist,l100=toL100(econ,eu),litres=km*l100/100,perUnit=litresPerUnit(pu),units=litres/perUnit,cost=units*price;
+ const unitName=pu==="l"?"L":pu==="galus"?"US gal":"UK gal",dn=du==="mi"?"mile":"km";
+ $("#fc-lead").textContent="Trip fuel cost";$("#fc-big").textContent=money(cost);
+ $("#fc-k1").textContent="Fuel needed";$("#fc-v1").textContent=`${units.toFixed(2)} ${unitName}`;
+ $("#fc-k2").textContent=`Cost per ${dn}`;$("#fc-v2").textContent=(cost/dist).toFixed(3);
+ $("#fc-k3").textContent="Economy used";$("#fc-v3").textContent=`${l100.toFixed(2)} L/100 km`;
+ $("#fc-note").textContent=`${dist.toLocaleString()} ${du} at ${econ} ${$("#fc-econ-unit").selectedOptions[0].textContent} with fuel at ${price} per ${$("#fc-price-unit").selectedOptions[0].textContent}. Same arithmetic as MotorLog's cost-per-mile figure: fuel used × price ÷ distance.`;
+ return ""}
+function fill(){
+ const o1=num("#fc-odo1"),o2=num("#fc-odo2"),vol=num("#fc-vol"),u=$("#fc-vol-unit").value,paid=num("#fc-paid");
+ const distance=o2-o1;if(!(distance>0))return "The second odometer reading must be higher than the first.";if(!(vol>0))return "Enter the fuel volume added.";
+ const km=u==="km-l"?distance:distance*KM_PER_MI,litres=u==="km-l"?vol:vol*(u==="mi-galus"?L_PER_GALUS:L_PER_GALUK);
+ const l100=100*litres/km,mpgus=(km/KM_PER_MI)/(litres/L_PER_GALUS),mpguk=(km/KM_PER_MI)/(litres/L_PER_GALUK),kml=km/litres;
+ const primary=u==="km-l"?`${kml.toFixed(2)} km/L`:u==="mi-galus"?`${mpgus.toFixed(1)} MPG`:`${mpguk.toFixed(1)} MPG (UK)`;
+ $("#fc-lead").textContent="Fuel economy over this tank";$("#fc-big").textContent=primary;
+ $("#fc-k1").textContent="Also";$("#fc-v1").textContent=u==="km-l"?`${mpgus.toFixed(1)} MPG · ${l100.toFixed(2)} L/100 km`:`${l100.toFixed(2)} L/100 km · ${kml.toFixed(2)} km/L`;
+ const dn=u==="km-l"?"km":"mile";$("#fc-k2").textContent=`Cost per ${dn}`;$("#fc-v2").textContent=paid>0?(paid/distance).toFixed(3):"—";
+ $("#fc-k3").textContent="Distance on this tank";$("#fc-v3").textContent=`${distance.toLocaleString()} ${u==="km-l"?"km":"mi"}`;
+ $("#fc-note").textContent="MotorLog computes economy only between two full fill-ups: distance driven ÷ (this fill + any partial fills banked since the last full one). Partial fills alone never produce a reading.";
+ return ""}
+function run(){const mode=$("#fc-mode").value;$("#fc-trip").hidden=mode!=="trip";$("#fc-fill").hidden=mode!=="mpg";const err=mode==="trip"?trip():fill();$("#fc-error").textContent=err;if(err){$("#fc-big").textContent="—"}}
+document.querySelectorAll("#fc-mode,#fc-trip input,#fc-trip select,#fc-fill input,#fc-fill select").forEach(el=>el.addEventListener("input",run));
+$("#fc-calc").addEventListener("click",run);$("#fc-mode").addEventListener("change",run);run();
+})();
+</script></section>
+<article class="tool-copy">
+<section><h2>How this fuel cost calculator works</h2><p>Trip cost is fuel used multiplied by pump price. Fuel used is distance divided by economy. Every economy unit is converted to litres per 100 km first, using 1 mile = 1.609344 km, 1 US gallon = 3.785 L, and 1 UK gallon = 4.546 L, so you can mix miles with a per-litre price.</p><p>The fill-up mode uses MotorLog's rule exactly: economy is only measured between two <em>full</em> fills, and the volume for the interval is this fill plus any partial fills since the previous full one. That is why a single fill-up cannot give an MPG figure.</p></section>
+<section><h2>Sources</h2><p>Formulas copied from MotorLog's fuel economy engine on September 17, 2026: <span class="mono">mpg = miles / volumeUsed</span> and <span class="mono">costPerMile = costUsed / miles</span>, where <span class="mono">volumeUsed</span> is the closing full fill plus banked partial fills.</p></section>
+<section><h2>Questions</h2><details><summary>How do I calculate the fuel cost of a trip?</summary><p>Divide the distance by your fuel economy to get the fuel needed, then multiply by the price per gallon or litre. For 250 miles at 32 MPG and $3.45 per gallon: 250 ÷ 32 = 7.81 gallons, × 3.45 = $26.95.</p></details><details><summary>How do I work out MPG from fill-ups?</summary><p>Fill the tank, note the odometer, drive, fill it again to full. MPG = miles driven ÷ gallons added on the second fill. Any partial fills in between are added to that gallon figure. Two full fills are the minimum.</p></details><details><summary>What is cost per mile?</summary><p>Total spent on fuel divided by miles driven over the same interval. MotorLog also adds service costs to give an all-in cost per mile in its Insights view.</p></details><details><summary>Why does the calculator support L/100 km, km/L, and UK MPG?</summary><p>Fuel economy is quoted differently by region. All inputs are converted to litres per 100 km internally, so mixing units such as miles with litre prices works.</p></details></section>
+<section><h2>More free tools</h2><ul class="sources" style="font-size:15px"><li><a href="/tools/houseplant-watering-calculator/">Houseplant watering calculator</a> — How often to water 25 common houseplants, with your next watering dates.</li><li><a href="/tools/sourdough-hydration-calculator/">Sourdough hydration calculator</a> — Dough hydration with levain included, or the water to hit a target, plus salt.</li><li><a href="/tools/reef-dosing-calculator/">Reef dosing calculator</a> — Millilitres of alkalinity, calcium, or magnesium additive to reach a target, from your product label.</li><li><a href="/tools/reading-time-calculator/">Reading time calculator</a> — Days to finish a book from your page pace, or pages per day to hit a deadline.</li><li><a href="/tools/varroa-mite-calculator/">Varroa mite calculator</a> — Mites per 100 bees from an alcohol wash or sugar roll, with the 3% treatment flag.</li><li><a href="/tools/reciprocity-calculator/">Film reciprocity failure calculator</a> — Corrected long-exposure times for HP5 Plus, Tri-X, T-Max, Delta, Portra, Fomapan.</li><li><a href="/tools/kiln-firing-cost-calculator/">Kiln firing cost calculator</a> — Electric kiln firing cost from kilowatts, Orton cone, ramp rate, and electricity rate.</li><li><a href="/tools/cut-list-optimizer/">Cut list optimizer</a> — Guillotine cutting diagram and yield from stock and part sizes, kerf-aware.</li></ul><p class="fine" style="margin-top:12px"><a href="/tools/">All free tools</a> · <a href="/templates/">Free printable templates</a></p></section>
+<aside class="app-cta"><h2>Keep it with you</h2><p>Use MotorLog on iPhone when you need the full tool away from your desk.</p><a class="badge-store" href="https://apps.apple.com/app/id6781159313" aria-label="Download MotorLog on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a></aside>
+</article></main>
+<footer><div class="wrap">
+<span>© 2026 Softgrove — an independent app studio.</span>
+<a href="https://apps.apple.com/developer/id6781130241">App Store developer page</a>
+<a href="/llms.txt">llms.txt</a>
+</div></footer>
+</body></html>

@@ -92,7 +92,15 @@ def main():
         ("tools-reciprocity-calculator", "Film reciprocity failure calculator", "filmrecip"),
         ("tools-kiln-firing-cost-calculator", "Kiln firing cost calculator", "kilncost"),
         ("tools-cut-list-optimizer", "Cut list optimizer", "boardcut"),
+        ("tools-fuel-cost-calculator", "Fuel cost calculator", "motorlog"),
+        ("tools-houseplant-watering-calculator", "How often to water houseplants", "plantlog"),
+        ("tools-sourdough-hydration-calculator", "Sourdough hydration calculator", "banneton"),
+        ("tools-reef-dosing-calculator", "Reef dosing calculator", "coralog"),
+        ("tools-reading-time-calculator", "Reading time calculator", "readlog"),
+        ("tools-varroa-mite-calculator", "Varroa mite calculator", "combwise"),
     ]
+    jobs.append(("tools", "Free calculators, in your browser.", "No sign-up · no install",
+                 [DATA["apps"][k]["accent"] for _, _, k in tool_jobs]))
     for name, title, app_key in tool_jobs:
         ap = DATA["apps"][app_key]
         jobs.append((name, title, "Free web tool", [ap["accent"], ap["bg"]]))

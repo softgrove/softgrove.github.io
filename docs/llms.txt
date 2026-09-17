@@ -24,6 +24,13 @@
 - [Film Reciprocity Failure Calculator](https://softgrove.github.io/tools/reciprocity-calculator/): Reciprocity-corrected long exposure times for HP5 Plus, Tri-X, T-Max, Delta, Portra 400, Fomapan, and more.
 - [Kiln Firing Cost Calculator](https://softgrove.github.io/tools/kiln-firing-cost-calculator/): Electric kiln firing cost from kilowatts, Orton cone, ramp rate, and electricity rate; 49 Skutt/L&L presets or custom.
 - [Cut List Optimizer](https://softgrove.github.io/tools/cut-list-optimizer/): Guillotine cutting diagram and yield from stock and part dimensions, kerf-aware; free for up to 10 parts.
+- [Fuel cost calculator](https://softgrove.github.io/tools/fuel-cost-calculator/): Trip fuel cost and cost per mile from distance, economy, and pump price; MPG from two fill-ups.
+- [Houseplant watering calculator](https://softgrove.github.io/tools/houseplant-watering-calculator/): How often to water 25 common houseplants, with your next watering dates.
+- [Sourdough hydration calculator](https://softgrove.github.io/tools/sourdough-hydration-calculator/): Dough hydration with levain included, or the water to hit a target, plus salt.
+- [Reef dosing calculator](https://softgrove.github.io/tools/reef-dosing-calculator/): Millilitres of alkalinity, calcium, or magnesium additive to reach a target, from your product label.
+- [Reading time calculator](https://softgrove.github.io/tools/reading-time-calculator/): Days to finish a book from your page pace, or pages per day to hit a deadline.
+- [Varroa mite calculator](https://softgrove.github.io/tools/varroa-mite-calculator/): Mites per 100 bees from an alcohol wash or sugar roll, with the 3% treatment flag.
+- Index of all tools: https://softgrove.github.io/tools/
 
 ## Free printable templates (PDF, no sign-up)
 - [Free Printable Eczema Tracker (PDF)](https://softgrove.github.io/templates/eczema-tracker-printable/): A free one-page printable eczema tracker. Log daily flares, itch severity, affected areas, and possible triggers — then bring a concrete record to your dermatologist.

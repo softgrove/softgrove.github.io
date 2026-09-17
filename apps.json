@@ -31,7 +31,8 @@
         "plantlog",
         "motorlog",
         "readlog",
-        "coralog"
+        "coralog",
+        "combwise"
       ]
     },
     {
@@ -46,7 +47,8 @@
       "label": "Kitchen & blade care",
       "note": "Records for the tools you keep sharp — stones, blades, and the sessions between them.",
       "apps": [
-        "whetlog"
+        "whetlog",
+        "banneton"
       ]
     },
     {
@@ -291,6 +293,32 @@
       "spineLabel": "Reciprocity",
       "seoTitle": "FilmRecip — Film Reciprocity Failure Calculator for iPhone",
       "seoDesc": "See the real exposure time before you open the shutter. Meter a long exposure and pick from 40 film stocks — FilmRecip shows the reciprocity-corrected time using each manufacturer's published correction model. Free core, no account — a one-time $7.99 Pro Lifetime unlock adds the shareable result card, favorites, and CSV export."
+    },
+    "banneton": {
+      "name": "Banneton",
+      "asc": "Banneton",
+      "id": "6786377205",
+      "bg": "#EDE7DA",
+      "accent": "#D98A2B",
+      "deep": "#2E2014",
+      "category": "FoodAndDrinkApplication",
+      "catLabel": "Sourdough starter & bake log",
+      "spineLabel": "Sourdough",
+      "seoTitle": "Banneton — Sourdough Starter Tracker & Hydration Calculator for iPhone",
+      "seoDesc": "Know when your starter peaks, log every bake, and work out dough hydration with levain included. Free core, no account — everything stays on your device."
+    },
+    "combwise": {
+      "name": "Combwise",
+      "asc": "Combwise",
+      "id": "6786378275",
+      "bg": "#FBF3DF",
+      "accent": "#E0A21E",
+      "deep": "#3C2A12",
+      "category": "LifestyleApplication",
+      "catLabel": "Beekeeping log & hive tracker",
+      "spineLabel": "Beekeeping",
+      "seoTitle": "Combwise — Beekeeping Log, Hive Inspections & Varroa Tracker for iPhone",
+      "seoDesc": "Log every hive inspection, watch your varroa counts, and keep harvests straight across colonies. Free for two hives, no account — data stays on your device."
     }
   },
   "guides": {

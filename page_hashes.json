@@ -1,7 +1,7 @@
 {
  "/": {
-  "hash": "98f0f2fd3d6a2006",
-  "lastmod": "2026-09-12"
+  "hash": "89c5de63a51804b5",
+  "lastmod": "2026-09-17"
  },
  "/templates/": {
   "hash": "6ee52aa20d94ac14",
@@ -19,25 +19,53 @@
   "hash": "f6a0cff29b04da81",
   "lastmod": "2026-09-12"
  },
+ "/tools/": {
+  "hash": "01e9bbb0015fb1b2",
+  "lastmod": "2026-09-17"
+ },
+ "/tools/fuel-cost-calculator/": {
+  "hash": "e930fb4b3336fc76",
+  "lastmod": "2026-09-17"
+ },
+ "/tools/houseplant-watering-calculator/": {
+  "hash": "eed56c35eb904c89",
+  "lastmod": "2026-09-17"
+ },
+ "/tools/sourdough-hydration-calculator/": {
+  "hash": "fe7a7a439f245e3b",
+  "lastmod": "2026-09-17"
+ },
+ "/tools/reef-dosing-calculator/": {
+  "hash": "fd496f30664dfd84",
+  "lastmod": "2026-09-17"
+ },
+ "/tools/reading-time-calculator/": {
+  "hash": "22edf9d5218a1f89",
+  "lastmod": "2026-09-17"
+ },
+ "/tools/varroa-mite-calculator/": {
+  "hash": "ed6f4f7d56694535",
+  "lastmod": "2026-09-17"
+ },
  "/apps/skinote/": {
-  "hash": "98c1b7b740f74fc4",
-  "lastmod": "2026-09-12"
+  "hash": "851f0d76efea77cf",
+  "lastmod": "2026-09-17"
  },
  "/apps/settura/": {
-  "hash": "2781e11a629b3d95",
-  "lastmod": "2026-09-12"
+  "hash": "1850222f66e7bfb6",
+  "lastmod": "2026-09-17"
  },
  "/apps/refluxlog/": {
-  "hash": "60b132783dd699e1",
-  "lastmod": "2026-09-12"
+  "hash": "d8754092ab038c4e",
+  "lastmod": "2026-09-17"
  },
  "/apps/goutlog/": {
-  "hash": "35a91ebe567b5ac9",
-  "lastmod": "2026-09-12"
+  "hash": "e03422ab71ddedd2",
+  "lastmod": "2026-09-17"
  },
  "/apps/nervelog/": {
-  "hash": "b999e31cf5bf64d4",
-  "lastmod": "2026-09-12"
+  "hash": "3f8d756baee6ad7d",
+  "lastmod": "2026-09-17"
  },
  "/apps/pawlog/": {
   "hash": "b4a9b782d7497a32",
@@ -64,16 +92,16 @@
   "lastmod": "2026-09-12"
  },
  "/apps/whetlog/": {
-  "hash": "20195e7cd6468168",
-  "lastmod": "2026-09-12"
+  "hash": "2211a502d6709611",
+  "lastmod": "2026-09-17"
  },
  "/apps/kilncost/": {
   "hash": "c0a0e002a01a27c7",
   "lastmod": "2026-09-12"
  },
  "/apps/filmrecip/": {
-  "hash": "b2564861d2d1a46e",
-  "lastmod": "2026-09-12"
+  "hash": "67183efe451a50e4",
+  "lastmod": "2026-09-17"
  },
  "/templates/eczema-tracker-printable/": {
   "hash": "2f6622ffe2b4824f",
