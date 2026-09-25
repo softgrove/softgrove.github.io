@@ -111,8 +111,9 @@ FONT = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
 
 APPLE_SVG = '<svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg>'
 
-def store_badge(app_id, name):
-    return (f'<a class="badge-store" href="https://apps.apple.com/app/id{app_id}" '
+def store_badge(app_id, name, ct=None):
+    href = f"https://apps.apple.com/app/id{app_id}" + (f"?ct={ct}" if ct else "")
+    return (f'<a class="badge-store" href="{href}" '
             f'aria-label="Download {esc(name)} on the App Store">{APPLE_SVG}'
             f'<span><small>Download on the</small>App Store</span></a>')
 
@@ -147,7 +148,7 @@ def page(title, desc, path, body, jsonld=None, extra_head="", og_image=None):
 <body>
 <header class="mast"><div class="wrap">
 <a class="wordmark" href="/">softgrove<b>.</b></a>
-<nav class="top"><a href="/#apps">Apps</a><a href="/tools/reciprocity-calculator/">Free tools</a><a href="/templates/">Free templates</a></nav>
+<nav class="top"><a href="/#apps">Apps</a><a href="/tools/">Free tools</a><a href="/templates/">Free templates</a></nav>
 </div></header>
 {body}
 <footer><div class="wrap">
@@ -570,7 +571,7 @@ ol.howto{{padding-left:22px;display:grid;gap:12px;font-size:16.5px;max-width:62c
     return page(t["title"], t["desc"], f"/templates/{slug}/", body, ld, head)
 
 # --------------------------------------------------------------- free tools
-def tool_shell(app_key, eyebrow, h1, lede, calculator, below):
+def tool_shell(app_key, eyebrow, h1, lede, calculator, below, ct=None):
     a = DATA["apps"][app_key]
     return f"""
 <style>
@@ -610,7 +611,7 @@ button.danger{{background:transparent;color:#7a2e33;padding:8px}}
 <header class="tool-hero"><p class="eyebrow">{esc(eyebrow)}</p><h1>{esc(h1)}</h1><p class="lede">{esc(lede)}</p></header>
 <section class="calculator" aria-label="{esc(h1)}">{calculator}</section>
 <article class="tool-copy">{below}
-<aside class="app-cta"><h2>Keep it with you</h2><p>Use {esc(a["name"])} on iPhone when you need the full tool away from your desk.</p>{store_badge(a["id"], a["name"])}</aside>
+<aside class="app-cta"><h2>Keep it with you</h2><p>Use {esc(a["name"])} on iPhone when you need the full tool away from your desk.</p>{store_badge(a["id"], a["name"], ct)}</aside>
 </article></main>"""
 
 def tool_shell_standalone(eyebrow, h1, lede, calculator, below):
@@ -1104,7 +1105,7 @@ run();
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "WebApplication", "name": "Cut List Optimizer", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "url": ORIGIN + "/tools/cut-list-optimizer/", "isAccessibleForFree": True, "description": "Free online cut list optimizer: enter stock sheet sizes and part dimensions to get a guillotine cutting diagram and yield, kerf-aware."},
         {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this a true guillotine cut layout?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, every part can be freed using only straight, edge-to-edge saw cuts."}}, {"@type": "Question", "name": "What does yield mean here?", "acceptedAnswer": {"@type": "Answer", "text": "Total part area divided by the stock area used, as a percentage."}}]}]}
-    body = tool_shell("boardcut", "Free woodworking tool", "Cut list optimizer", "Turn a stock list and a parts list into a kerf-aware cutting diagram. Free for up to 10 parts.", calculator, below)
+    body = tool_shell("boardcut", "Free woodworking tool", "Cut list optimizer", "Turn a stock list and a parts list into a kerf-aware cutting diagram. Free for up to 10 parts.", calculator, below, "site_cut_list_optimizer")
     return page("Free Cut List Optimizer Online — Plywood & Sheet Cutting Layout | Softgrove", "Free online cut list optimizer for plywood and sheet goods. Enter stock sizes and part dimensions, get a guillotine cutting diagram, kerf, and yield. Up to 10 parts free.", "/tools/cut-list-optimizer/", body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-cut-list-optimizer.png")
 
 # ---------------------------------------------------- free tools, batch 2 (2026-09-17)
@@ -1690,7 +1691,7 @@ run();
 {more_tools(path)}'''
     desc = "Free board feet calculator for lumber. Enter thickness, width, and length for as many board sizes as you need, get total board feet and cost. Handles feet or inches."
     ld = tool_ld("Board Feet Calculator", path, desc, "UtilitiesApplication", faq_ld)
-    body = tool_shell("boardcut", "Free lumber tool", "Board feet calculator", "Total board feet and cost for a lumber order — thickness × width × length, added up across as many board sizes as you need.", calculator, below)
+    body = tool_shell("boardcut", "Free lumber tool", "Board feet calculator", "Total board feet and cost for a lumber order — thickness × width × length, added up across as many board sizes as you need.", calculator, below, "site_board_feet")
     return page("Board Feet Calculator — Lumber Volume & Cost | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-board-feet-calculator.png")
 
 def miter_angle_tool():
@@ -1755,7 +1756,7 @@ run();
 {more_tools(path)}'''
     desc = "Free miter angle calculator for crown molding (compound miter + bevel) and flat trim like baseboard or picture frames. Enter a corner angle and spring angle, get the saw settings."
     ld = tool_ld("Miter Angle Calculator", path, desc, "UtilitiesApplication", faq_ld)
-    body = tool_shell("boardcut", "Free woodworking tool", "Miter angle calculator", "Miter and bevel angles for crown molding at any spring and corner angle, or a plain miter for baseboard and picture frames.", calculator, below)
+    body = tool_shell("boardcut", "Free woodworking tool", "Miter angle calculator", "Miter and bevel angles for crown molding at any spring and corner angle, or a plain miter for baseboard and picture frames.", calculator, below, "site_miter_angle")
     return page("Miter Angle Calculator — Crown Molding Miter & Bevel | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-miter-angle-calculator.png")
 
 # Modulus of elasticity, 12% MC, static bending, 10^6 lbf/in^2 — USDA Forest
@@ -1834,7 +1835,7 @@ run();
 {more_tools(path)}'''
     desc = "Free wood shelf sag calculator (Sagulator-style). Pick a species or sheet good, enter span, depth, thickness and load, get expected sag and whether it's within the usual 0.02in/ft guideline."
     ld = tool_ld("Wood Shelf Sag Calculator", path, desc, "UtilitiesApplication", faq_ld)
-    body = tool_shell("boardcut", "Free woodworking tool", "Wood shelf sag calculator", "Estimate how much a shelf will sag from its span, depth, thickness, material, and load, using standard beam deflection formulas.", calculator, below)
+    body = tool_shell("boardcut", "Free woodworking tool", "Wood shelf sag calculator", "Estimate how much a shelf will sag from its span, depth, thickness, material, and load, using standard beam deflection formulas.", calculator, below, "site_wood_shelf_sag")
     return page("Wood Shelf Sag Calculator — Shelf Deflection Estimator | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-wood-shelf-sag-calculator.png")
 
 # ---------------------------------------------- free tools, batch 4 (2026-09-18)

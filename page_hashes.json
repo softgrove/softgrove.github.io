@@ -1,306 +1,306 @@
 {
  "/": {
-  "hash": "89c5de63a51804b5",
-  "lastmod": "2026-09-17"
+  "hash": "98cd31ea97edd052",
+  "lastmod": "2026-09-18"
  },
  "/templates/": {
-  "hash": "6ee52aa20d94ac14",
-  "lastmod": "2026-09-12"
+  "hash": "a83d210bad7ab86c",
+  "lastmod": "2026-09-18"
  },
  "/tools/reciprocity-calculator/": {
-  "hash": "3b986204e90f44dc",
-  "lastmod": "2026-09-12"
+  "hash": "844db9d9e5a2458b",
+  "lastmod": "2026-09-18"
  },
  "/tools/kiln-firing-cost-calculator/": {
-  "hash": "0d392b39a2764aa7",
-  "lastmod": "2026-09-12"
+  "hash": "27140448381e5102",
+  "lastmod": "2026-09-18"
  },
  "/tools/cut-list-optimizer/": {
-  "hash": "f6a0cff29b04da81",
-  "lastmod": "2026-09-12"
+  "hash": "b5ec0177f4bde7a4",
+  "lastmod": "2026-09-18"
  },
  "/tools/": {
-  "hash": "e1b471c192f45e06",
+  "hash": "013878004a7299da",
   "lastmod": "2026-09-18"
  },
  "/tools/fuel-cost-calculator/": {
-  "hash": "a2446ce8380e342b",
+  "hash": "0900849e81ca34c4",
   "lastmod": "2026-09-18"
  },
  "/tools/houseplant-watering-calculator/": {
-  "hash": "b9f7c3136cbbb93d",
+  "hash": "0f1fbbfdc65c20b1",
   "lastmod": "2026-09-18"
  },
  "/tools/sourdough-hydration-calculator/": {
-  "hash": "7157144d757156a4",
+  "hash": "5013588d09b3d9bd",
   "lastmod": "2026-09-18"
  },
  "/tools/reef-dosing-calculator/": {
-  "hash": "a78d55f3be81039f",
+  "hash": "a05a31d76de923a4",
   "lastmod": "2026-09-18"
  },
  "/tools/reading-time-calculator/": {
-  "hash": "9382b22920bd3569",
+  "hash": "a44422ea36a4a1f0",
   "lastmod": "2026-09-18"
  },
  "/tools/varroa-mite-calculator/": {
-  "hash": "2c283a609809996d",
+  "hash": "e582a782551a6d58",
   "lastmod": "2026-09-18"
  },
  "/tools/board-feet-calculator/": {
-  "hash": "1649fd462d4b4151",
+  "hash": "4158b9a16e4023c4",
   "lastmod": "2026-09-18"
  },
  "/tools/miter-angle-calculator/": {
-  "hash": "7e1c8cc309fc6ec0",
+  "hash": "3faae91b59586d99",
   "lastmod": "2026-09-18"
  },
  "/tools/wood-shelf-sag-calculator/": {
-  "hash": "42fafcc83da44d78",
+  "hash": "4569b1ffecf42c8d",
   "lastmod": "2026-09-18"
  },
  "/tools/pet-age-calculator/": {
-  "hash": "5f51219011bf4734",
+  "hash": "f8c4b0a3b3c3f3be",
   "lastmod": "2026-09-18"
  },
  "/tools/dog-cat-calorie-calculator/": {
-  "hash": "6517f541f320763c",
+  "hash": "ced9270833bdf32b",
   "lastmod": "2026-09-18"
  },
  "/tools/whetstone-angle-calculator/": {
-  "hash": "ffb2a11f59837d09",
+  "hash": "762f3bb17e6d69b1",
   "lastmod": "2026-09-18"
  },
  "/tools/wallpaper-roll-calculator/": {
-  "hash": "a272923047294db0",
+  "hash": "1308f494a7008d36",
   "lastmod": "2026-09-18"
  },
  "/tools/dough-temperature-calculator/": {
-  "hash": "786333b43c7df921",
+  "hash": "f9548b18f245dc45",
   "lastmod": "2026-09-18"
  },
  "/tools/bee-syrup-calculator/": {
-  "hash": "f12b1aa1a86dc428",
+  "hash": "0c2201a87cbb9efc",
   "lastmod": "2026-09-18"
  },
  "/apps/skinote/": {
-  "hash": "851f0d76efea77cf",
-  "lastmod": "2026-09-17"
+  "hash": "58e217d1130ac948",
+  "lastmod": "2026-09-18"
  },
  "/apps/settura/": {
-  "hash": "1850222f66e7bfb6",
-  "lastmod": "2026-09-17"
+  "hash": "6cec2b2e6d20384c",
+  "lastmod": "2026-09-18"
  },
  "/apps/refluxlog/": {
-  "hash": "d8754092ab038c4e",
-  "lastmod": "2026-09-17"
+  "hash": "5862f74c5d24b108",
+  "lastmod": "2026-09-18"
  },
  "/apps/goutlog/": {
-  "hash": "e03422ab71ddedd2",
-  "lastmod": "2026-09-17"
+  "hash": "b5da211e0be3adf2",
+  "lastmod": "2026-09-18"
  },
  "/apps/nervelog/": {
-  "hash": "3f8d756baee6ad7d",
-  "lastmod": "2026-09-17"
+  "hash": "b0613a3e950b78ff",
+  "lastmod": "2026-09-18"
  },
  "/apps/pawlog/": {
-  "hash": "b4a9b782d7497a32",
-  "lastmod": "2026-09-12"
+  "hash": "853246faeb13e3f9",
+  "lastmod": "2026-09-18"
  },
  "/apps/plantlog/": {
-  "hash": "f7b0c1d36bee4227",
-  "lastmod": "2026-09-12"
+  "hash": "00a7ba96c59e40c7",
+  "lastmod": "2026-09-18"
  },
  "/apps/motorlog/": {
-  "hash": "c541b5eae481122d",
-  "lastmod": "2026-09-12"
+  "hash": "d0e6d8f102b0b5d1",
+  "lastmod": "2026-09-18"
  },
  "/apps/readlog/": {
-  "hash": "857ba9ed89dc25e7",
-  "lastmod": "2026-09-12"
+  "hash": "05c9bfcb5a97535b",
+  "lastmod": "2026-09-18"
  },
  "/apps/coralog/": {
-  "hash": "267818691fe0c30f",
-  "lastmod": "2026-09-12"
+  "hash": "fd01b4d8d3eec107",
+  "lastmod": "2026-09-18"
  },
  "/apps/boardcut/": {
-  "hash": "25a7719b60973aa3",
-  "lastmod": "2026-09-12"
+  "hash": "9d7e191a1125f54d",
+  "lastmod": "2026-09-18"
  },
  "/apps/whetlog/": {
-  "hash": "2211a502d6709611",
-  "lastmod": "2026-09-17"
+  "hash": "4ce84b65e5ffc531",
+  "lastmod": "2026-09-18"
  },
  "/apps/kilncost/": {
-  "hash": "c0a0e002a01a27c7",
-  "lastmod": "2026-09-12"
+  "hash": "3e1565ff12e59200",
+  "lastmod": "2026-09-18"
  },
  "/apps/filmrecip/": {
-  "hash": "67183efe451a50e4",
-  "lastmod": "2026-09-17"
+  "hash": "2eccf3132a2eba48",
+  "lastmod": "2026-09-18"
  },
  "/templates/eczema-tracker-printable/": {
-  "hash": "2f6622ffe2b4824f",
-  "lastmod": "2026-09-12"
+  "hash": "fc42b9bfdb4cd634",
+  "lastmod": "2026-09-18"
  },
  "/templates/car-maintenance-log-template/": {
-  "hash": "b1b51c76b0ec7ee8",
-  "lastmod": "2026-09-12"
+  "hash": "8e11e77287364725",
+  "lastmod": "2026-09-18"
  },
  "/templates/gout-food-diary-printable/": {
-  "hash": "58a1fdd9a3827630",
-  "lastmod": "2026-09-12"
+  "hash": "31fb6dbee25b7784",
+  "lastmod": "2026-09-18"
  },
  "/templates/eczema-food-trigger-diary/": {
-  "hash": "16147bfde31af5f8",
-  "lastmod": "2026-09-12"
+  "hash": "8a34863bbe2c6b1e",
+  "lastmod": "2026-09-18"
  },
  "/templates/dermatologist-visit-summary-sheet/": {
-  "hash": "248897fa1a33a66f",
-  "lastmod": "2026-09-12"
+  "hash": "46564d550d1f162e",
+  "lastmod": "2026-09-18"
  },
  "/templates/uric-acid-tracking-log/": {
-  "hash": "485fb0961283bb19",
-  "lastmod": "2026-09-12"
+  "hash": "6e26edb8d3324882",
+  "lastmod": "2026-09-18"
  },
  "/templates/gout-attack-diary/": {
-  "hash": "ce02fcf6b139ea6c",
-  "lastmod": "2026-09-12"
+  "hash": "3475a0426a8783dd",
+  "lastmod": "2026-09-18"
  },
  "/templates/fuel-economy-tracking-sheet/": {
-  "hash": "73ef7ad062263a25",
-  "lastmod": "2026-09-12"
+  "hash": "f92a381403b320f9",
+  "lastmod": "2026-09-18"
  },
  "/templates/vehicle-service-checklist/": {
-  "hash": "c2804b6c264de8cd",
-  "lastmod": "2026-09-12"
+  "hash": "f57b227274f48f5d",
+  "lastmod": "2026-09-18"
  },
  "/templates/symptom-tracker-template/": {
-  "hash": "2f1c4a8be1f9804a",
-  "lastmod": "2026-09-12"
+  "hash": "10f4188ce4b6467f",
+  "lastmod": "2026-09-18"
  },
  "/templates/ibs-food-diary-printable/": {
-  "hash": "f405a11247d23486",
-  "lastmod": "2026-09-12"
+  "hash": "9ec59af1db362eb9",
+  "lastmod": "2026-09-18"
  },
  "/templates/gut-symptom-tracker/": {
-  "hash": "73a762541f22a92b",
-  "lastmod": "2026-09-12"
+  "hash": "eca176411ccc0762",
+  "lastmod": "2026-09-18"
  },
  "/templates/low-fodmap-food-log/": {
-  "hash": "2129d2002a420144",
-  "lastmod": "2026-09-12"
+  "hash": "1a8ff697ea817b48",
+  "lastmod": "2026-09-18"
  },
  "/templates/acid-reflux-diary-printable/": {
-  "hash": "7230503d128ae304",
-  "lastmod": "2026-09-12"
+  "hash": "151adf1b5c2ad78c",
+  "lastmod": "2026-09-18"
  },
  "/templates/heartburn-trigger-log/": {
-  "hash": "d9d76abed7be2208",
-  "lastmod": "2026-09-12"
+  "hash": "667ea124974086d9",
+  "lastmod": "2026-09-18"
  },
  "/templates/neuropathy-symptom-log/": {
-  "hash": "43bb5cbd3101abc4",
-  "lastmod": "2026-09-12"
+  "hash": "9d8de7e2dcee9da6",
+  "lastmod": "2026-09-18"
  },
  "/templates/nerve-pain-diary/": {
-  "hash": "9b985b3d9fed598e",
-  "lastmod": "2026-09-12"
+  "hash": "8b747a6104ebb5e1",
+  "lastmod": "2026-09-18"
  },
  "/templates/pet-vaccination-record/": {
-  "hash": "c4f15e12c1afc0f2",
-  "lastmod": "2026-09-12"
+  "hash": "7181541189edc591",
+  "lastmod": "2026-09-18"
  },
  "/templates/dog-health-log/": {
-  "hash": "cbd5a200d4e9b8d4",
-  "lastmod": "2026-09-12"
+  "hash": "60119f28613c1f11",
+  "lastmod": "2026-09-18"
  },
  "/templates/pet-medication-tracker/": {
-  "hash": "7d8fcb2bd8f45150",
-  "lastmod": "2026-09-12"
+  "hash": "6d21a3fa58b91240",
+  "lastmod": "2026-09-18"
  },
  "/templates/plant-watering-schedule/": {
-  "hash": "3b56443a3cce6683",
-  "lastmod": "2026-09-12"
+  "hash": "c579a3c0fa1f5349",
+  "lastmod": "2026-09-18"
  },
  "/templates/houseplant-care-log/": {
-  "hash": "e516052aa898d8e0",
-  "lastmod": "2026-09-12"
+  "hash": "524a78bbac012766",
+  "lastmod": "2026-09-18"
  },
  "/templates/reading-log-printable/": {
-  "hash": "58003b1eec0f608f",
-  "lastmod": "2026-09-12"
+  "hash": "7e95f643efa1b833",
+  "lastmod": "2026-09-18"
  },
  "/templates/book-tracker-template/": {
-  "hash": "b480e869cc279ed7",
-  "lastmod": "2026-09-12"
+  "hash": "75cf693c27852cac",
+  "lastmod": "2026-09-18"
  },
  "/templates/reef-tank-parameter-log/": {
-  "hash": "0adade4442902d24",
-  "lastmod": "2026-09-12"
+  "hash": "e1745c768b4be821",
+  "lastmod": "2026-09-18"
  },
  "/templates/aquarium-water-quality-log/": {
-  "hash": "9b87e9c4a19d3f2f",
-  "lastmod": "2026-09-12"
+  "hash": "1721baa3828c13c0",
+  "lastmod": "2026-09-18"
  },
  "/templates/cut-list-template/": {
-  "hash": "3f43ad12caaaf861",
-  "lastmod": "2026-09-12"
+  "hash": "ee3cc8172f74c403",
+  "lastmod": "2026-09-18"
  },
  "/templates/woodworking-cut-list/": {
-  "hash": "0ca65fab17a83ed2",
-  "lastmod": "2026-09-12"
+  "hash": "753afd3056ca9efe",
+  "lastmod": "2026-09-18"
  },
  "/templates/plywood-cutting-diagram/": {
-  "hash": "c03a3ea75bb5ea03",
-  "lastmod": "2026-09-12"
+  "hash": "50cb9ca7763f8d5b",
+  "lastmod": "2026-09-18"
  },
  "/templates/mileage-log-printable/": {
-  "hash": "ada60733ea75721d",
-  "lastmod": "2026-09-12"
+  "hash": "ddef88b3d68a705d",
+  "lastmod": "2026-09-18"
  },
  "/templates/chronic-pain-log/": {
-  "hash": "23019d6136cea7df",
-  "lastmod": "2026-09-12"
+  "hash": "4d8fd5bd342b1c21",
+  "lastmod": "2026-09-18"
  },
  "/guides/cut-list-optimizer/": {
-  "hash": "3a05c9a3a0a1e161",
-  "lastmod": "2026-09-12"
+  "hash": "2fb8b00b78f0f24c",
+  "lastmod": "2026-09-18"
  },
  "/guides/sheet-goods-cutting-layout/": {
-  "hash": "dd0f07a9ddf5519c",
-  "lastmod": "2026-09-12"
+  "hash": "551197fc4d9fbc60",
+  "lastmod": "2026-09-18"
  },
  "/guides/plywood-cut-calculator/": {
-  "hash": "9936f2ebaa96ccd6",
-  "lastmod": "2026-09-12"
+  "hash": "afd4d1b142ccb442",
+  "lastmod": "2026-09-18"
  },
  "/guides/cut-list-spreadsheet/": {
-  "hash": "0f6719cf11180571",
-  "lastmod": "2026-09-12"
+  "hash": "6672cd25b82812b6",
+  "lastmod": "2026-09-18"
  },
  "/guides/whetstone-grit-progression/": {
-  "hash": "b6a24c37f3d82046",
-  "lastmod": "2026-09-12"
+  "hash": "1be98eb354e71b0a",
+  "lastmod": "2026-09-18"
  },
  "/guides/knife-sharpening-angle-guide/": {
-  "hash": "333ef5616d478d57",
-  "lastmod": "2026-09-12"
+  "hash": "f92c1dcfbb2800cb",
+  "lastmod": "2026-09-18"
  },
  "/guides/how-often-to-sharpen-kitchen-knives/": {
-  "hash": "220b72d09fa66a14",
-  "lastmod": "2026-09-12"
+  "hash": "860beacf3798f150",
+  "lastmod": "2026-09-18"
  },
  "/guides/electric-kiln-firing-cost/": {
-  "hash": "32e44ee1a22174ca",
-  "lastmod": "2026-09-12"
+  "hash": "7c28268b24450b2b",
+  "lastmod": "2026-09-18"
  },
  "/guides/kiln-kwh-per-firing/": {
-  "hash": "83791fb88f5f1334",
-  "lastmod": "2026-09-12"
+  "hash": "b6c644bb3fd7c742",
+  "lastmod": "2026-09-18"
  },
  "/guides/bisque-vs-glaze-firing-cost/": {
-  "hash": "41a3bde160802b06",
-  "lastmod": "2026-09-12"
+  "hash": "5e73ff478fb286fe",
+  "lastmod": "2026-09-18"
  }
 }
