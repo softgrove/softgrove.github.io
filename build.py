@@ -112,7 +112,7 @@ FONT = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
 APPLE_SVG = '<svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg>'
 
 def store_badge(app_id, name, ct=None):
-    href = f"https://apps.apple.com/app/id{app_id}" + (f"?ct={ct}" if ct else "")
+    href = f"https://apps.apple.com/app/id{app_id}" + (f"?pt=129050699&ct={ct}&mt=8" if ct else "")
     return (f'<a class="badge-store" href="{href}" '
             f'aria-label="Download {esc(name)} on the App Store">{APPLE_SVG}'
             f'<span><small>Download on the</small>App Store</span></a>')
