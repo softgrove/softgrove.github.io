@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """OG images (PNG via headless Chrome screenshot) + printable PDFs (Chrome print-to-pdf).
 No PIL/wkhtmltopdf dependency — one renderer for everything."""
-import json, subprocess, pathlib, html as htmlmod, tempfile, shutil
+import json, subprocess, pathlib, html as htmlmod, tempfile, shutil, sys
 
 ROOT = pathlib.Path(__file__).parent
 OUT = ROOT / "docs"
@@ -36,8 +36,20 @@ def pdf_html(slug):
     n = len(t["columns"])
     heads = "".join(f'<th style="width:{w}%">{esc(c)}</th>'
                     for c, w in zip(t["columns"], t["col_widths"]))
-    rows = "".join("<tr>" + "<td></td>" * n + "</tr>" for _ in range(19))
+    pre = t.get("prefill", [])
+    ref = t.get("pdf_reference")  # optional compact reference table printed above the log rows
+    ref_html = ""
+    if ref:
+        rh = "".join(f"<th>{esc(c)}</th>" for c in ref["columns"])
+        rr = "".join("<tr>" + "".join(f"<td>{esc(c)}</td>" for c in r) + "</tr>" for r in ref["rows"])
+        ref_html = (f'<p class="ref-title">{esc(ref["title"])}</p><table class="ref"><thead><tr>{rh}</tr></thead>'
+                    f'<tbody>{rr}</tbody></table>')
+    blank = t.get("pdf_rows", 19 if not ref else 10) - len(pre)
+    rows = "".join("<tr>" + "".join(f'<td class="pre">{esc(c)}</td>' for c in r) + "</tr>" for r in pre)
+    rows += "".join("<tr>" + "<td></td>" * n + "</tr>" for _ in range(max(0, blank)))
     title = t["h1"].replace("Free Printable ", "").replace(" (PDF)", "")
+    # apps without a live ASC description have no /apps/<key>/ page yet; point at the template page instead
+    app_url = f"softgrove.github.io/apps/{t['app']}/" if a["asc"] in DESCS else f"softgrove.github.io/templates/{slug}/"
     return f"""<!doctype html><html><head><meta charset="utf-8">{FONT}<style>
 @page{{size:letter;margin:0}}
 body{{margin:0;padding:44px 48px;font-family:-apple-system,Helvetica,sans-serif;color:#2C282C}}
@@ -52,13 +64,20 @@ th{{font-family:ui-monospace,Menlo,monospace;font-size:8px;text-transform:upperc
  color:#6E6870;font-weight:500;text-align:left;padding:7px 6px;border-bottom:1.5px solid #2C282C;vertical-align:bottom}}
 td{{height:34px;border-bottom:1px solid #D9D3C7}}
 td+td,th+th{{border-left:1px solid #EAE5DB}}
+td.pre{{font-size:9.5px;padding:4px 6px;color:#2C282C;line-height:1.25}}
+td.pre:first-child{{font-weight:600}}
+.ref-title{{font-size:11px;font-weight:600;margin:0 0 6px}}
+table.ref{{margin-bottom:16px}}
+table.ref th{{font-size:7.5px;padding:5px 6px}}
+table.ref td{{height:auto;font-size:9px;padding:4px 6px;line-height:1.25;border-bottom:1px solid #EAE5DB}}
+table.ref td:first-child{{font-weight:600}}
 .foot{{margin-top:14px;display:flex;justify-content:space-between;font-size:9px;color:#6E6870}}
 </style></head><body>
 <div class="head"><h1>{esc(title)}</h1><span class="wm">softgrove.github.io</span></div>
 <div class="meta"><span>{esc(t["pdf_fields"][0])} <span class="line"></span></span><span>{esc(t["pdf_fields"][1])} <span class="line"></span></span></div>
-<table><thead><tr>{heads}</tr></thead><tbody>{rows}</tbody></table>
+{ref_html}<table><thead><tr>{heads}</tr></thead><tbody>{rows}</tbody></table>
 <div class="foot"><span>Free template — print as many as you need.</span>
-<span>App version with automatic analysis: {esc(a["name"])} on the App Store · softgrove.github.io/apps/{t["app"]}/</span></div>
+<span>App version with automatic analysis: {esc(a["name"])} on the App Store · {app_url}</span></div>
 </body></html>"""
 
 LOGO_HTML = """<!doctype html><html><head><meta charset="utf-8"><style>
@@ -79,6 +98,21 @@ def chrome(args):
 def main():
     tmp = pathlib.Path(tempfile.mkdtemp())
     og_dir = OUT / "og"; og_dir.mkdir(parents=True, exist_ok=True)
+    if len(sys.argv) > 2 and sys.argv[1] == "--templates":
+        # Partial run: regenerate only the OG image + PDF of the named templates
+        # (a full run re-screenshots every page and touches ~80 binaries for nothing).
+        for slug in sys.argv[2:]:
+            t = DATA["templates"][slug]
+            src = tmp / f"templates-{slug}.html"
+            src.write_text(og_html(t["h1"], "Free PDF download", [DATA["apps"][t["app"]]["accent"]]))
+            chrome([f"--screenshot={og_dir / ('templates-' + slug + '.png')}", "--window-size=1200,630", f"file://{src}"])
+            print("og:", slug)
+            src = tmp / f"{slug}-pdf.html"; src.write_text(pdf_html(slug))
+            dest = OUT / "templates" / slug / f"{slug}.pdf"
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            chrome([f"--print-to-pdf={dest}", "--no-pdf-header-footer", f"file://{src}"])
+            print("pdf:", slug)
+        shutil.rmtree(tmp); return
     jobs = [("home", "Quiet, private logbooks for the things you live with.", "Private iPhone apps",
              ["#3E8E8C", "#7A2E33", "#E87722", "#2E5E54", "#E07A5F", "#2A3354"])]
     for key, a in DATA["apps"].items():

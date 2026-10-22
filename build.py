@@ -21,7 +21,7 @@ DATA = json.loads((ROOT / "apps.json").read_text())
 DESCS = json.loads((ROOT / "_asc_descs.json").read_text())
 SITE = DATA["site"]
 ORIGIN = SITE["origin"]
-TODAY = "2026-09-18"  # set per release; hash-gate keeps unchanged pages stable
+TODAY = "2026-10-22"  # set per release; hash-gate keeps unchanged pages stable
 
 # ---------------------------------------------------------------- desc parsing
 def parse_desc(raw):
@@ -426,6 +426,14 @@ def guide_page(slug):
 <p>A woodworker described the problem this way: <q>{esc(source["quote"])}</q></p>
 <p><cite>Source: <a href="{esc(source["url"])}">{esc(source["title"])}</a> on {esc(source["community"])}</cite>. The quote is evidence of the workflow problem, not an endorsement of {esc(a["name"])}.</p>
 </aside>''' if source else "")
+    quick = g.get("quick_tool")
+    quick_html = ('<style>.quick-tool{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:18px}'
+                  '.quick-tool span{font-size:14px;color:var(--muted);max-width:44ch}</style>'
+                  f'<div class="quick-tool"><a class="btn" href="{esc(quick["path"])}">{esc(quick["label"])}</a>'
+                  f'<span>{esc(quick["note"])}</span></div>') if quick else ""
+    related += "".join(
+        f'<a href="{esc(r["path"])}"><strong class="serif">{esc(r["title"])}</strong><span>{esc(r["kind"])}</span></a>'
+        for r in g.get("related_pages", []))
     cta_h2, cta_body = GUIDE_CTA[g["app"]]
     if "weekly" in pricing:
         cta_terms = (f'Planning is free. Pro adds vector PDF and CSV export plus saved offcuts: {esc(pricing["weekly"])} or '
@@ -470,7 +478,7 @@ article section ul{{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-
 <p class="eyebrow">Workshop guide · {esc(g["keyword"])}</p>
 <h1 class="serif">{esc(g["h1"])}</h1>
 <p class="lede">{esc(g["lede"])}</p>
-<div class="answer">{esc(g["answer"])}</div>
+<div class="answer">{esc(g["answer"])}</div>{quick_html}
 </header>
 {section_html}
 {field_note}
@@ -502,17 +510,52 @@ article section ul{{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-
 def tpl_preview_table(t, accent):
     heads = "".join(f'<th style="width:{w}%">{esc(c)}</th>'
                     for c, w in zip(t["columns"], t["col_widths"]))
-    rows = "".join("<tr>" + "<td></td>" * len(t["columns"]) + "</tr>" for _ in range(4))
+    pre = t.get("prefill", [])[:4]
+    rows = "".join("<tr>" + "".join(f"<td>{esc(c)}</td>" for c in r) + "</tr>" for r in pre)
+    rows += "".join("<tr>" + "<td></td>" * len(t["columns"]) + "</tr>" for _ in range(max(0, 4 - len(pre))))
     return (f'<div class="prev" role="img" aria-label="Preview of the printable sheet">'
             f'<div class="prev-head" style="border-color:{accent}"><span class="serif">{esc(t["h1"].replace("Free Printable ", "").replace(" (PDF)", ""))}</span>'
             f'<span class="mono">softgrove.github.io</span></div>'
             f'<table><thead><tr>{heads}</tr></thead><tbody>{rows}</tbody></table></div>')
 
+def template_extras(t):
+    """Optional per-template content: prose sections and reference tables (the part that
+    makes each sheet more than a blank grid). Keys: sections[{h2, body[], bullets[]}],
+    reference[{h2, intro, columns[], rows[[]], note}]. Both optional, rendered in order."""
+    out = []
+    for sec in t.get("sections", []):
+        paras = "".join(f"<p>{esc(x)}</p>" for x in sec.get("body", []))
+        bullets = ("<ul>" + "".join(f"<li>{esc(x)}</li>" for x in sec["bullets"]) + "</ul>") if sec.get("bullets") else ""
+        out.append(f'<section class="tp-sec"><h2 class="sec serif">{esc(sec["h2"])}</h2>{paras}{bullets}</section>')
+    for ref in t.get("reference", []):
+        heads = "".join(f"<th>{esc(c)}</th>" for c in ref["columns"])
+        rows = "".join("<tr>" + "".join(f"<td>{esc(c)}</td>" for c in r) + "</tr>" for r in ref["rows"])
+        intro = f'<p>{esc(ref["intro"])}</p>' if ref.get("intro") else ""
+        note = f'<p class="ref-note">{esc(ref["note"])}</p>' if ref.get("note") else ""
+        out.append(f'<section class="tp-sec"><h2 class="sec serif">{esc(ref["h2"])}</h2>{intro}'
+                   f'<div class="ref-wrap"><table class="ref"><thead><tr>{heads}</tr></thead><tbody>{rows}</tbody></table></div>{note}</section>')
+    return "".join(out)
+
+def template_related(slug, app_key):
+    """Internal links: sibling templates, web tools and guides from the same app, plus the hub."""
+    a = DATA["apps"][app_key]
+    cards = [(f"/templates/{s}/", DATA["templates"][s]["h1"].replace("Free Printable ", "").replace(" (PDF)", ""), "Free printable PDF")
+             for s in DATA["templates"] if s != slug and DATA["templates"][s]["app"] == app_key]
+    cards += [(p, title, "Free web tool") for p, title, _, k in TOOLS_INDEX if k == app_key]
+    cards += [(f"/guides/{s}/", g["h1"], "Guide") for s, g in DATA.get("guides", {}).items() if g["app"] == app_key]
+    if not cards: return ""
+    html = "".join(f'<a href="{p}"><strong class="serif">{esc(title)}</strong><span>{esc(kind)}</span></a>' for p, title, kind in cards)
+    return (f'<h2 class="sec serif">More from {esc(a["name"])}</h2><div class="related">{html}</div>'
+            f'<p class="fine" style="margin-top:18px"><a href="/templates/">All free templates</a> · <a href="/tools/">All free tools</a></p>')
+
 def template_page(slug):
-    t = DATA["templates"][slug]; a = DATA["apps"][t["app"]]; p = PARSED[a["asc"]]
+    t = DATA["templates"][slug]; a = DATA["apps"][t["app"]]
     steps = "".join(f"<li>{esc(s)}</li>" for s in t["howto"])
     faq_html = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(ans)}</p></details>" for q, ans in t["faq"])
     pdf = f"/templates/{slug}/{slug}.pdf"
+    ct = "site_tpl_" + slug.replace("-", "_")  # App Analytics campaign token, same scheme as the tool pages
+    extra = template_extras(t)
+    related = template_related(slug, t["app"])
     body = f"""
 <style>
 main.wrap{{max-width:780px}}
@@ -529,12 +572,26 @@ main.wrap{{max-width:780px}}
 .prev table{{width:100%;border-collapse:collapse;table-layout:fixed}}
 .prev th{{font-family:ui-monospace,monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;
  color:var(--muted);text-align:left;padding:9px 6px;border-bottom:1px solid var(--line);font-weight:500}}
-.prev td{{height:30px;border-bottom:1px solid var(--line)}}
+.prev td{{height:30px;border-bottom:1px solid var(--line);padding:3px 6px;font-size:13px;vertical-align:top}}
+.prev td:first-child{{font-weight:600}}
 h2.sec{{font-size:29px;margin:60px 0 18px}}
 ol.howto{{padding-left:22px;display:grid;gap:12px;font-size:16.5px;max-width:62ch}}
 .app-cta{{margin-top:64px;background:{a["bg"]};border:1px solid var(--line);border-radius:14px;padding:30px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}}
 .app-cta h3{{font-size:26px;color:{a["deep"]}}}
 .app-cta p{{color:{a["deep"]};opacity:.8;font-size:15.5px;max-width:46ch;margin-top:6px}}
+.tp-sec p{{margin-top:14px;max-width:66ch;font-size:16.5px}}
+.tp-sec ul{{padding-left:22px;margin-top:14px;display:grid;gap:9px;max-width:64ch;font-size:16px}}
+.ref-wrap{{overflow-x:auto;margin-top:16px}}
+.ref{{width:100%;border-collapse:collapse;font-size:14.5px}}
+.ref th{{text-align:left;padding:9px 8px;border-bottom:2px solid var(--line);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600;vertical-align:bottom}}
+.ref td{{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}}
+.ref td:first-child{{font-weight:600;white-space:nowrap}}
+.ref-note{{font-size:13.5px;color:var(--muted);margin-top:10px;max-width:66ch}}
+.related{{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px}}
+.related a{{border:1px solid var(--line);background:#fff;border-radius:9px;padding:16px;text-decoration:none;display:flex;flex-direction:column;gap:6px}}
+.related a:hover{{border-color:{a["accent"]}}}
+.related strong{{font-size:17px;line-height:1.25}}
+.related span{{font-size:12px;color:var(--muted)}}
 </style>
 <main class="wrap">
 <div class="tp-hero">
@@ -545,6 +602,7 @@ ol.howto{{padding-left:22px;display:grid;gap:12px;font-size:16.5px;max-width:62c
 <span class="meta">No sign-up. No email. Print and go.</span></div>
 </div>
 {tpl_preview_table(t, a["accent"])}
+{extra}
 <h2 class="sec serif">How to use this sheet</h2>
 <ol class="howto">{steps}</ol>
 <h2 class="sec serif">Questions</h2>
@@ -552,8 +610,9 @@ ol.howto{{padding-left:22px;display:grid;gap:12px;font-size:16.5px;max-width:62c
 <div class="app-cta">
 <div><h3 class="serif">Want the log to analyze itself?</h3>
 <p>{esc(a["name"])} for iPhone tracks the same things in seconds and shows you the patterns — free core, no account, and everything stays on your device.</p></div>
-{store_badge(a["id"], a["name"])}
+{store_badge(a["id"], a["name"], ct)}
 </div>
+{related}
 </main>"""
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "HowTo", "name": t["h1"],
