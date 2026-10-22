@@ -305,7 +305,8 @@
       "catLabel": "Sourdough starter & bake log",
       "spineLabel": "Sourdough",
       "seoTitle": "Banneton — Sourdough Starter Tracker & Hydration Calculator for iPhone",
-      "seoDesc": "Know when your starter peaks, log every bake, and work out dough hydration with levain included. Free core, no account — everything stays on your device."
+      "seoDesc": "Know when your starter peaks, log every bake, and work out dough hydration with levain included. Free core, no account — everything stays on your device.",
+      "template": "sourdough-starter-feeding-log"
     },
     "combwise": {
       "name": "Combwise",
@@ -318,7 +319,8 @@
       "catLabel": "Beekeeping log & hive tracker",
       "spineLabel": "Beekeeping",
       "seoTitle": "Combwise — Beekeeping Log, Hive Inspections & Varroa Tracker for iPhone",
-      "seoDesc": "Log every hive inspection, watch your varroa counts, and keep harvests straight across colonies. Free for two hives, no account — data stays on your device."
+      "seoDesc": "Log every hive inspection, watch your varroa counts, and keep harvests straight across colonies. Free for two hives, no account — data stays on your device.",
+      "template": "hive-inspection-sheet"
     }
   },
   "guides": {
@@ -462,15 +464,28 @@
     },
     "plywood-cut-calculator": {
       "app": "boardcut",
-      "keyword": "plywood cut calculator",
-      "h1": "Plywood Cut Calculator: Estimate Sheets Without the Area Trap",
-      "title": "Plywood Cut Calculator: Sheet Count, Kerf & Yield Explained",
-      "desc": "Estimate plywood sheet count from a parts list, then correct the estimate for geometry, kerf, edge trim, grain direction, defects, and reusable offcuts.",
-      "lede": "Dividing total part area by 32 square feet gives a lower bound for 4×8 plywood, not a purchase quantity. Parts are rectangles, sheets have edges and defects, and saw cuts remove material. A reliable estimate needs a layout.",
-      "answer": "Add the finished area of every part, divide by the usable area of one sheet, and round up for an optimistic lower bound. Then place the actual rectangles with kerf, trim, grain, and stock constraints. The resulting layout—not the area ratio—determines how many sheets to buy.",
+      "keyword": "plywood cut list calculator",
+      "h1": "Plywood Cut List Calculator: How Many 4×8 Sheets Your Parts Need",
+      "title": "Plywood Cut List Calculator — 4x8 Sheet Count, Kerf & Layout (Free)",
+      "desc": "Free plywood cut list calculator: enter your parts, get the 4×8 sheet count and a cutting diagram. Plus the quick 32-square-foot estimate, and why kerf, trim, and grain make it undercount.",
+      "lede": "Enter your parts and get a sheet count with a cutting layout from the free cut list optimizer below. If you would rather estimate by hand first, this guide gives the quick area method and then the corrections that turn it into a number you can buy from.",
+      "answer": "Quick answer: a 4×8 sheet is 32 square feet, so total part area ÷ 32, rounded up, is the fewest sheets the job could possibly use. Real jobs need more — a saw kerf of about 1/8″ per cut, edge trim, grain direction, and rectangles that do not tile perfectly. The free calculator on this site places your actual parts on 48×96 stock with kerf and reports the sheet count, a cutting diagram, and yield. Use that number for the shopping list, not the area estimate.",
       "sections": [
         {
-          "h2": "Calculate the optimistic lower bound",
+          "h2": "Use the calculator for a 4×8 sheet",
+          "body": [
+            "Add one stock line of 48 × 96 inches — or 47½ × 95½ if you plan to trim the factory edges — and set the kerf to the width of your blade, typically 1/8″ (0.125) for a table saw or track saw. Enter each part as width × length × quantity, and lock the grain on any part whose face will show. The optimizer lays the parts out on as many sheets as they need and reports the count, the yield, and a diagram you can print or take to the saw.",
+            "If the count is one sheet higher than you hoped, look at the diagram before buying: a part that is 1/8″ too wide to share a rip with its neighbor is the usual culprit, and trimming it, rotating it, or changing the cut order can bring the job back onto fewer sheets."
+          ],
+          "bullets": [
+            "Stock: 48 × 96 (nominal) or the measured size after edge trim",
+            "Kerf: your blade's width, usually 0.125 in. — not zero",
+            "Parts: finished size and quantity; add grain locks for visible faces",
+            "Read: sheet count, yield, and the cutting diagram"
+          ]
+        },
+        {
+          "h2": "Estimate by hand: the 32-square-foot method",
           "body": [
             "For each line in the parts list, multiply width by length by quantity. Add those part areas. Next, find the usable sheet area after any edge trim. Divide total part area by usable sheet area and round up. This is the fewest sheets the job could use if geometry caused no loss.",
             "Keep units consistent. A 48-by-96-inch sheet has 4,608 square inches. A 1,220-by-2,440-millimeter sheet has 2,976,800 square millimeters. Do not mix nominal feet with part dimensions in inches, and do not use square feet if the cut list is in millimeters."
@@ -512,6 +527,10 @@
       ],
       "faq": [
         [
+          "Is there a free plywood cut list calculator?",
+          "Yes — the cut list optimizer on this site is free in the browser for up to 10 parts, kerf-aware, and produces a cutting diagram for 4×8 or any custom sheet size. The Boardcut app does the same on iPhone with no part limit."
+        ],
+        [
           "How many square feet are in a 4×8 sheet of plywood?",
           "A nominal 4×8 sheet has 32 square feet, or 4,608 square inches. Use the actual dimensions and usable edges of the stock you will cut."
         ],
@@ -522,6 +541,10 @@
         [
           "Does kerf count as waste in plywood yield?",
           "Kerf is consumed material, so it reduces what can become finished parts. Whether a tool reports it separately or inside waste, it must be included in the layout."
+        ],
+        [
+          "How many 24×24 panels fit on a 4×8 sheet?",
+          "By area, eight. In practice, two 24″ panels plus one kerf need 48⅛″, which is wider than the sheet, so only one row of four fits unless you accept 23⅞″ panels or trim after cutting. That gap between area math and layout is exactly what the calculator catches."
         ]
       ],
       "source": {
@@ -529,7 +552,29 @@
         "title": "Software to plan plywood cuts",
         "url": "https://www.reddit.com/r/woodworking/comments/vdesw6/software_to_plan_plywood_cuts/",
         "quote": "plan the cuts onto a piece of 4x8 plywood to ensure i waste as little material as possible"
-      }
+      },
+      "quick_tool": {
+        "path": "/tools/cut-list-optimizer/",
+        "label": "Open the free plywood cut list calculator",
+        "note": "Runs in your browser. Enter 48 × 96 stock, your parts, and kerf; free for up to 10 parts, nothing sent to a server."
+      },
+      "related_pages": [
+        {
+          "path": "/tools/cut-list-optimizer/",
+          "title": "Cut list optimizer",
+          "kind": "Free web tool"
+        },
+        {
+          "path": "/templates/plywood-cutting-diagram/",
+          "title": "Plywood Cutting Diagram Template",
+          "kind": "Free printable PDF"
+        },
+        {
+          "path": "/templates/cut-list-template/",
+          "title": "Cut List Template",
+          "kind": "Free printable PDF"
+        }
+      ]
     },
     "cut-list-spreadsheet": {
       "app": "boardcut",
@@ -2887,6 +2932,2037 @@
       "pdf_fields": [
         "Name",
         "Condition being tracked"
+      ]
+    },
+    "succulent-watering-schedule": {
+      "app": "plantlog",
+      "h1": "Free Printable Succulent & Cactus Watering Schedule (PDF)",
+      "title": "Free Printable Succulent & Cactus Watering Schedule PDF — Chart by Plant",
+      "desc": "A free one-page printable succulent and cactus watering schedule. Ten common succulents pre-filled with typical intervals, plus blank rows for yours — track last watered, next due, and the winter slowdown.",
+      "answer": "This is a free, one-page printable watering schedule built for succulents and cacti. Ten common plants are pre-filled with a typical interval and light need; the remaining rows are blank for your own. Succulents fail in the opposite way from most houseplants — they are killed by kindness — so the sheet tracks last watered and next due, and has a column for the longer winter interval.",
+      "columns": [
+        "Plant",
+        "Typical interval",
+        "Light",
+        "Last watered",
+        "Next due",
+        "Winter",
+        "Notes"
+      ],
+      "col_widths": [
+        17,
+        12,
+        12,
+        11,
+        10,
+        18,
+        20
+      ],
+      "prefill": [
+        [
+          "Aloe vera",
+          "Every 3 weeks",
+          "Direct sun",
+          "",
+          "",
+          "Monthly or less",
+          ""
+        ],
+        [
+          "Echeveria",
+          "Every 2 weeks",
+          "Direct sun",
+          "",
+          "",
+          "Sparingly",
+          ""
+        ],
+        [
+          "Jade plant",
+          "Every 2 weeks",
+          "Bright, some sun",
+          "",
+          "",
+          "Every 3–4 weeks",
+          ""
+        ],
+        [
+          "Haworthia",
+          "About every 2 weeks",
+          "Bright indirect",
+          "",
+          "",
+          "Less",
+          ""
+        ],
+        [
+          "Snake plant",
+          "Every 2 weeks",
+          "Low to bright",
+          "",
+          "",
+          "Every 4–6 weeks",
+          ""
+        ],
+        [
+          "ZZ plant",
+          "Every 2 weeks",
+          "Low to bright",
+          "",
+          "",
+          "Every 4–6 weeks",
+          ""
+        ],
+        [
+          "String of pearls",
+          "Every 2 weeks",
+          "Bright indirect",
+          "",
+          "",
+          "Less",
+          ""
+        ],
+        [
+          "Cactus (desert types)",
+          "Every 4 weeks",
+          "Direct sun",
+          "",
+          "",
+          "Monthly or less",
+          ""
+        ],
+        [
+          "Christmas cactus",
+          "Every 1–2 weeks",
+          "Bright indirect",
+          "",
+          "",
+          "Keep slightly moist when budding",
+          "Not a desert cactus"
+        ],
+        [
+          "Burro's tail",
+          "About every 2 weeks",
+          "Bright indirect",
+          "",
+          "",
+          "Less",
+          ""
+        ]
+      ],
+      "sections": [
+        {
+          "h2": "Why succulents get their own sheet",
+          "body": [
+            "A general houseplant schedule is built around keeping soil lightly moist. Succulents and cacti want the opposite: a thorough soak, then a complete dry-out that can last weeks. Putting them on the same sheet as a fern invites the one mistake that kills them — watering because it is 'watering day'.",
+            "The intervals printed on this sheet are starting points under average indoor conditions, taken from PlantLog's care guide where the plant is covered. A plant in a small terracotta pot in a south window will dry faster; the same plant in a glazed pot in a dim corner may need half as many waterings. Adjust the number after the first month and write the real interval in the Notes column."
+          ],
+          "bullets": [
+            "Water until it runs out the drainage hole, then empty the saucer.",
+            "Do not water again until the soil is dry all the way through — a wooden skewer pushed to the bottom should come out clean and dry.",
+            "In winter, most succulents barely grow. Stretch the interval, often to once a month, and keep them away from cold glass."
+          ]
+        }
+      ],
+      "reference": [
+        {
+          "h2": "Reading the leaves",
+          "intro": "Succulents tell you when the schedule is wrong, but the signals are easy to misread. Use this table before changing the interval.",
+          "columns": [
+            "What you see",
+            "More likely cause",
+            "What to do"
+          ],
+          "rows": [
+            [
+              "Leaves soft, translucent, or mushy; stem dark at the base",
+              "Overwatering, or soil that stays wet",
+              "Stop watering, move to brighter light, check roots; repot into gritty mix if the soil smells sour"
+            ],
+            [
+              "Leaves wrinkled, thin, or curling inward",
+              "Underwatering",
+              "Soak thoroughly; leaves usually plump back within a few days"
+            ],
+            [
+              "Stretched, leaning growth with wide gaps between leaves",
+              "Not enough light (etiolation)",
+              "Move closer to a bright window; the stretched part will not shrink back"
+            ],
+            [
+              "Brown or white crispy patches after a move outdoors or to a sunnier spot",
+              "Sunburn",
+              "Acclimate over a week or two; damaged tissue stays but new growth is fine"
+            ],
+            [
+              "Lower leaves drying up while the top looks healthy",
+              "Normal aging",
+              "Pull dry leaves off; nothing to change"
+            ]
+          ],
+          "note": "If a plant is both mushy and wrinkled, overwatering is the usual culprit: rotted roots can no longer take up water."
+        }
+      ],
+      "howto": [
+        "Print the PDF and keep it where you water — a windowsill or the inside of a cupboard door.",
+        "Cross out any pre-filled plant you do not own and add yours in the blank rows, with the interval from the chart or from the houseplant watering calculator.",
+        "After each soak, write the date in Last watered and add the interval to get Next due.",
+        "When Next due arrives, check the soil first. If it is not fully dry, wait and note how many extra days it took — that is your real interval.",
+        "In late autumn, switch to the Winter column and go back to the normal interval when new growth starts in spring."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Edit the plant list",
+        "Log each soak",
+        "Check before watering",
+        "Switch to winter intervals"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "How often should succulents be watered indoors?",
+          "Typically every two to three weeks in the growing season and once a month or less in winter, but the rule that matters is to let the soil dry completely between waterings. The pre-filled intervals are starting points, not a timer."
+        ],
+        [
+          "Should I mist succulents?",
+          "No. Misting wets the leaves without reaching the roots and can encourage rot in rosette-shaped plants like echeveria. Water the soil, not the plant."
+        ],
+        [
+          "Can I put a Christmas cactus on the same schedule as a desert cactus?",
+          "Not quite. Holiday cacti are forest plants that prefer to stay lightly moist, especially when setting buds; desert cacti want to dry out fully. That is why the sheet lists them separately."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — PlantLog for iPhone tracks watering, fertilizing, and repotting per plant with reminders, so the schedule maintains itself. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Name",
+        "Season"
+      ]
+    },
+    "houseplant-care-chart": {
+      "app": "plantlog",
+      "h1": "Free Printable Houseplant Care Chart (PDF) — 16 Common Plants",
+      "title": "Free Printable Houseplant Care Chart PDF — Water, Light & Feeding by Species",
+      "desc": "A free one-page printable houseplant care chart: watering interval, light, humidity, and feeding for monstera, pothos, fiddle leaf fig, snake plant, peace lily, and 11 more — plus blank rows for your own plants.",
+      "answer": "This is a free, one-page printable houseplant care chart in PDF format. Sixteen common houseplants are pre-filled with a typical watering interval, light level, humidity preference, and growing-season feeding note, and the last rows are blank for plants that are not listed. It is the reference most people look up one species at a time — on one sheet, so you can tape it inside a cupboard door.",
+      "columns": [
+        "Plant",
+        "Water every",
+        "Light",
+        "Humidity",
+        "Feed (spring–summer)",
+        "Notes"
+      ],
+      "col_widths": [
+        19,
+        11,
+        15,
+        12,
+        19,
+        24
+      ],
+      "prefill": [
+        [
+          "Pothos",
+          "10 days",
+          "Low to bright indirect",
+          "Average",
+          "Monthly, half strength",
+          "Yellow leaves = too wet"
+        ],
+        [
+          "Monstera",
+          "10 days",
+          "Bright indirect",
+          "High preferred",
+          "Monthly, half strength",
+          "Let top 2 in. dry"
+        ],
+        [
+          "Fiddle leaf fig",
+          "10 days",
+          "Bright indirect",
+          "Average",
+          "Monthly, half strength",
+          "Hates drafts and moves"
+        ],
+        [
+          "Snake plant",
+          "14 days",
+          "Low to bright",
+          "Low is fine",
+          "2–3× per season",
+          "Dry out fully"
+        ],
+        [
+          "ZZ plant",
+          "14 days",
+          "Low to bright",
+          "Low is fine",
+          "2–3× per season",
+          "Stores water in rhizomes"
+        ],
+        [
+          "Peace lily",
+          "7 days",
+          "Low to bright indirect",
+          "Average to high",
+          "Monthly, half strength",
+          "Droops when thirsty"
+        ],
+        [
+          "Spider plant",
+          "7 days",
+          "Bright indirect",
+          "Average",
+          "Monthly, half strength",
+          "Keep evenly moist"
+        ],
+        [
+          "Heartleaf philodendron",
+          "7 days",
+          "Bright indirect",
+          "Average",
+          "Monthly, half strength",
+          "Top inch dry"
+        ],
+        [
+          "Rubber plant",
+          "10 days",
+          "Bright indirect",
+          "Average",
+          "Monthly, half strength",
+          "Less water in winter"
+        ],
+        [
+          "Calathea",
+          "7 days",
+          "Bright indirect",
+          "High",
+          "Monthly, quarter strength",
+          "Filtered water helps"
+        ],
+        [
+          "Boston fern",
+          "5 days",
+          "Bright indirect",
+          "High",
+          "Monthly, quarter strength",
+          "Never let dry out"
+        ],
+        [
+          "Dracaena",
+          "12 days",
+          "Bright indirect",
+          "Average",
+          "Monthly, half strength",
+          "Fluoride-sensitive"
+        ],
+        [
+          "Chinese evergreen",
+          "10 days",
+          "Low to bright indirect",
+          "Average",
+          "Monthly, half strength",
+          "No cold drafts"
+        ],
+        [
+          "Bird of paradise",
+          "10 days",
+          "Bright to some sun",
+          "Average",
+          "Every 2–4 weeks",
+          "Top 2 in. dry"
+        ],
+        [
+          "Anthurium",
+          "7 days",
+          "Bright indirect",
+          "High",
+          "Monthly, half strength",
+          "Top inch dry"
+        ],
+        [
+          "Phalaenopsis orchid",
+          "10 days",
+          "Bright indirect",
+          "Average to high",
+          "Weakly, every other watering",
+          "Soak and drain bark"
+        ]
+      ],
+      "pdf_rows": 19,
+      "sections": [
+        {
+          "h2": "How to read the chart",
+          "body": [
+            "The watering intervals are the ones PlantLog uses to suggest a reminder when you type a plant name, and the same numbers power the houseplant watering calculator on this site. They assume average indoor conditions — roughly 65 to 75°F and moderate humidity — and a pot with drainage. Treat each interval as the day to check the soil, not the day to water no matter what.",
+            "Feeding notes are deliberately conservative. Diluted fertilizer once a month during active growth suits most tropical foliage; drought-tolerant plants need far less. Follow the product label and, when in doubt, feed less. Skip feeding in winter unless the plant is clearly growing under a grow light."
+          ]
+        }
+      ],
+      "reference": [
+        {
+          "h2": "Light levels, in plain terms",
+          "intro": "Light is the column people most often guess wrong. These descriptions assume an unobstructed window.",
+          "columns": [
+            "Chart says",
+            "Typical spot",
+            "What it looks like"
+          ],
+          "rows": [
+            [
+              "Low light",
+              "North window, or 6–10 ft from an east or west window; interior rooms with a lamp",
+              "You can read comfortably but the room looks dim in photos; no direct sun ever hits the leaves"
+            ],
+            [
+              "Bright indirect",
+              "Within a few feet of an east or west window; a south window behind a sheer curtain",
+              "The plant casts a soft, blurry shadow; sun does not land directly on it for more than an hour"
+            ],
+            [
+              "Direct sun / some sun",
+              "Right in a south or west window",
+              "Sharp-edged shadows; the plant gets several hours of sun on its leaves"
+            ]
+          ],
+          "note": "Most 'low light' plants merely tolerate it. They grow faster and stay fuller in bright indirect light."
+        }
+      ],
+      "howto": [
+        "Print the PDF and keep it with your watering can or taped inside a cupboard door.",
+        "Cross out plants you do not own; add any missing ones in the blank rows using the houseplant watering calculator for an interval.",
+        "Move each plant to the light the chart calls for, or note in the margin why it stays where it is.",
+        "Use the Water every column as the day to check the soil, and adjust the number in pencil once you know how fast your pots dry.",
+        "In autumn, write the winter interval beside the summer one — most plants stretch out by a week or more."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Edit the plant list",
+        "Match light to the chart",
+        "Check soil on the listed day",
+        "Add winter intervals"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "Where do the watering intervals come from?",
+          "From the care guide built into PlantLog, which suggests a schedule when you add a plant by name. The same table is on the houseplant watering calculator page, where you can turn an interval into actual dates."
+        ],
+        [
+          "My plant is not on the chart. What do I use?",
+          "Find its closest relative or growth type: trailing aroids behave like pothos, thick-leaved plants like snake plant, thin-leaved tropicals like calathea. Start there and adjust from the soil."
+        ],
+        [
+          "Does the chart apply to outdoor or balcony plants?",
+          "No. Outdoor pots dry out far faster in sun and wind, often daily in summer. The chart is for plants kept indoors year round."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — PlantLog for iPhone tracks watering, fertilizing, and repotting per plant with reminders, so the schedule maintains itself. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Home",
+        "Updated"
+      ]
+    },
+    "plant-fertilizer-schedule": {
+      "app": "plantlog",
+      "h1": "Free Printable Plant Fertilizer Schedule (PDF)",
+      "title": "Free Printable Plant Fertilizer Schedule PDF — Houseplant Feeding Log",
+      "desc": "A free one-page printable houseplant fertilizer schedule. Record each plant's fertilizer, dilution, feeding interval, last fed and next due — with a feeding guide by plant group and the seasonal pattern most houseplants follow.",
+      "answer": "This is a free, one-page printable plant fertilizer schedule in PDF format. Each row is one plant: which fertilizer and at what strength, how often to feed during the growing season, the last and next feeding dates, and when to stop for winter. Fertilizer is the care step people either forget entirely or overdo — a written schedule prevents both, because 'did I feed this already?' has a dated answer.",
+      "columns": [
+        "Plant",
+        "Fertilizer / strength",
+        "Feed every",
+        "Last fed",
+        "Next due",
+        "Pause from",
+        "Notes"
+      ],
+      "col_widths": [
+        17,
+        20,
+        10,
+        11,
+        11,
+        11,
+        20
+      ],
+      "sections": [
+        {
+          "h2": "The seasonal pattern most houseplants follow",
+          "body": [
+            "Houseplants feed when they grow, and most grow with the light. The usual pattern indoors in the northern hemisphere is to begin feeding when new leaves appear in early spring, feed at a steady interval through summer, taper in early autumn, and stop by late autumn. Plants under strong grow lights may keep growing — and keep needing food — all year.",
+            "Dilution matters more than brand. A balanced liquid fertilizer at half the label strength is a safe default for most tropical foliage; a quarter strength suits ferns, calathea, and anything with sensitive roots. Salt buildup from feeding too strong shows up as white crust on the soil and brown leaf edges. If you see either, flush the pot with plenty of plain water and skip the next feeding."
+          ],
+          "bullets": [
+            "Feed moist soil, never bone-dry soil — water first, then fertilize an hour or a day later.",
+            "Freshly repotted plants usually need no fertilizer for a month or two; fresh mix carries nutrients.",
+            "Slow-release granules replace liquid feeding for the period on the label; do not stack both."
+          ]
+        }
+      ],
+      "reference": [
+        {
+          "h2": "Feeding guide by plant group",
+          "intro": "Starting points for the Fertilizer and Feed every columns. Always follow the label on the product you use, and lean toward less.",
+          "columns": [
+            "Plant group",
+            "Typical fertilizer",
+            "Growing-season interval",
+            "Winter"
+          ],
+          "rows": [
+            [
+              "Tropical foliage (pothos, monstera, philodendron, dracaena)",
+              "Balanced liquid, half strength",
+              "Every 2–4 weeks",
+              "Pause, or monthly under grow lights"
+            ],
+            [
+              "Succulents & cacti",
+              "Low-nitrogen or cactus fertilizer, quarter to half strength",
+              "2–3 times per season",
+              "None"
+            ],
+            [
+              "Flowering (peace lily, anthurium, African violet)",
+              "Balanced or bloom formula, half strength",
+              "Every 2–4 weeks while growing",
+              "Pause unless in bud"
+            ],
+            [
+              "Orchids (phalaenopsis)",
+              "Orchid fertilizer, 'weakly, weekly' — quarter strength",
+              "Every 1–2 weeks, flush monthly",
+              "Reduce"
+            ],
+            [
+              "Ferns & calathea",
+              "Balanced liquid, quarter strength",
+              "Monthly",
+              "Pause"
+            ],
+            [
+              "Citrus & fruiting plants indoors",
+              "Citrus or high-nitrogen formula per label",
+              "Every 2–4 weeks",
+              "Reduce"
+            ]
+          ],
+          "note": "Ranges are deliberately wide: pot size, light, and how often you water all change how much food a plant can use."
+        }
+      ],
+      "howto": [
+        "Print the PDF and keep it with your fertilizer so the bottle and the schedule live together.",
+        "List each plant with the fertilizer you use and the dilution — '½ strength balanced liquid' is enough detail.",
+        "Fill in Feed every from the guide table, then write the date each time you feed and add the interval for Next due.",
+        "In the Pause from column, write the month you plan to stop (usually October or November) and start again when spring growth shows.",
+        "If a plant develops brown tips or white crust on the soil, note it, flush the pot, and lengthen the interval."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "List plants and fertilizer",
+        "Log each feeding",
+        "Set the winter pause",
+        "Adjust on warning signs"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "How often should I fertilize houseplants?",
+          "For most tropical foliage, every two to four weeks at half strength during spring and summer, and not at all in winter. Succulents and cacti need only a few feedings a year. The guide table above gives a starting point by plant group."
+        ],
+        [
+          "What do the three numbers on fertilizer mean?",
+          "N-P-K: the percentage of nitrogen, phosphorus, and potassium. A 'balanced' fertilizer has roughly equal numbers (10-10-10, 20-20-20) and suits most houseplants. Bloom formulas raise the middle number; cactus formulas lower the first."
+        ],
+        [
+          "Can too much fertilizer hurt a plant?",
+          "Yes — it is a more common problem indoors than too little. Signs include brown leaf tips and edges, white crust on the soil, and wilting even when the soil is moist. Flush with plain water and feed less often."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — PlantLog for iPhone tracks watering, fertilizing, and repotting per plant with reminders, so the schedule maintains itself. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Name",
+        "Year"
+      ]
+    },
+    "plant-repotting-log": {
+      "app": "plantlog",
+      "h1": "Free Printable Plant Repotting Log (PDF)",
+      "title": "Free Printable Plant Repotting Log PDF — Pot Size, Soil Mix & Root Record",
+      "desc": "A free one-page printable plant repotting log. Record each repot — date, old and new pot size, soil mix, what the roots looked like, and when to check again — plus a guide to repotting signs, pot step-up size, and soil mix by plant type.",
+      "answer": "This is a free, one-page printable repotting log in PDF format. Each row is one repot of one plant: date, pot size before and after, the soil mix used, how the roots looked, why you repotted, and when to check again. Repotting is the care event with the longest gap between repeats — one to three years — which is exactly why nobody remembers the details. A dated record turns 'I think it was last spring?' into a fact.",
+      "columns": [
+        "Date",
+        "Plant",
+        "Pot: old → new",
+        "Soil mix",
+        "Roots looked",
+        "Why repotted",
+        "Next check"
+      ],
+      "col_widths": [
+        10,
+        16,
+        14,
+        17,
+        15,
+        17,
+        11
+      ],
+      "sections": [
+        {
+          "h2": "When to repot, and when not to",
+          "body": [
+            "The safest time for most houseplants is early spring to early summer, when the plant is about to grow and can recover quickly. Avoid repotting a plant that is stressed, newly bought, or in the middle of flowering unless the roots have clearly run out of room; give new plants a few weeks to settle first.",
+            "Go up only one size — roughly one to two inches (2–5 cm) wider than the current pot. A much larger pot holds a volume of wet soil the roots cannot use, and that soil stays wet long enough to rot them. If a plant is top-heavy but the roots are fine, a heavier pot of the same size solves the problem without the risk."
+          ],
+          "bullets": [
+            "Water the day before; moist roots slide out and tolerate handling better.",
+            "Loosen circling roots with your fingers; cut away any that are brown, mushy, or smell sour.",
+            "Keep the plant at the same soil depth it was before, and hold off on fertilizer for a month or two."
+          ]
+        }
+      ],
+      "reference": [
+        {
+          "h2": "Signs it is time to repot",
+          "columns": [
+            "Sign",
+            "What it usually means",
+            "Repot?"
+          ],
+          "rows": [
+            [
+              "Roots growing out of the drainage holes or circling the surface",
+              "Root-bound",
+              "Yes, up one size"
+            ],
+            [
+              "Water runs straight through and the plant dries out within a day or two",
+              "Roots have replaced most of the soil",
+              "Yes, up one size"
+            ],
+            [
+              "Plant tips over easily; pot lifts with the root ball in one piece",
+              "Root-bound and top-heavy",
+              "Yes, up one size or a heavier pot"
+            ],
+            [
+              "Soil is compacted, crusty, or smells sour",
+              "Old mix has broken down",
+              "Yes — same size pot, fresh mix"
+            ],
+            [
+              "Slow growth in spring with healthy leaves",
+              "Could be light or feeding, not roots",
+              "Check roots first"
+            ],
+            [
+              "Plant looks fine, pot looks small",
+              "Many plants prefer being slightly snug",
+              "Not yet"
+            ]
+          ]
+        },
+        {
+          "h2": "Soil mix by plant group",
+          "intro": "What to write in the Soil mix column, and what to buy. Proportions are by volume and approximate.",
+          "columns": [
+            "Plant group",
+            "Mix that works",
+            "Why"
+          ],
+          "rows": [
+            [
+              "Tropical foliage (pothos, dracaena, peace lily)",
+              "Potting mix with about one part perlite to three parts mix",
+              "Holds moisture but drains"
+            ],
+            [
+              "Aroids (monstera, philodendron, alocasia)",
+              "Chunky: roughly equal parts potting mix, orchid bark, and perlite",
+              "Air around thick roots; dries evenly"
+            ],
+            [
+              "Succulents & cacti",
+              "Cactus mix, or potting mix cut 50/50 with grit or pumice",
+              "Dries fast; no wet feet"
+            ],
+            [
+              "Orchids (phalaenopsis)",
+              "Orchid bark, sometimes with a little charcoal or sphagnum",
+              "Roots need air and light"
+            ],
+            [
+              "Ferns & calathea",
+              "Peat- or coco-based mix with a little perlite",
+              "Stays lightly moist"
+            ],
+            [
+              "African violet",
+              "Light violet mix or peat with perlite and vermiculite",
+              "Fine roots, needs to stay airy"
+            ]
+          ]
+        }
+      ],
+      "howto": [
+        "Print the PDF and file it with your plant records, or keep it with the potting supplies.",
+        "Each time you repot, write the date, the plant, and the old and new pot diameters — measured across the top.",
+        "Note the mix you used (even 'store cactus mix + perlite') so you can repeat what worked or fix what did not.",
+        "Describe the roots in a few words: white and firm, circling, brown and mushy, sparse. This is the diagnostic value of the sheet.",
+        "Set Next check one to two years out, or sooner for fast growers, and look at the sheet each spring."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Record the pot sizes",
+        "Note the soil mix",
+        "Describe the roots",
+        "Set the next check"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "How often do houseplants need repotting?",
+          "Most every one to two years; slow growers and succulents every two to three. Let the signs in the table decide rather than the calendar — some plants flower better slightly root-bound."
+        ],
+        [
+          "Can I reuse old potting soil?",
+          "For the same plant in a larger pot, mixing some old soil with fresh is fine if it is not compacted or sour. Replace it entirely if the plant had root rot or pests."
+        ],
+        [
+          "Why did my plant droop after repotting?",
+          "Transplant shock is normal for a week or two, especially if roots were trimmed. Keep it out of direct sun, water lightly, and do not fertilize until new growth appears."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — PlantLog for iPhone tracks watering, fertilizing, and repotting per plant with reminders, so the schedule maintains itself. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Name",
+        "Year"
+      ]
+    },
+    "indoor-plant-moisture-level-chart": {
+      "app": "plantlog",
+      "h1": "Free Printable Indoor Plant Moisture Level Chart (PDF)",
+      "title": "Indoor Plant Moisture Level Chart PDF — Meter Readings by Plant (Free Printable)",
+      "desc": "A free printable indoor plant moisture level chart: what each 1–10 moisture meter reading means, the reading to water at for 10 common plant groups, and a log to record readings per plant. One page, PDF, no sign-up.",
+      "answer": "This is a free, one-page printable indoor plant moisture level chart in PDF format. The top of the sheet is the reference: what a 1–10 soil moisture meter reading means (dry, moist, wet) and the reading each common plant group should fall to before you water again. The bottom is a log — plant, target reading, today's reading, and whether you watered — so you can see how fast each pot dries and stop guessing. Meters vary by brand, so the chart also gives the finger-test equivalent for each zone.",
+      "columns": [
+        "Plant",
+        "Water at reading",
+        "Date",
+        "Reading",
+        "Watered?",
+        "Notes"
+      ],
+      "col_widths": [
+        22,
+        14,
+        12,
+        10,
+        10,
+        32
+      ],
+      "prefill": [
+        [
+          "Cacti & most succulents",
+          "1–2 (fully dry)",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Snake plant, ZZ plant",
+          "1–3",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Pothos, philodendron",
+          "2–3",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Monstera, fiddle leaf fig, rubber plant",
+          "3",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Spider plant, dracaena",
+          "3–4",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Peace lily, anthurium",
+          "3–4",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "African violet",
+          "3–4",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Calathea, prayer plant",
+          "4–5",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Boston fern, maidenhair",
+          "4–6 (never dry)",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Orchid in bark",
+          "Meter unreliable — judge by root color and pot weight",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "pdf_reference": {
+        "title": "Moisture meter scale (typical 1–10 probe)",
+        "columns": [
+          "Reading",
+          "Soil is",
+          "What it means"
+        ],
+        "rows": [
+          [
+            "1–3",
+            "Dry",
+            "Water drought-tolerant plants now; most foliage plants within a day or two"
+          ],
+          [
+            "4–7",
+            "Moist",
+            "Hold off for most plants; this is the target zone for ferns, calathea, and other moisture-lovers"
+          ],
+          [
+            "8–10",
+            "Wet",
+            "Do not water. If the pot stays here for days, check drainage and root health"
+          ]
+        ]
+      },
+      "pdf_rows": 16,
+      "sections": [
+        {
+          "h2": "How to take a reading that means something",
+          "body": [
+            "Push the probe in slowly to about two-thirds of the pot's depth, where the roots are, and wait a few seconds for the needle to settle. Take two or three readings in different spots — the edge of a pot often reads drier than the middle — and use the lowest one for drought-tolerant plants and the highest for moisture-lovers. Wipe the probe dry and store it out of the soil; leaving it in corrodes the tip and drifts the readings.",
+            "Cheap probe meters measure electrical conductivity, not water directly. Soil with lots of fertilizer salts reads wetter than it is; very peaty or bark-based mixes read drier. That is why the chart pairs every zone with a finger-test equivalent — calibrate your meter against your finger for the first few weeks, then trust the number."
+          ]
+        }
+      ],
+      "reference": [
+        {
+          "h2": "What the readings mean",
+          "intro": "Most consumer soil moisture meters use a 1–10 scale with three marked zones. If yours uses 1–4 or a color band, map it to these zones.",
+          "columns": [
+            "Reading",
+            "Zone",
+            "Finger test equivalent",
+            "What to do"
+          ],
+          "rows": [
+            [
+              "1–2",
+              "Dry",
+              "Soil is dry two or more inches down; pot feels light",
+              "Water cacti, succulents, snake plant, ZZ now"
+            ],
+            [
+              "3",
+              "Dry side of moist",
+              "Top inch dry, slightly cool and damp below",
+              "Water most tropical foliage — pothos, monstera, ficus"
+            ],
+            [
+              "4–5",
+              "Moist",
+              "Top inch just starting to dry",
+              "Water calathea, peace lily, ferns; wait on everything else"
+            ],
+            [
+              "6–7",
+              "Moist",
+              "Soil damp at the surface",
+              "Wait, including moisture-lovers — unless a fern or maidenhair"
+            ],
+            [
+              "8–10",
+              "Wet",
+              "Water beads on the surface or saucer is full",
+              "Do not water; empty the saucer; if it stays here, check drainage"
+            ]
+          ],
+          "note": "Targets are typical ranges, not rules. A plant in a bright warm window dries faster and will tolerate a lower reading; the same plant in a dim corner should be watered higher on the scale to avoid sitting wet."
+        }
+      ],
+      "howto": [
+        "Print the PDF and keep it with the moisture meter.",
+        "Cross out plant groups you do not own; add your own plants in the blank rows with a target reading from the chart.",
+        "Each time you check a plant, write the date and the reading. Mark Watered? only if the reading was at or below the target.",
+        "After a few weeks, look at the gap between watering dates for each plant — that is its real interval, which you can copy to a watering schedule sheet.",
+        "If a plant reads wet for more than a few days after watering, note it: the pot may lack drainage or the roots may be rotting."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Set a target per plant",
+        "Log each reading",
+        "Find each plant's real interval",
+        "Flag pots that stay wet"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "What is a good moisture level for indoor plants?",
+          "It depends on the plant. Cacti and succulents should fall to 1–2 on a 1–10 meter before watering; most tropical foliage to about 3; ferns and calathea should stay in the 4–6 moist zone. The chart lists ten common groups."
+        ],
+        [
+          "Do I need a moisture meter?",
+          "No — the finger test works, and the chart shows the equivalent. A meter helps with deep pots, plants you cannot easily reach into, and for anyone who tends to water too often and wants a number instead of a feeling."
+        ],
+        [
+          "Why does my meter read differently from the chart?",
+          "Scales differ by brand, fertilizer salts raise readings, and bark or peat-heavy mixes lower them. Use the zones (dry, moist, wet) rather than exact numbers, and check your meter against the finger test at first."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — PlantLog for iPhone tracks watering, fertilizing, and repotting per plant with reminders, so the schedule maintains itself. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Meter",
+        "Started"
+      ]
+    },
+    "vacation-plant-watering-plan": {
+      "app": "plantlog",
+      "h1": "Free Printable Vacation Plant Watering Plan (PDF) — Plant Sitter Sheet",
+      "title": "Free Printable Vacation Plant Watering Plan PDF — Plant Sitter Instructions",
+      "desc": "A free one-page printable vacation plant watering plan. List each plant with where it is, how to water it, the dates due while you are away, and special notes — a sheet a plant sitter can follow without texting you. Includes a strategy table by trip length.",
+      "answer": "This is a free, one-page printable vacation plant watering plan in PDF format. Each row is one plant: where it lives, exactly how to water it (how much, from the top or the saucer), how often, the specific dates it falls due while you are away, whether to move it out of the sun, and anything unusual. It is written for the person who is not you — a neighbor, a friend, a house-sitter — so the instructions are concrete enough to follow without a phone call. The strategy table covers what to do when nobody is coming at all.",
+      "columns": [
+        "Plant & location",
+        "How to water",
+        "Every",
+        "Dates due while away",
+        "Light / move it?",
+        "Notes"
+      ],
+      "col_widths": [
+        18,
+        20,
+        8,
+        18,
+        14,
+        22
+      ],
+      "sections": [
+        {
+          "h2": "Before you leave",
+          "body": [
+            "Most plants can go a week without attention if you set them up well the day before. Water everything thoroughly, move plants out of direct sun and away from radiators or heating vents, and group them together — a cluster of pots keeps the air around them more humid than a single pot on a sill. Lower the thermostat a little if you can; cooler rooms dry out slower.",
+            "Do not fertilize or repot in the days before a trip. Both push growth and raise water demand at exactly the wrong time."
+          ],
+          "bullets": [
+            "Water deeply the day before, then let the pots drain so nothing sits in a full saucer.",
+            "Move sun-lovers a few feet back from south or west windows; they will cope with less light for two weeks.",
+            "Group thirsty plants on trays of damp pebbles or in the bathroom, where humidity is highest.",
+            "Check for pests before you go — a small infestation becomes a large one in two unattended weeks."
+          ]
+        },
+        {
+          "h2": "What to tell your plant sitter",
+          "body": [
+            "Write less than you think. A sitter will follow 'half a cup from the top, let it drain' far more reliably than a paragraph about the plant's history. Put the plants that genuinely need attention at the top of the sheet, mark the ones that should be ignored entirely (most succulents), and leave the watering can and a measuring cup next to the sheet. If a plant is precious, say so — and say what to do if it looks unhappy, which is usually 'wait, do not water more'."
+          ]
+        }
+      ],
+      "reference": [
+        {
+          "h2": "Strategy by trip length",
+          "intro": "What works when, for an average collection of houseplants in a home that stays at normal room temperature.",
+          "columns": [
+            "Away for",
+            "Most houseplants",
+            "Thirsty plants (ferns, calathea, peace lily)",
+            "Succulents & cacti"
+          ],
+          "rows": [
+            [
+              "Up to 5 days",
+              "Water well before leaving; no other action",
+              "Water well, move away from heat, tray of damp pebbles",
+              "Nothing — do not water before leaving if soil is still moist"
+            ],
+            [
+              "1–2 weeks",
+              "Water well; move out of direct sun; most will be fine, a few may droop and recover",
+              "Self-watering: wick from a water reservoir, bottle spike, or set the pot in the bath on a wet towel",
+              "Nothing; many go 3–4 weeks"
+            ],
+            [
+              "2–4 weeks",
+              "A sitter every 7–10 days with this sheet, or wicks and reservoirs for each pot",
+              "A sitter at least weekly; wicks alone are risky this long",
+              "One watering around the midpoint is plenty"
+            ],
+            [
+              "Over a month",
+              "A sitter with this sheet, or move plants to someone's home",
+              "A sitter; consider a timer-driven drip system",
+              "A sitter every 3–4 weeks"
+            ]
+          ],
+          "note": "Self-watering methods — wicks, spikes, globes — deliver water unevenly. Test them for a few days before you leave so you know which pots they keep too wet or too dry."
+        }
+      ],
+      "howto": [
+        "Print the PDF a few days before you leave and fill it in while walking through the house plant by plant.",
+        "Under How to water, be specific: 'about 1 cup from the top until it drains' or 'fill the saucer, empty after 20 minutes'.",
+        "Work out the dates each plant falls due during the trip from its usual interval, and write only those dates.",
+        "Note which plants to move out of direct sun before you leave, and which are deliberately on a no-water list.",
+        "Leave the sheet with the watering can and a measuring cup where the sitter will see it."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Describe how to water",
+        "Write the dates due",
+        "Mark moves and no-water plants",
+        "Leave it with the watering can"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "How long can houseplants go without water?",
+          "Most tropical foliage plants in normal room conditions manage one to two weeks after a thorough watering, especially moved out of direct sun. Ferns and calathea may struggle past a week; succulents and cacti are fine for three or four weeks."
+        ],
+        [
+          "Should I water plants more before a trip to make up for it?",
+          "Water thoroughly, but once. Soil can only hold so much; a second heavy watering just leaves the pot sitting wet, which harms roots faster than a dry spell."
+        ],
+        [
+          "Do self-watering globes and spikes work?",
+          "They help for one to two weeks but deliver unevenly — fast in porous soil, barely at all in compacted mix. Test them before you go and prefer a human for longer trips."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — PlantLog for iPhone tracks watering, fertilizing, and repotting per plant with reminders, so the schedule maintains itself. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Away from",
+        "Back on"
+      ]
+    },
+    "plant-watering-calendar": {
+      "app": "plantlog",
+      "h1": "Free Printable Plant Watering Calendar (PDF) — Weekly Checklist",
+      "title": "Free Printable Plant Watering Calendar PDF — Weekly Houseplant Checklist",
+      "desc": "A free one-page printable plant watering calendar: every plant down the side, the days of the week across the top, tick when watered. Includes how to turn an every-X-days interval into calendar days and a seasonal adjustment guide.",
+      "answer": "This is a free, one-page printable plant watering calendar in PDF format. Plants run down the left; Monday to Sunday run across; you tick the box the day you water. It answers a different question from a per-plant schedule: not 'when is the monstera due?' but 'what needs water today?'. Print a fresh sheet each week, or laminate one and use a dry-erase marker. The guide below shows how to map 'every 10 days' onto weekdays without doing arithmetic every time.",
+      "columns": [
+        "Plant",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun",
+        "Interval / notes"
+      ],
+      "col_widths": [
+        22,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        22
+      ],
+      "sections": [
+        {
+          "h2": "Why a weekly calendar instead of a per-plant schedule",
+          "body": [
+            "A per-plant schedule is the right record of how often each plant wants water; a weekly calendar is the right tool for the morning you walk past the shelf wondering what is due. Keep both: fill the Interval column from your plant watering schedule, pencil the planned days into the week, and tick them as you go. A week with no ticks for a plant is the clearest overwatering prevention there is — you can see that it is not due.",
+            "Ticks are for watering, but the sheet works just as well for the check: write a small 'c' on the day you tested the soil and found it still moist. After a month, the pattern of c's and ticks shows the real interval better than any care guide."
+          ]
+        },
+        {
+          "h2": "Seasonal adjustment",
+          "body": [
+            "Intervals are not fixed. As days shorten in autumn, most houseplants slow down and their soil stays wet longer; stretch each interval by a few days to a week and move the planned ticks accordingly. In spring, growth restarts and the ticks move closer together again. Heating season dries the air and can shorten intervals for small pots near radiators even as the plant's growth slows — the soil test wins over the calendar every time."
+          ]
+        }
+      ],
+      "reference": [
+        {
+          "h2": "Turning an interval into calendar days",
+          "intro": "How to plan the week from the Interval column. Shift everything by a day if a plant's soil is still moist on the planned day.",
+          "columns": [
+            "Interval",
+            "Pattern on this sheet",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Every 3–4 days",
+              "Two ticks per week, three days apart",
+              "Mon and Thu, or Tue and Fri"
+            ],
+            [
+              "Every 5 days",
+              "Rotates through the week; plan from the last tick",
+              "Mon → Sat → Thu (next week) → Tue"
+            ],
+            [
+              "Every 7 days",
+              "Same day every week",
+              "Every Sunday"
+            ],
+            [
+              "Every 10 days",
+              "Alternates: one week one day, next week three days later",
+              "Mon, then Thu of the following week, then Sun of the week after"
+            ],
+            [
+              "Every 14 days",
+              "Same day every other week — mark 'off week' in Notes",
+              "Sunday, skip a week, Sunday"
+            ],
+            [
+              "Every 3–4 weeks",
+              "Write the date due in Notes rather than ticking a weekday",
+              "'Due ~Nov 12' for aloe or cactus"
+            ]
+          ],
+          "note": "For intervals of 10 days or more, the per-plant schedule sheet is easier; use this calendar for the plants you water weekly or more."
+        }
+      ],
+      "howto": [
+        "Print the PDF — one sheet per week — or laminate one and use a dry-erase marker.",
+        "List every plant you water at least every two weeks, and write its interval in the right-hand column.",
+        "At the start of the week, pencil a small dot on the days each plant is planned, using the interval table.",
+        "On the day, check the soil first; tick if you watered, write 'c' if you checked and waited.",
+        "At the end of the month, compare the ticks with the intervals and update any plant whose real rhythm is different."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "List plants and intervals",
+        "Plan the week",
+        "Tick or check daily",
+        "Review monthly"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "Should I water all my plants on the same day?",
+          "Only if they share an interval. A fixed 'watering day' is how snake plants and succulents end up watered weekly. The calendar lets you keep one routine time of day while each plant keeps its own days."
+        ],
+        [
+          "How do I handle an every-10-days plant on a weekly sheet?",
+          "Alternate: tick a day this week, then three days later on next week's sheet. The interval table above lists the pattern for common intervals, and the notes column holds the date for anything longer."
+        ],
+        [
+          "Can I use this for fertilizing too?",
+          "Yes — write 'F' instead of a tick on feeding days, or keep a separate plant fertilizer schedule sheet if you feed on a monthly cycle."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — PlantLog for iPhone tracks watering, fertilizing, and repotting per plant with reminders, so the schedule maintains itself. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Week of",
+        "Season"
+      ]
+    },
+    "plant-propagation-tracker": {
+      "app": "plantlog",
+      "h1": "Free Printable Plant Propagation Tracker (PDF)",
+      "title": "Free Printable Plant Propagation Tracker PDF — Cuttings & Rooting Log",
+      "desc": "A free one-page printable plant propagation tracker. Log each batch of cuttings — date, plant, method, how many, when roots appeared, when potted up — with a table of typical rooting times for pothos, monstera, succulents, snake plant and more.",
+      "answer": "This is a free, one-page printable plant propagation tracker in PDF format. Each row is one batch of cuttings: the date started, the parent plant, the method (water, soil, sphagnum moss, division, leaf), how many you took, the date you first saw roots, the date you potted them up, and notes on what worked. Propagation is slow enough that you forget when you started and fast enough that cuttings rot if you forget them — a dated log fixes both, and after a few batches it tells you which method actually works in your home.",
+      "columns": [
+        "Started",
+        "Plant / cutting",
+        "Method",
+        "Qty",
+        "Roots seen",
+        "Potted up",
+        "Notes"
+      ],
+      "col_widths": [
+        10,
+        20,
+        14,
+        7,
+        12,
+        12,
+        25
+      ],
+      "sections": [
+        {
+          "h2": "Method notes",
+          "body": [
+            "Water propagation is the easiest to watch and the best for learning: you see the roots form. Its weakness is that water roots are fragile and some cuttings sulk when moved to soil — pot up when roots are an inch or two long, not longer, and keep the soil moist for the first couple of weeks. Soil propagation skips that transition but hides the progress; a gentle tug that meets resistance after a few weeks means roots. Sphagnum moss or perlite sits between the two and suits aroids that rot in water.",
+            "Whatever the method, a cutting needs a node — the bump on the stem where a leaf or aerial root emerges — for most vining plants. Leaf-only cuttings of pothos or monstera grow roots but never a new plant. Succulent leaves are the exception and root from the leaf base."
+          ],
+          "bullets": [
+            "Take cuttings in spring or summer; rooting slows dramatically in short winter days.",
+            "Bright indirect light and warmth around 70°F (21°C) speed everything up; cold windowsills stall it.",
+            "Change propagation water every few days, and discard any cutting whose stem turns brown and soft."
+          ]
+        }
+      ],
+      "reference": [
+        {
+          "h2": "Typical rooting times",
+          "intro": "Rough expectations for the Roots seen column under warm, bright indoor conditions. Cold, dim, or winter conditions can double these.",
+          "columns": [
+            "Plant",
+            "Easiest method",
+            "Roots usually appear",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Pothos, heartleaf philodendron",
+              "Water",
+              "1–3 weeks",
+              "Needs a node; very forgiving"
+            ],
+            [
+              "Monstera deliciosa",
+              "Water or moss",
+              "3–6 weeks",
+              "Include a node and, ideally, an aerial root"
+            ],
+            [
+              "Spider plant plantlets",
+              "Water or straight into soil",
+              "1–2 weeks",
+              "Often already has root nubs"
+            ],
+            [
+              "Tradescantia",
+              "Water or soil",
+              "1–2 weeks",
+              "Roots from any node"
+            ],
+            [
+              "Succulent leaves (echeveria, jade)",
+              "Dry callus, then on top of soil",
+              "2–6 weeks for roots; months for a rosette",
+              "Do not bury the leaf; mist lightly"
+            ],
+            [
+              "Snake plant leaf sections",
+              "Water or soil",
+              "4–8 weeks or longer",
+              "Keep the cut end that was lower on the leaf pointing down"
+            ],
+            [
+              "String of pearls",
+              "Laid on soil",
+              "2–4 weeks",
+              "Pin the strand to the surface"
+            ],
+            [
+              "ZZ plant leaf",
+              "Soil",
+              "2–4 months",
+              "Forms a rhizome first; very slow"
+            ],
+            [
+              "African violet, begonia leaf",
+              "Soil or water",
+              "4–8 weeks",
+              "New plantlets appear at the leaf base"
+            ],
+            [
+              "Peace lily, ferns, calathea",
+              "Division when repotting",
+              "Already rooted",
+              "Not from cuttings; split the root ball"
+            ]
+          ],
+          "note": "Ranges are typical, not guaranteed. Log your own dates — your conditions will shift them, and the sheet becomes the better reference."
+        }
+      ],
+      "howto": [
+        "Print the PDF and keep it beside the propagation jars or shelf.",
+        "Each batch of cuttings gets one row: date, parent plant, method, and how many cuttings — a label on the jar with the same date helps.",
+        "Check weekly. Write the date you first see roots, and note anything that failed and why (rot, dried out, no node).",
+        "When roots are an inch or two long, pot up and record the date. Keep the soil evenly moist for the first two weeks.",
+        "After a few batches, compare dates by method — that tells you which method to use next time for each plant."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Log each batch",
+        "Record when roots appear",
+        "Record potting up",
+        "Compare methods"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "How long do cuttings take to root?",
+          "One to three weeks for easy vines like pothos in water, three to six for monstera, and one to three months for slow plants like snake plant and ZZ. Warmth and bright indirect light are the biggest accelerators; the table above lists common plants."
+        ],
+        [
+          "Why are my cuttings rotting instead of rooting?",
+          "Usually too little light, too cold, water left unchanged, or a cutting without a node. Discard anything soft and brown, cut the stem back to healthy tissue, and start again in fresh water with more light."
+        ],
+        [
+          "Can I propagate in winter?",
+          "You can, but expect it to take much longer and lose more cuttings. If you can, wait for spring — or put the cuttings under a grow light to compensate for short days."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — PlantLog for iPhone tracks watering, fertilizing, and repotting per plant with reminders, so the schedule maintains itself. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Name",
+        "Year"
+      ]
+    },
+    "eczema-itch-diary": {
+      "app": "skinote",
+      "h1": "Free Printable Itch Diary (PDF) — Eczema Itch & Scratch Log",
+      "title": "Free Printable Itch Diary PDF — Eczema Itch Severity & Scratch Log",
+      "desc": "A free one-page printable itch diary for eczema and other itchy skin conditions. Rate itch 0–10 by time of day, note where it was, what you were doing, scratching and lost sleep — a record to bring to your dermatologist. Not medical advice.",
+      "answer": "This is a free, one-page printable itch diary in PDF format. Each row is one itch episode or one time slot: the date, time of day, itch intensity from 0 to 10, where on the body, whether you scratched and how much sleep it cost, and what was happening at the time — heat, sweat, fabric, a bath, stress. Flare trackers record the skin; this sheet records the symptom that actually disrupts your day and night, which is the thing a dermatologist most often asks about and the thing patients find hardest to describe from memory. It is a record-keeping aid, not medical advice.",
+      "columns": [
+        "Date",
+        "Time of day",
+        "Itch (0–10)",
+        "Where",
+        "Scratched / sleep lost",
+        "What was happening",
+        "Notes"
+      ],
+      "col_widths": [
+        9,
+        11,
+        9,
+        15,
+        17,
+        22,
+        17
+      ],
+      "sections": [
+        {
+          "h2": "Why log itch separately from flares",
+          "body": [
+            "Visible eczema and itch do not always move together. Itch often spikes in the evening and at night, after exercise, or during stressful weeks, while the skin looks the same. A diary that only records how the skin looked misses the pattern. Scoring itch on a simple 0–10 scale at a few fixed points — morning, afternoon, evening, night — turns 'it has been bad lately' into a line your dermatologist can read, and shows whether a change in routine actually helped.",
+            "Record the context without judging it. 'Wool sweater', 'hot shower', 'gym', 'deadline', 'new detergent' are observations. Over two or three weeks, the ones that keep appearing beside high scores are worth discussing with your clinician; the sheet does not decide what they mean."
+          ]
+        }
+      ],
+      "reference": [
+        {
+          "h2": "Scoring and what to note",
+          "intro": "Anchors for the 0–10 column, and the context most people find worth writing down. Use whatever words fit — consistency matters more than the exact number.",
+          "columns": [
+            "Score",
+            "What it feels like",
+            "Context worth noting"
+          ],
+          "rows": [
+            [
+              "0",
+              "No itch",
+              "—"
+            ],
+            [
+              "1–3",
+              "Noticeable but easy to ignore; no scratching needed",
+              "Time of day, what you were wearing"
+            ],
+            [
+              "4–6",
+              "Hard to ignore; you scratch or rub, can still concentrate",
+              "Heat, sweat, fabric, bathing, a new product"
+            ],
+            [
+              "7–9",
+              "Dominates attention; scratching is hard to stop; disturbs sleep",
+              "Stress, illness, missed routine, sleep lost (hours)"
+            ],
+            [
+              "10",
+              "Worst imaginable; cannot sleep or function",
+              "Everything above — and tell your clinician"
+            ]
+          ],
+          "note": "Scales like this are commonly used in dermatology for patient-reported itch; your clinician may prefer a specific one. The sheet works with any of them."
+        }
+      ],
+      "howto": [
+        "Print the PDF and keep it by the bed — night is when itch is usually worst and least remembered.",
+        "Score itch 0–10 at fixed points (morning, afternoon, evening, bedtime) and whenever an episode stands out.",
+        "Note where on the body it was and whether you scratched, and estimate sleep lost in hours.",
+        "In What was happening, write the plain facts: heat, sweat, wool, hot shower, stress, new detergent, missed moisturizer.",
+        "After two to three weeks, bring the sheets to your dermatologist appointment."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Score itch at fixed times",
+        "Record location and scratching",
+        "Note the context",
+        "Bring it to your appointment"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "Is this a medical form?",
+          "No. It is a personal record sheet to help you describe symptoms accurately. It does not diagnose, and it does not replace advice from a dermatologist or doctor."
+        ],
+        [
+          "How often should I fill it in?",
+          "A few fixed times a day works better than 'whenever it itches', because it captures the quiet days too. Add extra rows for episodes that stand out."
+        ],
+        [
+          "Should I log itch if my skin looks clear?",
+          "Yes — that is one of the most useful things the sheet records. Itch without visible flare is common and worth telling your clinician about."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — Skinote for iPhone logs flares, itch, triggers, and routine, and shows which factors cluster before your worse days. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Name",
+        "Started"
+      ]
+    },
+    "gout-medication-log": {
+      "app": "goutlog",
+      "h1": "Free Printable Gout Medication Log (PDF) — Daily Dose & Uric Acid Record",
+      "title": "Free Printable Gout Medication Log PDF — Dose Taken, Uric Acid & Flare Record",
+      "desc": "A free one-page printable gout medication log. Record each day's medication and dose, time taken, uric acid results when tested, and whether a flare occurred — the adherence record your doctor needs when adjusting treatment. Not medical advice.",
+      "answer": "This is a free, one-page printable gout medication log in PDF format. Each row is one day: the medication and dose, the time you took it, a tick that it was taken, any uric acid test result, whether you had a flare, and notes on side effects or missed doses. Urate-lowering treatment is adjusted on exactly two things — your blood results and whether you actually took the tablets — and both are easy to misremember across a three-month gap between appointments. This sheet is the record; it does not give medical advice or suggest doses.",
+      "columns": [
+        "Date",
+        "Medication & dose",
+        "Time",
+        "Taken ✓",
+        "Uric acid (if tested)",
+        "Flare today?",
+        "Notes / side effects"
+      ],
+      "col_widths": [
+        10,
+        20,
+        8,
+        8,
+        15,
+        11,
+        28
+      ],
+      "sections": [
+        {
+          "h2": "What to record, and why it matters",
+          "body": [
+            "Doctors titrate gout medication to a uric acid target they set for you, checking blood levels every few weeks early on and then less often. A missed dose here and there is normal; what matters is that the record is honest, because an unexplained high result with a perfect tick column leads to a dose change that may not be needed. Write the target your clinician gave you in the header so every result on the sheet can be read against it.",
+            "Flares can occur in the first months after starting or changing urate-lowering treatment; that is a known pattern, not necessarily a sign the medication is failing. Logging flares alongside doses lets your clinician see the timing. If you are also prescribed a medication to take at the start of a flare, record that in the same row so the sequence is clear."
+          ],
+          "bullets": [
+            "Never change or stop a dose based on this sheet — bring it to the person who prescribed it.",
+            "Record side effects with dates; 'stomach upset after evening dose, 3 days' is more useful than 'felt off'.",
+            "Keep lab result printouts with the sheet; the sheet is a summary, not the source."
+          ]
+        }
+      ],
+      "howto": [
+        "Print the PDF — one page covers about three weeks — and keep it with your tablets.",
+        "Write the medication name and dose exactly as on the label, and the time you take it each day.",
+        "Tick Taken as you take it. Leave it blank on missed days rather than filling in later.",
+        "When you get a uric acid result, write the number and unit in that day's row; write your clinician's target in the header.",
+        "Mark flare days and note the joint, and bring the sheets to your next appointment."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Record medication and dose",
+        "Tick each dose taken",
+        "Add uric acid results",
+        "Mark flares and bring it along"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "Does this sheet tell me what dose to take?",
+          "No. It only records what your clinician prescribed and what you took. Dose decisions belong to the prescriber, using your results and this record."
+        ],
+        [
+          "How often is uric acid tested?",
+          "That is decided by your clinician — often every few weeks while a dose is being adjusted, then every several months once stable. Record whatever results you receive, with the unit (mg/dL or µmol/L)."
+        ],
+        [
+          "I had a flare after starting treatment. Should I stop?",
+          "Talk to your prescriber before changing anything. Flares in the early months of urate-lowering treatment are a recognized pattern, and the log helps them see the timing."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — GoutLog for iPhone records doses, uric acid results, flares, and triggers, and charts levels over time against your target. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Name",
+        "Target uric acid (from your doctor)"
+      ]
+    },
+    "tire-pressure-rotation-log": {
+      "app": "motorlog",
+      "h1": "Free Printable Tire Pressure & Rotation Log (PDF)",
+      "title": "Free Printable Tire Pressure Log PDF — PSI, Tread Depth & Rotation Record",
+      "desc": "A free one-page printable tire pressure and rotation log. Record all four tire pressures, tread depth, and rotations by date and odometer — plus where to find the correct PSI, tread depth guidance, and typical rotation intervals.",
+      "answer": "This is a free, one-page printable tire log in PDF format. Each row is one check: date, odometer, the cold pressure of all four tires, tread depth or a rotation tick, and notes such as a slow leak or uneven wear. Tire pressure is the maintenance item with the biggest effect on fuel economy and safety and the smallest chance of being written down — a monthly row on this sheet shows which tire keeps losing air, when the last rotation was, and how fast the tread is going.",
+      "columns": [
+        "Date",
+        "Odometer",
+        "FL psi",
+        "FR psi",
+        "RL psi",
+        "RR psi",
+        "Tread / rotation",
+        "Notes"
+      ],
+      "col_widths": [
+        10,
+        11,
+        8,
+        8,
+        8,
+        8,
+        17,
+        30
+      ],
+      "sections": [
+        {
+          "h2": "How to check pressure so the numbers mean something",
+          "body": [
+            "Check cold — before driving, or after the car has sat for a few hours. Driving warms the tires and raises the reading by several psi, which is why a gas-station check after a highway run always looks fine. Use the pressure on the placard inside the driver's door jamb (or the owner's manual), not the 'max press' moulded on the tire sidewall; that number is the tire's limit, not the car's specification. Front and rear are sometimes different, which is why the sheet has four columns.",
+            "A tire that is consistently a few psi lower than its neighbors in the log is the one with the slow leak — a nail, a corroded wheel rim, or a valve stem. That pattern is invisible without a dated record, and it is the most common thing this sheet catches."
+          ]
+        }
+      ],
+      "reference": [
+        {
+          "h2": "Reference values",
+          "intro": "General guidance commonly given by tire makers and safety agencies. Your owner's manual and the door-jamb placard take priority.",
+          "columns": [
+            "Item",
+            "Guidance",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Correct pressure",
+              "Door-jamb placard or owner's manual",
+              "Not the sidewall maximum; front and rear may differ"
+            ],
+            [
+              "Check interval",
+              "Monthly, and before long trips",
+              "Pressure drops roughly 1 psi per 10°F fall in temperature"
+            ],
+            [
+              "Rotation interval",
+              "Commonly every 5,000–8,000 miles (8,000–13,000 km), or with each oil change",
+              "Follow the manual; some AWD vehicles are stricter"
+            ],
+            [
+              "Tread depth — new",
+              "Typically 10/32″ to 11/32″ for passenger tires",
+              "Varies by tire type"
+            ],
+            [
+              "Tread depth — replace soon",
+              "4/32″ is a common wet-grip recommendation",
+              "Penny/quarter tests approximate this"
+            ],
+            [
+              "Tread depth — legal minimum",
+              "2/32″ in most US states; 1.6 mm in the UK/EU",
+              "Wear bars appear at this depth"
+            ]
+          ],
+          "note": "Uneven wear across the four tread readings points to alignment, pressure, or rotation issues — note the pattern (inner edge, outer edge, center) in the Notes column."
+        }
+      ],
+      "howto": [
+        "Print the PDF and keep it in the glovebox with the tire gauge.",
+        "Once a month, before driving, check all four tires and write the pressures in the FL/FR/RL/RR columns with the odometer reading.",
+        "Adjust to the placard pressure and note how much each tire needed — a tire that always needs air is leaking.",
+        "Every few months, measure tread depth with a gauge at the inner, center, and outer tread and write the lowest reading.",
+        "When tires are rotated, write 'rotated' with the pattern used (front-to-back, cross) so the next one can be planned from the odometer."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Log pressures monthly",
+        "Note tires that need air",
+        "Measure tread depth",
+        "Record each rotation"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "What tire pressure should I use?",
+          "The one on the placard inside the driver's door jamb or in the owner's manual, measured cold. The number on the tire sidewall is the maximum the tire can hold, not the recommended pressure for your car."
+        ],
+        [
+          "How often should tires be rotated?",
+          "Many manufacturers suggest every 5,000 to 8,000 miles, or at each oil change; your manual is the authority. The log shows the odometer at the last rotation so you know when the next one is due."
+        ],
+        [
+          "Why does my tire pressure drop in winter?",
+          "Air contracts as it cools — roughly 1 psi for every 10°F drop. A tire set correctly in September can be several psi low by December, which is why the sheet records the date alongside the readings."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — MotorLog for iPhone records tire pressure, rotations, service, and fuel by odometer and reminds you when the next rotation is due. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Vehicle",
+        "Placard pressure (front / rear)"
+      ]
+    },
+    "pet-weight-tracker": {
+      "app": "pawlog",
+      "h1": "Free Printable Pet Weight Tracker (PDF) — Dog & Cat Weight Log",
+      "title": "Free Printable Pet Weight Tracker PDF — Dog & Cat Weight and Body Condition Log",
+      "desc": "A free one-page printable pet weight tracker. Record your dog's or cat's weight, change since last time, body condition score, food portion, and activity — with a plain-words body condition guide and how often to weigh. Not veterinary advice.",
+      "answer": "This is a free, one-page printable pet weight tracker in PDF format. Each row is one weigh-in: date, weight, change since the last entry, a 1–9 body condition score, what and how much your pet is eating, activity, and notes. Weight drifts slowly in pets — a pound on a cat is a lot, and it arrives one ounce at a time — so the sheet is built around the change column, which is where a problem shows first. Bring it to vet visits; the sheet records, your vet interprets.",
+      "columns": [
+        "Date",
+        "Weight",
+        "Change",
+        "Body condition (1–9)",
+        "Food / portion",
+        "Activity",
+        "Notes"
+      ],
+      "col_widths": [
+        10,
+        10,
+        9,
+        13,
+        20,
+        14,
+        24
+      ],
+      "sections": [
+        {
+          "h2": "Weighing at home",
+          "body": [
+            "For cats and small dogs, weigh yourself on a bathroom scale, then weigh yourself holding the pet and subtract; it is good enough for tracking trend if you do it the same way each time. Large dogs are easier on the vet's walk-on scale — many clinics let you use it between visits. Weigh at the same time of day, before a meal, and write the weight in the same unit every time.",
+            "The Change column is the point of the sheet. A healthy adult pet's weight should hold roughly steady; a steady drift up or down over several entries, even by small amounts, is what to show your vet. Sudden loss with no change in food is worth a call rather than a wait."
+          ],
+          "bullets": [
+            "Puppies and kittens: weekly, because growth is fast and the vet will ask.",
+            "Healthy adults: about monthly.",
+            "Pets on a weight-management plan, seniors, or those with a medical condition: every one to two weeks, or as your vet asks."
+          ]
+        }
+      ],
+      "reference": [
+        {
+          "h2": "Body condition score, in plain words",
+          "intro": "Vets commonly use a 9-point body condition scale for dogs and cats. Ask your vet to show you how to score your own pet once — after that, you can track it at home.",
+          "columns": [
+            "Score",
+            "Category",
+            "What you see and feel"
+          ],
+          "rows": [
+            [
+              "1–3",
+              "Underweight",
+              "Ribs, spine, and hip bones easily seen; little or no fat cover; obvious waist and tuck"
+            ],
+            [
+              "4–5",
+              "Ideal",
+              "Ribs easy to feel under a thin layer of fat but not visible; waist seen from above; belly tucks up from the side"
+            ],
+            [
+              "6–7",
+              "Overweight",
+              "Ribs hard to feel under fat; waist barely visible or absent; belly starting to sag"
+            ],
+            [
+              "8–9",
+              "Obese",
+              "Ribs cannot be felt under heavy fat; no waist; fat deposits on the back, base of tail, and abdomen"
+            ]
+          ],
+          "note": "Coat length and breed shape make visual scoring unreliable — the feel of the ribs is the most consistent cue."
+        }
+      ],
+      "howto": [
+        "Print the PDF and keep it with the pet's vaccination record or on the fridge.",
+        "Weigh at the same time of day and in the same way each time, and write the weight and date.",
+        "Calculate the change from the previous row — that is the number to watch.",
+        "Score body condition from the table, and note the current food, portion size, and typical activity so changes can be explained.",
+        "Bring the sheet to every vet visit; mention any steady drift or sudden change."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Weigh consistently",
+        "Track the change",
+        "Score body condition",
+        "Bring it to the vet"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "What is a healthy weight for my dog or cat?",
+          "It depends on breed, frame, and age, so there is no single number — body condition score is the better guide. Your vet can tell you the target for your pet; the sheet tracks progress toward it."
+        ],
+        [
+          "How much weight change is a concern?",
+          "Any steady trend over several weigh-ins is worth mentioning to your vet, and unexplained loss of more than a few percent of body weight merits a call. The sheet does not set thresholds; your vet will."
+        ],
+        [
+          "Can I use this for other pets?",
+          "Yes — rabbits, guinea pigs, and other small animals benefit even more from regular weighing because they hide illness. Use a kitchen scale and grams."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — PawLog for iPhone records weight, food, medication, and vet visits per pet and charts weight over time. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Pet",
+        "Target weight (from your vet)"
+      ]
+    },
+    "sourdough-starter-feeding-log": {
+      "app": "banneton",
+      "h1": "Free Printable Sourdough Starter Feeding Log (PDF)",
+      "title": "Free Printable Sourdough Starter Feeding Log PDF — Ratio, Temperature & Peak Time",
+      "desc": "A free one-page printable sourdough starter feeding log. Record each feed — date and time, ratio, flour, room temperature, time to peak, and how much it rose — with a table of common feeding ratios and what they do. No sign-up.",
+      "answer": "This is a free, one-page printable sourdough starter feeding log in PDF format. Each row is one feeding: date and time, the ratio of starter to flour to water, which flour, the room temperature, how long it took to peak, how much it rose, and what it smelled and looked like. A starter is a schedule problem disguised as a baking problem — the same ratio peaks in four hours in July and nine in January — and the only way to know when yours will be ready is a record of what it did last time under the same conditions.",
+      "columns": [
+        "Date & time",
+        "Ratio (S:F:W)",
+        "Flour",
+        "Room temp",
+        "Time to peak",
+        "Rise (×)",
+        "Smell / look / notes"
+      ],
+      "col_widths": [
+        13,
+        11,
+        12,
+        9,
+        11,
+        8,
+        36
+      ],
+      "sections": [
+        {
+          "h2": "What the log tells you after a week",
+          "body": [
+            "Peak time is the number bakers actually need: the window when the starter is at its strongest and should go into the dough. It depends on ratio, temperature, and flour, and the log pins down all three. After a week of entries at your kitchen's temperature you can predict peak within half an hour and plan a bake backward from it — feed at 9, mix at 2 — instead of hovering over the jar.",
+            "Rise is the health check. A starter that reliably doubles or more at peak is active; one that creeps to 1.5× and slumps may need warmer conditions, a few days of more frequent feeding, or a different flour. Smell belongs on the sheet too: yeasty and mildly sour at peak, sharper vinegar or acetone notes when it has gone past peak and is hungry."
+          ],
+          "bullets": [
+            "Mark the jar with a rubber band at the fed level so Rise (×) is a measurement, not an impression.",
+            "Log the temperature where the jar sits, not the thermostat — a windowsill and the top of the fridge can differ by 10°F.",
+            "Write the flour; whole wheat and rye ferment faster than white and change peak time."
+          ]
+        }
+      ],
+      "reference": [
+        {
+          "h2": "Common feeding ratios and what they do",
+          "intro": "Starter : flour : water by weight. Peak times are typical for a healthy starter around 75°F (24°C) and shift with temperature and flour — which is what the log is for.",
+          "columns": [
+            "Ratio",
+            "Typical peak",
+            "When bakers use it"
+          ],
+          "rows": [
+            [
+              "1:1:1",
+              "About 4–6 hours",
+              "Fast refresh before a bake; building a young starter; warm kitchens need two feeds a day"
+            ],
+            [
+              "1:2:2",
+              "About 6–8 hours",
+              "Twice-daily maintenance; a bit more buffer than 1:1:1"
+            ],
+            [
+              "1:3:3 to 1:5:5",
+              "About 8–12 hours",
+              "Overnight feed so the starter peaks in the morning; keeps acidity lower"
+            ],
+            [
+              "1:10:10",
+              "12 hours or more",
+              "Very warm kitchens, or stretching feeds; taming an over-sour starter"
+            ],
+            [
+              "Fridge storage",
+              "—",
+              "Feed, let it begin to rise, then refrigerate; refresh roughly weekly and give two or three room-temperature feeds before baking"
+            ]
+          ],
+          "note": "Higher ratios (more fresh flour per gram of starter) take longer to peak and tend toward milder flavor; lower ratios are faster and more sour."
+        }
+      ],
+      "howto": [
+        "Print the PDF and keep it under the starter jar.",
+        "At each feed, write the time, the ratio by weight, the flour, and the temperature where the jar sits.",
+        "Put a rubber band at the fed level; when the dome starts to flatten, write the time to peak and the rise as a multiple.",
+        "Add a few words on smell and texture — yeasty, sour, acetone, soupy, stiff — so the row describes the starter and not just the clock.",
+        "Before a bake, find the most recent row at a similar temperature and plan the feed so the peak lands when you want to mix."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Record each feed",
+        "Measure peak time and rise",
+        "Note smell and texture",
+        "Plan bakes from past peaks"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "How often should I feed a sourdough starter?",
+          "Kept at room temperature, usually once or twice a day depending on ratio and warmth; kept in the fridge, roughly weekly. The log shows how long your starter takes to peak and fall, which is the real answer to how often it needs feeding."
+        ],
+        [
+          "What does 1:1:1 mean?",
+          "Equal weights of starter, flour, and water — for example 50 g starter, 50 g flour, 50 g water. The log records ratios by weight because volume measurements of flour are inconsistent."
+        ],
+        [
+          "My starter smells like nail polish remover. Is it dead?",
+          "Almost certainly not. An acetone smell usually means it is hungry and has gone well past peak. Feed it at a higher ratio and log the next few feeds; the smell normally returns to yeasty-sour within a day or two."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — Banneton for iPhone logs starter feeds and bakes with timers for peak and proof, and keeps a hydration and temperature record per loaf. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Starter name",
+        "Flour"
+      ]
+    },
+    "hive-inspection-sheet": {
+      "app": "combwise",
+      "h1": "Free Printable Hive Inspection Sheet (PDF) — Beekeeping Record",
+      "title": "Free Printable Hive Inspection Sheet PDF — Beekeeping Inspection Record & Checklist",
+      "desc": "A free one-page printable hive inspection sheet. Record each inspection — date, hive, queen or eggs seen, brood pattern, stores, temperament, pests and mite counts, actions — with a checklist of what to look for and typical inspection timing.",
+      "answer": "This is a free, one-page printable hive inspection sheet in PDF format. Each row is one inspection of one hive: date and conditions, whether you saw the queen or eggs, what the brood pattern looked like, honey and pollen stores, temperament, pests and varroa count, and what you did and plan to do next visit. Inspections are the heart of beekeeping records — the thing you notice at a hive is only useful if you can compare it with the last visit — and a one-line row per inspection is the format most beekeepers settle on. Blank columns are deliberate: a sheet that is fast to fill in at the hive gets filled in.",
+      "columns": [
+        "Date / weather",
+        "Hive",
+        "Queen / eggs",
+        "Brood pattern",
+        "Stores (honey / pollen)",
+        "Temper",
+        "Pests / mites",
+        "Actions & next visit"
+      ],
+      "col_widths": [
+        11,
+        7,
+        11,
+        13,
+        14,
+        8,
+        13,
+        23
+      ],
+      "sections": [
+        {
+          "h2": "When and how often to inspect",
+          "body": [
+            "During the active season most beekeepers open a hive every 7 to 10 days — often enough to catch swarm preparations, which take about that long from egg to capped queen cell, and seldom enough not to set the colony back. Inspect on a warm, calm, sunny day when foragers are out and the hive is calmer and emptier. In cold months, inspections are brief or skipped; heft the hive to judge stores instead and log that.",
+            "Keep the sheet short at the hive and add detail afterwards if needed. Eggs seen means the queen was present within the last three days even if you never saw her; that one tick replaces a long search. Write the varroa count from an alcohol wash or sugar roll as mites per 100 bees so visits are comparable — the varroa mite calculator on this site does the arithmetic."
+          ]
+        }
+      ],
+      "reference": [
+        {
+          "h2": "What to check and what it usually means",
+          "columns": [
+            "Check",
+            "Looks right",
+            "Worth noting"
+          ],
+          "rows": [
+            [
+              "Queen / eggs",
+              "Eggs standing upright in cells: queen laid within ~3 days",
+              "No eggs or young larvae for two visits; multiple eggs per cell (laying workers)"
+            ],
+            [
+              "Brood pattern",
+              "Solid, compact capped brood with few empty cells",
+              "Spotty pattern, sunken or perforated cappings, discolored larvae"
+            ],
+            [
+              "Queen cells",
+              "None, or a few play cups",
+              "Charged swarm cells along frame bottoms; supersedure cells on the face"
+            ],
+            [
+              "Stores",
+              "Band of pollen and honey around the brood; frames of capped honey",
+              "Light hive going into dearth or winter; no pollen"
+            ],
+            [
+              "Space",
+              "Bees covering most frames with room to expand",
+              "Bearding and congestion (add space); too much empty space in a weak hive"
+            ],
+            [
+              "Temperament",
+              "Calm bees, little following",
+              "Sudden defensiveness: queenless, dearth, robbing, or weather"
+            ],
+            [
+              "Pests / disease",
+              "Few hive beetles, no wax moth webbing, mite count low",
+              "Rising mite count; deformed wings; beetles in numbers; foul smell"
+            ]
+          ],
+          "note": "Thresholds and treatment choices vary by region and season — use your local association's guidance. The sheet records what you saw; it does not prescribe treatment."
+        }
+      ],
+      "howto": [
+        "Print the PDF — one sheet per hive, or one shared sheet for a small apiary — and keep it in the toolbox or on a clipboard.",
+        "Before opening, write the date, weather, and what you intend to check; after, fill the row while it is fresh.",
+        "Tick Queen or Eggs; note the brood pattern in a word or two (solid, spotty); estimate stores in frames.",
+        "Record mite counts as mites per 100 bees from a wash or roll, and any pests seen.",
+        "Finish with what you did (added a super, swapped frames) and what the next visit should check."
+      ],
+      "howto_names": [
+        "Print the PDF",
+        "Note date and conditions",
+        "Record queen, brood, stores",
+        "Log mites and pests",
+        "Write actions and next visit"
+      ],
+      "faq": [
+        [
+          "Is this sheet really free?",
+          "Yes. The PDF is free to download and print — no sign-up, no email, no watermark."
+        ],
+        [
+          "How often should I inspect a beehive?",
+          "Roughly every 7 to 10 days during the active season, less often in cool weather and rarely in winter. The interval matters for swarm control — a capped queen cell can appear within about eight days of the egg being laid."
+        ],
+        [
+          "Do I need to find the queen every time?",
+          "No. Eggs are proof the queen was laying within the last three days. Most experienced beekeepers look for eggs and young larvae and only search for the queen when they need to mark, move, or replace her."
+        ],
+        [
+          "How do I record a varroa count?",
+          "As mites per 100 bees from an alcohol wash or sugar roll — a half cup of bees is about 300, so divide the mites found by three. The varroa mite calculator on this site does the conversion."
+        ],
+        [
+          "Is there an app version?",
+          "Yes — Combwise for iPhone records inspections per hive, mite counts, treatments, and feeding, and reminds you when the next inspection is due. Core is free, no account needed, and your data stays on your device."
+        ]
+      ],
+      "pdf_fields": [
+        "Apiary",
+        "Season"
       ]
     }
   }

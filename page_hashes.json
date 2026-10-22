@@ -1,11 +1,11 @@
 {
  "/": {
-  "hash": "98cd31ea97edd052",
-  "lastmod": "2026-09-18"
+  "hash": "1bfb12711535f438",
+  "lastmod": "2026-10-22"
  },
  "/templates/": {
-  "hash": "a83d210bad7ab86c",
-  "lastmod": "2026-09-18"
+  "hash": "fdb044222388ca9b",
+  "lastmod": "2026-10-22"
  },
  "/tools/reciprocity-calculator/": {
   "hash": "844db9d9e5a2458b",
@@ -124,8 +124,8 @@
   "lastmod": "2026-09-18"
  },
  "/apps/boardcut/": {
-  "hash": "9d7e191a1125f54d",
-  "lastmod": "2026-09-18"
+  "hash": "88316459e050cfd8",
+  "lastmod": "2026-10-22"
  },
  "/apps/whetlog/": {
   "hash": "4ce84b65e5ffc531",
@@ -140,144 +140,200 @@
   "lastmod": "2026-09-18"
  },
  "/templates/eczema-tracker-printable/": {
-  "hash": "fc42b9bfdb4cd634",
-  "lastmod": "2026-09-18"
+  "hash": "c6a6567ce49fc77c",
+  "lastmod": "2026-10-22"
  },
  "/templates/car-maintenance-log-template/": {
-  "hash": "8e11e77287364725",
-  "lastmod": "2026-09-18"
+  "hash": "dc17cf46cc198ea5",
+  "lastmod": "2026-10-22"
  },
  "/templates/gout-food-diary-printable/": {
-  "hash": "31fb6dbee25b7784",
-  "lastmod": "2026-09-18"
+  "hash": "87aa4549cfd445a3",
+  "lastmod": "2026-10-22"
  },
  "/templates/eczema-food-trigger-diary/": {
-  "hash": "8a34863bbe2c6b1e",
-  "lastmod": "2026-09-18"
+  "hash": "5f6923480573bdb2",
+  "lastmod": "2026-10-22"
  },
  "/templates/dermatologist-visit-summary-sheet/": {
-  "hash": "46564d550d1f162e",
-  "lastmod": "2026-09-18"
+  "hash": "ad69a982bcd62291",
+  "lastmod": "2026-10-22"
  },
  "/templates/uric-acid-tracking-log/": {
-  "hash": "6e26edb8d3324882",
-  "lastmod": "2026-09-18"
+  "hash": "a7704dfda6360919",
+  "lastmod": "2026-10-22"
  },
  "/templates/gout-attack-diary/": {
-  "hash": "3475a0426a8783dd",
-  "lastmod": "2026-09-18"
+  "hash": "2842a5f13acda62e",
+  "lastmod": "2026-10-22"
  },
  "/templates/fuel-economy-tracking-sheet/": {
-  "hash": "f92a381403b320f9",
-  "lastmod": "2026-09-18"
+  "hash": "2fa7f4d6efd2e81e",
+  "lastmod": "2026-10-22"
  },
  "/templates/vehicle-service-checklist/": {
-  "hash": "f57b227274f48f5d",
-  "lastmod": "2026-09-18"
+  "hash": "7de298989042cfe8",
+  "lastmod": "2026-10-22"
  },
  "/templates/symptom-tracker-template/": {
-  "hash": "10f4188ce4b6467f",
-  "lastmod": "2026-09-18"
+  "hash": "c7820d1b7550d750",
+  "lastmod": "2026-10-22"
  },
  "/templates/ibs-food-diary-printable/": {
-  "hash": "9ec59af1db362eb9",
-  "lastmod": "2026-09-18"
+  "hash": "1d4ddd2d8140d50f",
+  "lastmod": "2026-10-22"
  },
  "/templates/gut-symptom-tracker/": {
-  "hash": "eca176411ccc0762",
-  "lastmod": "2026-09-18"
+  "hash": "b70968d2d4bfd68a",
+  "lastmod": "2026-10-22"
  },
  "/templates/low-fodmap-food-log/": {
-  "hash": "1a8ff697ea817b48",
-  "lastmod": "2026-09-18"
+  "hash": "4c622548c6724478",
+  "lastmod": "2026-10-22"
  },
  "/templates/acid-reflux-diary-printable/": {
-  "hash": "151adf1b5c2ad78c",
-  "lastmod": "2026-09-18"
+  "hash": "c662f7b200bba139",
+  "lastmod": "2026-10-22"
  },
  "/templates/heartburn-trigger-log/": {
-  "hash": "667ea124974086d9",
-  "lastmod": "2026-09-18"
+  "hash": "15b7b4977588bae2",
+  "lastmod": "2026-10-22"
  },
  "/templates/neuropathy-symptom-log/": {
-  "hash": "9d8de7e2dcee9da6",
-  "lastmod": "2026-09-18"
+  "hash": "8c6a4484534a98ab",
+  "lastmod": "2026-10-22"
  },
  "/templates/nerve-pain-diary/": {
-  "hash": "8b747a6104ebb5e1",
-  "lastmod": "2026-09-18"
+  "hash": "c91b93a40e85af7e",
+  "lastmod": "2026-10-22"
  },
  "/templates/pet-vaccination-record/": {
-  "hash": "7181541189edc591",
-  "lastmod": "2026-09-18"
+  "hash": "29526f3d635ef286",
+  "lastmod": "2026-10-22"
  },
  "/templates/dog-health-log/": {
-  "hash": "60119f28613c1f11",
-  "lastmod": "2026-09-18"
+  "hash": "d9d6320ce95e2287",
+  "lastmod": "2026-10-22"
  },
  "/templates/pet-medication-tracker/": {
-  "hash": "6d21a3fa58b91240",
-  "lastmod": "2026-09-18"
+  "hash": "daeab8f544396a6c",
+  "lastmod": "2026-10-22"
  },
  "/templates/plant-watering-schedule/": {
-  "hash": "c579a3c0fa1f5349",
-  "lastmod": "2026-09-18"
+  "hash": "28f04331e2df2421",
+  "lastmod": "2026-10-22"
  },
  "/templates/houseplant-care-log/": {
-  "hash": "524a78bbac012766",
-  "lastmod": "2026-09-18"
+  "hash": "9ddfcdaf36ba3d31",
+  "lastmod": "2026-10-22"
  },
  "/templates/reading-log-printable/": {
-  "hash": "7e95f643efa1b833",
-  "lastmod": "2026-09-18"
+  "hash": "7bd0f10dfc40d1e1",
+  "lastmod": "2026-10-22"
  },
  "/templates/book-tracker-template/": {
-  "hash": "75cf693c27852cac",
-  "lastmod": "2026-09-18"
+  "hash": "1095ca662079a5d7",
+  "lastmod": "2026-10-22"
  },
  "/templates/reef-tank-parameter-log/": {
-  "hash": "e1745c768b4be821",
-  "lastmod": "2026-09-18"
+  "hash": "385fa4f1eb4038c9",
+  "lastmod": "2026-10-22"
  },
  "/templates/aquarium-water-quality-log/": {
-  "hash": "1721baa3828c13c0",
-  "lastmod": "2026-09-18"
+  "hash": "b9357d08e84ee1dc",
+  "lastmod": "2026-10-22"
  },
  "/templates/cut-list-template/": {
-  "hash": "ee3cc8172f74c403",
-  "lastmod": "2026-09-18"
+  "hash": "84e4a1a69bed5c3f",
+  "lastmod": "2026-10-22"
  },
  "/templates/woodworking-cut-list/": {
-  "hash": "753afd3056ca9efe",
-  "lastmod": "2026-09-18"
+  "hash": "5b40c7036c3ff62e",
+  "lastmod": "2026-10-22"
  },
  "/templates/plywood-cutting-diagram/": {
-  "hash": "50cb9ca7763f8d5b",
-  "lastmod": "2026-09-18"
+  "hash": "f25f9f2227405d8c",
+  "lastmod": "2026-10-22"
  },
  "/templates/mileage-log-printable/": {
-  "hash": "ddef88b3d68a705d",
-  "lastmod": "2026-09-18"
+  "hash": "4c72083fb1920c8a",
+  "lastmod": "2026-10-22"
  },
  "/templates/chronic-pain-log/": {
-  "hash": "4d8fd5bd342b1c21",
-  "lastmod": "2026-09-18"
+  "hash": "64c6d4c636e273e2",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/succulent-watering-schedule/": {
+  "hash": "59eb6b5acdb29612",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/houseplant-care-chart/": {
+  "hash": "e47c8fdbf7139c91",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/plant-fertilizer-schedule/": {
+  "hash": "1175141111d4011e",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/plant-repotting-log/": {
+  "hash": "6fd0e1ece469bae6",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/indoor-plant-moisture-level-chart/": {
+  "hash": "cb9ab75e9c453d39",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/vacation-plant-watering-plan/": {
+  "hash": "3a7f8461df658e51",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/plant-watering-calendar/": {
+  "hash": "a16f599e34a5c374",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/plant-propagation-tracker/": {
+  "hash": "bf982af1fde57fef",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/eczema-itch-diary/": {
+  "hash": "ca81e245f7beb30d",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/gout-medication-log/": {
+  "hash": "bb323836df234715",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/tire-pressure-rotation-log/": {
+  "hash": "2665db8244b7df95",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/pet-weight-tracker/": {
+  "hash": "e73d5d46529f80f6",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/sourdough-starter-feeding-log/": {
+  "hash": "489559469a741346",
+  "lastmod": "2026-10-22"
+ },
+ "/templates/hive-inspection-sheet/": {
+  "hash": "c13d99ac8162c9a6",
+  "lastmod": "2026-10-22"
  },
  "/guides/cut-list-optimizer/": {
-  "hash": "2fb8b00b78f0f24c",
-  "lastmod": "2026-09-18"
+  "hash": "7d1b2e24bf7a7e4e",
+  "lastmod": "2026-10-22"
  },
  "/guides/sheet-goods-cutting-layout/": {
-  "hash": "551197fc4d9fbc60",
-  "lastmod": "2026-09-18"
+  "hash": "0d61919d7c534295",
+  "lastmod": "2026-10-22"
  },
  "/guides/plywood-cut-calculator/": {
-  "hash": "afd4d1b142ccb442",
-  "lastmod": "2026-09-18"
+  "hash": "3a72684f976046e4",
+  "lastmod": "2026-10-22"
  },
  "/guides/cut-list-spreadsheet/": {
-  "hash": "6672cd25b82812b6",
-  "lastmod": "2026-09-18"
+  "hash": "02882ad4a522f9de",
+  "lastmod": "2026-10-22"
  },
  "/guides/whetstone-grit-progression/": {
   "hash": "1be98eb354e71b0a",
