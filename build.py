@@ -21,7 +21,7 @@ DATA = json.loads((ROOT / "apps.json").read_text())
 DESCS = json.loads((ROOT / "_asc_descs.json").read_text())
 SITE = DATA["site"]
 ORIGIN = SITE["origin"]
-TODAY = "2026-10-22"  # set per release; hash-gate keeps unchanged pages stable
+TODAY = "2026-10-27"  # set per release; hash-gate keeps unchanged pages stable
 
 # ---------------------------------------------------------------- desc parsing
 def parse_desc(raw):
@@ -1158,14 +1158,23 @@ document.querySelector("#cut-calc").addEventListener("click",run);
 run();
 })();
 </script>'''
+    faq_html, faq_ld = tool_faq([
+        ("Is cut list optimiser the same as cutlist optimizer?", "Yes. Optimiser is the British spelling of optimizer; cutlist is another spelling of cut list. This free tool turns rectangular part dimensions into a cut sheet (also written cutsheet) with a board cutting diagram."),
+        ("How do I make a cut sheet for plywood or board cuts?", "Enter your stock sheet or board sizes, part dimensions and quantities in inches, then set the blade kerf and select Generate cutting diagram. Review the parts placed and any pieces that could not fit before cutting."),
+        ("Is this a true guillotine cut layout?", "Yes. Each part is separated by straight, edge-to-edge cuts across the remaining rectangle. The dashed lines mark cuts. The largest-area-first heuristic does not guarantee the optimal layout, so check the diagram before cutting."),
+        ("Can I lock grain direction or use more than 10 parts?", "This free web tool accepts up to 10 individual parts, including repeated quantities, and allows rotation. It does not lock grain direction. Boardcut for iPhone supports grain-direction locking and multiple material groups."),
+        ("What does yield mean on the cut sheet?", "Yield is the placed part area divided by the area of stock actually used, as a percentage. Reusable offcuts are not credited. Blade kerf affects the space left for parts, so enter your blade's actual cut width."),
+    ])
     below = '''
-<section><h2>How the layout is built</h2><p>This tool packs parts using the same guillotine-cut model as Boardcut: every placement is separated from the rest of the sheet by straight, full-length saw cuts, and every cut consumes one blade kerf. Parts are placed largest-area-first into the best-fitting leftover space (best short-side fit), and rotation is allowed unless a part is square.</p><p>Boardcut's iPhone app runs 24 restarts of this solver (different sort orders, split rules, and scoring) and keeps the best result, plus supports grain-direction locking, multiple material groups, and dimensional lumber. This free web version runs one high-quality pass for up to 10 parts.</p></section>
-<section><h2>Questions</h2><details><summary>Is this a true guillotine cut layout?</summary><p>Yes — every part can be freed using only straight, edge-to-edge saw cuts, in the order shown by the dashed lines, which is what a table saw or panel saw needs.</p></details><details><summary>What does "yield" mean here?</summary><p>Total part area divided by the area of the stock actually used, as a percentage. It does not subtract reusable offcuts, so it's a conservative (lower) number than Boardcut's in-app waste metric, which credits offcuts large enough to reuse.</p></details>'''
+<section><h2>How to use the cut list optimiser</h2><ol class="sources"><li>Enter the length, width and quantity of each stock board or plywood sheet in inches. A stock quantity of 0 means unlimited sheets of that size.</li><li>Add each rectangular part to your cutlist with its finished length, width and quantity. The free limit is 10 parts in total, including repeated pieces.</li><li>Set the blade kerf to the width of material your saw removes on each cut.</li><li>Select <strong>Generate cutting diagram</strong> to build your cut sheet. Check yield, sheets used, parts placed and any parts that could not fit before making board cuts.</li></ol></section>
+<section><h2>How the layout is built</h2><p>The cut list optimizer places the largest parts first into the best-fitting leftover space, using straight guillotine cuts and allowing part rotation. Each cut reserves space for one blade kerf. This heuristic finds a layout but does not guarantee the fewest sheets or least waste.</p><p>For grain-direction locking and multiple material groups, see <a href="/apps/boardcut/">Boardcut for iPhone</a>. For plywood sheet-count estimates and kerf allowances, read the <a href="/guides/plywood-cut-calculator/">plywood cut calculator guide</a>.</p></section>
+<section><h2>Cut list optimizer FAQ</h2>''' + faq_html + '</section>'
+    description = "Free cut list optimizer (optimiser) for plywood and board cuts. Turn your cutlist into a kerf-aware cut sheet and cutting diagram. Up to 10 parts."
     ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "WebApplication", "name": "Cut List Optimizer", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "url": ORIGIN + "/tools/cut-list-optimizer/", "isAccessibleForFree": True, "description": "Free online cut list optimizer: enter stock sheet sizes and part dimensions to get a guillotine cutting diagram and yield, kerf-aware."},
-        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this a true guillotine cut layout?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, every part can be freed using only straight, edge-to-edge saw cuts."}}, {"@type": "Question", "name": "What does yield mean here?", "acceptedAnswer": {"@type": "Answer", "text": "Total part area divided by the stock area used, as a percentage."}}]}]}
-    body = tool_shell("boardcut", "Free woodworking tool", "Cut list optimizer", "Turn a stock list and a parts list into a kerf-aware cutting diagram. Free for up to 10 parts.", calculator, below, "site_cut_list_optimizer")
-    return page("Free Cut List Optimizer Online — Plywood & Sheet Cutting Layout | Softgrove", "Free online cut list optimizer for plywood and sheet goods. Enter stock sizes and part dimensions, get a guillotine cutting diagram, kerf, and yield. Up to 10 parts free.", "/tools/cut-list-optimizer/", body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-cut-list-optimizer.png")
+        {"@type": "SoftwareApplication", "name": "Cut List Optimizer", "alternateName": ["Cut List Optimiser", "Cutlist Optimizer"], "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "url": ORIGIN + "/tools/cut-list-optimizer/", "isAccessibleForFree": True, "description": description},
+        faq_ld]}
+    body = tool_shell("boardcut", "Free woodworking tool", "Cut List Optimizer / Optimiser — Cut Sheet Planner", "Turn your cutlist into a cut sheet for plywood and board cuts. This free cut list optimizer (optimiser) uses stock sizes, part dimensions and blade kerf to generate a cutting diagram for up to 10 parts, with yield and sheets used.", calculator, below, "site_cut_list_optimizer")
+    return page("Free Cut List Optimizer / Optimiser & Cut Sheet | Softgrove", description, "/tools/cut-list-optimizer/", body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-cut-list-optimizer.png")
 
 # ---------------------------------------------------- free tools, batch 2 (2026-09-17)
 # One page per app that had no acquisition page. Each calculator mirrors the
