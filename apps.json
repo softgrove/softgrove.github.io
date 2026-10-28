@@ -2254,9 +2254,9 @@
     "plant-watering-schedule": {
       "app": "plantlog",
       "h1": "Free Printable Plant Watering Schedule (PDF)",
-      "title": "Free Printable Plant Watering Schedule PDF — Houseplant Tracker",
-      "desc": "A free one-page printable plant watering schedule. List every houseplant with its watering frequency, last watered date, and notes — never wonder which plant is overdue or overwatered again.",
-      "answer": "This is a free, one-page printable plant watering schedule in PDF format. Each row is one plant: name, location in the home, watering frequency (every X days), last watered date, next due date, and notes on soil preference, light, and fertilizer schedule. Overwatering kills more houseplants than underwatering — a written schedule is the fastest way to stop guessing and start growing.",
+      "title": "Free Plant Watering Schedule Printable PDF — No Signup",
+      "desc": "Download a free plant watering schedule printable PDF. Track each houseplant, watering interval, last watered and next check date. No signup or email.",
+      "answer": "This free, one-page plant watering schedule printable PDF has a row for each houseplant: name, location, watering interval, last watered date, next due date and care notes. Use the plant watering calendar as a reminder to check soil moisture, then record when you actually water. Download and print without signing up.",
       "columns": [
         "Plant name",
         "Location",
@@ -2277,10 +2277,10 @@
       ],
       "howto": [
         "Print the PDF and keep it near your plant shelf or posted on the fridge.",
-        "Fill in every plant: name, the room or spot it lives in, and how often it should be watered.",
+        "Fill in each plant, its location and a starting watering interval. Use the houseplant watering calculator linked below to plan upcoming dates.",
         "After you water a plant, update the Last watered date and calculate Next due by adding the watering interval.",
         "Use the Soil / light column for quick care notes — succulent mix, indirect light, bottom-watering only — so anyone watering your plants has the key info.",
-        "Review the sheet weekly: anything with a Next due date in the past is overdue."
+        "Review the sheet regularly. Treat Next due as a reminder to check soil against that plant’s needs; if watering can wait, update the date after you actually water."
       ],
       "howto_names": [
         "Print the PDF",
@@ -2291,16 +2291,20 @@
       ],
       "faq": [
         [
-          "Is this schedule really free?",
-          "Yes. The PDF is free to download and print — no sign-up, no email."
+          "Is this plant watering schedule printable free?",
+          "Yes. Download the one-page PDF and print it without signup or email."
         ],
         [
-          "How do I know how often to water each plant?",
-          "The general rule: check the soil before watering. If the top inch is still moist, wait. Species-specific guidelines are starting points — your home's humidity and light will shift the real number."
+          "How do I know how often to water houseplants?",
+          "Use a plant-specific interval as a starting point and check soil moisture before watering. Pot size, soil, light and season change how quickly a plant dries. The linked houseplant watering calculator helps plan dates; it does not measure moisture."
         ],
         [
-          "Can someone else water my plants using this sheet?",
-          "That's exactly what it's designed for. The sheet has all the key information in one place so a plant-sitter or housemate doesn't need to guess or Google every species."
+          "Is this an indoor plant moisture level chart PDF?",
+          "This PDF is a watering log, not a moisture meter chart. Record your own soil observations in the care notes; it does not provide numerical moisture targets."
+        ],
+        [
+          "Can I use it as a plant watering calendar?",
+          "Yes. Record each plant’s last watered and next due dates. For a weekly checklist, use the related plant watering calendar; for a sitter, use the vacation plant watering plan."
         ],
         [
           "Is there an app version?",

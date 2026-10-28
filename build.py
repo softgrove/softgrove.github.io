@@ -21,7 +21,7 @@ DATA = json.loads((ROOT / "apps.json").read_text())
 DESCS = json.loads((ROOT / "_asc_descs.json").read_text())
 SITE = DATA["site"]
 ORIGIN = SITE["origin"]
-TODAY = "2026-10-27"  # set per release; hash-gate keeps unchanged pages stable
+TODAY = "2026-10-28"  # set per release; hash-gate keeps unchanged pages stable
 
 # ---------------------------------------------------------------- desc parsing
 def parse_desc(raw):
@@ -1393,23 +1393,26 @@ run();
 })();
 </script>'''
     faq_html, faq_ld = tool_faq([
-        ("How often should I water houseplants?", "It depends on the plant: every 5 days for a Boston fern, 7 to 10 for most tropical foliage, 14 for snake plants and ZZ plants, and 3 to 4 weeks for aloe and cacti. The table on this page lists 25 common plants with PlantLog's typical interval for each."),
-        ("Should I water on a fixed schedule?", "Use the schedule as a reminder to check, not a command. Push a finger an inch into the soil first: if it is still damp, wait. Pot size, soil mix, light, and season all change how fast soil dries."),
-        ("Do plants need less water in winter?", "Usually, yes. Growth slows and soil dries more slowly, so many plants go a week or more longer between waterings. Stretch the interval in the calculator and keep checking the soil."),
+        ("How often should I water houseplants?", "There is no single interval for all houseplants. Start with the plant-specific guide, then adjust for soil moisture, pot, light and season. Treat the dates as reminders to check the plant rather than instructions to water."),
+        ("Should I water on a fixed schedule?", "Use the schedule as a reminder to check, not a command. Check the soil against your plant's moisture needs before watering; different species tolerate different amounts of drying. Pot size, soil mix, light, and season all change how fast soil dries."),
+        ("Do plants need less water in winter?", "Some houseplants dry more slowly when light levels and growth decrease. Check the soil and adjust the interval to your conditions instead of adding a fixed number of days."),
+        ("Can I get a printable plant watering schedule?", "Yes. Use the free plant watering schedule PDF linked below to record each plant, its interval, last watered date and next check date. The calculator and PDF download need no signup."),
         ("How does the calculator pick the next date?", "The same way PlantLog schedules reminders: next due = last watered + interval days. Each following date adds the interval again."),
     ])
     below = f'''
-<section><h2>Watering guide for 25 common houseplants</h2><p>Typical days between waterings under average indoor conditions, about 65 to 75°F, moderate humidity. Adjust for your pot, soil, and light. Click a plant to load it into the calculator.</p>
+<section><h2>How often to water houseplants: guide for 25 plants</h2><p>Suggested starting intervals from PlantLog, not measured moisture levels or universal watering rules. Adjust for your pot, soil, and light. Click a plant to load it into the calculator.</p>
 <div style="overflow-x:auto;margin-top:14px"><table class="guide-table" style="width:100%;border-collapse:collapse;font-size:14px"><thead><tr style="text-align:left;border-bottom:2px solid var(--line)"><th style="padding:8px 6px">Plant</th><th style="padding:8px 6px">Water</th><th style="padding:8px 6px">Light</th><th style="padding:8px 6px">Notes</th></tr></thead><tbody>{table_rows}</tbody></table></div>
 <style>.guide-table td{{padding:9px 6px;border-bottom:1px solid var(--line);vertical-align:top}}.guide-table td:nth-child(2){{white-space:nowrap;font-weight:600}}</style></section>
-<section><h2>How this schedule works</h2><p>The next watering is the last watering plus the interval. That is exactly how PlantLog schedules its reminders. When you tap "watered" in the app the anchor moves, so a late watering pushes the whole schedule rather than piling up missed days.</p><p>Interval data comes from PlantLog's built-in care guide, which the app uses to suggest a schedule when you type a plant name. It is general guidance, not a substitute for looking at your plant.</p></section>
+<section><h2>How to use the houseplant watering calculator</h2><ol class="sources"><li>Select your houseplant from the list or the guide table.</li><li>Enter the date you last watered and adjust the days between waterings for your conditions.</li><li>Choose how many dates to show and select <strong>Build schedule</strong>.</li><li>Check the soil before watering. If you wait, enter the actual watering date to rebuild the schedule.</li></ol></section>
+<section><h2>How this watering schedule works</h2><p>The next watering is the last watering plus the interval. That is exactly how PlantLog schedules its reminders. When you tap "watered" in the app the anchor moves, so a late watering pushes the whole schedule rather than piling up missed days.</p><p>Interval data comes from PlantLog's built-in care guide, which the app uses to suggest a schedule when you type a plant name. It is general guidance, not a substitute for looking at your plant.</p></section>
 <section><h2>Sources</h2><p>Plant table and scheduling rule copied from PlantLog's care guide and reminder scheduler on September 17, 2026. A printable version of this schedule is on the <a href="/templates/plant-watering-schedule/">plant watering schedule template</a> page.</p></section>
-<section><h2>Questions</h2>{faq_html}</section>
+<section><h2>Houseplant watering calculator FAQ</h2>{faq_html}</section>
+<section><h2>Printable plant watering schedules</h2><ul class="sources"><li><a href="/templates/plant-watering-schedule/">Plant watering schedule printable PDF</a> — a log for each plant.</li><li><a href="/templates/plant-watering-calendar/">Plant watering calendar</a> — a weekly checklist.</li><li><a href="/templates/succulent-watering-schedule/">Succulent watering schedule</a> — a separate sheet for succulents.</li><li><a href="/templates/vacation-plant-watering-plan/">Vacation plant watering plan</a> — instructions for a plant sitter.</li></ul></section>
 {more_tools(path)}'''
-    desc = "Free houseplant watering calculator: how often to water pothos, monstera, snake plant, fiddle leaf fig, and 21 more, with your next watering dates. Uses PlantLog's care guide."
+    desc = "Free houseplant watering calculator: plan how often to check 25 indoor plants, get upcoming watering dates and find a printable schedule. No signup."
     ld = tool_ld("Houseplant Watering Schedule Calculator", path, desc, "LifestyleApplication", faq_ld)
-    body = tool_shell("plantlog", "Free plant care tool", "How often to water houseplants", "Pick a plant, enter when you last watered, and get the next dates. Intervals come from the care guide inside PlantLog.", calculator, below)
-    return page("How Often to Water Houseplants — Watering Schedule Calculator | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-houseplant-watering-calculator.png")
+    body = tool_shell("plantlog", "Free plant care tool", "Houseplant Watering Calculator", "Work out how often to water houseplants with a plant-specific starting interval and upcoming check dates. Free, no signup. Adjust the interval to your soil, pot and light.", calculator, below)
+    return page("Free Houseplant Watering Calculator & Schedule | Softgrove", desc, path, body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-houseplant-watering-calculator.png")
 
 # ---------------------------------------------- 3. sourdough hydration (Banneton)
 def hydration_tool():

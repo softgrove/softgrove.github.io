@@ -1,11 +1,11 @@
 {
  "/": {
-  "hash": "1bfb12711535f438",
-  "lastmod": "2026-10-22"
+  "hash": "5a3c232a349c7d9f",
+  "lastmod": "2026-10-28"
  },
  "/templates/": {
-  "hash": "fdb044222388ca9b",
-  "lastmod": "2026-10-22"
+  "hash": "1e436716326b8cd2",
+  "lastmod": "2026-10-28"
  },
  "/tools/reciprocity-calculator/": {
   "hash": "844db9d9e5a2458b",
@@ -28,8 +28,8 @@
   "lastmod": "2026-09-18"
  },
  "/tools/houseplant-watering-calculator/": {
-  "hash": "0f1fbbfdc65c20b1",
-  "lastmod": "2026-09-18"
+  "hash": "a2f998a8286fd263",
+  "lastmod": "2026-10-28"
  },
  "/tools/sourdough-hydration-calculator/": {
   "hash": "5013588d09b3d9bd",
@@ -220,8 +220,8 @@
   "lastmod": "2026-10-22"
  },
  "/templates/plant-watering-schedule/": {
-  "hash": "28f04331e2df2421",
-  "lastmod": "2026-10-22"
+  "hash": "6ff87dc3614f203a",
+  "lastmod": "2026-10-28"
  },
  "/templates/houseplant-care-log/": {
   "hash": "9ddfcdaf36ba3d31",
