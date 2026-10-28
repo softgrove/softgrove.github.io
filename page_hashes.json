@@ -1,10 +1,10 @@
 {
  "/": {
-  "hash": "5a3c232a349c7d9f",
+  "hash": "631c14c5646745d1",
   "lastmod": "2026-10-28"
  },
  "/templates/": {
-  "hash": "1e436716326b8cd2",
+  "hash": "7dccb684c2c1cfd8",
   "lastmod": "2026-10-28"
  },
  "/tools/reciprocity-calculator/": {
@@ -124,8 +124,8 @@
   "lastmod": "2026-09-18"
  },
  "/apps/boardcut/": {
-  "hash": "88316459e050cfd8",
-  "lastmod": "2026-10-22"
+  "hash": "b0af73c28ec94794",
+  "lastmod": "2026-10-28"
  },
  "/apps/whetlog/": {
   "hash": "4ce84b65e5ffc531",
@@ -244,16 +244,16 @@
   "lastmod": "2026-10-22"
  },
  "/templates/cut-list-template/": {
-  "hash": "84e4a1a69bed5c3f",
-  "lastmod": "2026-10-22"
+  "hash": "8cb4810e4f742446",
+  "lastmod": "2026-10-28"
  },
  "/templates/woodworking-cut-list/": {
-  "hash": "5b40c7036c3ff62e",
-  "lastmod": "2026-10-22"
+  "hash": "a43e223e3d310e00",
+  "lastmod": "2026-10-28"
  },
  "/templates/plywood-cutting-diagram/": {
-  "hash": "f25f9f2227405d8c",
-  "lastmod": "2026-10-22"
+  "hash": "7e8f0560945022b6",
+  "lastmod": "2026-10-28"
  },
  "/templates/mileage-log-printable/": {
   "hash": "4c72083fb1920c8a",
@@ -320,20 +320,36 @@
   "lastmod": "2026-10-22"
  },
  "/guides/cut-list-optimizer/": {
-  "hash": "7d1b2e24bf7a7e4e",
-  "lastmod": "2026-10-22"
+  "hash": "df8842871285ae01",
+  "lastmod": "2026-10-28"
  },
  "/guides/sheet-goods-cutting-layout/": {
-  "hash": "0d61919d7c534295",
-  "lastmod": "2026-10-22"
+  "hash": "c5ec83eca19c0cdf",
+  "lastmod": "2026-10-28"
  },
  "/guides/plywood-cut-calculator/": {
-  "hash": "3a72684f976046e4",
-  "lastmod": "2026-10-22"
+  "hash": "1cbb97b3d448f922",
+  "lastmod": "2026-10-28"
  },
  "/guides/cut-list-spreadsheet/": {
-  "hash": "02882ad4a522f9de",
-  "lastmod": "2026-10-22"
+  "hash": "d2b222dea9fe6470",
+  "lastmod": "2026-10-28"
+ },
+ "/guides/mdf-cut-calculator/": {
+  "hash": "6254416f76ac02f1",
+  "lastmod": "2026-10-28"
+ },
+ "/guides/kerf-width-explained/": {
+  "hash": "0bb90b30dc7f478e",
+  "lastmod": "2026-10-28"
+ },
+ "/guides/how-to-minimize-plywood-waste/": {
+  "hash": "75131bf3987e950e",
+  "lastmod": "2026-10-28"
+ },
+ "/guides/cabinet-cut-list-template/": {
+  "hash": "670ee3ce510f59bf",
+  "lastmod": "2026-10-28"
  },
  "/guides/whetstone-grit-progression/": {
   "hash": "1be98eb354e71b0a",

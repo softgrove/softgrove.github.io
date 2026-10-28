@@ -417,6 +417,7 @@ def guide_page(slug):
         sections.append(f'<section><h2 class="serif">{esc(section["h2"])}</h2>{paragraphs}{bullets}{note}</section>')
     section_html = "".join(sections)
     faq_html = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(ans)}</p></details>" for q, ans in g["faq"])
+    faq_heading = g.get("faq_heading", "Questions")
     related = "".join(
         f'<a href="/guides/{other_slug}/"><strong class="serif">{esc(other["h1"])}</strong><span>{esc(other["keyword"])}</span></a>'
         for other_slug, other in DATA["guides"].items() if other_slug != slug and other["app"] == g["app"])
@@ -482,7 +483,7 @@ article section ul{{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-
 </header>
 {section_html}
 {field_note}
-<section><h2 class="serif">Questions</h2>{faq_html}</section>
+<section><h2 class="serif">{esc(faq_heading)}</h2>{faq_html}</section>
 <aside class="app-cta">
 <h2 class="serif">{esc(cta_h2)}</h2>
 <p>{esc(cta_body)}</p>
@@ -556,6 +557,9 @@ def template_page(slug):
     ct = "site_tpl_" + slug.replace("-", "_")  # App Analytics campaign token, same scheme as the tool pages
     extra = template_extras(t)
     related = template_related(slug, t["app"])
+    faq_heading = t.get("faq_heading", "Questions")
+    cta_heading = t.get("cta_heading", "Want the log to analyze itself?")
+    cta_body = t.get("cta_body", f'{a["name"]} for iPhone tracks the same things in seconds and shows you the patterns — free core, no account, and everything stays on your device.')
     body = f"""
 <style>
 main.wrap{{max-width:780px}}
@@ -605,11 +609,11 @@ ol.howto{{padding-left:22px;display:grid;gap:12px;font-size:16.5px;max-width:62c
 {extra}
 <h2 class="sec serif">How to use this sheet</h2>
 <ol class="howto">{steps}</ol>
-<h2 class="sec serif">Questions</h2>
+<h2 class="sec serif">{esc(faq_heading)}</h2>
 {faq_html}
 <div class="app-cta">
-<div><h3 class="serif">Want the log to analyze itself?</h3>
-<p>{esc(a["name"])} for iPhone tracks the same things in seconds and shows you the patterns — free core, no account, and everything stays on your device.</p></div>
+<div><h3 class="serif">{esc(cta_heading)}</h3>
+<p>{esc(cta_body)}</p></div>
 {store_badge(a["id"], a["name"], ct)}
 </div>
 {related}

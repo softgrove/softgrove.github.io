@@ -464,24 +464,24 @@
     },
     "plywood-cut-calculator": {
       "app": "boardcut",
-      "keyword": "plywood cut list calculator",
-      "h1": "Plywood Cut List Calculator: How Many 4×8 Sheets Your Parts Need",
-      "title": "Plywood Cut List Calculator — 4x8 Sheet Count, Kerf & Layout (Free)",
-      "desc": "Free plywood cut list calculator: enter your parts, get the 4×8 sheet count and a cutting diagram. Plus the quick 32-square-foot estimate, and why kerf, trim, and grain make it undercount.",
-      "lede": "Enter your parts and get a sheet count with a cutting layout from the free cut list optimizer below. If you would rather estimate by hand first, this guide gives the quick area method and then the corrections that turn it into a number you can buy from.",
-      "answer": "Quick answer: a 4×8 sheet is 32 square feet, so total part area ÷ 32, rounded up, is the fewest sheets the job could possibly use. Real jobs need more — a saw kerf of about 1/8″ per cut, edge trim, grain direction, and rectangles that do not tile perfectly. The free calculator on this site places your actual parts on 48×96 stock with kerf and reports the sheet count, a cutting diagram, and yield. Use that number for the shopping list, not the area estimate.",
+      "keyword": "plywood cut calculator",
+      "h1": "Free Plywood Cut Calculator for 4×8 Sheet Layouts",
+      "title": "Free Plywood Cut Calculator — 4×8 Sheet Layout & Count",
+      "desc": "Use a free plywood cut calculator to place parts on 4×8 sheets with blade kerf, see the sheet count and cutting diagram, and check the result before buying.",
+      "lede": "Enter your stock, parts and blade kerf in the free browser calculator, then review the 4×8 sheet count and cutting diagram. This guide also explains the quick area estimate and the layout constraints it misses.",
+      "answer": "Quick answer: a 4×8 sheet is 32 square feet, so total part area ÷ 32, rounded up, is the fewest sheets the job could possibly use. A workable layout can require more because blade kerf, edge trim and rectangle geometry consume or strand space. The free calculator on this site places rotatable parts on 48×96 stock with kerf and reports the sheet count, cutting diagram and yield. If face grain must stay oriented, use a planner with grain-direction locking such as Boardcut.",
       "sections": [
         {
           "h2": "Use the calculator for a 4×8 sheet",
           "body": [
-            "Add one stock line of 48 × 96 inches — or 47½ × 95½ if you plan to trim the factory edges — and set the kerf to the width of your blade, typically 1/8″ (0.125) for a table saw or track saw. Enter each part as width × length × quantity, and lock the grain on any part whose face will show. The optimizer lays the parts out on as many sheets as they need and reports the count, the yield, and a diagram you can print or take to the saw.",
-            "If the count is one sheet higher than you hoped, look at the diagram before buying: a part that is 1/8″ too wide to share a rip with its neighbor is the usual culprit, and trimming it, rotating it, or changing the cut order can bring the job back onto fewer sheets."
+            "Add one stock line using the actual usable width and length of the sheet, then set the kerf to the width removed by your planned blade and setup. Enter each part as width × length × quantity. The free browser calculator allows rotation and does not lock face grain; use Boardcut when a part must keep a specific orientation. The optimizer reports the sheet count, yield and a diagram you can print or take to the saw.",
+            "If the calculated count is higher than the area estimate, inspect tight rows, part orientation, usable stock size and kerf. Correct an input only when the project or measured stock supports the change; do not shrink a required finished part merely to make the diagram fit."
           ],
           "bullets": [
-            "Stock: 48 × 96 (nominal) or the measured size after edge trim",
-            "Kerf: your blade's width, usually 0.125 in. — not zero",
-            "Parts: finished size and quantity; add grain locks for visible faces",
-            "Read: sheet count, yield, and the cutting diagram"
+            "Stock: measured usable width and length after any edge trim",
+            "Kerf: the width removed by the planned blade and setup",
+            "Parts: finished size and quantity; the browser calculator may rotate them",
+            "Read: sheet count, yield and the cutting diagram; use Boardcut when grain must be locked"
           ]
         },
         {
@@ -547,6 +547,7 @@
           "By area, eight. In practice, two 24″ panels plus one kerf need 48⅛″, which is wider than the sheet, so only one row of four fits unless you accept 23⅞″ panels or trim after cutting. That gap between area math and layout is exactly what the calculator catches."
         ]
       ],
+      "faq_heading": "Plywood cut calculator FAQ",
       "source": {
         "community": "r/woodworking",
         "title": "Software to plan plywood cuts",
@@ -572,6 +573,11 @@
         {
           "path": "/templates/cut-list-template/",
           "title": "Cut List Template",
+          "kind": "Free printable PDF"
+        },
+        {
+          "path": "/templates/woodworking-cut-list/",
+          "title": "Woodworking Cut List for Sheet Goods",
           "kind": "Free printable PDF"
         }
       ]
@@ -646,6 +652,328 @@
         "url": "https://www.reddit.com/r/woodworking/comments/1qsa1t1/what_do_folks_use_to_plan_builds_cut_lists_buy/",
         "quote": "Then I transpose them into an excel spreadsheet, where I identify the part, how many are needed"
       }
+    },
+    "mdf-cut-calculator": {
+      "app": "boardcut",
+      "keyword": "MDF cut calculator",
+      "h1": "MDF Cut Calculator: Plan Sheets, Kerf and Part Layout",
+      "title": "Free MDF Cut Calculator — Sheet Layout, Kerf & Parts",
+      "desc": "Use a free MDF cut calculator to place rectangular parts on full or custom sheets, include blade kerf, and review sheet count and cutting layout before buying.",
+      "lede": "An area total can estimate how much MDF the parts contain, but it cannot prove that the rectangles fit. Use the free cut list optimizer as an MDF cut calculator, then check the layout against the actual sheets and saw setup.",
+      "answer": "Enter the measured MDF sheet as stock, add each finished part and quantity, and set the blade kerf to the width removed by your planned cut. The calculator returns a sheet count, cutting diagram, placed parts and yield for the entered dimensions. Review the diagram and any unplaced parts before buying or cutting material.",
+      "sections": [
+        {
+          "h2": "Set up the MDF sheet you will actually cut",
+          "body": [
+            "Measure the sheet or confirm the supplier's listed dimensions, then enter that width and length as stock. If an edge is damaged or must be squared, reduce the usable stock dimensions or reserve that trim before laying out parts. Keep different thicknesses and finishes in separate calculations because one sheet cannot replace another.",
+            "Enter finished part dimensions rather than adding kerf to every part. The calculator reserves kerf between cuts; adding it to the part sizes as well would count the same material twice."
+          ],
+          "bullets": [
+            "Actual usable sheet width and length",
+            "Finished width, length and quantity for every part",
+            "Measured blade kerf for the planned saw setup",
+            "Separate runs for each thickness or non-interchangeable finish"
+          ]
+        },
+        {
+          "h2": "Use the free calculator for the first layout",
+          "body": [
+            "Open the cut list optimizer, replace the default stock dimensions with your MDF sheet, and add the parts. The browser tool accepts up to ten parts in total, including repeated quantities, and allows rotation. Generate the diagram, then compare the parts placed with the source list.",
+            "If a part is left unplaced, first check its dimensions, units and orientation. A small difference in usable sheet size or kerf can change whether a tight row fits, so do not force the plan by entering zero kerf or a larger sheet than the material in front of you."
+          ]
+        },
+        {
+          "h2": "Check more than the reported sheet count",
+          "body": [
+            "A valid rectangle layout is still only a plan. Trace the cuts from the full sheet to the finished parts and confirm that each step can be supported and referenced with the tools available. Label repeated parts and confirm quantity, thickness and finished dimensions against the project before cutting.",
+            "Yield is useful for comparing layouts built from the same inputs. It does not show whether the leftovers are useful for a future part, so record any offcut you intend to keep with its measured dimensions."
+          ]
+        },
+        {
+          "h2": "Move the plan to Boardcut when the job grows",
+          "body": [
+            "The free browser calculator is intended for a quick layout of up to ten parts. Boardcut for iPhone supports larger part lists, multiple material groups and grain-direction locking, while keeping sheet count, yield and ordered cut steps with the plan.",
+            "Use the same source list in either workflow: part name, finished width and length, quantity, material, thickness and any orientation requirement. Keeping one clean list makes the calculated layout easier to audit."
+          ]
+        }
+      ],
+      "faq": [
+        [
+          "Can the calculator use a custom MDF sheet size?",
+          "Yes. Enter the usable width, length and quantity of the stock you have rather than relying on a nominal size."
+        ],
+        [
+          "Should I add kerf to every MDF part dimension?",
+          "No. Enter finished part dimensions and set kerf once in the calculator so it is reserved between cuts."
+        ],
+        [
+          "Can the MDF cut calculator mix sheet thicknesses?",
+          "Run separate layouts for stock that is not interchangeable. Boardcut supports multiple material groups when the project needs them in one plan."
+        ],
+        [
+          "Does the calculator guarantee the least possible MDF waste?",
+          "No. It produces a usable heuristic layout, not a mathematical proof of the global optimum. Compare the diagram, sheet count, cut sequence and reusable offcuts before choosing a plan."
+        ]
+      ],
+      "quick_tool": {
+        "path": "/tools/cut-list-optimizer/",
+        "label": "Open the free MDF cut calculator",
+        "note": "Runs in your browser for up to 10 parts. Replace the stock dimensions with the usable MDF sheet size and enter the measured kerf."
+      },
+      "related_pages": [
+        {
+          "path": "/templates/woodworking-cut-list/",
+          "title": "Woodworking Cut List Template",
+          "kind": "Free printable PDF"
+        },
+        {
+          "path": "/apps/boardcut/",
+          "title": "Boardcut Cut List Optimizer",
+          "kind": "iPhone app"
+        }
+      ]
+    },
+    "kerf-width-explained": {
+      "app": "boardcut",
+      "keyword": "kerf width explained",
+      "h1": "Kerf Width Explained for Cut Lists and Sheet Layouts",
+      "title": "Kerf Width Explained — Measure It for Cut Lists & Layouts",
+      "desc": "Kerf width is the material removed by a cut. Learn how to measure it, include it between parts, and avoid zero-kerf errors in plywood and sheet layouts.",
+      "lede": "Kerf is small on one cut and decisive across a tight row. A layout that ignores it can show parts fitting exactly where the real blade removes the material needed for the final piece.",
+      "answer": "Kerf width is the width of material removed by the blade during a cut. Measure it with the blade, machine and material planned for the job, then enter that value once as the layout kerf. Keep finished part dimensions unchanged; the kerf belongs between adjacent parts, not inside them.",
+      "sections": [
+        {
+          "h2": "Measure the cut instead of guessing from the label",
+          "body": [
+            "Make a representative cut in scrap using the blade and setup planned for the project. Measure the original piece, then measure the two resulting pieces together. The difference is the material removed by that cut. Repeat if the result is hard to read and use a measuring method precise enough for the tolerances of the project.",
+            "A blade specification is a starting point, but the effective cut can depend on the blade, runout, setup and material. When a row is tight, use the measured result rather than a remembered default."
+          ],
+          "note_title": "Measurement",
+          "note": "kerf = original width − combined width of the two cut pieces"
+        },
+        {
+          "h2": "Put kerf between parts, not in part dimensions",
+          "body": [
+            "A cut list should state the required finished width and length. The layout then allocates space between parts for each separating cut. If kerf is added to every part and also entered in the optimizer, the plan double-counts it and can overstate the stock required.",
+            "Edge trim is a separate allowance. Reserve damaged or out-of-square edges in the usable stock dimensions, then apply kerf only to the cuts that separate parts."
+          ]
+        },
+        {
+          "h2": "Check a tight row with simple arithmetic",
+          "body": [
+            "For parts placed side by side in one uninterrupted row, add their widths and add kerf for the separating cuts. A row of n adjacent parts has n minus one separations before any extra edge trim or finishing cut. The same principle applies vertically using part lengths.",
+            "A full two-dimensional layout can contain different cut sequences, so use the arithmetic as a diagnostic rather than a replacement for the diagram. If the total is close to the usable stock dimension, verify the sequence and measurement before cutting."
+          ],
+          "note_title": "Tight-row check",
+          "note": "occupied span = sum of finished part widths + kerf × (number of adjacent parts − 1)"
+        },
+        {
+          "h2": "Recalculate when the cutting setup changes",
+          "body": [
+            "Changing the blade or breakdown method can change the effective kerf and therefore the layout. Update the value and regenerate the diagram rather than editing individual part dimensions to make the old plan fit.",
+            "The free cut list optimizer applies one kerf value to the layout. Boardcut keeps kerf with the plan and supports larger projects with multiple material groups and ordered cut steps."
+          ]
+        }
+      ],
+      "faq": [
+        [
+          "What is kerf width?",
+          "It is the width of material removed by a cut. It is not part of either finished piece."
+        ],
+        [
+          "Is kerf the same as blade thickness?",
+          "Not necessarily. The effective cut is what matters for the layout, so measure a representative cut made by the planned blade and setup."
+        ],
+        [
+          "How many kerfs are between four adjacent parts?",
+          "There are three separating cuts between four adjacent parts, before any edge trim or additional finishing cuts."
+        ],
+        [
+          "Can I set kerf to zero in a cut list optimizer?",
+          "Only if the real process removes no material. For a saw layout, zero kerf can create a diagram that cannot produce all entered finished dimensions."
+        ]
+      ],
+      "quick_tool": {
+        "path": "/tools/cut-list-optimizer/",
+        "label": "Test a measured kerf in the layout",
+        "note": "Enter finished part sizes and one measured kerf value; the browser tool reserves it between cuts."
+      },
+      "related_pages": [
+        {
+          "path": "/guides/plywood-cut-calculator/",
+          "title": "Plywood Cut Calculator",
+          "kind": "Guide and free tool"
+        },
+        {
+          "path": "/templates/plywood-cutting-diagram/",
+          "title": "Plywood Cutting Diagram Template",
+          "kind": "Free printable PDF"
+        }
+      ]
+    },
+    "how-to-minimize-plywood-waste": {
+      "app": "boardcut",
+      "keyword": "how to minimize plywood waste",
+      "h1": "How to Minimize Plywood Waste Before the First Cut",
+      "title": "How to Minimize Plywood Waste — Layout, Kerf & Offcuts",
+      "desc": "Minimize plywood waste by cleaning the cut list, using actual sheet sizes and kerf, comparing layouts, preserving grain, and planning reusable offcuts.",
+      "lede": "Many avoidable losses enter the plan before the saw reaches the sheet. The useful target is not the highest percentage on screen; it is a layout that uses appropriate stock, produces every required part and leaves offcuts you can identify and reuse.",
+      "answer": "Start with a complete cut list grouped by material and thickness. Enter actual usable sheet dimensions, measured kerf and only the grain locks the project needs. Compare layouts by sheets required, executable cut order and reusable offcuts. Verify every part and dimension before cutting, then label the leftovers you plan to keep.",
+      "sections": [
+        {
+          "h2": "Remove errors before optimizing rectangles",
+          "body": [
+            "Confirm every finished dimension, quantity, material and thickness against the project. Give repeated parts stable names and separate parts that share dimensions but have different faces, grain or edge treatment. An efficient layout of the wrong list is still waste.",
+            "Group stock that is genuinely interchangeable. Do not combine different thicknesses, finishes or grades simply because the sheet dimensions match. Add measured offcuts as stock only after confirming their usable width and length."
+          ]
+        },
+        {
+          "h2": "Use honest stock, kerf and grain constraints",
+          "body": [
+            "Enter the usable sheet after damaged edges or squaring cuts, not a nominal rectangle that is larger than the material you can cut. Apply the measured blade kerf between parts. Lock grain direction for visible or structurally directional pieces and allow rotation only where orientation truly does not matter.",
+            "Over-constraining every part can force another sheet; under-constraining visible parts can produce a layout you will reject at the saw. The list should record which constraint belongs to which part."
+          ]
+        },
+        {
+          "h2": "Compare whole plans, not just yield",
+          "body": [
+            "Use sheet count to compare purchasing requirements, then inspect the cut sequence and the shape of the leftovers. A large rectangular offcut with recorded dimensions can be more useful than the same area split into narrow pieces, even if both plans report similar gross yield.",
+            "If two plans use the same stock, prefer the one you can execute and verify with the available tools. A plan that depends on unclear part labels or an impractical sequence increases the chance of remaking a piece."
+          ],
+          "bullets": [
+            "All required parts are placed exactly once per required quantity",
+            "Material, thickness and grain constraints are preserved",
+            "The cut sequence can be followed with the available setup",
+            "Reusable offcuts have a useful shape and recorded dimensions"
+          ]
+        },
+        {
+          "h2": "Keep offcuts as inventory, not anonymous scraps",
+          "body": [
+            "Mark each offcut you intend to save with material, thickness and dimensions. Store it where the next cut list can find it, and enter it as stock before adding a new full sheet. If an offcut is too small or awkward for work you actually do, do not treat it as recovered value merely to improve a waste figure.",
+            "Boardcut can keep offcut stock with the cutting plan in Pro. The free browser optimizer is useful for comparing a quick layout of up to ten parts before moving a larger project into the app."
+          ]
+        }
+      ],
+      "faq": [
+        [
+          "Does the highest yield always mean the least plywood waste?",
+          "Not by itself. Check sheet count, unplaced parts, cut sequence and whether the remaining shapes are reusable. Yield compares area, not usefulness."
+        ],
+        [
+          "Should every plywood part keep the same grain direction?",
+          "Only when the project requires it. Preserve orientation for visible or directional parts and allow rotation for parts where it does not matter."
+        ],
+        [
+          "Can offcuts reduce the number of new sheets to buy?",
+          "Yes, when their measured dimensions, material and thickness match required parts. Add them as stock before calculating the full-sheet requirement."
+        ],
+        [
+          "Why can the area estimate use fewer sheets than the layout?",
+          "Area ignores rectangle geometry, kerf, grain and unusable edges. Those constraints can prevent parts from fitting even when their total area is below the total sheet area."
+        ]
+      ],
+      "quick_tool": {
+        "path": "/tools/cut-list-optimizer/",
+        "label": "Compare a plywood layout for free",
+        "note": "Enter actual stock, parts and kerf to review sheet count, yield and the cutting diagram for up to 10 parts."
+      },
+      "related_pages": [
+        {
+          "path": "/guides/plywood-cut-calculator/",
+          "title": "Plywood Cut Calculator",
+          "kind": "Guide and free tool"
+        },
+        {
+          "path": "/templates/woodworking-cut-list/",
+          "title": "Woodworking Cut List Template",
+          "kind": "Free printable PDF"
+        }
+      ]
+    },
+    "cabinet-cut-list-template": {
+      "app": "boardcut",
+      "keyword": "cabinet cut list template",
+      "h1": "Cabinet Cut List Template: Parts, Fields and Sheet Handoff",
+      "title": "Cabinet Cut List Template — Parts, Fields & Plywood Layout",
+      "desc": "Build a cabinet cut list template with part IDs, finished dimensions, quantity, material, thickness, grain and edge notes, then hand it to a sheet layout.",
+      "lede": "A cabinet cut list is the manufacturing source of truth between the drawing and the sheet layout. It should identify each finished part clearly enough that the diagram, shop copy and physical panel all refer to the same thing.",
+      "answer": "Use one row per distinct cabinet part and columns for cabinet ID, part name, finished width, finished length, quantity, material, thickness, grain direction, finished face and edge treatment. Group rows by interchangeable stock, then transfer part ID, dimensions, quantity and orientation constraints into a cutting layout. Download the related woodworking cut list PDF for a printable starting point.",
+      "sections": [
+        {
+          "h2": "Use fields that survive the trip to the shop",
+          "body": [
+            "Assign a stable cabinet and part ID rather than relying only on names such as side or shelf. Record finished width and length in one declared unit, plus quantity, material and thickness. Add separate fields for grain direction, finished face and edge treatment when those details affect how a rectangle may be placed.",
+            "Keep rough-cut or final-trim allowances out of the finished dimension fields. Put them in dedicated notes so the layout does not silently treat an oversize blank as a completed part."
+          ],
+          "bullets": [
+            "Cabinet ID and unique part ID",
+            "Plain-English part name",
+            "Finished width, length and quantity",
+            "Material, thickness and finish",
+            "Grain orientation or allowed rotation",
+            "Finished face, edge treatment and revision notes"
+          ]
+        },
+        {
+          "h2": "Separate boxes, fronts and non-interchangeable stock",
+          "body": [
+            "Cabinet sides, shelves, backs and doors may use different materials, thicknesses or visible faces. Group only parts that can come from the same stock. A rectangle that fits geometrically is not a valid substitute when the material or finish is wrong.",
+            "Doors and matched fronts often carry appearance constraints that hidden cabinet parts do not. Record those constraints per part instead of locking every row in the list."
+          ]
+        },
+        {
+          "h2": "Start with the printable, then calculate the layout",
+          "body": [
+            "The free woodworking cut list PDF provides a parts table and a proportional 4×8 planning grid. Use it to collect the source list or mark up a shop copy. The grid is not an exact-scale nesting calculation and does not add kerf automatically.",
+            "Transfer the approved rows into the free cut list optimizer for a quick diagram of up to ten parts. For larger cabinet lists, multiple material groups or grain-direction locks, use Boardcut and keep the generated sheet count, yield and cut steps with the plan."
+          ]
+        },
+        {
+          "h2": "Audit the cabinet list before buying sheets",
+          "body": [
+            "Count every required part and compare the quantities with the drawing. Confirm that width and length use the same convention throughout, and verify material, thickness, face and grain notes. Then check that each generated rectangle carries the same part ID as its source row.",
+            "When a design dimension changes, update the source list and regenerate the layout. Patching only the cutting diagram creates two competing versions of the cabinet dimensions."
+          ],
+          "note_title": "Revision path",
+          "note": "drawing → source cut list → sheet layout → labeled shop copy"
+        }
+      ],
+      "faq": [
+        [
+          "What columns should a cabinet cut list include?",
+          "Include cabinet ID, part ID, part name, finished width and length, quantity, material, thickness, grain or rotation, finished face, edge treatment and revision notes."
+        ],
+        [
+          "Should cabinet cut list dimensions include kerf?",
+          "No. Keep finished dimensions in the cut list and apply measured kerf between parts in the sheet layout."
+        ],
+        [
+          "Can I download a printable cabinet cut list?",
+          "Use the linked woodworking cut list PDF as the printable base. Add cabinet IDs and face or edge notes in the available name and notes fields."
+        ],
+        [
+          "How do I turn the cabinet list into a plywood layout?",
+          "Group parts by interchangeable material and thickness, then transfer part ID, width, length, quantity and orientation constraints to a cut list optimizer."
+        ]
+      ],
+      "quick_tool": {
+        "path": "/templates/woodworking-cut-list/",
+        "label": "Download the free cut list template",
+        "note": "The one-page PDF includes a parts table and a proportional 4×8 planning grid. No signup or email."
+      },
+      "related_pages": [
+        {
+          "path": "/tools/cut-list-optimizer/",
+          "title": "Cut List Optimizer",
+          "kind": "Free web tool"
+        },
+        {
+          "path": "/apps/boardcut/",
+          "title": "Boardcut Cut List Optimizer",
+          "kind": "iPhone app"
+        }
+      ]
     },
     "whetstone-grit-progression": {
       "app": "whetlog",
@@ -2693,9 +3021,9 @@
     "woodworking-cut-list": {
       "app": "boardcut",
       "h1": "Free Printable Woodworking Cut List for Sheet Goods (PDF)",
-      "title": "Free Printable Woodworking Cut List PDF — Sheet Goods Layout",
-      "desc": "A free one-page printable woodworking cut list designed for plywood and sheet goods. A parts table plus a blank 4×8 grid for hand-sketching your layout — waste less material before the first cut.",
-      "answer": "This is a free, one-page printable woodworking cut list for sheet goods in PDF format. Two sections: a parts table (part name, dimensions, quantity, grain direction) and a blank 4×8 sheet grid where you sketch your layout by hand. Even a rough hand-drawn layout catches the obvious waste before you start cutting. Use one page per sheet of plywood, MDF, or melamine.",
+      "title": "Free Woodworking Cut List Template PDF for Sheet Goods",
+      "desc": "Download a free woodworking cut list template PDF for plywood, MDF and sheet goods. Record parts, dimensions, quantity and grain, then sketch the sheet layout.",
+      "answer": "This free, one-page woodworking cut list template is designed for plywood, MDF and other sheet goods. The PDF combines a parts table for names, finished dimensions, quantity and grain direction with a blank 4×8 grid for sketching a sheet layout. Use the grid as a planning sketch, then verify every dimension, kerf and stock size before cutting.",
       "columns": [
         "Part",
         "W (in)",
@@ -2720,7 +3048,7 @@
         "Print one page per sheet of plywood or panel material you plan to cut.",
         "List every part you need from this sheet in the table: name, width, length, thickness, and quantity.",
         "Mark grain direction Yes or No — whether you need grain to run parallel to the long dimension of the part.",
-        "Use the blank 4×8 grid below the table to sketch a rough layout: draw rectangles to represent each part. A hand-drawn layout catches obvious waste before you commit at the saw.",
+        "Use the blank 4×8 grid below the table to sketch a rough layout: draw rectangles to represent each part and check whether the arrangement leaves avoidable gaps.",
         "Transfer the layout to the actual sheet with a pencil and straightedge before cutting."
       ],
       "howto_names": [
@@ -2730,24 +3058,47 @@
         "Sketch the layout on the grid",
         "Transfer to the real sheet"
       ],
+      "sections": [
+        {
+          "h2": "What to put on a woodworking cut list",
+          "body": [
+            "Use one row for each distinct finished part. Record its name, width, length, thickness, quantity and whether its visible grain direction must be preserved. Keep plywood, MDF, melamine and other materials on separate sheets when they cannot substitute for one another.",
+            "The table describes finished parts. Blade kerf belongs between parts in the layout, while damaged-edge or squaring allowances belong at the edge of the stock. Keeping those values separate prevents the same allowance from being counted twice."
+          ]
+        },
+        {
+          "h2": "When to move from the printable to a cut list optimizer",
+          "body": [
+            "The blank grid is useful for a manual sketch and for checking whether the project has an obvious arrangement. It is not an exact-scale cutting diagram and does not calculate kerf, grain constraints, yield or cut order.",
+            "For a dimensioned layout, enter the same parts in the free cut list optimizer. For more than ten parts, multiple stock groups or grain-direction locks, Boardcut for iPhone keeps the planning workflow together."
+          ]
+        }
+      ],
       "faq": [
         [
-          "Is this template really free?",
-          "Yes. The PDF is free to download and print — no sign-up, no email."
+          "Is this woodworking cut list template free?",
+          "Yes. The PDF is free to download and print without signup or email."
         ],
         [
-          "Why hand-sketch a layout when software can do it?",
-          "For small projects, drawing it takes two minutes. The value isn't precision — it's the moment when you realize your original plan wastes an entire strip that could yield two more parts. A pencil catches this in seconds."
+          "Can I use the cut list for plywood, MDF and melamine?",
+          "Yes. Record the material and thickness for each part, and plan each non-interchangeable stock type separately. Enter the actual sheet dimensions rather than assuming every product has the same usable size."
         ],
         [
-          "What's the grid scale?",
-          "The grid is for rough proportional sketching only — it's not to exact scale. If you need a precise nested layout, the Boardcut app computes the optimal arrangement and shows you exactly where to mark each cut."
+          "Is the 4×8 grid drawn to exact scale?",
+          "No. It is a proportional planning grid for a nominal 4×8 sheet. Write the actual stock dimensions on the page and use a dimensioned cutting diagram before cutting."
         ],
         [
-          "Is there an app version?",
-          "Yes — Boardcut for iPhone takes your parts list and computes an optimized cut diagram. Planning is free with no piece limit. Pro is available as a $12.99 lifetime unlock or a $1.99/week subscription; eligible customers receive a 3-day free trial."
+          "Should cut list dimensions include saw kerf?",
+          "No. Record finished part dimensions in the table and apply the measured blade kerf between parts in the layout. Keep edge-trim allowances with the stock dimensions."
+        ],
+        [
+          "Can Boardcut turn this parts list into a cutting diagram?",
+          "Yes. Boardcut for iPhone turns part and stock dimensions into a cutting diagram with kerf, grain direction, sheet count, yield and ordered cut steps. Planning is free with no piece limit; export and saved-offcut features are in Pro."
         ]
       ],
+      "faq_heading": "Woodworking cut list template FAQ",
+      "cta_heading": "Turn the cut list into a cutting diagram",
+      "cta_body": "Boardcut for iPhone places your parts on available stock with kerf and grain constraints, then shows sheet count, yield and ordered cut steps. Planning is free with no piece limit; Pro adds exports and saved offcuts.",
       "pdf_fields": [
         "Project name",
         "Sheet material & size"
