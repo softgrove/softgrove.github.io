@@ -21,7 +21,7 @@ DATA = json.loads((ROOT / "apps.json").read_text())
 DESCS = json.loads((ROOT / "_asc_descs.json").read_text())
 SITE = DATA["site"]
 ORIGIN = SITE["origin"]
-TODAY = "2026-10-28"  # set per release; hash-gate keeps unchanged pages stable
+TODAY = "2026-10-29"  # set per release; hash-gate keeps unchanged pages stable
 
 # ---------------------------------------------------------------- desc parsing
 def parse_desc(raw):
@@ -416,6 +416,19 @@ def guide_page(slug):
         note = f'<div class="work-note"><strong>{esc(section["note_title"])}</strong><p>{esc(section["note"])}</p></div>' if section.get("note") else ""
         sections.append(f'<section><h2 class="serif">{esc(section["h2"])}</h2>{paragraphs}{bullets}{note}</section>')
     section_html = "".join(sections)
+    howto = g.get("howto", [])
+    howto_names = g.get("howto_names", [])
+    howto_html = ""
+    howto_style = ""
+    howto_ld = None
+    if howto:
+        steps = "".join(f"<li>{esc(step)}</li>" for step in howto)
+        howto_heading = g.get("howto_heading", f'How to use {g["keyword"]}')
+        howto_html = f'<section><h2 class="serif">{esc(howto_heading)}</h2><ol class="guide-steps">{steps}</ol></section>'
+        howto_style = ".guide-steps{padding-left:22px;margin-top:16px;display:grid;gap:12px;max-width:64ch}"
+        howto_ld = {"@type": "HowTo", "name": howto_heading, "description": g["desc"],
+                    "step": [{"@type": "HowToStep", "name": name, "text": step}
+                             for name, step in zip(howto_names, howto)]}
     faq_html = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(ans)}</p></details>" for q, ans in g["faq"])
     faq_heading = g.get("faq_heading", "Questions")
     related = "".join(
@@ -435,7 +448,9 @@ def guide_page(slug):
     related += "".join(
         f'<a href="{esc(r["path"])}"><strong class="serif">{esc(r["title"])}</strong><span>{esc(r["kind"])}</span></a>'
         for r in g.get("related_pages", []))
-    cta_h2, cta_body = GUIDE_CTA[g["app"]]
+    default_cta_h2, default_cta_body = GUIDE_CTA[g["app"]]
+    cta_h2 = g.get("cta_heading", default_cta_h2)
+    cta_body = g.get("cta_body", default_cta_body)
     if "weekly" in pricing:
         cta_terms = (f'Planning is free. Pro adds vector PDF and CSV export plus saved offcuts: {esc(pricing["weekly"])} or '
                      f'{esc(pricing["lifetime"])} lifetime. Eligible customers receive a {esc(pricing["trial"])}; the weekly subscription renews automatically unless canceled.')
@@ -455,7 +470,7 @@ article.wrap{{width:100%;max-width:780px}}
 article section{{margin-top:56px}}
 article section h2{{font-size:30px;margin-bottom:18px}}
 article section p{{margin-top:14px;max-width:66ch}}
-article section ul{{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-width:64ch}}
+article section ul{{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-width:64ch}}{howto_style}
 .work-note{{background:{a["bg"]};border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:22px}}
 .work-note strong{{font-size:15px}}
 .work-note p{{margin-top:7px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14px;line-height:1.55}}
@@ -481,19 +496,19 @@ article section ul{{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-
 <p class="lede">{esc(g["lede"])}</p>
 <div class="answer">{esc(g["answer"])}</div>{quick_html}
 </header>
-{section_html}
+{howto_html}{section_html}
 {field_note}
 <section><h2 class="serif">{esc(faq_heading)}</h2>{faq_html}</section>
 <aside class="app-cta">
 <h2 class="serif">{esc(cta_h2)}</h2>
 <p>{esc(cta_body)}</p>
-<div class="cta-row">{store_badge(a["id"], a["name"])}<p class="terms">{cta_terms}</p></div>
+<div class="cta-row">{store_badge(a["id"], a["name"], g.get("cta_ct"))}<p class="terms">{cta_terms}</p></div>
 </aside>
 <section><h2 class="serif">{esc(a.get("guidesRelatedLabel", "Related cutting guides"))}</h2><div class="related">{related}</div></section>
 </article>"""
     faqs = [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ans}}
             for q, ans in g["faq"]]
-    ld = {"@context": "https://schema.org", "@graph": [
+    graph = [
         {"@type": "Article", "headline": g["h1"], "description": g["desc"],
          "mainEntityOfPage": ORIGIN + f"/guides/{slug}/",
          "author": {"@type": "Organization", "name": "Softgrove", "url": ORIGIN + "/"},
@@ -502,7 +517,10 @@ article section ul{{padding-left:22px;margin-top:16px;display:grid;gap:10px;max-
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Softgrove", "item": ORIGIN + "/"},
             {"@type": "ListItem", "position": 2, "name": a["name"], "item": ORIGIN + f"/apps/{g['app']}/"},
-            {"@type": "ListItem", "position": 3, "name": g["h1"]}]}]}
+            {"@type": "ListItem", "position": 3, "name": g["h1"]}]}]
+    if howto_ld:
+        graph.insert(1, howto_ld)
+    ld = {"@context": "https://schema.org", "@graph": graph}
     head = f'<meta name="apple-itunes-app" content="app-id={a["id"]}">'
     return page(g["title"], g["desc"], f"/guides/{slug}/", body, ld, head,
                 og_image=f"/og/apps-{g['app']}.png")
@@ -634,8 +652,10 @@ ol.howto{{padding-left:22px;display:grid;gap:12px;font-size:16.5px;max-width:62c
     return page(t["title"], t["desc"], f"/templates/{slug}/", body, ld, head)
 
 # --------------------------------------------------------------- free tools
-def tool_shell(app_key, eyebrow, h1, lede, calculator, below, ct=None):
+def tool_shell(app_key, eyebrow, h1, lede, calculator, below, ct=None, cta_heading=None, cta_body=None):
     a = DATA["apps"][app_key]
+    cta_heading = cta_heading or "Keep it with you"
+    cta_body = cta_body or f'Use {a["name"]} on iPhone when you need the full tool away from your desk.'
     return f"""
 <style>
 .tool-hero{{padding:64px 0 30px;max-width:820px}}
@@ -674,7 +694,7 @@ button.danger{{background:transparent;color:#7a2e33;padding:8px}}
 <header class="tool-hero"><p class="eyebrow">{esc(eyebrow)}</p><h1>{esc(h1)}</h1><p class="lede">{esc(lede)}</p></header>
 <section class="calculator" aria-label="{esc(h1)}">{calculator}</section>
 <article class="tool-copy">{below}
-<aside class="app-cta"><h2>Keep it with you</h2><p>Use {esc(a["name"])} on iPhone when you need the full tool away from your desk.</p>{store_badge(a["id"], a["name"], ct)}</aside>
+<aside class="app-cta"><h2>{esc(cta_heading)}</h2><p>{esc(cta_body)}</p>{store_badge(a["id"], a["name"], ct)}</aside>
 </article></main>"""
 
 def tool_shell_standalone(eyebrow, h1, lede, calculator, below):
@@ -1169,16 +1189,34 @@ run();
         ("Can I lock grain direction or use more than 10 parts?", "This free web tool accepts up to 10 individual parts, including repeated quantities, and allows rotation. It does not lock grain direction. Boardcut for iPhone supports grain-direction locking and multiple material groups."),
         ("What does yield mean on the cut sheet?", "Yield is the placed part area divided by the area of stock actually used, as a percentage. Reusable offcuts are not credited. Blade kerf affects the space left for parts, so enter your blade's actual cut width."),
     ])
-    below = '''
-<section><h2>How to use the cut list optimiser</h2><ol class="sources"><li>Enter the length, width and quantity of each stock board or plywood sheet in inches. A stock quantity of 0 means unlimited sheets of that size.</li><li>Add each rectangular part to your cutlist with its finished length, width and quantity. The free limit is 10 parts in total, including repeated pieces.</li><li>Set the blade kerf to the width of material your saw removes on each cut.</li><li>Select <strong>Generate cutting diagram</strong> to build your cut sheet. Check yield, sheets used, parts placed and any parts that could not fit before making board cuts.</li></ol></section>
-<section><h2>How the layout is built</h2><p>The cut list optimizer places the largest parts first into the best-fitting leftover space, using straight guillotine cuts and allowing part rotation. Each cut reserves space for one blade kerf. This heuristic finds a layout but does not guarantee the fewest sheets or least waste.</p><p>For grain-direction locking and multiple material groups, see <a href="/apps/boardcut/">Boardcut for iPhone</a>. For plywood sheet-count estimates and kerf allowances, read the <a href="/guides/plywood-cut-calculator/">plywood cut calculator guide</a>.</p></section>
-<section><h2>Cut list optimizer FAQ</h2>''' + faq_html + '</section>'
+    howto = [
+        ("Enter the available stock", "Add the length, width and quantity of each plywood sheet or board in inches. Use a stock quantity of 0 only when you can use as many sheets of that size as the layout needs."),
+        ("Add finished part sizes", "Enter a clear name, finished length, finished width and quantity for each rectangular part. Repeated quantities count toward the free 10-part limit."),
+        ("Set the blade kerf", "Measure the width removed by the blade and saw setup you will use, then enter that value once. Do not add kerf to the finished part dimensions as well."),
+        ("Generate the cutting diagram", "Select Generate cutting diagram to place the largest parts first on the available stock and draw a kerf-aware cut sheet."),
+        ("Audit before cutting", "Compare parts placed with the source cutlist, inspect any unplaced parts, and verify stock size, orientation, dimensions and cut sequence against the real material."),
+    ]
+    howto_html = "".join(f"<li>{esc(step)}</li>" for _, step in howto)
+    howto_ld = {"@type": "HowTo", "name": "How to use the cut list optimizer",
+                "description": "Create a kerf-aware cut sheet from stock and rectangular part dimensions.",
+                "step": [{"@type": "HowToStep", "name": name, "text": step} for name, step in howto]}
+    below = f'''
+<section><h2>How to use the cut list optimizer (optimiser)</h2><ol class="sources">{howto_html}</ol></section>
+<section><h2>Set up the stock before the parts</h2><p>Stock is the material you have; parts are the finished rectangles you need from it. Enter the usable stock dimensions after any damaged edge or squaring trim. A nominal 48 × 96 plywood sheet should only be entered as 48 × 96 when that full rectangle is available for the layout. Keep different thicknesses, materials and faces in separate runs when they cannot substitute for one another.</p><p>Stock quantity controls how many sheets or boards the optimizer may use. Enter the quantity on hand when supply is limited. A quantity of 0 means unlimited stock of that size, which is useful for estimating a purchase but can hide a shortage if you intended to work only from sheets already in the shop.</p></section>
+<section><h2>Prepare a cutlist the optimizer can check</h2><p>Use finished dimensions for every part and give repeated pieces a stable name. Quantity is expanded into individual placements, so two cabinet sides entered with quantity 2 count as two of the 10 available parts. Check the total against the project list before generating a diagram; an efficient cut sheet is still wrong when a shelf or divider is missing.</p><p>The browser tool allows every part to rotate and uses one kerf value for the whole layout. It does not model grain direction, defects, edge banding or different kerfs for different operations. If a visible face must keep its grain orientation, treat the web result as an estimate or continue the project in <a href="/apps/boardcut/">Boardcut for iPhone</a>, which supports part-level grain locks.</p></section>
+<section><h2>Run a simple layout check</h2><p>For a plywood project, start with the measured usable sheet size, then enter each part exactly as it appears on the source cut list. Set kerf from a representative test cut. Generate the diagram and compare the reported parts placed with the total quantity you entered. If a part is unplaced, confirm its dimensions and available stock before changing the design.</p><p>Do not set kerf to zero or enlarge the stock simply to force a fit. A row that looks exact on paper can fail at the saw because every separating cut removes material. The <a href="/guides/kerf-width-explained/">kerf width guide</a> shows how to measure that loss, and the <a href="/guides/plywood-cut-calculator/">plywood cut calculator guide</a> explains why an area estimate can undercount sheets.</p></section>
+<section><h2>How the cut sheet is built</h2><p>The cut list optimizer sorts parts from largest area to smallest, tries both orientations and places each rectangle into the best-fitting free space. Every placement splits the remaining space along straight guillotine cuts and reserves one blade kerf. The dashed lines in the diagram show those cut boundaries.</p><p>This is a practical heuristic, not a proof of the global optimum. A different part order or rotation choice may use fewer sheets or leave a more useful offcut. Compare the result with the project constraints and use the diagram as a planning aid, not as a substitute for measuring the real stock and checking a safe, workable cut sequence.</p></section>
+<section><h2>Read and verify the results</h2><p><strong>Sheets used</strong> is the number of stock pieces opened by the layout. <strong>Parts placed</strong> must match the total quantity in the source cutlist. <strong>Yield</strong> is placed part area divided by the area of stock used; it does not credit reusable offcuts or prove that the sequence suits your saw. The drawing labels each part and its dimensions so you can trace the result back to the list.</p><p>Before making board cuts, check every part name, dimension and quantity, then inspect the stock size and each tight row. Confirm grain direction outside this tool and plan how the material will be supported through the cuts. For a paper handoff, use the <a href="/templates/woodworking-cut-list/">free woodworking cut list template</a>; for a fuller waste review, use the <a href="/guides/how-to-minimize-plywood-waste/">plywood waste guide</a>.</p></section>
+<section><h2>When to continue in Boardcut</h2><p>The web cut list optimiser is for a quick diagram of up to 10 rectangular parts. Boardcut uses the same part, stock and kerf concepts with no piece limit, then adds grain-direction locks, edge trim, a minimum offcut size, alternate layouts, material cost and numbered cut steps linked to the diagram. It works fully offline and can share a sheet image without a paid unlock.</p><p>Boardcut Pro adds vector PDF plans, CSV export and saving usable offcuts as stock. Those paid features do not change the free planning limit: the optimizer, diagram and ordered cut steps remain available for projects of any size. See the <a href="/guides/cabinet-cut-list-template/">cabinet cut list guide</a> for the fields to prepare before moving a larger project into the app.</p></section>
+<section><h2>Cut list optimizer FAQ</h2>{faq_html}</section>'''
     description = "Free cut list optimizer (optimiser) for plywood and board cuts. Turn your cutlist into a kerf-aware cut sheet and cutting diagram. Up to 10 parts."
     ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "SoftwareApplication", "name": "Cut List Optimizer", "alternateName": ["Cut List Optimiser", "Cutlist Optimizer"], "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "url": ORIGIN + "/tools/cut-list-optimizer/", "isAccessibleForFree": True, "description": description},
-        faq_ld]}
-    body = tool_shell("boardcut", "Free woodworking tool", "Cut List Optimizer / Optimiser — Cut Sheet Planner", "Turn your cutlist into a cut sheet for plywood and board cuts. This free cut list optimizer (optimiser) uses stock sizes, part dimensions and blade kerf to generate a cutting diagram for up to 10 parts, with yield and sheets used.", calculator, below, "site_cut_list_optimizer")
-    return page("Free Cut List Optimizer / Optimiser & Cut Sheet | Softgrove", description, "/tools/cut-list-optimizer/", body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-cut-list-optimizer.png")
+        {"@type": "SoftwareApplication", "name": "Free Cut List Optimizer / Optimiser", "alternateName": ["Cut List Optimiser", "Cutlist Optimizer", "Cut Sheet Planner"], "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "url": ORIGIN + "/tools/cut-list-optimizer/", "isAccessibleForFree": True, "description": description},
+        howto_ld, faq_ld]}
+    h1 = "Free Cut List Optimizer / Optimiser"
+    cta_body = ("Boardcut for iPhone keeps the same stock, part and kerf workflow, then adds no piece limit, grain-direction locks, edge trim, alternate layouts, material cost and numbered cut steps. Planning works offline and sheet-image sharing is free; Pro adds vector PDF and CSV export plus saved offcuts.")
+    body = tool_shell("boardcut", "Free woodworking tool", h1, "Turn your cutlist into a cut sheet for plywood and board cuts. This free cut list optimizer (optimiser) uses stock sizes, part dimensions and blade kerf to generate a cutting diagram for up to 10 parts, with yield and sheets used.", calculator, below, "site_cut_list_optimizer", "Continue the cut list in Boardcut", cta_body)
+    return page(h1 + " | Softgrove", description, "/tools/cut-list-optimizer/", body, ld, f'<meta name="apple-itunes-app" content="app-id={a["id"]}">', "/og/tools-cut-list-optimizer.png")
 
 # ---------------------------------------------------- free tools, batch 2 (2026-09-17)
 # One page per app that had no acquisition page. Each calculator mirrors the

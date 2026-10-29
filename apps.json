@@ -465,16 +465,31 @@
     "plywood-cut-calculator": {
       "app": "boardcut",
       "keyword": "plywood cut calculator",
-      "h1": "Free Plywood Cut Calculator for 4×8 Sheet Layouts",
-      "title": "Free Plywood Cut Calculator — 4×8 Sheet Layout & Count",
+      "h1": "Plywood Cut Calculator for 4×8 Sheet Layouts",
+      "title": "Plywood Cut Calculator for 4×8 Sheet Layouts",
       "desc": "Use a free plywood cut calculator to place parts on 4×8 sheets with blade kerf, see the sheet count and cutting diagram, and check the result before buying.",
       "lede": "Enter your stock, parts and blade kerf in the free browser calculator, then review the 4×8 sheet count and cutting diagram. This guide also explains the quick area estimate and the layout constraints it misses.",
       "answer": "Quick answer: a 4×8 sheet is 32 square feet, so total part area ÷ 32, rounded up, is the fewest sheets the job could possibly use. A workable layout can require more because blade kerf, edge trim and rectangle geometry consume or strand space. The free calculator on this site places rotatable parts on 48×96 stock with kerf and reports the sheet count, cutting diagram and yield. If face grain must stay oriented, use a planner with grain-direction locking such as Boardcut.",
+      "howto": [
+        "Measure the usable width and length of each plywood sheet after reserving any damaged edge or squaring trim.",
+        "Enter every finished part dimension and quantity, keeping different materials and thicknesses in separate layouts.",
+        "Measure the blade kerf with the saw setup you plan to use and enter it once as the space removed by each cut.",
+        "Generate the cutting diagram, then compare the placed-parts count with the source cut list and inspect any unplaced pieces.",
+        "Verify sheet count, grain orientation, cut sequence and every dimension against the actual material before buying or cutting."
+      ],
+      "howto_names": [
+        "Measure usable plywood stock",
+        "Enter finished parts",
+        "Set the measured blade kerf",
+        "Generate and audit the layout",
+        "Verify the plan against the material"
+      ],
+      "howto_heading": "How to use the plywood cut calculator",
       "sections": [
         {
           "h2": "Use the calculator for a 4×8 sheet",
           "body": [
-            "Add one stock line using the actual usable width and length of the sheet, then set the kerf to the width removed by your planned blade and setup. Enter each part as width × length × quantity. The free browser calculator allows rotation and does not lock face grain; use Boardcut when a part must keep a specific orientation. The optimizer reports the sheet count, yield and a diagram you can print or take to the saw.",
+            "The free cut list optimizer on this site is the plywood cut calculator this guide refers to; it runs in the browser for up to 10 parts. Add one stock line using the actual usable width and length of the sheet, then set the kerf to the width removed by your planned blade and setup. Enter each part as width × length × quantity. The free browser calculator allows rotation and does not lock face grain; use Boardcut when a part must keep a specific orientation. The optimizer reports the sheet count, yield and a diagram you can print or take to the saw.",
             "If the calculated count is higher than the area estimate, inspect tight rows, part orientation, usable stock size and kerf. Correct an input only when the project or measured stock supports the change; do not shrink a required finished part merely to make the diagram fit."
           ],
           "bullets": [
@@ -528,7 +543,7 @@
       "faq": [
         [
           "Is there a free plywood cut list calculator?",
-          "Yes — the cut list optimizer on this site is free in the browser for up to 10 parts, kerf-aware, and produces a cutting diagram for 4×8 or any custom sheet size. The Boardcut app does the same on iPhone with no part limit."
+          "Yes — the cut list optimizer (cut list optimiser in UK spelling) on this site is free in the browser for up to 10 parts, kerf-aware, and produces a cutting diagram for 4×8 or any custom sheet size. The Boardcut app does the same on iPhone with no part limit."
         ],
         [
           "How many square feet are in a 4×8 sheet of plywood?",
@@ -548,6 +563,9 @@
         ]
       ],
       "faq_heading": "Plywood cut calculator FAQ",
+      "cta_heading": "Take the verified layout to Boardcut",
+      "cta_body": "Boardcut for iPhone uses the same stock, part and kerf inputs, then adds grain-direction locks, multiple material groups, alternate layouts, material cost and ordered cut steps. Planning has no piece limit, works offline and includes sheet-image sharing; Pro adds vector PDF and CSV export plus saved offcuts.",
+      "cta_ct": "site_guide_plywood_cut_calculator",
       "source": {
         "community": "r/woodworking",
         "title": "Software to plan plywood cuts",
@@ -562,7 +580,7 @@
       "related_pages": [
         {
           "path": "/tools/cut-list-optimizer/",
-          "title": "Cut list optimizer",
+          "title": "Cut list optimizer (optimiser)",
           "kind": "Free web tool"
         },
         {
@@ -3020,8 +3038,8 @@
     },
     "woodworking-cut-list": {
       "app": "boardcut",
-      "h1": "Free Printable Woodworking Cut List for Sheet Goods (PDF)",
-      "title": "Free Woodworking Cut List Template PDF for Sheet Goods",
+      "h1": "Free Woodworking Cut List Template for Sheet Goods",
+      "title": "Free Woodworking Cut List Template for Sheet Goods",
       "desc": "Download a free woodworking cut list template PDF for plywood, MDF and sheet goods. Record parts, dimensions, quantity and grain, then sketch the sheet layout.",
       "answer": "This free, one-page woodworking cut list template is designed for plywood, MDF and other sheet goods. The PDF combines a parts table for names, finished dimensions, quantity and grain direction with a blank 4×8 grid for sketching a sheet layout. Use the grid as a planning sketch, then verify every dimension, kerf and stock size before cutting.",
       "columns": [
@@ -3070,7 +3088,15 @@
           "h2": "When to move from the printable to a cut list optimizer",
           "body": [
             "The blank grid is useful for a manual sketch and for checking whether the project has an obvious arrangement. It is not an exact-scale cutting diagram and does not calculate kerf, grain constraints, yield or cut order.",
-            "For a dimensioned layout, enter the same parts in the free cut list optimizer. For more than ten parts, multiple stock groups or grain-direction locks, Boardcut for iPhone keeps the planning workflow together."
+            "For a dimensioned layout, enter the same parts in the free cut list optimizer (cut list optimiser in UK spelling). For more than ten parts, multiple stock groups or grain-direction locks, Boardcut for iPhone keeps the planning workflow together."
+          ]
+        },
+        {
+          "h2": "Move the paper cut list into Boardcut",
+          "body": [
+            "Each column on the printable maps to an input in Boardcut for iPhone, so the sheet can be the first draft of a dimensioned layout. Part name, width, length and quantity go in through a fraction keypad made for inches, with decimal-inch and millimeter modes if the plan uses them. Material and thickness decide which stock a part belongs to; Boardcut starts from standard presets such as a 4×8 plywood sheet or lets you enter the actual size of the panel you have.",
+            "The grain column becomes a per-part grain lock, and the diagram draws grain arrows so the orientation is visible before cutting. Blade kerf is drawn at its real width on every cut, with edge trim and a minimum offcut size set separately from the finished part dimensions, which matches the rule above about keeping those allowances out of the parts table.",
+            "The result is an optimized cutting diagram with a numbered cut list of every rip and crosscut linked to the drawing, plus waste, yield, sheet count, cut count and material cost. Planning is free with no piece limit and works offline. Pro adds vector PDF plans, CSV export of parts and placements, and saving usable offcuts as stock for the next project."
           ]
         }
       ],
@@ -3098,7 +3124,7 @@
       ],
       "faq_heading": "Woodworking cut list template FAQ",
       "cta_heading": "Turn the cut list into a cutting diagram",
-      "cta_body": "Boardcut for iPhone places your parts on available stock with kerf and grain constraints, then shows sheet count, yield and ordered cut steps. Planning is free with no piece limit; Pro adds exports and saved offcuts.",
+      "cta_body": "Boardcut for iPhone places your parts on available stock with kerf and grain constraints, then shows sheet count, yield, alternate layouts and ordered cut steps. Planning is free with no piece limit and works offline; Pro adds vector PDF and CSV export plus saved offcuts.",
       "pdf_fields": [
         "Project name",
         "Sheet material & size"
