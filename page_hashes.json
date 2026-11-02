@@ -1,11 +1,11 @@
 {
  "/": {
-  "hash": "abad1a3d23fcd735",
-  "lastmod": "2026-10-29"
+  "hash": "305843e9ec92abd9",
+  "lastmod": "2026-11-02"
  },
  "/templates/": {
-  "hash": "ae5734bc494ae5e8",
-  "lastmod": "2026-10-29"
+  "hash": "563fa533b4c883d1",
+  "lastmod": "2026-11-02"
  },
  "/tools/reciprocity-calculator/": {
   "hash": "844db9d9e5a2458b",
@@ -16,8 +16,8 @@
   "lastmod": "2026-09-18"
  },
  "/tools/cut-list-optimizer/": {
-  "hash": "c02f9248d4f39b99",
-  "lastmod": "2026-10-29"
+  "hash": "12470f2110353752",
+  "lastmod": "2026-11-02"
  },
  "/tools/": {
   "hash": "013878004a7299da",
@@ -28,8 +28,8 @@
   "lastmod": "2026-09-18"
  },
  "/tools/houseplant-watering-calculator/": {
-  "hash": "a2f998a8286fd263",
-  "lastmod": "2026-10-28"
+  "hash": "a41f8e6dcee1a296",
+  "lastmod": "2026-11-02"
  },
  "/tools/sourdough-hydration-calculator/": {
   "hash": "5013588d09b3d9bd",
@@ -124,8 +124,8 @@
   "lastmod": "2026-09-18"
  },
  "/apps/boardcut/": {
-  "hash": "1b8a00921f86a7c4",
-  "lastmod": "2026-10-29"
+  "hash": "9410af90b24b6f51",
+  "lastmod": "2026-11-02"
  },
  "/apps/whetlog/": {
   "hash": "4ce84b65e5ffc531",
@@ -220,8 +220,8 @@
   "lastmod": "2026-10-22"
  },
  "/templates/plant-watering-schedule/": {
-  "hash": "6ff87dc3614f203a",
-  "lastmod": "2026-10-28"
+  "hash": "4ff64d91b9dbf9a0",
+  "lastmod": "2026-11-02"
  },
  "/templates/houseplant-care-log/": {
   "hash": "9ddfcdaf36ba3d31",
@@ -244,16 +244,16 @@
   "lastmod": "2026-10-22"
  },
  "/templates/cut-list-template/": {
-  "hash": "0d9b7286abc2cbb1",
-  "lastmod": "2026-10-29"
+  "hash": "c79f8d0457ef62c4",
+  "lastmod": "2026-11-02"
  },
  "/templates/woodworking-cut-list/": {
-  "hash": "992163a7c867192a",
-  "lastmod": "2026-10-29"
+  "hash": "6ac87c64e0c562fb",
+  "lastmod": "2026-11-02"
  },
  "/templates/plywood-cutting-diagram/": {
-  "hash": "d84893a82430337b",
-  "lastmod": "2026-10-29"
+  "hash": "18eb4f7e53997e69",
+  "lastmod": "2026-11-02"
  },
  "/templates/mileage-log-printable/": {
   "hash": "4c72083fb1920c8a",
@@ -320,36 +320,36 @@
   "lastmod": "2026-10-22"
  },
  "/guides/cut-list-optimizer/": {
-  "hash": "660a1b3483e27e8b",
-  "lastmod": "2026-10-29"
+  "hash": "f053eb3d1697aa66",
+  "lastmod": "2026-11-02"
  },
  "/guides/sheet-goods-cutting-layout/": {
-  "hash": "f895877e93a3b064",
-  "lastmod": "2026-10-29"
+  "hash": "c17d676f531e957f",
+  "lastmod": "2026-11-02"
  },
  "/guides/plywood-cut-calculator/": {
-  "hash": "e0afa67e7ce0ed8b",
-  "lastmod": "2026-10-29"
+  "hash": "19b3bf9596f59d05",
+  "lastmod": "2026-11-02"
  },
  "/guides/cut-list-spreadsheet/": {
-  "hash": "8708517be98f3964",
-  "lastmod": "2026-10-29"
+  "hash": "8d17cc772d6b6528",
+  "lastmod": "2026-11-02"
  },
  "/guides/mdf-cut-calculator/": {
-  "hash": "eeb1b34f94e386c4",
-  "lastmod": "2026-10-29"
+  "hash": "f4c0f8a95391256a",
+  "lastmod": "2026-11-02"
  },
  "/guides/kerf-width-explained/": {
-  "hash": "c3bc3395d527739f",
-  "lastmod": "2026-10-29"
+  "hash": "0d111dc1c25c795b",
+  "lastmod": "2026-11-02"
  },
  "/guides/how-to-minimize-plywood-waste/": {
-  "hash": "00113eae17b7bd31",
-  "lastmod": "2026-10-29"
+  "hash": "6d0f6e9ccea401f6",
+  "lastmod": "2026-11-02"
  },
  "/guides/cabinet-cut-list-template/": {
-  "hash": "923e442077a1155b",
-  "lastmod": "2026-10-29"
+  "hash": "c2a6399fb389cacb",
+  "lastmod": "2026-11-02"
  },
  "/guides/whetstone-grit-progression/": {
   "hash": "1be98eb354e71b0a",
