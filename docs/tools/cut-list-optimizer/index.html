@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Free Cut List Optimizer / Optimiser — Plywood Layout</title>
-<meta name="description" content="Free cut list optimizer for plywood and board cuts. Enter stock, parts and kerf to get a cutting diagram, sheet count and yield. Up to 10 parts; no signup.">
+<title>Cut List Optimizer — Free Plywood Cut Calculator (mm &amp; in)</title>
+<meta name="description" content="Free cut list optimizer and plywood cut calculator. Enter sheet, parts and kerf in mm or inches for a cutting diagram, sheet count and yield. No part limit.">
 <link rel="canonical" href="https://softgrove.github.io/tools/cut-list-optimizer/">
-<meta property="og:title" content="Free Cut List Optimizer / Optimiser — Plywood Layout">
-<meta property="og:description" content="Free cut list optimizer for plywood and board cuts. Enter stock, parts and kerf to get a cutting diagram, sheet count and yield. Up to 10 parts; no signup.">
+<meta property="og:title" content="Cut List Optimizer — Free Plywood Cut Calculator (mm &amp; in)">
+<meta property="og:description" content="Free cut list optimizer and plywood cut calculator. Enter sheet, parts and kerf in mm or inches for a cutting diagram, sheet count and yield. No part limit.">
 <meta property="og:url" content="https://softgrove.github.io/tools/cut-list-optimizer/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://softgrove.github.io/og/tools-cut-list-optimizer.png">
@@ -50,7 +50,7 @@ details[open] summary::after{content:"–"}
 details p{margin-top:10px;color:#4d4850;max-width:62ch}
 @media(max-width:640px){.mast .wrap{padding-top:16px;padding-bottom:13px}}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "Free Cut List Optimizer / Optimiser", "alternateName": ["Cut List Optimiser", "Cutlist Optimizer", "Cut Sheet Planner"], "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "url": "https://softgrove.github.io/tools/cut-list-optimizer/", "isAccessibleForFree": true, "description": "Free cut list optimizer for plywood and board cuts. Enter stock, parts and kerf to get a cutting diagram, sheet count and yield. Up to 10 parts; no signup."}, {"@type": "HowTo", "name": "How to use the cut list optimizer", "description": "Create a kerf-aware cut sheet from stock and rectangular part dimensions.", "step": [{"@type": "HowToStep", "name": "Enter the available stock", "text": "Add the length, width and quantity of each plywood sheet or board in inches. Use a stock quantity of 0 only when you can use as many sheets of that size as the layout needs."}, {"@type": "HowToStep", "name": "Add finished part sizes", "text": "Enter a clear name, finished length, finished width and quantity for each rectangular part. Repeated quantities count toward the free 10-part limit."}, {"@type": "HowToStep", "name": "Set the blade kerf", "text": "Measure the width removed by the blade and saw setup you will use, then enter that value once. Do not add kerf to the finished part dimensions as well."}, {"@type": "HowToStep", "name": "Generate the cutting diagram", "text": "Select Generate cutting diagram to place the largest parts first on the available stock and draw a kerf-aware cut sheet."}, {"@type": "HowToStep", "name": "Audit before cutting", "text": "Compare parts placed with the source cutlist, inspect any unplaced parts, and verify stock size, orientation, dimensions and cut sequence against the real material."}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I turn a cut list into a cutting diagram?", "acceptedAnswer": {"@type": "Answer", "text": "Enter the available stock dimensions, then each finished rectangular part and quantity. Set the measured blade kerf and generate the diagram. Cut list optimiser is the UK spelling of cut list optimizer; both refer to this layout tool. Check all placed and unplaced parts before cutting."}}, {"@type": "Question", "name": "How do I make a cut sheet for plywood or board cuts?", "acceptedAnswer": {"@type": "Answer", "text": "Enter your stock sheet or board sizes, part dimensions and quantities in inches, then set the blade kerf and select Generate cutting diagram. Review the parts placed and any pieces that could not fit before cutting."}}, {"@type": "Question", "name": "Is this a true guillotine cut layout?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Each part is separated by straight, edge-to-edge cuts across the remaining rectangle. The dashed lines mark cuts. The largest-area-first heuristic does not guarantee the optimal layout, so check the diagram before cutting."}}, {"@type": "Question", "name": "Can I lock grain direction or use more than 10 parts?", "acceptedAnswer": {"@type": "Answer", "text": "This free web tool accepts up to 10 individual parts, including repeated quantities, and allows rotation. It does not lock grain direction. Boardcut for iPhone supports grain-direction locking and multiple material groups."}}, {"@type": "Question", "name": "What does yield mean on the cut sheet?", "acceptedAnswer": {"@type": "Answer", "text": "Yield is the placed part area divided by the area of stock actually used, as a percentage. Reusable offcuts are not credited. Blade kerf affects the space left for parts, so enter your blade's actual cut width."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Cut List Optimizer — Plywood Cut Calculator", "alternateName": ["Cut List Optimiser", "Cutlist Optimizer", "Plywood Cut Calculator", "Sheet Cutting Calculator"], "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "url": "https://softgrove.github.io/tools/cut-list-optimizer/", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "featureList": ["Millimetres or inches", "No part limit", "Kerf-aware guillotine layout", "Sheet count and material yield", "Cutting diagram per sheet"], "description": "Free cut list optimizer and plywood cut calculator. Enter sheet, parts and kerf in mm or inches for a cutting diagram, sheet count and yield. No part limit.", "publisher": {"@type": "Organization", "name": "Softgrove", "url": "https://softgrove.github.io/"}}, {"@type": "HowTo", "name": "How to use the cut list optimizer", "description": "Create a kerf-aware cut sheet from sheet and rectangular part dimensions in millimetres or inches.", "step": [{"@type": "HowToStep", "name": "Choose units and enter the sheet size", "text": "Pick millimetres or inches, then enter the usable length and width of one plywood sheet or board after any damaged edge or squaring trim. The optimizer opens as many sheets of that size as the parts need."}, {"@type": "HowToStep", "name": "Add finished part sizes", "text": "Enter a clear name, finished length, finished width and quantity for each rectangular part. There is no part limit; quantities are expanded into individual placements."}, {"@type": "HowToStep", "name": "Set the blade kerf", "text": "Measure the width removed by the blade and saw setup you will use, then enter that value once. Do not add kerf to the finished part dimensions as well."}, {"@type": "HowToStep", "name": "Generate the cutting diagram", "text": "Select Generate cutting diagram. The optimizer tries 48 combinations of part order, placement rule and guillotine split and keeps the layout that uses the fewest sheets, then draws a kerf-aware cut sheet."}, {"@type": "HowToStep", "name": "Audit before cutting", "text": "Compare the part count with the source cutlist, then verify sheet size, orientation, dimensions and a safe cut sequence against the real material. Continue in Boardcut when you need a saved project or a PDF plan."}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I turn a cut list into a cutting diagram?", "acceptedAnswer": {"@type": "Answer", "text": "Pick millimetres or inches, enter the usable sheet size, then each finished rectangular part and quantity. Set the measured blade kerf and generate the diagram. Cut list optimiser is the UK spelling of cut list optimizer; both refer to this layout tool. Check every part against the diagram before cutting."}}, {"@type": "Question", "name": "Does the plywood cut calculator work in millimetres?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Switch the unit to millimetres and enter a sheet such as 2440 × 1220 mm with a 3 mm kerf. Switching units converts the numbers already on the form, so a layout entered in inches reads the same in millimetres. The layout engine itself is unit-free."}}, {"@type": "Question", "name": "Is there a part limit?", "acceptedAnswer": {"@type": "Answer", "text": "No. The free web optimizer accepts any number of parts and quantities and opens as many sheets of the chosen size as the layout needs. Very large lists simply take a moment longer to calculate in the browser."}}, {"@type": "Question", "name": "Is this a true guillotine cut layout?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every placement sits in a rectangle that can be reached by straight, edge-to-edge cuts across the remaining stock, with one blade kerf reserved between neighbours. The optimizer compares several part orders, placement rules and split directions and keeps the layout that uses the fewest sheets, but that search does not prove the mathematical minimum, so check the diagram before cutting."}}, {"@type": "Question", "name": "Can I lock grain direction or mix sheet sizes?", "acceptedAnswer": {"@type": "Answer", "text": "Not in this web tool. It allows every part to rotate and uses one sheet size per run; run different materials or thicknesses separately. Boardcut for iPhone supports grain-direction locking and multiple material groups."}}, {"@type": "Question", "name": "What does yield mean on the cut sheet?", "acceptedAnswer": {"@type": "Answer", "text": "Yield is the placed part area divided by the area of every sheet the layout used, as a percentage. Reusable offcuts are not credited. Blade kerf affects the space left for parts, so enter your blade's actual cut width."}}]}]}</script>
 </head>
 <body>
 <header class="mast"><div class="wrap">
@@ -92,206 +92,327 @@ button.danger{background:transparent;color:#7a2e33;padding:8px}
 @media(max-width:640px){.tool-hero{padding-top:46px}.fields,.result dl{grid-template-columns:1fr}.entry-row{grid-template-columns:1fr 1fr auto}.entry-row .row-name{grid-column:1/-1}nav.top a{margin-left:12px;font-size:12px}}
 </style>
 <main class="wrap">
-<header class="tool-hero"><p class="eyebrow">Free woodworking tool</p><h1>Free Cut List Optimizer for Plywood &amp; Board Cuts</h1><p class="lede">Turn your cutlist into a cut sheet for plywood and board cuts. This free cut list optimizer (optimiser) uses stock sizes, part dimensions and blade kerf to generate a cutting diagram for up to 10 parts, with yield and sheets used.</p></header>
-<section class="calculator" aria-label="Free Cut List Optimizer for Plywood &amp; Board Cuts">
-<div class="fields">
-<div class="field"><label for="kerf">Blade kerf (inches)</label><input id="kerf" type="number" min="0" max="1" step="0.0625" value="0.125"></div>
+<header class="tool-hero"><p class="eyebrow">Free woodworking tool</p><h1>Free Cut List Optimizer &amp; Plywood Cut Calculator</h1><p class="lede">Turn your cutlist into a cut sheet for plywood and board cuts. This free cut list optimizer (optimiser) takes a sheet size, part dimensions and blade kerf in millimetres or inches and generates a kerf-aware cutting diagram with yield and sheets used. No part limit.</p></header>
+<section class="calculator" aria-label="Free Cut List Optimizer &amp; Plywood Cut Calculator">
+<fieldset class="unit-toggle"><legend class="label">Units</legend>
+<label class="unit-opt"><input type="radio" name="unit" value="in" checked> inches</label>
+<label class="unit-opt"><input type="radio" name="unit" value="mm"> millimetres</label>
+</fieldset>
+<div class="fields" style="margin-top:14px">
+<div class="field"><label for="sheet-l">Sheet length (<span class="u">in</span>)</label><input id="sheet-l" type="number" min="0.001" step="any" inputmode="decimal" value="96"></div>
+<div class="field"><label for="sheet-w">Sheet width (<span class="u">in</span>)</label><input id="sheet-w" type="number" min="0.001" step="any" inputmode="decimal" value="48"></div>
+<div class="field"><label for="kerf">Blade kerf (<span class="u">in</span>)</label><input id="kerf" type="number" min="0" step="any" inputmode="decimal" value="0.125"></div>
+<div class="field"><span class="label">Rotation</span><label class="check-opt"><input type="checkbox" id="rotation" checked> Allow 90° part rotation</label></div>
 </div>
-<h3 style="margin-top:24px;font-size:15px;font-weight:600">In-stock boards / sheets</h3>
-<div class="rows" id="stock-rows"></div>
-<button type="button" class="secondary" id="add-stock" style="margin-top:10px">+ Add stock size</button>
 <h3 style="margin-top:28px;font-size:15px;font-weight:600">Parts to cut</h3>
 <div class="rows" id="part-rows"></div>
 <button type="button" class="secondary" id="add-part" style="margin-top:10px">+ Add part</button>
-<div class="actions"><button id="cut-calc" type="button">Generate cutting diagram</button><span class="hint">Free plan: 10 parts total &middot; dimensions in inches</span></div>
+<div class="actions"><button id="cut-calc" type="button">Generate cutting diagram</button><span class="hint">No part limit &middot; mm or inches &middot; runs in your browser</span></div>
 <p id="cut-error" class="error" role="alert"></p>
 <div id="cut-result" class="result" aria-live="polite" hidden>
 <span class="eyebrow">Yield</span><strong class="big" id="yield-pct">0%</strong>
-<dl><div><dt>Sheets/boards used</dt><dd id="sheets-used">0</dd></div><div><dt>Parts placed</dt><dd id="parts-placed">0</dd></div><div><dt>Part area</dt><dd id="parts-area">0 sq ft</dd></div></dl>
+<dl><div><dt>Sheets used</dt><dd id="sheets-used">0</dd></div><div><dt>Parts</dt><dd id="parts-placed">0</dd></div><div><dt>Part area</dt><dd id="parts-area">0 sq ft</dd></div></dl>
 <div class="sheet-output" id="sheet-output"></div>
+<div class="result-cta"><p><strong>PDF export and saving are in the app.</strong> Boardcut for iPhone keeps this layout as a project, adds grain locks, edge trim and numbered cut steps, and exports a vector PDF plan.</p><a class="badge-store" href="https://apps.apple.com/app/id6787905177?pt=129050699&ct=site_cut_list_optimizer_result&mt=8" aria-label="Download Boardcut on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a></div>
 </div>
 <style>
-.stock-row,.part-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:8px;align-items:end}
-.stock-row .rlabel,.part-row .rlabel{font-size:11px;color:var(--muted);margin-bottom:3px;display:block}
+.unit-toggle{border:0;padding:0;margin:0;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.unit-toggle legend{float:left;margin-right:4px}
+.unit-opt,.check-opt{display:inline-flex;align-items:center;gap:6px;font-weight:500;font-size:14px;min-height:46px}
+.unit-opt input,.check-opt input{width:18px;height:18px;min-height:0;margin:0}
+.part-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:8px;align-items:end}
+.part-row .rlabel{font-size:11px;color:var(--muted);margin-bottom:3px;display:block}
+.sheet-output figcaption{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.result-cta{margin-top:22px;padding-top:18px;border-top:1px solid rgba(44,40,44,.15)}
+.result-cta p{margin:0 0 14px;max-width:62ch;font-size:15px}
 @media(max-width:640px){
-.stock-row,.part-row{grid-template-columns:1fr 1fr 1fr;row-gap:8px}
-.stock-row>div:first-child,.part-row>div:first-child{grid-column:1/-1}
-.stock-row>button,.part-row>button{grid-column:1/-1;justify-self:start;padding:4px 10px}
+.part-row{grid-template-columns:1fr 1fr 1fr;row-gap:8px}
+.part-row>div:first-child{grid-column:1/-1}
+.part-row>button{grid-column:1/-1;justify-self:start;padding:4px 10px}
 }
 </style>
+<script>(function (root, factory) {
+  const api = factory();
+  if (typeof module === "object" && module.exports) module.exports = api;
+  root.BoardcutCalculator = api;
+})(typeof globalThis !== "undefined" ? globalThis : this, function () {
+  "use strict";
+
+  const positive = (value, label) => {
+    const number = Number(value);
+    if (!Number.isFinite(number) || number <= 0) throw new Error(`${label} must be greater than zero.`);
+    return number;
+  };
+
+  function normalize2D(parts) {
+    const expanded = [];
+    parts.forEach((part, index) => {
+      const width = positive(part.width, `Part ${index + 1} width`);
+      const height = positive(part.height, `Part ${index + 1} height`);
+      const quantity = Math.floor(positive(part.quantity, `Part ${index + 1} quantity`));
+      for (let n = 0; n < quantity; n += 1) {
+        expanded.push({ id: `${index}-${n}`, name: String(part.name || `Part ${index + 1}`), width, height });
+      }
+    });
+    return expanded.sort((a, b) => (b.width * b.height) - (a.width * a.height) || Math.max(b.width, b.height) - Math.max(a.width, a.height));
+  }
+
+  function candidates(free, part, allowRotation) {
+    const options = [{ width: part.width, height: part.height, rotated: false }];
+    if (allowRotation && part.width !== part.height) options.push({ width: part.height, height: part.width, rotated: true });
+    return options.filter(option => option.width <= free.w + 1e-9 && option.height <= free.h + 1e-9);
+  }
+
+  // Guillotine split. `rule` picks which leftover gets the full length:
+  // "auto" keeps the larger leftover intact, "vertical"/"horizontal" force it.
+  function splitFreeRect(rect, width, height, kerf, rule) {
+    const rightGap = rect.w - width > 1e-9 ? Math.min(kerf, rect.w - width) : 0;
+    const bottomGap = rect.h - height > 1e-9 ? Math.min(kerf, rect.h - height) : 0;
+    const rightWidth = rect.w - width - rightGap;
+    const bottomHeight = rect.h - height - bottomGap;
+    const verticalFirst = rule === "vertical" ? true : rule === "horizontal" ? false : rightWidth * rect.h >= bottomHeight * rect.w;
+    const result = [];
+    if (verticalFirst) {
+      if (rightWidth > 1e-9) result.push({ x: rect.x + width + rightGap, y: rect.y, w: rightWidth, h: rect.h });
+      if (bottomHeight > 1e-9) result.push({ x: rect.x, y: rect.y + height + bottomGap, w: width, h: bottomHeight });
+    } else {
+      if (bottomHeight > 1e-9) result.push({ x: rect.x, y: rect.y + height + bottomGap, w: rect.w, h: bottomHeight });
+      if (rightWidth > 1e-9) result.push({ x: rect.x + width + rightGap, y: rect.y, w: rightWidth, h: height });
+    }
+    return result;
+  }
+
+  // Placement scores. Lower is better. Each one is a classic bin-packing
+  // heuristic; none wins on every input, so packSheets tries them all.
+  const SCORES = {
+    area: (free, o) => (free.w * free.h - o.width * o.height) * 100000 + Math.min(free.w - o.width, free.h - o.height),
+    shortSide: (free, o) => Math.min(free.w - o.width, free.h - o.height) * 100000 + (free.w * free.h - o.width * o.height),
+    longSide: (free, o) => Math.max(free.w - o.width, free.h - o.height) * 100000 + (free.w * free.h - o.width * o.height),
+    bottomLeft: (free, o) => (free.y + o.height) * 100000 + free.x
+  };
+
+  const ORDERS = {
+    area: (a, b) => (b.width * b.height) - (a.width * a.height) || Math.max(b.width, b.height) - Math.max(a.width, a.height),
+    longSide: (a, b) => Math.max(b.width, b.height) - Math.max(a.width, a.height) || (b.width * b.height) - (a.width * a.height),
+    height: (a, b) => b.height - a.height || b.width - a.width,
+    width: (a, b) => b.width - a.width || b.height - a.height
+  };
+
+  function findPlacement(sheets, part, allowRotation, score) {
+    let best = null;
+    sheets.forEach((sheet, sheetIndex) => {
+      sheet.free.forEach((free, freeIndex) => {
+        candidates(free, part, allowRotation).forEach(option => {
+          const value = score(free, option);
+          if (!best || value < best.score) best = { sheetIndex, freeIndex, free, ...option, score: value };
+        });
+      });
+    });
+    return best;
+  }
+
+  function packOnce(parts, sheetWidth, sheetHeight, kerf, allowRotation, strategy) {
+    const ordered = parts.slice().sort(ORDERS[strategy.order]);
+    const score = SCORES[strategy.score];
+    const sheets = [];
+    ordered.forEach(part => {
+      let placement = findPlacement(sheets, part, allowRotation, score);
+      if (!placement) {
+        sheets.push({ width: sheetWidth, height: sheetHeight, free: [{ x: 0, y: 0, w: sheetWidth, h: sheetHeight }], placements: [] });
+        placement = findPlacement(sheets, part, allowRotation, score);
+      }
+      const sheet = sheets[placement.sheetIndex];
+      sheet.free.splice(placement.freeIndex, 1, ...splitFreeRect(placement.free, placement.width, placement.height, kerf, strategy.split));
+      sheet.placements.push({
+        id: part.id, name: part.name, x: placement.free.x, y: placement.free.y,
+        width: placement.width, height: placement.height, rotated: placement.rotated,
+        sourceWidth: part.width, sourceHeight: part.height
+      });
+    });
+    return sheets;
+  }
+
+  // Fewer sheets wins; on a tie, the emptier last sheet wins (bigger offcut).
+  function better(a, b) {
+    if (!b) return true;
+    if (a.length !== b.length) return a.length < b.length;
+    const used = sheets => sheets[sheets.length - 1].placements.reduce((sum, p) => sum + p.width * p.height, 0);
+    return used(a) < used(b);
+  }
+
+  function packSheets(input) {
+    const sheetWidth = positive(input.sheetWidth, "Sheet width");
+    const sheetHeight = positive(input.sheetHeight, "Sheet height");
+    const kerf = Number(input.kerf);
+    if (!Number.isFinite(kerf) || kerf < 0) throw new Error("Kerf cannot be negative.");
+    const allowRotation = Boolean(input.allowRotation);
+    const parts = normalize2D(input.parts || []);
+    if (!parts.length) throw new Error("Add at least one part.");
+    parts.forEach(part => {
+      const fits = (part.width <= sheetWidth && part.height <= sheetHeight) || (allowRotation && part.height <= sheetWidth && part.width <= sheetHeight);
+      if (!fits) throw new Error(`${part.name} (${part.width} × ${part.height}) does not fit on the sheet.`);
+    });
+
+    let best = null;
+    Object.keys(ORDERS).forEach(order => {
+      Object.keys(SCORES).forEach(score => {
+        ["auto", "vertical", "horizontal"].forEach(split => {
+          const sheets = packOnce(parts, sheetWidth, sheetHeight, kerf, allowRotation, { order, score, split });
+          if (better(sheets, best)) best = sheets;
+        });
+      });
+    });
+    const sheets = best;
+    const partArea = parts.reduce((sum, part) => sum + part.width * part.height, 0);
+    return { sheets, partCount: parts.length, partArea, sheetArea: sheets.length * sheetWidth * sheetHeight, yieldPercent: partArea / (sheets.length * sheetWidth * sheetHeight) * 100 };
+  }
+
+  function packBoards(input) {
+    const stockLength = positive(input.stockLength, "Stock length");
+    const kerf = Number(input.kerf);
+    if (!Number.isFinite(kerf) || kerf < 0) throw new Error("Kerf cannot be negative.");
+    const pieces = [];
+    (input.parts || []).forEach((part, index) => {
+      const length = positive(part.length, `Part ${index + 1} length`);
+      const quantity = Math.floor(positive(part.quantity, `Part ${index + 1} quantity`));
+      if (length > stockLength + 1e-9) throw new Error(`${part.name || `Part ${index + 1}`} (${length}) is longer than the stock (${stockLength}).`);
+      for (let n = 0; n < quantity; n += 1) pieces.push({ id: `${index}-${n}`, name: String(part.name || `Part ${index + 1}`), length });
+    });
+    if (!pieces.length) throw new Error("Add at least one part.");
+    pieces.sort((a, b) => b.length - a.length);
+    const boards = [];
+    pieces.forEach(piece => {
+      let best = null;
+      boards.forEach((board, index) => {
+        const cost = piece.length + (board.pieces.length ? kerf : 0);
+        if (cost <= board.remaining + 1e-9) {
+          const leftover = board.remaining - cost;
+          if (!best || leftover < best.leftover) best = { index, cost, leftover };
+        }
+      });
+      if (!best) {
+        boards.push({ length: stockLength, remaining: stockLength - piece.length, pieces: [{ ...piece, start: 0 }] });
+      } else {
+        const board = boards[best.index];
+        const previousEnd = board.pieces.length ? board.pieces[board.pieces.length - 1].start + board.pieces[board.pieces.length - 1].length : 0;
+        board.pieces.push({ ...piece, start: previousEnd + kerf });
+        board.remaining = best.leftover;
+      }
+    });
+    const pieceLength = pieces.reduce((sum, piece) => sum + piece.length, 0);
+    return { boards, pieceCount: pieces.length, pieceLength, stockLength, yieldPercent: pieceLength / (boards.length * stockLength) * 100 };
+  }
+
+  return { packSheets, packBoards };
+});
+
+</script>
 <script>
 (()=>{
 "use strict";
-const EPS=1e-6;
+// DOM glue for the Boardcut packer above (BoardcutCalculator.packSheets). The
+// packer is unit-agnostic; this layer only converts the entered numbers when the
+// unit toggle changes and formats the result.
+const MM_PER_IN=25.4;
 const PALETTE=["#B87333","#3E8E8C","#7A2E33","#2E5E54","#E07A5F","#5B5EA6","#C4572A","#4C6E8C","#8A6D3B","#6B4C7A"];
-function rowHTML(cls,ph1,v1,v2,v3,v4){
- return `<div class="${cls}"><div><span class="rlabel">Name</span><input class="c-name" value="${ph1}"></div>`+
- `<div><span class="rlabel">Length (in)</span><input class="c-l" type="number" min="0.1" step="0.0625" value="${v1}"></div>`+
- `<div><span class="rlabel">Width (in)</span><input class="c-w" type="number" min="0.1" step="0.0625" value="${v2}"></div>`+
- `<div><span class="rlabel">Qty${v4!==undefined?' (0=∞)':''}</span><input class="c-qty" type="number" min="${v4!==undefined?0:1}" step="1" value="${v3}"></div>`+
- `<button type="button" class="danger" aria-label="Remove row">&times;</button></div>`;
+const $=s=>document.querySelector(s);
+const partWrap=$("#part-rows");
+let unit="in";
+function rowHTML(name,l,w,qty){
+ return `<div class="part-row"><div><span class="rlabel">Name</span><input class="c-name" value="${escAttr(name)}"></div>`+
+ `<div><span class="rlabel">Length (<span class="u">${unit}</span>)</span><input class="c-l" type="number" min="0.001" step="any" inputmode="decimal" value="${l}"></div>`+
+ `<div><span class="rlabel">Width (<span class="u">${unit}</span>)</span><input class="c-w" type="number" min="0.001" step="any" inputmode="decimal" value="${w}"></div>`+
+ `<div><span class="rlabel">Qty</span><input class="c-qty" type="number" min="1" step="1" inputmode="numeric" value="${qty}"></div>`+
+ `<button type="button" class="danger" aria-label="Remove part">&times;</button></div>`;
 }
-const stockWrap=document.querySelector("#stock-rows"), partWrap=document.querySelector("#part-rows");
-function addStock(name,l,w,qty){const d=document.createElement("div");d.innerHTML=rowHTML("stock-row",name,l,w,qty,true);const row=d.firstElementChild;row.querySelector(".danger").addEventListener("click",()=>{if(stockWrap.children.length>1)row.remove()});stockWrap.append(row)}
-function addPart(name,l,w,qty){const d=document.createElement("div");d.innerHTML=rowHTML("part-row",name,l,w,qty);const row=d.firstElementChild;row.querySelector(".danger").addEventListener("click",()=>{if(partWrap.children.length>1)row.remove()});partWrap.append(row)}
-addStock("Plywood 4×8 sheet",96,48,0);
+function escAttr(t){return String(t).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")}
+function esc(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function addPart(name,l,w,qty){const d=document.createElement("div");d.innerHTML=rowHTML(name,l,w,qty);const row=d.firstElementChild;row.querySelector(".danger").addEventListener("click",()=>{if(partWrap.children.length>1)row.remove()});partWrap.append(row)}
 addPart("Side panel",24,18,2);
 addPart("Shelf",30,11.5,3);
 addPart("Back panel",46,22,1);
-document.querySelector("#add-stock").addEventListener("click",()=>addStock("Stock "+(stockWrap.children.length+1),96,48,0));
-document.querySelector("#add-part").addEventListener("click",()=>addPart("Part "+(partWrap.children.length+1),12,12,1));
+$("#add-part").addEventListener("click",()=>addPart("Part "+(partWrap.children.length+1),unit==="mm"?300:12,unit==="mm"?300:12,1));
 
-function footprints(w,h){return Math.abs(w-h)<EPS?[{w,h,rotated:false}]:[{w,h,rotated:false},{w:h,h:w,rotated:true}]}
-function fits(w,h,r){return w<=r.w+EPS && h<=r.h+EPS}
-function scores(rect,w,h){return [Math.min(rect.w-w,rect.h-h),Math.max(rect.w-w,rect.h-h)]}
-function better(a,b){
- if(a.s1!==b.s1) return a.s1<b.s1;
- if(a.s2!==b.s2) return a.s2<b.s2;
- if(a.sheetIdx!==b.sheetIdx) return a.sheetIdx<b.sheetIdx;
- if(a.y!==b.y) return a.y<b.y;
- if(a.x!==b.x) return a.x<b.x;
- return !a.rotated && b.rotated;
+// Unit toggle converts every number already on the form so a layout entered in
+// inches reads the same in millimetres (and back). Rounded to 1 mm / 1/1000 in.
+function convertInput(el,to){
+ const v=Number(el.value); if(!el.value||!Number.isFinite(v)) return;
+ el.value = to==="mm" ? String(Math.round(v*MM_PER_IN*10)/10) : String(Math.round(v/MM_PER_IN*1000)/1000);
 }
-function commit(c,inst,sheet,kerf){
- const f=sheet.free[c.freeIdx], R=f.rect;
- sheet.free[c.freeIdx]=sheet.free[sheet.free.length-1]; sheet.free.pop();
- sheet.placements.push({name:inst.name,color:inst.color,x:R.x,y:R.y,w:c.w,h:c.h,rotated:c.rotated});
- const leftoverW=R.w-c.w, leftoverH=R.h-c.h;
- const needV=leftoverW>EPS, needH=leftoverH>EPS;
- const addFree=(r,depth)=>{if(r.w>EPS&&r.h>EPS)sheet.free.push({rect:r,depth})};
- const rec=(axis,pos,s,e)=>sheet.cuts.push({axis,pos,s,e});
- if(!needH&&!needV){return}
- if(needH&&!needV){rec("h",R.y+c.h+kerf/2,R.x,R.x+R.w);addFree({x:R.x,y:R.y+c.h+kerf,w:R.w,h:leftoverH-kerf},f.depth+1);return}
- if(!needH&&needV){rec("v",R.x+c.w+kerf/2,R.y,R.y+R.h);addFree({x:R.x+c.w+kerf,y:R.y,w:leftoverW-kerf,h:R.h},f.depth+1);return}
- const horizontalFirst=leftoverH<=leftoverW;
- if(horizontalFirst){
-  rec("h",R.y+c.h+kerf/2,R.x,R.x+R.w); addFree({x:R.x,y:R.y+c.h+kerf,w:R.w,h:leftoverH-kerf},f.depth+1);
-  rec("v",R.x+c.w+kerf/2,R.y,R.y+c.h); addFree({x:R.x+c.w+kerf,y:R.y,w:leftoverW-kerf,h:c.h},f.depth+2);
- } else {
-  rec("v",R.x+c.w+kerf/2,R.y,R.y+R.h); addFree({x:R.x+c.w+kerf,y:R.y,w:leftoverW-kerf,h:R.h},f.depth+1);
-  rec("h",R.y+c.h+kerf/2,R.x,R.x+c.w); addFree({x:R.x,y:R.y+c.h+kerf,w:c.w,h:leftoverH-kerf},f.depth+2);
- }
-}
-function place(inst,sheets,stocks,used,kerf){
- let best=null;
- for(let si=0;si<sheets.length;si++){
-  const sheet=sheets[si];
-  for(let fi=0;fi<sheet.free.length;fi++){
-   const f=sheet.free[fi].rect;
-   for(const foot of footprints(inst.l,inst.w)){
-    if(fits(foot.w,foot.h,f)){
-     const [s1,s2]=scores(f,foot.w,foot.h);
-     const cand={sheetIdx:si,freeIdx:fi,w:foot.w,h:foot.h,rotated:foot.rotated,s1,s2,y:f.y,x:f.x};
-     if(!best||better(cand,best)) best=cand;
-    }
-   }
-  }
- }
- if(best){commit(best,inst,sheets[best.sheetIdx],kerf);return true}
- let chosen=-1;
- for(let i=0;i<stocks.length;i++){
-  const st=stocks[i];
-  if(!(st.qty===0||used[i]<st.qty)) continue;
-  const usable={x:0,y:0,w:st.l,h:st.w};
-  if(usable.w<=EPS||usable.h<=EPS) continue;
-  if(!footprints(inst.l,inst.w).some(ft=>fits(ft.w,ft.h,usable))) continue;
-  if(chosen===-1||st.l*st.w<stocks[chosen].l*stocks[chosen].w-EPS) chosen=i;
- }
- if(chosen===-1) return false;
- used[chosen]++;
- const sheet={stockIdx:chosen,stock:stocks[chosen],free:[{rect:{x:0,y:0,w:stocks[chosen].l,h:stocks[chosen].w},depth:0}],placements:[],cuts:[]};
- sheets.push(sheet);
- const root=sheet.free[0];
- let rbest=null;
- for(const foot of footprints(inst.l,inst.w)){
-  if(fits(foot.w,foot.h,root.rect)){
-   const [s1,s2]=scores(root.rect,foot.w,foot.h);
-   const cand={sheetIdx:sheets.length-1,freeIdx:0,w:foot.w,h:foot.h,rotated:foot.rotated,s1,s2,y:root.rect.y,x:root.rect.x};
-   if(!rbest||better(cand,rbest)) rbest=cand;
-  }
- }
- commit(rbest,inst,sheets[rbest.sheetIdx],kerf);
- return true;
-}
-function svgFor(sheet){
+document.querySelectorAll("input[name='unit']").forEach(r=>r.addEventListener("change",e=>{
+ const to=e.target.value; if(to===unit) return;
+ [...document.querySelectorAll("#sheet-l,#sheet-w,#kerf,.c-l,.c-w")].forEach(el=>convertInput(el,to));
+ unit=to;
+ document.querySelectorAll(".u").forEach(s=>s.textContent=unit);
+ run();
+}));
+
+function svgFor(sheet,index){
  const maxW=700,maxH=420;
- const scale=Math.min(maxW/sheet.stock.l,maxH/sheet.stock.w);
- const W=sheet.stock.l*scale,H=sheet.stock.w*scale;
- const y=v=>H-v*scale; // flip so origin reads bottom-left like the app
- let s=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cutting diagram for ${sheet.stock.name}">`;
- s+=`<rect x="0" y="0" width="${W}" height="${H}" fill="#f8f5ef" stroke="#B9B2A6"/>`;
+ const scale=Math.min(maxW/sheet.width,maxH/sheet.height);
+ const W=sheet.width*scale,H=sheet.height*scale;
+ let s=`<svg viewBox="0 0 ${W.toFixed(1)} ${H.toFixed(1)}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cutting diagram for sheet ${index+1}">`;
+ s+=`<rect x="0" y="0" width="${W.toFixed(1)}" height="${H.toFixed(1)}" fill="#f8f5ef" stroke="#B9B2A6"/>`;
  for(const p of sheet.placements){
-  const px=p.x*scale, pw=p.w*scale, ph=p.h*scale, py=y(p.y)-ph;
-  s+=`<rect x="${px.toFixed(1)}" y="${py.toFixed(1)}" width="${pw.toFixed(1)}" height="${ph.toFixed(1)}" fill="${p.color}" fill-opacity="0.82" stroke="#2C282C" stroke-width="1.5"/>`;
+  const px=p.x*scale, py=p.y*scale, pw=p.width*scale, ph=p.height*scale;
+  const color=PALETTE[Number(p.id.split("-")[0])%PALETTE.length];
+  const dims=`${fmt(p.sourceWidth)}×${fmt(p.sourceHeight)}${p.rotated?" ⟳":""}`;
+  s+=`<rect x="${px.toFixed(1)}" y="${py.toFixed(1)}" width="${pw.toFixed(1)}" height="${ph.toFixed(1)}" fill="${color}" fill-opacity="0.82" stroke="#2C282C" stroke-width="1.5"><title>${esc(p.name)}: ${esc(dims)}</title></rect>`;
   if(pw>46&&ph>20){
    s+=`<text x="${(px+pw/2).toFixed(1)}" y="${(py+ph/2-5).toFixed(1)}" font-size="11" font-family="ui-monospace,monospace" fill="#fff" text-anchor="middle">${esc(p.name)}</text>`;
-   s+=`<text x="${(px+pw/2).toFixed(1)}" y="${(py+ph/2+9).toFixed(1)}" font-size="10" font-family="ui-monospace,monospace" fill="#fff" text-anchor="middle">${p.origW}×${p.origH}${p.rotated?' ⟳':''}</text>`;
+   s+=`<text x="${(px+pw/2).toFixed(1)}" y="${(py+ph/2+9).toFixed(1)}" font-size="10" font-family="ui-monospace,monospace" fill="#fff" text-anchor="middle">${esc(dims)}</text>`;
   }
- }
- for(const c of sheet.cuts){
-  if(c.axis==="h") s+=`<line x1="${(c.s*scale).toFixed(1)}" y1="${y(c.pos).toFixed(1)}" x2="${(c.e*scale).toFixed(1)}" y2="${y(c.pos).toFixed(1)}" stroke="#7A2E33" stroke-width="1" stroke-dasharray="4 3"/>`;
-  else s+=`<line x1="${(c.pos*scale).toFixed(1)}" y1="${y(c.s).toFixed(1)}" x2="${(c.pos*scale).toFixed(1)}" y2="${y(c.e).toFixed(1)}" stroke="#7A2E33" stroke-width="1" stroke-dasharray="4 3"/>`;
  }
  s+="</svg>";
  return s;
 }
-function esc(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function fmt(v){return Number(Number(v).toFixed(unit==="mm"?1:3)).toLocaleString("en-US")}
+function area(v){return unit==="mm" ? (v/1e6).toFixed(2)+" m²" : (v/144).toFixed(2)+" sq ft"}
 function run(){
- const err=document.querySelector("#cut-error"); err.textContent="";
- document.querySelector("#cut-result").hidden=true;
- const kerf=Number(document.querySelector("#kerf").value);
+ const err=$("#cut-error"); err.textContent="";
+ $("#cut-result").hidden=true;
+ const sheetL=Number($("#sheet-l").value), sheetW=Number($("#sheet-w").value), kerf=Number($("#kerf").value);
+ if(!(sheetL>0)||!(sheetW>0)){err.textContent="Enter a sheet length and width greater than 0.";return}
  if(!Number.isFinite(kerf)||kerf<0){err.textContent="Enter a valid kerf width.";return}
- const stocks=[...stockWrap.children].map(row=>({
-  name:row.querySelector(".c-name").value.trim()||"Stock",
-  l:Number(row.querySelector(".c-l").value), w:Number(row.querySelector(".c-w").value),
-  qty:Number(row.querySelector(".c-qty").value)||0
+ const parts=[...partWrap.children].map((row,i)=>({
+  name:row.querySelector(".c-name").value.trim()||("Part "+(i+1)),
+  width:Number(row.querySelector(".c-l").value), height:Number(row.querySelector(".c-w").value),
+  quantity:Math.max(1,Math.round(Number(row.querySelector(".c-qty").value)||1))
  }));
- if(stocks.some(s=>!(s.l>0)||!(s.w>0))){err.textContent="Every stock size needs a length and width greater than 0.";return}
- const partRows=[...partWrap.children].map((row,i)=>({
-  name:row.querySelector(".c-name").value.trim()||"Part",
-  l:Number(row.querySelector(".c-l").value), w:Number(row.querySelector(".c-w").value),
-  qty:Math.max(1,Math.round(Number(row.querySelector(".c-qty").value)||1)),
-  color:PALETTE[i%PALETTE.length]
- }));
- if(partRows.some(p=>!(p.l>0)||!(p.w>0))){err.textContent="Every part needs a length and width greater than 0.";return}
- const totalQty=partRows.reduce((n,p)=>n+p.qty,0);
- if(totalQty>10){err.textContent=`This free tool plans up to 10 parts total (you have ${totalQty}). Reduce quantities, or use Boardcut on iPhone for unlimited parts.`;return}
- if(totalQty===0){err.textContent="Add at least one part.";return}
- let instances=[];
- partRows.forEach(p=>{for(let i=0;i<p.qty;i++)instances.push({name:p.name,l:p.l,w:p.w,origW:p.l,origH:p.w,color:p.color})});
- instances.sort((a,b)=>(b.l*b.w)-(a.l*a.w));
- const sheets=[]; const used=stocks.map(()=>0); const unplaced=[];
- for(const inst of instances){ if(!place(inst,sheets,stocks,used,kerf)) unplaced.push(inst.name); }
- let partsArea=0, usedArea=0, placedCount=0;
- for(const sh of sheets){ usedArea+=sh.stock.l*sh.stock.w; for(const p of sh.placements){partsArea+=p.w*p.h; placedCount++} }
- const yieldPct = usedArea>EPS ? (partsArea/usedArea*100) : 0;
- document.querySelector("#yield-pct").textContent = yieldPct.toFixed(1)+"%";
- document.querySelector("#sheets-used").textContent = String(sheets.length);
- document.querySelector("#parts-placed").textContent = `${placedCount} / ${instances.length}`;
- document.querySelector("#parts-area").textContent = (partsArea/144).toFixed(2)+" sq ft";
- const out=document.querySelector("#sheet-output"); out.innerHTML="";
- sheets.forEach((sh,i)=>{
+ if(parts.some(p=>!(p.width>0)||!(p.height>0))){err.textContent="Every part needs a length and width greater than 0.";return}
+ let result;
+ try{
+  result=BoardcutCalculator.packSheets({sheetWidth:sheetL,sheetHeight:sheetW,kerf,allowRotation:$("#rotation").checked,parts});
+ }catch(e){err.textContent=e.message+" Check the part against the sheet size, or switch units.";return}
+ let partArea=0;
+ for(const sh of result.sheets) for(const p of sh.placements) partArea+=p.sourceWidth*p.sourceHeight;
+ $("#yield-pct").textContent=result.yieldPercent.toFixed(1)+"%";
+ $("#sheets-used").textContent=String(result.sheets.length);
+ $("#parts-placed").textContent=String(result.partCount);
+ $("#parts-area").textContent=area(partArea);
+ const out=$("#sheet-output"); out.innerHTML="";
+ result.sheets.forEach((sh,i)=>{
   const fig=document.createElement("figure");
-  fig.innerHTML=`<figcaption>${esc(sh.stock.name)} #${i+1} — ${sh.stock.l}×${sh.stock.w}in</figcaption>`+svgFor(sh);
+  const used=sh.placements.reduce((n,p)=>n+p.width*p.height,0);
+  fig.innerHTML=`<figcaption><span>Sheet ${i+1} of ${result.sheets.length} — ${fmt(sh.width)}×${fmt(sh.height)} ${unit}</span><span>${(used/(sh.width*sh.height)*100).toFixed(0)}% used</span></figcaption>`+svgFor(sh,i);
   out.append(fig);
  });
- if(unplaced.length){ err.textContent = `Couldn't fit: ${unplaced.join(", ")}. Add more stock or a larger sheet size.`; }
- document.querySelector("#cut-result").hidden=false;
+ $("#cut-result").hidden=false;
 }
-document.querySelector("#cut-calc").addEventListener("click",run);
+$("#cut-calc").addEventListener("click",run);
 run();
 })();
 </script></section>
 <article class="tool-copy">
-<section><h2>How to use the cut list optimizer (optimiser)</h2><ol class="sources"><li>Add the length, width and quantity of each plywood sheet or board in inches. Use a stock quantity of 0 only when you can use as many sheets of that size as the layout needs.</li><li>Enter a clear name, finished length, finished width and quantity for each rectangular part. Repeated quantities count toward the free 10-part limit.</li><li>Measure the width removed by the blade and saw setup you will use, then enter that value once. Do not add kerf to the finished part dimensions as well.</li><li>Select Generate cutting diagram to place the largest parts first on the available stock and draw a kerf-aware cut sheet.</li><li>Compare parts placed with the source cutlist, inspect any unplaced parts, and verify stock size, orientation, dimensions and cut sequence against the real material.</li></ol></section>
-<section><h2>Set up the stock before the parts</h2><p>Stock is the material you have; parts are the finished rectangles you need from it. Enter the usable stock dimensions after any damaged edge or squaring trim. A nominal 48 × 96 plywood sheet should only be entered as 48 × 96 when that full rectangle is available for the layout. Keep different thicknesses, materials and faces in separate runs when they cannot substitute for one another.</p><p>Stock quantity controls how many sheets or boards the optimizer may use. Enter the quantity on hand when supply is limited. A quantity of 0 means unlimited stock of that size, which is useful for estimating a purchase but can hide a shortage if you intended to work only from sheets already in the shop.</p></section>
-<section><h2>Prepare a cutlist the optimizer can check</h2><p>Use finished dimensions for every part and give repeated pieces a stable name. Quantity is expanded into individual placements, so two cabinet sides entered with quantity 2 count as two of the 10 available parts. Check the total against the project list before generating a diagram; an efficient cut sheet is still wrong when a shelf or divider is missing.</p><p>The browser tool allows every part to rotate and uses one kerf value for the whole layout. It does not model grain direction, defects, edge banding or different kerfs for different operations. If a visible face must keep its grain orientation, treat the web result as an estimate or continue the project in <a href="/apps/boardcut/">Boardcut for iPhone</a>, which supports part-level grain locks.</p></section>
-<section><h2>Run a simple layout check</h2><p>For a plywood project, start with the measured usable sheet size, then enter each part exactly as it appears on the source cut list. Set kerf from a representative test cut. Generate the diagram and compare the reported parts placed with the total quantity you entered. If a part is unplaced, confirm its dimensions and available stock before changing the design.</p><p>Do not set kerf to zero or enlarge the stock simply to force a fit. A row that looks exact on paper can fail at the saw because every separating cut removes material. The <a href="/guides/kerf-width-explained/">kerf width guide</a> shows how to measure that loss, and the <a href="/guides/plywood-cut-calculator/">plywood cut calculator guide</a> explains why an area estimate can undercount sheets.</p></section>
-<section><h2>How the cut sheet is built</h2><p>The cut list optimizer sorts parts from largest area to smallest, tries both orientations and places each rectangle into the best-fitting free space. Every placement splits the remaining space along straight guillotine cuts and reserves one blade kerf. The dashed lines in the diagram show those cut boundaries.</p><p>This is a practical heuristic, not a proof of the global optimum. A different part order or rotation choice may use fewer sheets or leave a more useful offcut. Compare the result with the project constraints and use the diagram as a planning aid, not as a substitute for measuring the real stock and checking a safe, workable cut sequence.</p></section>
-<section><h2>Read sheet count, parts placed and yield</h2><p><strong>Sheets used</strong> is the number of stock pieces opened by the layout. <strong>Parts placed</strong> must match the total quantity in the source cutlist. <strong>Yield</strong> is placed part area divided by the area of stock used; it does not credit reusable offcuts or prove that the sequence suits your saw. The drawing labels each part and its dimensions so you can trace the result back to the list.</p><p>Before making board cuts, check every part name, dimension and quantity, then inspect the stock size and each tight row. Confirm grain direction outside this tool and plan how the material will be supported through the cuts. For a paper handoff, use the <a href="/templates/woodworking-cut-list/">free woodworking cut list template</a> or the <a href="/templates/plywood-cutting-diagram/">plywood cutting diagram worksheet</a>; for a fuller waste review, use the <a href="/guides/how-to-minimize-plywood-waste/">plywood waste guide</a>.</p></section>
-<section><h2>When to continue in Boardcut</h2><p>The web cut list optimiser is for a quick diagram of up to 10 rectangular parts. Boardcut uses the same part, stock and kerf concepts with no piece limit, then adds grain-direction locks, edge trim, a minimum offcut size, alternate layouts, material cost and numbered cut steps linked to the diagram. It works fully offline and can share a sheet image without a paid unlock.</p><p>Boardcut Pro adds vector PDF plans, CSV export and saving usable offcuts as stock. Those paid features do not change the free planning limit: the optimizer, diagram and ordered cut steps remain available for projects of any size. See the <a href="/guides/cabinet-cut-list-template/">cabinet cut list guide</a> for the fields to prepare before moving a larger project into the app.</p></section>
-<section><h2>Cut list optimizer FAQ</h2><details><summary>How do I turn a cut list into a cutting diagram?</summary><p>Enter the available stock dimensions, then each finished rectangular part and quantity. Set the measured blade kerf and generate the diagram. Cut list optimiser is the UK spelling of cut list optimizer; both refer to this layout tool. Check all placed and unplaced parts before cutting.</p></details><details><summary>How do I make a cut sheet for plywood or board cuts?</summary><p>Enter your stock sheet or board sizes, part dimensions and quantities in inches, then set the blade kerf and select Generate cutting diagram. Review the parts placed and any pieces that could not fit before cutting.</p></details><details><summary>Is this a true guillotine cut layout?</summary><p>Yes. Each part is separated by straight, edge-to-edge cuts across the remaining rectangle. The dashed lines mark cuts. The largest-area-first heuristic does not guarantee the optimal layout, so check the diagram before cutting.</p></details><details><summary>Can I lock grain direction or use more than 10 parts?</summary><p>This free web tool accepts up to 10 individual parts, including repeated quantities, and allows rotation. It does not lock grain direction. Boardcut for iPhone supports grain-direction locking and multiple material groups.</p></details><details><summary>What does yield mean on the cut sheet?</summary><p>Yield is the placed part area divided by the area of stock actually used, as a percentage. Reusable offcuts are not credited. Blade kerf affects the space left for parts, so enter your blade's actual cut width.</p></details></section>
-<aside class="app-cta"><h2>Continue the cut list in Boardcut</h2><p>Boardcut for iPhone keeps the same stock, part and kerf workflow, then adds no piece limit, grain-direction locks, edge trim, alternate layouts, material cost and numbered cut steps. Planning works offline and sheet-image sharing is free; Pro adds vector PDF and CSV export plus saved offcuts.</p><a class="badge-store" href="https://apps.apple.com/app/id6787905177?pt=129050699&ct=site_cut_list_optimizer&mt=8" aria-label="Download Boardcut on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a></aside>
+<section><h2>How to use the cut list optimizer (optimiser)</h2><ol class="sources"><li>Pick millimetres or inches, then enter the usable length and width of one plywood sheet or board after any damaged edge or squaring trim. The optimizer opens as many sheets of that size as the parts need.</li><li>Enter a clear name, finished length, finished width and quantity for each rectangular part. There is no part limit; quantities are expanded into individual placements.</li><li>Measure the width removed by the blade and saw setup you will use, then enter that value once. Do not add kerf to the finished part dimensions as well.</li><li>Select Generate cutting diagram. The optimizer tries 48 combinations of part order, placement rule and guillotine split and keeps the layout that uses the fewest sheets, then draws a kerf-aware cut sheet.</li><li>Compare the part count with the source cutlist, then verify sheet size, orientation, dimensions and a safe cut sequence against the real material. Continue in Boardcut when you need a saved project or a PDF plan.</li></ol></section>
+<section><h2>Set up the sheet before the parts</h2><p>The sheet is the material you have; parts are the finished rectangles you need from it. Enter the usable sheet dimensions after any damaged edge or squaring trim. A nominal 48 × 96 plywood sheet (1220 × 2440 mm) should only be entered at full size when that whole rectangle is available for the layout. Keep different thicknesses, materials and faces in separate runs when they cannot substitute for one another.</p><p>The web optimizer uses one sheet size per run and opens as many sheets of that size as the parts need, so the sheet count it reports is a purchase estimate. If you must work only from stock already in the shop, compare that count with what you have before cutting.</p></section>
+<section><h2>Prepare a cutlist the optimizer can check</h2><p>Use finished dimensions for every part and give repeated pieces a stable name. Quantity is expanded into individual placements, so two cabinet sides entered with quantity 2 appear twice in the diagram. Check the total against the project list before generating a diagram; an efficient cut sheet is still wrong when a shelf or divider is missing.</p><p>The browser tool allows every part to rotate and uses one kerf value for the whole layout. It does not model grain direction, defects, edge banding or different kerfs for different operations. If a visible face must keep its grain orientation, treat the web result as an estimate or continue the project in <a href="/apps/boardcut/">Boardcut for iPhone</a>, which supports part-level grain locks.</p></section>
+<section><h2>Run a simple layout check</h2><p>For a plywood project, start with the measured usable sheet size, then enter each part exactly as it appears on the source cut list. Set kerf from a representative test cut. Generate the diagram and compare the reported part count with the total quantity you entered. If a part is larger than the sheet in both orientations, the tool says so instead of drawing a layout; confirm its dimensions and the sheet size before changing the design.</p><p>Do not set kerf to zero or enlarge the sheet simply to force a fit. A row that looks exact on paper can fail at the saw because every separating cut removes material. The <a href="/guides/kerf-width-explained/">kerf width guide</a> shows how to measure that loss, and the <a href="/guides/plywood-cut-calculator/">plywood cut calculator guide</a> explains why an area estimate can undercount sheets.</p></section>
+<section><h2>How the cut sheet is built</h2><p>The cut list optimizer runs the same guillotine packer as the Boardcut web calculators. It sorts the parts four ways (by area, longest side, height and width), scores each candidate position four ways (remaining area, short-side fit, long-side fit and bottom-left) and splits the leftover rectangle three ways (larger piece first, vertical first, horizontal first). That is 48 layouts per run; the one that uses the fewest sheets wins, and on a tie the one that leaves the largest offcut on the last sheet.</p><p>Every placement reserves one blade kerf between neighbours and can be reached by straight, edge-to-edge cuts. This is a practical heuristic search, not a proof of the global optimum: a layout outside those 48 may still save a sheet. Use the diagram as a planning aid, not as a substitute for measuring the real stock and checking a safe, workable cut sequence.</p></section>
+<section><h2>Read sheet count, parts and yield</h2><p><strong>Sheets used</strong> is the number of sheets opened by the layout. <strong>Parts</strong> must match the total quantity in the source cutlist. <strong>Yield</strong> is part area divided by the area of every sheet used; it does not credit reusable offcuts or prove that the sequence suits your saw. Each sheet shows how much of its area is used, and the drawing labels each part and its dimensions so you can trace the result back to the list.</p><p>Before making board cuts, check every part name, dimension and quantity, then inspect the sheet size and each tight row. Confirm grain direction outside this tool and plan how the material will be supported through the cuts. For a paper handoff, use the <a href="/templates/woodworking-cut-list/">free woodworking cut list template</a> or the <a href="/templates/plywood-cutting-diagram/">plywood cutting diagram worksheet</a>; for a fuller waste review, use the <a href="/guides/how-to-minimize-plywood-waste/">plywood waste guide</a>.</p></section>
+<section><h2>When to continue in Boardcut</h2><p>The web cut list optimiser is for a quick diagram from one sheet size, in millimetres or inches, with no part limit. Boardcut uses the same part, sheet and kerf concepts, then adds grain-direction locks, edge trim, a minimum offcut size, alternate layouts, material cost and numbered cut steps linked to the diagram. It works fully offline and can share a sheet image without a paid unlock.</p><p>Boardcut Pro adds vector PDF plans, CSV export and saving usable offcuts as stock. Those paid features do not change the free planning limit: the optimizer, diagram and ordered cut steps remain available for projects of any size. See the <a href="/guides/cabinet-cut-list-template/">cabinet cut list guide</a> for the fields to prepare before moving a larger project into the app.</p></section>
+<section><h2>Cut list optimizer FAQ</h2><details><summary>How do I turn a cut list into a cutting diagram?</summary><p>Pick millimetres or inches, enter the usable sheet size, then each finished rectangular part and quantity. Set the measured blade kerf and generate the diagram. Cut list optimiser is the UK spelling of cut list optimizer; both refer to this layout tool. Check every part against the diagram before cutting.</p></details><details><summary>Does the plywood cut calculator work in millimetres?</summary><p>Yes. Switch the unit to millimetres and enter a sheet such as 2440 × 1220 mm with a 3 mm kerf. Switching units converts the numbers already on the form, so a layout entered in inches reads the same in millimetres. The layout engine itself is unit-free.</p></details><details><summary>Is there a part limit?</summary><p>No. The free web optimizer accepts any number of parts and quantities and opens as many sheets of the chosen size as the layout needs. Very large lists simply take a moment longer to calculate in the browser.</p></details><details><summary>Is this a true guillotine cut layout?</summary><p>Yes. Every placement sits in a rectangle that can be reached by straight, edge-to-edge cuts across the remaining stock, with one blade kerf reserved between neighbours. The optimizer compares several part orders, placement rules and split directions and keeps the layout that uses the fewest sheets, but that search does not prove the mathematical minimum, so check the diagram before cutting.</p></details><details><summary>Can I lock grain direction or mix sheet sizes?</summary><p>Not in this web tool. It allows every part to rotate and uses one sheet size per run; run different materials or thicknesses separately. Boardcut for iPhone supports grain-direction locking and multiple material groups.</p></details><details><summary>What does yield mean on the cut sheet?</summary><p>Yield is the placed part area divided by the area of every sheet the layout used, as a percentage. Reusable offcuts are not credited. Blade kerf affects the space left for parts, so enter your blade's actual cut width.</p></details></section>
+<aside class="app-cta"><h2>Continue the cut list in Boardcut</h2><p>Boardcut for iPhone keeps the same sheet, part and kerf workflow, then adds grain-direction locks, edge trim, alternate layouts, material cost and numbered cut steps. Planning works offline and sheet-image sharing is free; Pro adds vector PDF and CSV export plus saved offcuts.</p><a class="badge-store" href="https://apps.apple.com/app/id6787905177?pt=129050699&ct=site_cut_list_optimizer&mt=8" aria-label="Download Boardcut on the App Store"><svg viewBox="0 0 22 26" aria-hidden="true"><path fill="#fff" d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15 4.9c.8-1 1.4-2.4 1.2-3.9-1.2.1-2.7.8-3.5 1.9-.8.9-1.5 2.4-1.3 3.8 1.4.1 2.8-.7 3.6-1.8z"/></svg><span><small>Download on the</small>App Store</span></a></aside>
 </article></main>
 <footer><div class="wrap">
 <span>© 2026 Softgrove — an independent app studio.</span>

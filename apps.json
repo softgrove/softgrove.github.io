@@ -489,7 +489,7 @@
         {
           "h2": "How to calculate a plywood cutting layout",
           "body": [
-            "The free cut list optimizer on this site is the plywood cut calculator this guide refers to; it runs in the browser for up to 10 parts. Add one stock line using the actual usable width and length of the sheet, then set the kerf to the width removed by your planned blade and setup. Enter each part as width × length × quantity. The free browser calculator allows rotation and does not lock face grain; use Boardcut when a part must keep a specific orientation. The optimizer reports the sheet count, yield and a diagram you can print or take to the saw.",
+            "The free cut list optimizer on this site is the plywood cut calculator this guide refers to; it runs in the browser in mm or inches with no part limit. Enter the actual usable width and length of the sheet, then set the kerf to the width removed by your planned blade and setup. Enter each part as width × length × quantity. The free browser calculator allows rotation and does not lock face grain; use Boardcut when a part must keep a specific orientation. The optimizer reports the sheet count, yield and a diagram you can print or take to the saw.",
             "If the calculated count is higher than the area estimate, inspect tight rows, part orientation, usable stock size and kerf. Correct an input only when the project or measured stock supports the change; do not shrink a required finished part merely to make the diagram fit."
           ],
           "bullets": [
@@ -543,7 +543,7 @@
       "faq": [
         [
           "Is there a free plywood cut list calculator?",
-          "Yes — the cut list optimizer (cut list optimiser in UK spelling) on this site is free in the browser for up to 10 parts, kerf-aware, and produces a cutting diagram for 4×8 or any custom sheet size. The Boardcut app does the same on iPhone with no part limit."
+          "Yes — the cut list optimizer (cut list optimiser in UK spelling) on this site is free in the browser with no part limit, kerf-aware, works in mm or inches, and produces a cutting diagram for 4×8 or any custom sheet size. The Boardcut app does the same on iPhone and adds grain locks and PDF export."
         ],
         [
           "How many square feet are in a 4×8 sheet of plywood?",
@@ -575,7 +575,7 @@
       "quick_tool": {
         "path": "/tools/cut-list-optimizer/",
         "label": "Open the free plywood cut list calculator",
-        "note": "Runs in your browser. Enter 48 × 96 stock, your parts, and kerf; free for up to 10 parts, nothing sent to a server."
+        "note": "Runs in your browser. Enter 48 × 96 stock, your parts, and kerf in mm or inches; no part limit, nothing sent to a server."
       },
       "related_pages": [
         {
@@ -736,7 +736,7 @@
       "quick_tool": {
         "path": "/tools/cut-list-optimizer/",
         "label": "Open the free MDF cut calculator",
-        "note": "Runs in your browser for up to 10 parts. Replace the stock dimensions with the usable MDF sheet size and enter the measured kerf."
+        "note": "Runs in your browser with no part limit, in mm or inches. Replace the stock dimensions with the usable MDF sheet size and enter the measured kerf."
       },
       "related_pages": [
         {
@@ -894,7 +894,7 @@
       "quick_tool": {
         "path": "/tools/cut-list-optimizer/",
         "label": "Compare a plywood layout for free",
-        "note": "Enter actual stock, parts and kerf to review sheet count, yield and the cutting diagram for up to 10 parts."
+        "note": "Enter actual stock, parts and kerf to review sheet count, yield and the cutting diagram; no part limit."
       },
       "related_pages": [
         {
@@ -3100,7 +3100,7 @@
           "h2": "When to move from the printable to a cut list optimizer",
           "body": [
             "The blank grid is useful for a manual sketch and for checking whether the project has an obvious arrangement. It is not an exact-scale cutting diagram and does not calculate kerf, grain constraints, yield or cut order.",
-            "Enter the finished dimensions and quantities in the free cut list optimizer (cut list optimiser in UK spelling) linked below. It accepts up to 10 parts including repeated quantities and allows rotation. Use Boardcut for iPhone for larger projects or when grain-direction locks are required."
+            "Enter the finished dimensions and quantities in the free cut list optimizer (cut list optimiser in UK spelling) linked below. It has no part limit, works in mm or inches and allows rotation. Use Boardcut for iPhone when grain-direction locks or a saved PDF plan are required."
           ]
         },
         {
