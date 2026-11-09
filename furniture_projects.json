@@ -1,0 +1,998 @@
+{
+  "sheet": {
+    "sheetWidth": 96,
+    "sheetHeight": 48,
+    "kerf": 0.125
+  },
+  "projects": [
+    {
+      "slug": "bookshelf",
+      "templateId": "bookshelf",
+      "title": "Bookshelf Cut List: 30\" × 72\" Plywood Bookcase (Free Calculator)",
+      "description": "Cut list for a 30-inch wide, 72-inch tall plywood bookshelf with four adjustable shelves. Part sizes, sheet layout, and a free cut calculator you can edit.",
+      "keywords": [
+        "bookshelf cut list",
+        "plywood bookcase cut list",
+        "bookshelf plans cut list"
+      ],
+      "h1": "Bookshelf cut list",
+      "lede": "A 30\" wide, 72\" tall, 12\" deep bookcase from one sheet of 3/4\" plywood. Edit any dimension below and the sheet layout updates.",
+      "overall": {
+        "width": 30,
+        "height": 72,
+        "depth": 12
+      },
+      "material": "3/4\" plywood, 4×8 sheet (48 × 96)",
+      "intro": [
+        "This bookshelf is sized so the carcass fits on a single 4×8 sheet of 3/4\" plywood with room to spare. The sides run the full 72\" height. The top and bottom sit between the sides, so their length is the outside width minus two panel thicknesses (30 − 1.5 = 28.5\").",
+        "Shelves are 3/4\" shallower than the case so a 1/4\" back panel can sit in a rabbet without pushing the shelves forward. If you plan to skip the back, make the shelves the full 12\" depth."
+      ],
+      "parts": [
+        {
+          "name": "Side",
+          "width": 72,
+          "height": 12,
+          "quantity": 2,
+          "note": "Full height. Grain runs along the 72\" length."
+        },
+        {
+          "name": "Top / bottom",
+          "width": 28.5,
+          "height": 12,
+          "quantity": 2,
+          "note": "Fits between the sides."
+        },
+        {
+          "name": "Shelf",
+          "width": 28.5,
+          "height": 11.25,
+          "quantity": 4,
+          "note": "3/4\" shallower than the sides to clear a 1/4\" back."
+        }
+      ],
+      "extras": [
+        {
+          "name": "Back panel",
+          "size": "29.25 × 71.25",
+          "quantity": 1,
+          "material": "1/4\" plywood",
+          "note": "Not on the 3/4\" layout above; cut from a separate 1/4\" sheet."
+        },
+        {
+          "name": "Face frame or edge banding",
+          "size": "About 26 linear ft",
+          "quantity": 1,
+          "material": "3/4\" hardwood or iron-on banding",
+          "note": "Optional. Use the board calculator for solid-wood strips."
+        }
+      ],
+      "steps": [
+        [
+          "Check the sheet",
+          "Measure the real sheet. Many 4×8 panels are a hair over 48 × 96, and some import panels are slightly under."
+        ],
+        [
+          "Rip the sides first",
+          "Cut the two 12\" wide side pieces along the length of the sheet, then cut the shelf material from the remaining width."
+        ],
+        [
+          "Cut shelves to width, then length",
+          "Crosscut the 28.5\" pieces from the rips so the ends match exactly."
+        ],
+        [
+          "Dry fit before joinery",
+          "Stand the sides up with the top and bottom in place and confirm the shelf length before drilling shelf-pin holes."
+        ]
+      ],
+      "faq": [
+        [
+          "Can I make it taller than 72\"?",
+          "A 4×8 sheet gives you 96\" of length, so the sides can go up to 96\" less any trim. Above 84\" a 3/4\" side without a fixed middle shelf will start to bow, so add a fixed shelf near the center."
+        ],
+        [
+          "How much does the kerf matter here?",
+          "With eight cuts on one sheet, a 1/8\" blade removes about an inch of material. That is why the calculator reserves kerf between neighboring parts instead of assuming perfect nesting."
+        ]
+      ]
+    },
+    {
+      "slug": "cabinet",
+      "templateId": "cabinet",
+      "title": "Base Cabinet Cut List: 30\" Frameless Plywood Cabinet (Free Calculator)",
+      "description": "Cut list for a 30-inch frameless base cabinet in 3/4-inch plywood: sides, bottom, stretchers, and shelf with a free sheet layout calculator.",
+      "keywords": [
+        "cabinet cut list",
+        "base cabinet cut list",
+        "plywood cabinet cut list calculator"
+      ],
+      "h1": "Base cabinet cut list",
+      "lede": "A 30\" wide, 34.5\" tall, 24\" deep frameless base cabinet. Standard kitchen dimensions, one sheet of 3/4\" plywood.",
+      "overall": {
+        "width": 30,
+        "height": 34.5,
+        "depth": 24
+      },
+      "material": "3/4\" plywood, 4×8 sheet (48 × 96)",
+      "intro": [
+        "These are the carcass parts for a standard frameless (European style) base cabinet. The cabinet box is 34.5\" tall so that a 1.5\" countertop brings the finished height to 36\". Sides are 23.25\" deep, leaving 3/4\" at the back for a recessed 1/4\" back panel and scribe.",
+        "The bottom and stretchers run between the sides, so they are 28.5\" long. Two 4\" stretchers at the top replace a full top panel, which saves material and gives you a place to screw down the counter."
+      ],
+      "parts": [
+        {
+          "name": "Side",
+          "width": 34.5,
+          "height": 23.25,
+          "quantity": 2,
+          "note": "Notch for a 4\" toe kick if you are not using a separate base."
+        },
+        {
+          "name": "Bottom",
+          "width": 28.5,
+          "height": 23.25,
+          "quantity": 1,
+          "note": "Same depth as the sides."
+        },
+        {
+          "name": "Top stretcher",
+          "width": 28.5,
+          "height": 4,
+          "quantity": 2,
+          "note": "Front and back. Replaces a full top."
+        },
+        {
+          "name": "Adjustable shelf",
+          "width": 28.375,
+          "height": 22.5,
+          "quantity": 1,
+          "note": "1/8\" narrower than the opening for shelf pins."
+        },
+        {
+          "name": "Toe kick",
+          "width": 28.5,
+          "height": 4,
+          "quantity": 1,
+          "note": "Skip if the cabinet sits on a separate ladder base."
+        }
+      ],
+      "extras": [
+        {
+          "name": "Back panel",
+          "size": "29.25 × 34.5",
+          "quantity": 1,
+          "material": "1/4\" plywood",
+          "note": "Cut from a separate 1/4\" sheet."
+        },
+        {
+          "name": "Doors",
+          "size": "14.875 × 34.25 each",
+          "quantity": 2,
+          "material": "3/4\" plywood or slab door",
+          "note": "Full-overlay pair with a 1/8\" gap. Add them to the calculator if you are cutting them from the same sheet."
+        }
+      ],
+      "steps": [
+        [
+          "Decide on the toe kick",
+          "A notched side needs the full 34.5\" height. A cabinet on a separate base can drop the sides to 30.5\"."
+        ],
+        [
+          "Rip the deep parts together",
+          "Rip 23.25\" for the sides and bottom in one setup so the cabinet front stays flush."
+        ],
+        [
+          "Cut the stretchers from the offcut",
+          "The 4\" stretchers fit in the strip left after the deep rips."
+        ],
+        [
+          "Label parts as you cut",
+          "Mark the front edge of the sides and bottom so grain direction stays consistent."
+        ]
+      ],
+      "faq": [
+        [
+          "Will the doors fit on the same sheet?",
+          "Two 14.875 × 34.25 doors add about 7 sq ft. Add them as a part above and calculate; with the toe kick included you will usually need a second sheet."
+        ],
+        [
+          "Why 23.25\" deep instead of 24\"?",
+          "A 24\" finished depth with a 3/4\" recess for the back panel and the door thickness in front is the usual layout. Change the side depth if your back panel sits differently."
+        ]
+      ]
+    },
+    {
+      "slug": "workbench",
+      "templateId": "workbench",
+      "title": "Workbench Cut List: 5 ft Plywood-Top Bench from One Sheet (Free Calculator)",
+      "description": "Cut list for a 60 × 24 inch workbench with a doubled 3/4-inch plywood top, lower shelf, and 2×4 frame. One sheet of plywood, five 2×4s, with a free layout calculator.",
+      "keywords": [
+        "workbench cut list",
+        "plywood workbench cut list",
+        "2x4 workbench plans cut list"
+      ],
+      "h1": "Workbench cut list",
+      "lede": "A 60\" long, 24\" deep, 34\" tall shop bench. Two layers of 3/4\" plywood for the top, a plywood lower shelf, and a 2×4 frame, all from one sheet and five studs.",
+      "overall": {
+        "width": 60,
+        "height": 34,
+        "depth": 24
+      },
+      "material": "3/4\" plywood (top and shelf) plus 2×4 lumber for the frame",
+      "intro": [
+        "The plywood parts are two identical top layers and one lower shelf. Doubling the top gives a 1.5\" slab that takes dog holes and a vise without flexing. The layers are 23.75\" rather than a full 24\" deep: two 24\" rips plus a saw kerf come to 48.125\", which is 1/8\" more than the sheet. Shaving a quarter inch keeps the whole bench on one panel.",
+        "The frame is dimensional 2×4. Those cuts only need a length, so they go through the board calculator. The lumber list is further down the page."
+      ],
+      "parts": [
+        {
+          "name": "Top layer",
+          "width": 60,
+          "height": 23.75,
+          "quantity": 2,
+          "note": "Glue and screw the two layers together."
+        },
+        {
+          "name": "Lower shelf",
+          "width": 46.5,
+          "height": 18,
+          "quantity": 1,
+          "note": "Sits on the lower rails between the legs."
+        }
+      ],
+      "extras": [
+        {
+          "name": "Legs",
+          "size": "32.5\" long",
+          "quantity": 4,
+          "material": "2×4",
+          "note": "34\" bench height minus the 1.5\" top."
+        },
+        {
+          "name": "Long rails",
+          "size": "54\" long",
+          "quantity": 4,
+          "material": "2×4",
+          "note": "Upper and lower, front and back. 3\" overhang at each end of the top."
+        },
+        {
+          "name": "Short rails",
+          "size": "18\" long",
+          "quantity": 4,
+          "material": "2×4",
+          "note": "Between the legs at each end."
+        }
+      ],
+      "lumber": {
+        "stockLength": 96,
+        "kerf": 0.125,
+        "parts": [
+          {
+            "name": "Leg",
+            "length": 32.5,
+            "quantity": 4
+          },
+          {
+            "name": "Long rail",
+            "length": 54,
+            "quantity": 4
+          },
+          {
+            "name": "Short rail",
+            "length": 18,
+            "quantity": 4
+          }
+        ]
+      },
+      "steps": [
+        [
+          "Rip the top layers",
+          "Two rips at 23.75\" use the full 48\" width of the sheet with the kerf accounted for. Crosscut both to 60\"."
+        ],
+        [
+          "Cut the shelf from the offcut",
+          "The remaining piece is about 36 × 48. The 46.5 × 18 shelf comes out of it with the grain running across the bench."
+        ],
+        [
+          "Cut the frame lumber",
+          "Run the 2×4 list through the board calculator: five 8 ft studs, with a leg and a long rail sharing each of the first four."
+        ],
+        [
+          "Assemble upside down",
+          "Screw the legs to the underside of the doubled top, then flip the bench and add the lower rails and shelf."
+        ]
+      ],
+      "faq": [
+        [
+          "Can I use MDF for the top?",
+          "Yes for the top layer if the bench stays dry. Keep the same dimensions. Some markets sell MDF at 49 × 97, so check the sheet size field before you trust the layout."
+        ],
+        [
+          "How many 2×4s does the frame take?",
+          "Five 8 ft studs at a 1/8\" kerf. Each of the first four carries one 32.5\" leg and one 54\" rail; the fifth holds all four 18\" short rails."
+        ],
+        [
+          "Why not a 72\" bench?",
+          "A 72 × 30 top does not double up on one sheet: the second layer needs a second panel and the shelf a third. If you want the bigger bench, set the quantity to 2 on a 72 × 30 part and the calculator will show the three-sheet layout."
+        ]
+      ]
+    },
+    {
+      "slug": "storage-box",
+      "templateId": "storage-box",
+      "title": "Storage Box Cut List: 24 × 16 × 16 Plywood Box (Free Calculator)",
+      "description": "Cut list for a simple 24 × 16 × 16 inch plywood storage box with a lid. Five carcass parts, a free sheet layout calculator, and tips for cutting several boxes from one sheet.",
+      "keywords": [
+        "storage box cut list",
+        "plywood box cut list",
+        "wooden box cut list calculator"
+      ],
+      "h1": "Storage box cut list",
+      "lede": "A 24\" long, 16\" deep, 16\" tall lidded box in 3/4\" plywood. The layout shows how many boxes one sheet yields.",
+      "overall": {
+        "width": 24,
+        "height": 16,
+        "depth": 16
+      },
+      "material": "1/2\" or 3/4\" plywood, 4×8 sheet (48 × 96)",
+      "intro": [
+        "This is a butt-jointed box: the front and back overlap the ends of the sides, and the bottom sits inside all four walls. That is why the sides are 1.5\" shorter than the box depth and the bottom is 1.5\" smaller in both directions.",
+        "If you switch to 1/2\" plywood, change the side width from 14.5 to 15 and the bottom to 23 × 15. The calculator does not know your panel thickness; it only lays out the finished sizes you enter."
+      ],
+      "parts": [
+        {
+          "name": "Front / back",
+          "width": 24,
+          "height": 16,
+          "quantity": 2,
+          "note": "Full length and height."
+        },
+        {
+          "name": "Side",
+          "width": 14.5,
+          "height": 16,
+          "quantity": 2,
+          "note": "Box depth minus two panel thicknesses."
+        },
+        {
+          "name": "Bottom",
+          "width": 22.5,
+          "height": 14.5,
+          "quantity": 1,
+          "note": "Sits inside the walls."
+        },
+        {
+          "name": "Lid",
+          "width": 24,
+          "height": 16,
+          "quantity": 1,
+          "note": "Flush lid. Add 1\" each way for an overhanging lid."
+        }
+      ],
+      "extras": [
+        {
+          "name": "Lid cleats",
+          "size": "14\" long",
+          "quantity": 2,
+          "material": "3/4 × 1.5 hardwood",
+          "note": "Keep the lid from sliding. Optional."
+        }
+      ],
+      "steps": [
+        [
+          "Rip 16\" strips",
+          "Three 16\" rips across a 48\" sheet use the full width, which is what makes this box efficient."
+        ],
+        [
+          "Crosscut the walls",
+          "Cut two 24\" and two 14.5\" pieces from the strips."
+        ],
+        [
+          "Cut the bottom last",
+          "Measure the assembled walls before cutting the bottom if your plywood is undersized."
+        ],
+        [
+          "Make more than one",
+          "Double every quantity to see two boxes laid out on one sheet."
+        ]
+      ],
+      "faq": [
+        [
+          "How many of these boxes fit on one sheet?",
+          "Two complete boxes with lids. Double every quantity and the calculator lays both out on a single 4×8 sheet at about 84 percent yield. A third box needs a second sheet: three boxes total about 5,830 square inches of parts and a sheet has 4,608."
+        ],
+        [
+          "Does the box need the 3/4\" thickness?",
+          "No. 1/2\" plywood is plenty for a 24\" box. Adjust the side and bottom sizes as described above."
+        ]
+      ]
+    },
+    {
+      "slug": "desk",
+      "templateId": "desk",
+      "title": "Desk Cut List: 60\" Plywood Panel Desk (Free Calculator)",
+      "description": "Cut list for a 60 × 30 inch plywood desk with panel legs and a modesty panel. Four parts from one sheet, with a free cut layout calculator and edge-banding notes.",
+      "keywords": [
+        "desk cut list",
+        "plywood desk cut list",
+        "diy desk plans cut list"
+      ],
+      "h1": "Desk cut list",
+      "lede": "A 60\" wide, 30\" deep, 29\" tall desk built from panel legs and a single 3/4\" plywood top.",
+      "overall": {
+        "width": 60,
+        "height": 29,
+        "depth": 30
+      },
+      "material": "3/4\" plywood, 4×8 sheet (48 × 96)",
+      "intro": [
+        "Panel-leg desks are the easiest desk to build from a single sheet: a top, two side panels, and a modesty panel at the back to keep it square. The side panels are 28.25\" tall so the finished height with the top is 29\", the standard for a writing desk.",
+        "The side panels are 23.5\" deep rather than the full 30\" so the top overhangs front and back, and so that both panels stack beside the top with a saw kerf between them and still clear the 48\" sheet width. The modesty panel runs between the sides and sits back 1\" from the rear edge."
+      ],
+      "parts": [
+        {
+          "name": "Desktop",
+          "width": 60,
+          "height": 30,
+          "quantity": 1,
+          "note": "Edge-band all four edges."
+        },
+        {
+          "name": "Side panel",
+          "width": 28.25,
+          "height": 23.5,
+          "quantity": 2,
+          "note": "Panel legs. 23.5\" deep so both fit beside the top with a kerf between them."
+        },
+        {
+          "name": "Modesty panel",
+          "width": 58.5,
+          "height": 12,
+          "quantity": 1,
+          "note": "Runs between the side panels."
+        },
+        {
+          "name": "Support cleat",
+          "width": 58.5,
+          "height": 3,
+          "quantity": 1,
+          "note": "Under the front edge to stop sag."
+        }
+      ],
+      "extras": [
+        {
+          "name": "Edge banding",
+          "size": "About 30 linear ft",
+          "quantity": 1,
+          "material": "Iron-on or solid wood",
+          "note": "Covers the exposed plywood edges."
+        }
+      ],
+      "steps": [
+        [
+          "Cut the top",
+          "A 60 × 30 top comes off the sheet as one rip and one crosscut. Cut it first so the best face lands on top."
+        ],
+        [
+          "Cut the side panels from the rest",
+          "The strip beside the top is just under 36 × 48. Both 28.25 × 23.5 sides stack in it with 1/8\" to spare after the kerf."
+        ],
+        [
+          "Cut the long strips",
+          "The modesty panel and cleat are 58.5\" long. They fit in the 18\" strip next to the top."
+        ],
+        [
+          "Band before assembly",
+          "Edge-band the top and side panels before joining so you can trim flush on a flat surface."
+        ]
+      ],
+      "faq": [
+        [
+          "Does everything fit on one sheet?",
+          "Yes, at a 1/8\" kerf. The calculator shows the layout and reports about 87 percent yield."
+        ],
+        [
+          "Can I make the desk 72\" wide?",
+          "The sides still fit, but a 72 × 30 top plus the panels pushes you to two sheets. Use the extra width of the second sheet for a drawer box or shelf."
+        ]
+      ]
+    },
+    {
+      "slug": "wall-cabinet",
+      "templateId": "wall-cabinet",
+      "title": "Wall Cabinet Cut List: 24\" × 30\" Plywood Upper Cabinet (Free Calculator)",
+      "description": "Cut list for a 24-inch wide, 30-inch tall frameless wall cabinet in 3/4-inch plywood: sides, top, bottom, shelf, and two doors, with a free sheet layout calculator.",
+      "keywords": [
+        "wall cabinet cut list",
+        "upper cabinet cut list",
+        "plywood wall cabinet plans"
+      ],
+      "h1": "Wall cabinet cut list",
+      "lede": "A 24\" wide, 30\" tall, 12\" deep upper cabinet with one adjustable shelf and a pair of doors. One sheet of 3/4\" plywood, about 46 percent of it.",
+      "overall": {
+        "width": 24,
+        "height": 30,
+        "depth": 12
+      },
+      "material": "3/4\" plywood, 4×8 sheet (48 × 96)",
+      "intro": [
+        "This is a frameless upper cabinet in the standard 12\" depth. The box itself is 11.25\" deep so the 3/4\" doors bring the finished depth to 12\". Sides run the full 30\" height; the top and bottom fit between them, so they are 22.5\" long (24 − 1.5).",
+        "The doors are full overlay: each is 11.75\" wide, which leaves a 1/8\" gap between the pair and a 3/16\" reveal at each side. The shelf is 1/8\" narrower than the opening for shelf pins and 3/4\" shallower than the sides so a 1/4\" back can sit in a rabbet."
+      ],
+      "parts": [
+        {
+          "name": "Side",
+          "width": 30,
+          "height": 11.25,
+          "quantity": 2,
+          "note": "Full height. Rabbet the back edge for a 1/4\" back panel."
+        },
+        {
+          "name": "Top / bottom",
+          "width": 22.5,
+          "height": 11.25,
+          "quantity": 2,
+          "note": "Fits between the sides."
+        },
+        {
+          "name": "Adjustable shelf",
+          "width": 22.375,
+          "height": 10.5,
+          "quantity": 1,
+          "note": "1/8\" narrower than the opening, 3/4\" shallower for the back."
+        },
+        {
+          "name": "Door",
+          "width": 29.75,
+          "height": 11.75,
+          "quantity": 2,
+          "note": "Full-overlay pair with a 1/8\" gap between them."
+        }
+      ],
+      "extras": [
+        {
+          "name": "Back panel",
+          "size": "23.25 × 29.25",
+          "quantity": 1,
+          "material": "1/4\" plywood",
+          "note": "Cut from a separate 1/4\" sheet."
+        },
+        {
+          "name": "Hanging rail",
+          "size": "22.5\" long",
+          "quantity": 1,
+          "material": "3/4 × 3 plywood or hardwood",
+          "note": "Screws through the back into wall studs. Optional if the back panel is 1/2\" or thicker."
+        }
+      ],
+      "steps": [
+        [
+          "Rip the carcass parts",
+          "Rip one 11.25\" strip the full length of the sheet. The two sides, top, and bottom all come out of it."
+        ],
+        [
+          "Rip the doors from a second strip",
+          "A second rip at 11.75\" gives both doors with length to spare. Cut them from the cleanest part of the sheet."
+        ],
+        [
+          "Cut the shelf last",
+          "Measure the inside of the dry-fitted box before cutting the shelf to 22.375\"."
+        ],
+        [
+          "Drill shelf pins before assembly",
+          "Shelf-pin holes are easier to drill with the sides lying flat. Keep them 1\" back from the front edge."
+        ]
+      ],
+      "faq": [
+        [
+          "Can I cut two of these cabinets from one sheet?",
+          "Not quite. Two cabinets are about 92 percent of a sheet before the saw kerf, and the calculator puts the second cabinet on a second sheet. Three cabinets fit on two sheets at about 69 percent yield, so a run of uppers is more efficient than a single one."
+        ],
+        [
+          "What if I want a 36\" tall cabinet?",
+          "Change the side and door lengths to 36 and 35.75 and add a second shelf. The calculator still lays it out on one sheet at about 57 percent yield."
+        ]
+      ]
+    },
+    {
+      "slug": "media-console",
+      "templateId": "media-console",
+      "title": "Media Console Cut List: 60\" Plywood TV Stand with Three Bays (Free Calculator)",
+      "description": "Cut list for a 60-inch plywood media console with two dividers and three open bays. Nine parts from one 4×8 sheet of 3/4-inch plywood, with a free cut layout calculator.",
+      "keywords": [
+        "media console cut list",
+        "plywood tv stand cut list",
+        "diy tv stand plans cut list"
+      ],
+      "h1": "Media console cut list",
+      "lede": "A 60\" wide, 24\" tall, 14\" deep open console with three bays and a shelf in each. One sheet of 3/4\" plywood at about 79 percent yield.",
+      "overall": {
+        "width": 60,
+        "height": 24,
+        "depth": 14
+      },
+      "material": "3/4\" plywood, 4×8 sheet (48 × 96)",
+      "intro": [
+        "The top is the full 60\" width and sits on the two sides. The sides are 23.25\" tall so the finished height with the top is 24\". The bottom runs between the sides at floor level, so it is 58.5\" long (60 − 1.5). Two dividers split the inside into three bays of 19\" each.",
+        "The console is 14\" deep rather than 16\". At 16\" the nine parts still fit on one sheet, but they cover about 91 percent of it and leave nothing for a miscut. At 14\" the layout uses about 79 percent and leaves usable offcuts. Dividers and shelves are set back 3/4\" from the front edge so the front face reads as a clean frame."
+      ],
+      "parts": [
+        {
+          "name": "Top",
+          "width": 60,
+          "height": 14,
+          "quantity": 1,
+          "note": "Full width. Sits on the sides."
+        },
+        {
+          "name": "Side",
+          "width": 23.25,
+          "height": 14,
+          "quantity": 2,
+          "note": "24\" finished height minus the 3/4\" top."
+        },
+        {
+          "name": "Bottom",
+          "width": 58.5,
+          "height": 14,
+          "quantity": 1,
+          "note": "Runs between the sides."
+        },
+        {
+          "name": "Divider",
+          "width": 22.5,
+          "height": 13.25,
+          "quantity": 2,
+          "note": "Between the bottom and top. Set back 3/4\" from the front."
+        },
+        {
+          "name": "Shelf",
+          "width": 18.875,
+          "height": 13,
+          "quantity": 3,
+          "note": "1/8\" narrower than the 19\" bay for shelf pins."
+        }
+      ],
+      "extras": [
+        {
+          "name": "Back panel",
+          "size": "59.25 × 23.25",
+          "quantity": 1,
+          "material": "1/4\" plywood",
+          "note": "Optional. Cut cable openings behind each bay before fitting."
+        },
+        {
+          "name": "Edge banding",
+          "size": "About 24 linear ft",
+          "quantity": 1,
+          "material": "Iron-on or solid wood",
+          "note": "Top, sides, and the front edge of the shelves."
+        }
+      ],
+      "steps": [
+        [
+          "Rip the 14\" parts together",
+          "Top, bottom, and sides are all 14\" wide. Rip them in one setup so the front face stays flush."
+        ],
+        [
+          "Crosscut the long parts first",
+          "Cut the 60\" top and 58.5\" bottom from one strip. The sides come out of the second 14\" strip."
+        ],
+        [
+          "Cut the dividers and shelves narrower",
+          "Dividers are 13.25\" and shelves 13\". Rip them from the remaining width, then crosscut to length."
+        ],
+        [
+          "Assemble on the bottom",
+          "Attach the sides to the bottom, stand the dividers, then add the top. Check that the three bays measure 19\" before fixing the dividers."
+        ]
+      ],
+      "faq": [
+        [
+          "Does everything fit on one sheet?",
+          "Yes. The calculator shows the nine parts on a single 4×8 sheet at about 79 percent yield with a 1/8\" kerf."
+        ],
+        [
+          "Can I make it 72\" wide?",
+          "A 72\" top and 70.5\" bottom still come off one sheet, but the sides, dividers, and wider shelves no longer fit beside them. The calculator shows two sheets for the 72\" version, so plan the second sheet for a matching shelf or a drawer box."
+        ]
+      ]
+    },
+    {
+      "slug": "shoe-bench",
+      "templateId": "shoe-bench",
+      "title": "Shoe Bench Cut List: 36\" Plywood Entryway Bench with Cubbies (Free Calculator)",
+      "description": "Cut list for a 36-inch plywood shoe storage bench with three cubbies and a shelf in each. Nine parts from one 4×8 sheet of 3/4-inch plywood, with a free cut layout calculator.",
+      "keywords": [
+        "shoe bench cut list",
+        "shoe storage bench plans",
+        "entryway bench cut list plywood"
+      ],
+      "h1": "Shoe bench cut list",
+      "lede": "A 36\" wide, 18\" tall, 16\" deep entry bench with three cubbies. One sheet of 3/4\" plywood, about 58 percent of it.",
+      "overall": {
+        "width": 36,
+        "height": 18,
+        "depth": 16
+      },
+      "material": "3/4\" plywood, 4×8 sheet (48 × 96)",
+      "intro": [
+        "An 18\" seat height and a 16\" deep top make this a bench you can sit on while putting shoes on. The top is the full 36\" width and sits on the two sides, which are 17.25\" tall. The bottom runs between the sides at floor level, so it is 34.5\" long.",
+        "Two dividers make three 11\" cubbies, each with a shelf so two pairs of shoes stack per bay. Dividers and shelves are set back 3/4\" from the front. If you want an open bench, drop the dividers and shelves and the remaining four parts use about 36 percent of the sheet."
+      ],
+      "parts": [
+        {
+          "name": "Top",
+          "width": 36,
+          "height": 16,
+          "quantity": 1,
+          "note": "Full width. Sits on the sides."
+        },
+        {
+          "name": "Side",
+          "width": 17.25,
+          "height": 16,
+          "quantity": 2,
+          "note": "18\" seat height minus the 3/4\" top."
+        },
+        {
+          "name": "Bottom",
+          "width": 34.5,
+          "height": 16,
+          "quantity": 1,
+          "note": "Runs between the sides."
+        },
+        {
+          "name": "Divider",
+          "width": 16.5,
+          "height": 15.25,
+          "quantity": 2,
+          "note": "Between the bottom and top. Set back 3/4\" from the front."
+        },
+        {
+          "name": "Shelf",
+          "width": 10.875,
+          "height": 15,
+          "quantity": 3,
+          "note": "1/8\" narrower than the 11\" cubby."
+        }
+      ],
+      "extras": [
+        {
+          "name": "Seat pad",
+          "size": "36 × 16",
+          "quantity": 1,
+          "material": "2\" foam and fabric over 1/2\" plywood",
+          "note": "Optional. Screw the pad base to the top from below."
+        }
+      ],
+      "steps": [
+        [
+          "Rip a 16\" strip",
+          "The top, sides, and bottom are all 16\" wide. One rip the length of the sheet covers all four."
+        ],
+        [
+          "Crosscut top and bottom, then the sides",
+          "Cut 36\" and 34.5\" first, then the two 17.25\" sides from the rest of the strip."
+        ],
+        [
+          "Rip the dividers and shelves",
+          "Dividers at 15.25\" and shelves at 15\" come out of the remaining width."
+        ],
+        [
+          "Fit the dividers before the shelves",
+          "Attach the sides to the bottom, fix the dividers so each cubby measures 11\", then add the top and drop in the shelves."
+        ]
+      ],
+      "faq": [
+        [
+          "How many benches fit on one sheet?",
+          "One bench uses about 58 percent of a sheet. Two benches need two sheets because the long top and bottom pieces do not pair up, but three benches fit on two sheets at about 87 percent yield."
+        ],
+        [
+          "Can I make it 48\" wide with four cubbies?",
+          "Yes. A 48\" top, 46.5\" bottom, three dividers, and four shelves still fit on one sheet at about 75 percent yield. Enter those sizes in the calculator to see the layout."
+        ]
+      ]
+    },
+    {
+      "slug": "garage-shelving",
+      "templateId": null,
+      "title": "Garage Shelving Cut List: 2×4 and Plywood Shelves from One Sheet (Free Calculator)",
+      "description": "Cut list for a 4 ft wide, 6 ft tall, 2 ft deep garage shelving unit: four plywood shelves from one 4×8 sheet and a 2×4 frame from ten 8 ft studs, with a free layout calculator.",
+      "keywords": [
+        "garage shelving cut list",
+        "2x4 garage shelves plans cut list",
+        "how many 2x4 for garage shelves"
+      ],
+      "h1": "Garage shelving cut list",
+      "lede": "A 48\" wide, 72\" tall, 24\" deep shelving unit with four shelves. One sheet of 3/4\" plywood yields all four shelves at about 98 percent; the frame takes ten 8 ft 2×4s.",
+      "overall": {
+        "width": 48,
+        "height": 72,
+        "depth": 24
+      },
+      "material": "3/4\" plywood (shelves) plus 2×4 lumber for the frame",
+      "intro": [
+        "A 4×8 sheet is nominally four 2×4 shelves, but four full 24 × 48 pieces leave nothing for the saw kerf. Cutting the shelves at 23.75 × 47.75 solves that: two rips at 23.75\" and two crosscuts at 47.75\" fit on one sheet with the kerf accounted for, and the unit is still 4 ft wide and 2 ft deep overall.",
+        "Each shelf sits on a 2×4 frame: two long rails and three cross rails. Four 72\" uprights carry the frames. The lumber list is sized so each 8 ft stud carries two useful pieces, which is why ten studs cover the whole frame with little left over."
+      ],
+      "parts": [
+        {
+          "name": "Shelf",
+          "width": 47.75,
+          "height": 23.75,
+          "quantity": 4,
+          "note": "1/4\" under 2 × 4 ft so all four fit with the kerf."
+        }
+      ],
+      "extras": [
+        {
+          "name": "Uprights",
+          "size": "72\" long",
+          "quantity": 4,
+          "material": "2×4",
+          "note": "One at each corner."
+        },
+        {
+          "name": "Long rails",
+          "size": "47.75\" long",
+          "quantity": 8,
+          "material": "2×4",
+          "note": "Two per shelf, front and back."
+        },
+        {
+          "name": "Cross rails",
+          "size": "20.75\" long",
+          "quantity": 12,
+          "material": "2×4",
+          "note": "Three per shelf, between the long rails. 23.75 minus two 1.5\" rails."
+        }
+      ],
+      "lumber": {
+        "stockLength": 96,
+        "kerf": 0.125,
+        "parts": [
+          {
+            "name": "Upright",
+            "length": 72,
+            "quantity": 4
+          },
+          {
+            "name": "Long rail",
+            "length": 47.75,
+            "quantity": 8
+          },
+          {
+            "name": "Cross rail",
+            "length": 20.75,
+            "quantity": 12
+          }
+        ]
+      },
+      "steps": [
+        [
+          "Rip the sheet in half",
+          "Two rips at 23.75\" use the full 48\" width of the sheet with one kerf between them."
+        ],
+        [
+          "Crosscut each rip in half",
+          "Cut each strip at 47.75\" to get the four shelves. Check that the real sheet is a full 96\" before trusting the second cut."
+        ],
+        [
+          "Cut the frame lumber",
+          "Run the 2×4 list through the board calculator. Four studs each give an upright and a cross rail, four give two long rails, and two give four cross rails each."
+        ],
+        [
+          "Build the frames flat, then stand them up",
+          "Screw each shelf frame together on the floor, attach the uprights, and drop the plywood on top. Space the shelves to suit what you store."
+        ]
+      ],
+      "faq": [
+        [
+          "How many 2×4s does the frame take?",
+          "Ten 8 ft studs at a 1/8\" kerf. The calculator pairs a 72\" upright with a 20.75\" cross rail on four studs, two 47.75\" long rails on four studs, and four cross rails on each of the last two."
+        ],
+        [
+          "Can I get five shelves from one sheet?",
+          "No. A fifth 23.75 × 47.75 shelf needs a second sheet, and the calculator shows the pair of sheets at about 62 percent yield. If you want five shelves, cut the fifth from 1/2\" plywood left over from another job or make the unit 8 ft tall and buy a second sheet for eight shelves."
+        ],
+        [
+          "What about an 8 ft tall unit?",
+          "Change the uprights to 96\" and the frame takes eleven studs, since each full-length upright uses a whole stud. The shelf count on the plywood side does not change."
+        ]
+      ]
+    },
+    {
+      "slug": "closet-organizer",
+      "templateId": null,
+      "title": "Closet Organizer Cut List: 24\" Plywood Shelf Tower (Free Calculator)",
+      "description": "Cut list for a 24-inch wide, 72-inch tall plywood closet tower with four adjustable shelves. Eight parts from one 4×8 sheet of 3/4-inch plywood, with a free cut layout calculator.",
+      "keywords": [
+        "closet organizer cut list",
+        "plywood closet tower plans",
+        "closet shelf tower cut list"
+      ],
+      "h1": "Closet organizer cut list",
+      "lede": "A 24\" wide, 72\" tall, 14\" deep shelf tower for a reach-in closet. One sheet of 3/4\" plywood at about 83 percent yield.",
+      "overall": {
+        "width": 24,
+        "height": 72,
+        "depth": 14
+      },
+      "material": "3/4\" plywood, 4×8 sheet (48 × 96)",
+      "intro": [
+        "A 14\" deep tower leaves room for hanging clothes in a standard 24\" deep closet. The sides run the full 72\" height; a fixed top and bottom fit between them at 22.5\", and four adjustable shelves are 1/8\" narrower for shelf pins and 3/4\" shallower so they stop short of the front edge.",
+        "The tower is 72\" rather than 84\" tall for a reason: at 84\" the two sides take so much of the sheet that the shelves no longer fit beside them, and the calculator moves to two sheets. At 72\" everything fits on one. If your closet needs the taller tower, plan a second sheet and use the leftover for a shoe shelf or a second set of shelves."
+      ],
+      "parts": [
+        {
+          "name": "Side",
+          "width": 72,
+          "height": 14,
+          "quantity": 2,
+          "note": "Full height. Grain runs along the 72\" length."
+        },
+        {
+          "name": "Top / bottom",
+          "width": 22.5,
+          "height": 14,
+          "quantity": 2,
+          "note": "Fixed. Fits between the sides."
+        },
+        {
+          "name": "Adjustable shelf",
+          "width": 22.375,
+          "height": 13.25,
+          "quantity": 4,
+          "note": "1/8\" narrower than the opening for shelf pins."
+        }
+      ],
+      "extras": [
+        {
+          "name": "Hanging rod",
+          "size": "Closet width minus 24.75\"",
+          "quantity": 1,
+          "material": "1 1/4\" wood or metal rod",
+          "note": "Runs from the tower side to the closet wall. Rod brackets are 3/8\" thick each, so measure before cutting."
+        },
+        {
+          "name": "Back cleat",
+          "size": "22.5\" long",
+          "quantity": 1,
+          "material": "3/4 × 3 plywood",
+          "note": "Screws through to a wall stud so the tower cannot tip. Not optional in a kid's closet."
+        }
+      ],
+      "steps": [
+        [
+          "Rip the sides first",
+          "Two rips at 14\" along the length of the sheet. Keep the factory edge on the front of each side."
+        ],
+        [
+          "Cut top and bottom from the next strip",
+          "Rip a third 14\" strip and crosscut two pieces at 22.5\"."
+        ],
+        [
+          "Cut the shelves from what is left",
+          "Rip 13.25\" for the shelves and crosscut at 22.375\". Three come from the end of the sheet and one from beside the top and bottom."
+        ],
+        [
+          "Drill shelf pins, then assemble",
+          "Drill the pin holes while the sides are flat, then join the sides to the top and bottom and anchor the tower to the wall."
+        ]
+      ],
+      "faq": [
+        [
+          "Does it fit on one sheet?",
+          "Yes. Eight parts at about 83 percent yield with a 1/8\" kerf. The leftover is a few narrow strips."
+        ],
+        [
+          "Can I make it 84\" tall?",
+          "Not on one sheet. The 84\" sides leave a strip just under 12\" wide at the end, too narrow for the 13.25\" shelves, so the calculator needs two sheets. The second sheet then has room for a second tower's shelves or a matching 24\" wide shoe cubby."
+        ],
+        [
+          "How many towers fit on two sheets?",
+          "Two. The calculator lays out one tower per sheet, since each tower's two 72\" sides take 28\" of the sheet width and a second pair will not fit alongside."
+        ]
+      ]
+    }
+  ]
+}

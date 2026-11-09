@@ -21,7 +21,7 @@ DATA = json.loads((ROOT / "apps.json").read_text())
 DESCS = json.loads((ROOT / "_asc_descs.json").read_text())
 SITE = DATA["site"]
 ORIGIN = SITE["origin"]
-TODAY = "2026-11-02"  # set per release; hash-gate keeps unchanged pages stable
+TODAY = "2026-11-09"  # set per release; hash-gate keeps unchanged pages stable
 
 # ---------------------------------------------------------------- desc parsing
 def parse_desc(raw):
@@ -434,6 +434,8 @@ def guide_page(slug):
     related = "".join(
         f'<a href="/guides/{other_slug}/"><strong class="serif">{esc(other["h1"])}</strong><span>{esc(other["keyword"])}</span></a>'
         for other_slug, other in DATA["guides"].items() if other_slug != slug and other["app"] == g["app"])
+    if g["app"] == "boardcut":
+        related += '<a href="/projects/"><strong class="serif">Furniture cut lists</strong></a>'
     source = g.get("source")
     field_note = (f'''<aside class="field-note">
 <p class="eyebrow">Why this guide exists</p>
@@ -1332,6 +1334,7 @@ run();
     below = f'''
 <section><h2>How to use the cut list optimizer (optimiser)</h2><ol class="sources">{howto_html}</ol></section>
 <section><h2>Set up the sheet before the parts</h2><p>The sheet is the material you have; parts are the finished rectangles you need from it. Enter the usable sheet dimensions after any damaged edge or squaring trim. A nominal 48 × 96 plywood sheet (1220 × 2440 mm) should only be entered at full size when that whole rectangle is available for the layout. Keep different thicknesses, materials and faces in separate runs when they cannot substitute for one another.</p><p>The web optimizer uses one sheet size per run and opens as many sheets of that size as the parts need, so the sheet count it reports is a purchase estimate. If you must work only from stock already in the shop, compare that count with what you have before cutting.</p></section>
+<section><h2>Furniture cut lists</h2><p><a href="/projects/">Browse furniture projects</a> for ready-to-copy parts tables in inches and millimetres.</p></section>
 <section><h2>Prepare a cutlist the optimizer can check</h2><p>Use finished dimensions for every part and give repeated pieces a stable name. Quantity is expanded into individual placements, so two cabinet sides entered with quantity 2 appear twice in the diagram. Check the total against the project list before generating a diagram; an efficient cut sheet is still wrong when a shelf or divider is missing.</p><p>The browser tool allows every part to rotate and uses one kerf value for the whole layout. It does not model grain direction, defects, edge banding or different kerfs for different operations. If a visible face must keep its grain orientation, treat the web result as an estimate or continue the project in <a href="/apps/boardcut/">Boardcut for iPhone</a>, which supports part-level grain locks.</p></section>
 <section><h2>Run a simple layout check</h2><p>For a plywood project, start with the measured usable sheet size, then enter each part exactly as it appears on the source cut list. Set kerf from a representative test cut. Generate the diagram and compare the reported part count with the total quantity you entered. If a part is larger than the sheet in both orientations, the tool says so instead of drawing a layout; confirm its dimensions and the sheet size before changing the design.</p><p>Do not set kerf to zero or enlarge the sheet simply to force a fit. A row that looks exact on paper can fail at the saw because every separating cut removes material. The <a href="/guides/kerf-width-explained/">kerf width guide</a> shows how to measure that loss, and the <a href="/guides/plywood-cut-calculator/">plywood cut calculator guide</a> explains why an area estimate can undercount sheets.</p></section>
 <section><h2>How the cut sheet is built</h2><p>The cut list optimizer runs the same guillotine packer as the Boardcut web calculators. It sorts the parts four ways (by area, longest side, height and width), scores each candidate position four ways (remaining area, short-side fit, long-side fit and bottom-left) and splits the leftover rectangle three ways (larger piece first, vertical first, horizontal first). That is 48 layouts per run; the one that uses the fewest sheets wins, and on a tie the one that leaves the largest offcut on the last sheet.</p><p>Every placement reserves one blade kerf between neighbours and can be reached by straight, edge-to-edge cuts. This is a practical heuristic search, not a proof of the global optimum: a layout outside those 48 may still save a sheet. Use the diagram as a planning aid, not as a substitute for measuring the real stock and checking a safe, workable cut sequence.</p></section>
@@ -2808,6 +2811,45 @@ FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 <rect x="40" y="10" width="10" height="42" rx="2" fill="#E87722"/>
 </svg>"""
 
+# Furniture dimensions are copied from boardcut-web/data/projects.js; keep the
+# source values intact so imperial sizes and quantities remain traceable.
+FURNITURE = json.loads((ROOT / "furniture_projects.json").read_text())
+
+def project_page(p):
+    from decimal import Decimal
+    def number(v): return format(Decimal(str(v)), "f")
+    def mm(v): return format(Decimal(str(v)) * Decimal("25.4"), "f").rstrip("0").rstrip(".")
+    rows = "".join(f'<tr><th scope="row">{esc(r["name"])}</th><td>{number(r["width"])} × {number(r["height"])}</td><td>{mm(r["width"])} × {mm(r["height"])}</td><td>{r["quantity"]}</td><td>{esc(r["note"])}</td></tr>' for r in p["parts"])
+    calculator = f'''<style>.project-table{{overflow-x:auto}}table{{border-collapse:collapse;width:100%}}th,td{{text-align:left;padding:10px;border-bottom:1px solid var(--line)}}td{{min-width:100px}}</style>
+<h2>Parts list</h2><p>{esc(p["material"])}</p>
+<p><strong>Sheets needed: 1</strong> — 96 × 48 in (2438.4 × 1219.2 mm), 0.125 in (3.175 mm) kerf, rotation allowed. Covers the plywood parts below; additional materials are listed separately.</p>
+<div class="project-table"><table><thead><tr><th scope="col">Part</th><th scope="col">Size (in)</th><th scope="col">Size (mm)</th><th scope="col">Quantity</th><th scope="col">Notes</th></tr></thead><tbody>{rows}</tbody></table></div>
+<p class="actions"><a class="btn" href="/tools/cut-list-optimizer/">Try it in the cut list optimizer</a></p>'''
+    intro = "".join(f'<p>{esc(t)}</p>' for t in p["intro"])
+    extras = "".join(f'<tr><th scope="row">{esc(r["name"])}</th><td>{esc(r["size"])}</td><td>{r["quantity"]}</td><td>{esc(r["material"])}</td><td>{esc(r["note"])}</td></tr>' for r in p["extras"])
+    steps = "".join(f'<li><strong>{esc(n)}</strong><p>{esc(t)}</p></li>' for n,t in p["steps"])
+    faq, faq_ld = tool_faq(p["faq"])
+    below = f'''<section><h2>Project details</h2>{intro}</section>
+<section><h2>Additional materials</h2><div class="project-table"><table><thead><tr><th>Part</th><th>Size (in)</th><th>Quantity</th><th>Material</th><th>Notes</th></tr></thead><tbody>{extras}</tbody></table></div></section>
+<section><h2>Cutting sequence</h2><ol>{steps}</ol></section>
+<section><h2>Questions</h2>{faq}</section>
+<section><h2>More furniture projects</h2><a href="/projects/">All furniture cut lists</a></section>'''
+    if p.get("lumber"):
+        lumber = p["lumber"]
+        lumber_rows = "".join(f'<tr><th scope="row">{esc(r["name"])}</th><td>{number(r["length"])}</td><td>{mm(r["length"])}</td><td>{r["quantity"]}</td></tr>' for r in lumber["parts"])
+        below += f'<section><h2>Frame lumber cut list</h2><p>Stock length: {number(lumber["stockLength"])} in ({mm(lumber["stockLength"])} mm). Kerf: {number(lumber["kerf"])} in ({mm(lumber["kerf"])} mm).</p><div class="project-table"><table><thead><tr><th>Part</th><th>Length (in)</th><th>Length (mm)</th><th>Quantity</th></tr></thead><tbody>{lumber_rows}</tbody></table></div></section>'
+    path = f'/projects/{p["slug"]}/'
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "HowTo", "name": p["h1"], "description": p["description"], "url": ORIGIN + path,
+         "step": [{"@type": "HowToStep", "name": n, "text": t} for n,t in p["steps"]]}, faq_ld]}
+    body = tool_shell("boardcut", "Furniture cut list", p["h1"], p["lede"].split(" Edit any dimension")[0], calculator, below, "site_project_" + p["slug"], "Continue in Boardcut")
+    return page(p["title"], p["description"], path, body, ld, og_image="/og/tools-cut-list-optimizer.png")
+
+def projects_hub():
+    links = "".join(f'<li><a href="/projects/{p["slug"]}/">{esc(p["h1"])}</a></li>' for p in FURNITURE["projects"])
+    body = tool_shell("boardcut", "Woodworking projects", "Furniture cut lists", "Plywood furniture projects with parts in inches and millimetres.", f'<ul>{links}</ul>', '<p><a href="/tools/cut-list-optimizer/">Cut list optimizer</a></p>', "site_projects")
+    return page("Furniture Cut Lists — 10 Plywood Projects | Softgrove", "Browse ten plywood furniture cut lists, including bookshelves, cabinets, desks and benches. Exact parts, quantities, sheet counts and cutting sequences.", "/projects/", body, {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Furniture cut lists", "url": ORIGIN + "/projects/"}, og_image="/og/tools-cut-list-optimizer.png")
+
 # --------------------------------------------------------------------- build
 def main():
     OUT.mkdir(exist_ok=True)
@@ -2831,6 +2873,9 @@ def main():
              "/tools/wallpaper-roll-calculator/": wallpaper_roll_tool(),
              "/tools/dough-temperature-calculator/": dough_temp_tool(),
              "/tools/bee-syrup-calculator/": bee_syrup_tool()}
+    pages["/projects/"] = projects_hub()
+    for project in FURNITURE["projects"]:
+        pages[f'/projects/{project["slug"]}/'] = project_page(project)
     for key, a in DATA["apps"].items():
         if a["asc"] not in DESCS: continue  # e.g. Fibrolog: added to apps.json, ASC desc not live yet
         pages[f"/apps/{key}/"] = app_page(key)

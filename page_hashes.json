@@ -16,8 +16,8 @@
   "lastmod": "2026-09-18"
  },
  "/tools/cut-list-optimizer/": {
-  "hash": "91f408d75e5e8c58",
-  "lastmod": "2026-11-02"
+  "hash": "56c83c232b1b28f0",
+  "lastmod": "2026-11-09"
  },
  "/tools/": {
   "hash": "013878004a7299da",
@@ -82,6 +82,50 @@
  "/tools/bee-syrup-calculator/": {
   "hash": "0c2201a87cbb9efc",
   "lastmod": "2026-09-18"
+ },
+ "/projects/": {
+  "hash": "4125f92c233b23d0",
+  "lastmod": "2026-11-09"
+ },
+ "/projects/bookshelf/": {
+  "hash": "e7337cca8fee50bd",
+  "lastmod": "2026-11-09"
+ },
+ "/projects/cabinet/": {
+  "hash": "81231580a7b0dfac",
+  "lastmod": "2026-11-09"
+ },
+ "/projects/workbench/": {
+  "hash": "445b882fdde58cb2",
+  "lastmod": "2026-11-09"
+ },
+ "/projects/storage-box/": {
+  "hash": "58466d5db5da3560",
+  "lastmod": "2026-11-09"
+ },
+ "/projects/desk/": {
+  "hash": "4645d0af7b68d995",
+  "lastmod": "2026-11-09"
+ },
+ "/projects/wall-cabinet/": {
+  "hash": "5e78d74aaa9e613e",
+  "lastmod": "2026-11-09"
+ },
+ "/projects/media-console/": {
+  "hash": "6f1172bf70e18778",
+  "lastmod": "2026-11-09"
+ },
+ "/projects/shoe-bench/": {
+  "hash": "20db938b79d2dcde",
+  "lastmod": "2026-11-09"
+ },
+ "/projects/garage-shelving/": {
+  "hash": "87ab259df31f0065",
+  "lastmod": "2026-11-09"
+ },
+ "/projects/closet-organizer/": {
+  "hash": "29834a936c13582a",
+  "lastmod": "2026-11-09"
  },
  "/apps/skinote/": {
   "hash": "58e217d1130ac948",
@@ -320,36 +364,36 @@
   "lastmod": "2026-10-22"
  },
  "/guides/cut-list-optimizer/": {
-  "hash": "f053eb3d1697aa66",
-  "lastmod": "2026-11-02"
+  "hash": "a9e63be1ccfeba5e",
+  "lastmod": "2026-11-09"
  },
  "/guides/sheet-goods-cutting-layout/": {
-  "hash": "c17d676f531e957f",
-  "lastmod": "2026-11-02"
+  "hash": "c7fa7fdf29945f30",
+  "lastmod": "2026-11-09"
  },
  "/guides/plywood-cut-calculator/": {
-  "hash": "086ded220ac78321",
-  "lastmod": "2026-11-02"
+  "hash": "05f77b8ecb4ae85b",
+  "lastmod": "2026-11-09"
  },
  "/guides/cut-list-spreadsheet/": {
-  "hash": "8d17cc772d6b6528",
-  "lastmod": "2026-11-02"
+  "hash": "9391e6f17f3c43a0",
+  "lastmod": "2026-11-09"
  },
  "/guides/mdf-cut-calculator/": {
-  "hash": "9c0cb1e3450733a7",
-  "lastmod": "2026-11-02"
+  "hash": "e22a98f6f732a983",
+  "lastmod": "2026-11-09"
  },
  "/guides/kerf-width-explained/": {
-  "hash": "0d111dc1c25c795b",
-  "lastmod": "2026-11-02"
+  "hash": "75cbe4b87ce70944",
+  "lastmod": "2026-11-09"
  },
  "/guides/how-to-minimize-plywood-waste/": {
-  "hash": "2085a9731a1f4956",
-  "lastmod": "2026-11-02"
+  "hash": "d89e98583d6bc9fd",
+  "lastmod": "2026-11-09"
  },
  "/guides/cabinet-cut-list-template/": {
-  "hash": "c2a6399fb389cacb",
-  "lastmod": "2026-11-02"
+  "hash": "33966479ff254d49",
+  "lastmod": "2026-11-09"
  },
  "/guides/whetstone-grit-progression/": {
   "hash": "1be98eb354e71b0a",
